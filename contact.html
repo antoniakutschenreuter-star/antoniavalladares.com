@@ -24,11 +24,24 @@
 
 <!-- Fonts -->
 <link rel="stylesheet" href="assets/css/style.css">
+<style>
+.c-lite{max-width:720px;margin:var(--gap) auto 0;padding:0 var(--px);text-align:center}
+.c-lite .eyebrow{margin-bottom:14px}
+.c-lite h1{font-family:var(--serif);font-size:clamp(26px,3.4vw,36px);font-weight:400;line-height:1.3;margin-bottom:22px}
+.c-lead{font-family:var(--sans);font-size:14px;font-weight:300;line-height:1.85;color:#3a3a3a;max-width:560px;margin:0 auto 38px}
+.c-lead em{font-style:italic}
+.c-cta{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:52px}
+.c-wa{display:inline-flex;align-items:center;gap:10px;font-family:var(--sans);font-size:10px;letter-spacing:.2em;text-transform:uppercase;padding:15px 40px;border:1px solid var(--ink);background:var(--ink);color:#fff;transition:.25s;cursor:pointer}
+.c-wa:hover{background:#fff;color:var(--ink)}
+.c-wa svg{width:15px;height:15px;flex:none}
+.c-meta{display:grid;grid-template-columns:repeat(2,auto);justify-content:center;gap:26px 64px;text-align:left;border-top:1px solid var(--line);padding-top:40px}
+@media(max-width:560px){.c-meta{grid-template-columns:1fr;justify-items:center;text-align:center}.c-cta{flex-direction:column;align-items:center}}
+</style>
 </head>
 <body>
 <div class="grain"></div><nav class="nav">
   <div class="nav-inner">
-    <a class="navlink" href="index.html">Work</a>
+    <a class="navlink" href="portfolio.html">Portfolio</a>
     <a class="navlink" href="about.html">About Me</a>
     <a class="nav-logo" href="index.html" aria-label="Home"><img src="assets/logo/logo-dark.png" alt="Antonia Valladares"></a>
     <a class="navlink" href="pricing.html">Preise</a>
@@ -39,30 +52,33 @@
 </nav>
 <div class="m-overlay">
   <button class="m-close" type="button">Schließen</button>
-  <a href="index.html">Work</a>
-  <a href="about.html">About <em>Me</em></a>
+  <a href="portfolio.html">Portfolio</a>
+  <a href="about.html">About Me</a>
   <a href="pricing.html">Preise</a>
   <a href="contact.html">Kontakt</a>
   <span class="m-lang">DE / EN</span>
 </div>
 <div class="nav-spacer"></div>
 <section class="c-hero reveal"><img src="assets/img/groups.jpg" alt="Hochzeitsgesellschaft — Gruppenfotos München" fetchpriority="high"></section>
-<section class="c-split reveal">
-  <div class="c-info">
-    <h1>Schreib mir einfach für einen Kennenlerncall</h1>
+<section class="c-lite reveal">
+  <p class="eyebrow">Kontakt</p>
+  <h1>Schreib mir einfach für einen Kennenlerncall</h1>
+  <p class="c-lead">Am unkompliziertesten geht's über <em>WhatsApp</em> — schreib mir einfach eine Nachricht, ich freue mich!<br>Sie fragen lieber per E-Mail an? Sehr gern, gerade für Business-Anfragen bin ich natürlich auch per Mail erreichbar.</p>
+
+  <div class="c-cta">
+    <a class="c-wa" href="https://wa.me/491636321737?text=Hallo%20Antonia%2C%20ich%20interessiere%20mich%20f%C3%BCr%20ein%20Shooting." target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 2.1.55 4.05 1.6 5.76L2 22l4.45-1.17a9.86 9.86 0 0 0 5.59 1.72h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm0 18.01h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-2.64.69.7-2.58-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.69 8.23-8.23 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43-.14-.01-.31-.01-.48-.01-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg>
+      WhatsApp
+    </a>
+    <a class="btn" href="mailto:helloantoniavalladares@gmail.com">E-Mail</a>
+  </div>
+
+  <div class="c-meta">
+    <div class="cd"><p class="cd-l">WhatsApp &amp; Telefon</p><p><a href="tel:+491636321737">+49 163 63 21 737</a></p></div>
     <div class="cd"><p class="cd-l">E-Mail</p><a href="mailto:helloantoniavalladares@gmail.com">helloantoniavalladares@gmail.com</a></div>
-    <div class="cd"><p class="cd-l">Telefon</p><p><a href="tel:+491636321737">+49 163 63 21 737</a></p></div>
     <div class="cd"><p class="cd-l">Standort</p><p>München · Deutschland · Weltweit</p></div>
     <div class="cd"><p class="cd-l">Instagram</p><a href="https://instagram.com/by_antoniavalladares" target="_blank" rel="noopener">@by_antoniavalladares</a></div>
   </div>
-  <form id="contact-form" action="https://formspree.io/f/DEINE_FORMSPREE_ID" method="POST">
-    <div class="fg"><label for="name">Name</label><input id="name" name="name" placeholder="Euer Name" required></div>
-    <div class="fg"><label for="email">E-Mail</label><input id="email" name="email" type="email" placeholder="eure@email.de" required></div>
-    <div class="fg"><label for="date">Datum</label><input id="date" name="date" placeholder="TT.MM.JJJJ"></div>
-    <div class="fg"><label for="place">Ort / Location</label><input id="place" name="place" placeholder="München, Toskana, ..."></div>
-    <div class="fg"><label for="message">Nachricht</label><textarea id="message" name="message" rows="4" placeholder="Erzählt mir von Eurem Tag ..."></textarea></div>
-    <button type="submit" class="btn" style="margin-top:8px">Anfrage senden</button>
-  </form>
 </section>
 <footer>
   <div class="f-logo"><img src="assets/logo/logo-dark.png" alt="Antonia Valladares"></div>

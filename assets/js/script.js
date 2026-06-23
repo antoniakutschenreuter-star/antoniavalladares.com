@@ -81,19 +81,6 @@
     f.querySelector('.faq-q').addEventListener('click', function () { f.classList.toggle('open'); });
   });
 
-  /* ---------- contact form -> mailto ---------- */
-  var form = document.querySelector('#contact-form');
-  if (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var g = function (n) { var el = form.querySelector('[name="' + n + '"]'); return el ? encodeURIComponent(el.value) : ''; };
-      var body = 'Name: ' + g('name') + '%0D%0AE-Mail: ' + g('email') + '%0D%0ADatum: ' + g('date') +
-        '%0D%0AOrt: ' + g('place') + '%0D%0A%0D%0A' + g('message');
-      window.location.href = 'mailto:helloantoniavalladares@gmail.com?subject=' +
-        encodeURIComponent('Anfrage über die Website') + '&body=' + body;
-    });
-  }
-
   /* ---------- scroll loop (rAF throttled) ---------- */
   var ticking = false;
   function onScroll() { if (!ticking) { requestAnimationFrame(function () { navState(); parallax(); ticking = false; }); ticking = true; } }
