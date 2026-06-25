@@ -17,7 +17,7 @@
 <link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg">
 <link rel="icon" type="image/png" href="assets/favicon/favicon-32x32.png" sizes="32x32">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
-<link rel="stylesheet" href="assets/css/style.css?v=3">
+<link rel="stylesheet" href="assets/css/style.css?v=5">
 <style>
 .ab-slide{position:absolute;inset:0;opacity:0;transition:opacity 1s ease}
 .ab-slide.on{opacity:1}
@@ -31,8 +31,8 @@
 <div class="grain"></div>
 <nav class="nav">
   <div class="nav-inner">
-    <a class="navlink" href="portfolio.html">Portfolio</a>
-    <a class="navlink active" href="about.html">About Me</a>
+    <span class="has-sub"><a class="navlink" href="portfolio.html">Portfolio</a><span class="subnav"><a href="portfolio.html#hochzeit">Hochzeit</a><a href="portfolio.html#familie">Familie &amp; Co.</a><a href="portfolio.html#business">Business</a></span></span>
+    <a class="navlink active" href="about.html">About</a>
     <a class="nav-logo" href="index.html" aria-label="Home"><img src="assets/logo/logo-dark.png" alt="Antonia Valladares"></a>
     <a class="navlink" href="pricing.html">Preise</a>
     <a class="navlink" href="contact.html">Kontakt</a>
@@ -43,7 +43,10 @@
 <div class="m-overlay">
   <button class="m-close" type="button">Schließen</button>
   <a href="portfolio.html">Portfolio</a>
-  <a href="about.html">About Me</a>
+  <a class="m-sub" href="portfolio.html#hochzeit">Hochzeit</a>
+  <a class="m-sub" href="portfolio.html#familie">Familie &amp; Co.</a>
+  <a class="m-sub" href="portfolio.html#business">Business</a>
+  <a href="about.html">About</a>
   <a href="pricing.html">Preise</a>
   <a href="contact.html">Kontakt</a>
   <span class="m-lang">DE / EN</span>
@@ -74,15 +77,7 @@
 <section class="tests reveal">
   <div class="ti-grid">
     <div class="ti">
-      <div class="ti-ph"><img src="assets/img/hochzeit-freie-trauung.jpg" alt="Hochzeitsfoto"></div>
-      <div class="ti-ov"></div>
-      <div class="ti-body">
-        <p class="ti-q">„Antonia hat die Fotos unserer beider Hochzeiten sowie Baby Fotos unserer Kleinen geschossen und was sollen wir sagen? Wir sind mehr als nur begeistert! Das Ergebnis sind durchweg traumhafte Fotos aus dem Moment heraus! Sie hat ein unglaublich gutes Auge für schöne Fotos!"</p>
-        <p class="ti-n">J. &amp; M.</p>
-      </div>
-    </div>
-    <div class="ti">
-      <div class="ti-ph"><img src="assets/img/hochzeit-umbria-wedding-guests.jpg" alt="Hochzeitsfoto"></div>
+      <div class="ti-ph"><img src="assets/img/hochzeit-freie-trauung.jpg" alt="Braut strahlt den Bräutigam an — freie Trauung, Hochzeitsfotografie München"></div>
       <div class="ti-ov"></div>
       <div class="ti-body">
         <p class="ti-q">„Antonia hat ein wahnsinnig talentiertes und gut geschultes Auge für Details. Mit ihrer empathischen Art hat sie wirklich die Essenz unserer Hochzeit festgehalten. Wir haben sie für unsere große Hochzeit direkt wieder gebucht."</p>
@@ -90,16 +85,24 @@
       </div>
     </div>
     <div class="ti">
-      <div class="ti-ph"><img src="assets/img/hochzeit-couple-innige-umarmung.jpg" alt="Paar-Fotoshooting"></div>
+      <div class="ti-ph"><img src="assets/img/portfolio/babyfoto-muenchen-familienfotografie.jpg" alt="Neugeborenes schläft — Babyfotografie München"></div>
+      <div class="ti-ov"></div>
+      <div class="ti-body">
+        <p class="ti-q">„Antonia hat die Fotos unserer beider Hochzeiten sowie Baby Fotos unserer Kleinen geschossen und was sollen wir sagen? Wir sind mehr als nur begeistert! Das Ergebnis sind durchweg traumhafte Fotos aus dem Moment heraus! Sie hat ein unglaublich gutes Auge für schöne Fotos!"</p>
+        <p class="ti-n">J. &amp; M.</p>
+      </div>
+    </div>
+    <div class="ti">
+      <div class="ti-ph"><img src="assets/img/portfolio/schauspieler-portrait-michael-kranz.jpg" alt="Porträt von Schauspieler Michael Kranz — Businessfotografie München"></div>
       <div class="ti-ov"></div>
       <div class="ti-body">
         <p class="ti-q">„Große Empfehlung! Sie hat sich Zeit genommen unterschiedliche Facetten herauszuarbeiten. Ich habe mich bei ihr vor der Kamera sehr wohl gefühlt und konnte ihrem Blick total vertrauen. Würde sofort wieder bei ihr die Fotos machen lassen!"</p>
-        <p class="ti-n">M. K., Schauspieler</p>
+        <p class="ti-n">Michael Kranz, Schauspieler</p>
       </div>
     </div>
   </div>
-  <div style="margin-top:28px;text-align:center">
-    <a href="https://share.google/gQJq4Y5ek7DCQqZu0" target="_blank" rel="noopener" class="link-ul">Alle Google-Bewertungen lesen</a>
+  <div class="reviews-cta">
+    <a href="https://share.google/gQJq4Y5ek7DCQqZu0" target="_blank" rel="noopener">Alle Google-Bewertungen lesen</a>
   </div>
 </section>
 
@@ -122,7 +125,7 @@
   </div>
 </footer>
 
-<script src="assets/js/script.js?v=2"></script>
+<script src="assets/js/script.js?v=4"></script>
 <script>
 (function(){
   var slides = document.querySelectorAll('.ab-slide');

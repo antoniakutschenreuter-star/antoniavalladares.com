@@ -17,7 +17,7 @@
 <link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg">
 <link rel="icon" type="image/png" href="assets/favicon/favicon-32x32.png" sizes="32x32">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
-<link rel="stylesheet" href="assets/css/style.css?v=3">
+<link rel="stylesheet" href="assets/css/style.css?v=5">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -26,7 +26,7 @@
     {"@type":"Question","name":"Wie früh sollte ich buchen?","acceptedAnswer":{"@type":"Answer","text":"Für Hochzeiten gern 6–12 Monate vorher, besonders für Termine von Mai bis September. Shootings gehen oft auch kurzfristig — frag einfach an."}},
     {"@type":"Question","name":"Wie läuft ein Termin bei dir ab?","acceptedAnswer":{"@type":"Answer","text":"Entspannt. Ich leite Euch sanft an und fange echte Momente ein statt steifer Posen. Vor einer Hochzeit sprechen wir uns in zwei Calls und planen alles gemeinsam."}},
     {"@type":"Question","name":"Wie läuft eine Beratung beim Branding-Shooting ab?","acceptedAnswer":{"@type":"Answer","text":"Wir starten mit einem Austausch zu deiner CI, deinen Farben und Looks und überlegen gemeinsam, welche Bilder zu deiner Message passen. Danach fotografieren wir an maximal zwei Locations, innen und außen — ca. 1,5 Stunden für 280 €."}},
-    {"@type":"Question","name":"Was machen wir bei Regen?","acceptedAnswer":{"@type":"Answer","text":"Regen ist kein Problem, sondern Stimmung. Weiches, bewölktes Licht schmeichelt, und mit ein paar Kniffen wie einheitlichen, schlichten Schirmen wird daraus etwas Besonderes. Ein Beispiel ist die Regenhochzeit am Tegernsee."}},
+    {"@type":"Question","name":"Was machen wir bei Regen?","acceptedAnswer":{"@type":"Answer","text":"Regen ist kein Spielverderber. Regenfotos können sogar richtig stimmungsvoll wirken. Durchsichtige Schirme halten das Gesicht hell und wirken einheitlich, während schwarze einheitliche Schirme für einen tiefen, editorialen Look sorgen — bunte lenken ab. Wir suchen einfach ein trockenes Plätzchen fürs Paarshooting und machen ein paar Fotos unter den Schirmen. Pluspunkt: oft kommt direkt nach dem Schauer das schönste Licht oder sogar ein Regenbogen."}},
     {"@type":"Question","name":"Wie funktioniert die Anzahlung?","acceptedAnswer":{"@type":"Answer","text":"Zur Terminsicherung werden 50 % fällig, der Rest kurz vor dem Termin. Die genauen Konditionen stehen in eurem persönlichen Angebot."}},
     {"@type":"Question","name":"Ab welcher Woche sind Babybauchfotos ideal?","acceptedAnswer":{"@type":"Answer","text":"Meist die 30.–36. Schwangerschaftswoche — der Bauch ist schön rund und du bewegst dich noch wohl."}}
   ]
@@ -37,8 +37,8 @@
 <div class="grain"></div>
 <nav class="nav">
   <div class="nav-inner">
-    <a class="navlink" href="portfolio.html">Portfolio</a>
-    <a class="navlink" href="about.html">About Me</a>
+    <span class="has-sub"><a class="navlink" href="portfolio.html">Portfolio</a><span class="subnav"><a href="portfolio.html#hochzeit">Hochzeit</a><a href="portfolio.html#familie">Familie &amp; Co.</a><a href="portfolio.html#business">Business</a></span></span>
+    <a class="navlink" href="about.html">About</a>
     <a class="nav-logo" href="index.html" aria-label="Home"><img src="assets/logo/logo-dark.png" alt="Antonia Valladares"></a>
     <a class="navlink active" href="pricing.html">Preise</a>
     <a class="navlink" href="contact.html">Kontakt</a>
@@ -49,7 +49,10 @@
 <div class="m-overlay">
   <button class="m-close" type="button">Schließen</button>
   <a href="portfolio.html">Portfolio</a>
-  <a href="about.html">About Me</a>
+  <a class="m-sub" href="portfolio.html#hochzeit">Hochzeit</a>
+  <a class="m-sub" href="portfolio.html#familie">Familie &amp; Co.</a>
+  <a class="m-sub" href="portfolio.html#business">Business</a>
+  <a href="about.html">About</a>
   <a href="pricing.html">Preise</a>
   <a href="contact.html">Kontakt</a>
   <span class="m-lang">DE / EN</span>
@@ -146,7 +149,7 @@
   <div class="faq"><div class="faq-q">Wie früh sollte ich buchen?<span class="plus">+</span></div><div class="faq-a"><p>Für Hochzeiten gern 6–12 Monate vorher, besonders für Termine von Mai bis September. Shootings gehen oft auch kurzfristig — frag einfach an.</p></div></div>
   <div class="faq"><div class="faq-q">Wie läuft ein Termin bei dir ab?<span class="plus">+</span></div><div class="faq-a"><p>Entspannt. Ich leite euch sanft an und fange echte Momente ein statt steifer Posen. Vor einer Hochzeit sprechen wir uns in zwei Calls und planen alles gemeinsam.</p></div></div>
   <div class="faq"><div class="faq-q">Wie läuft eine Beratung beim Branding-Shooting ab?<span class="plus">+</span></div><div class="faq-a"><p>Wir starten mit einem Austausch zu deiner CI, deinen Farben und Looks und überlegen gemeinsam, welche Bilder zu deiner Message passen. Danach fotografieren wir an maximal zwei Locations, innen und außen — ca. 1,5 Stunden für 280 €.</p></div></div>
-  <div class="faq"><div class="faq-q">Was machen wir bei Regen?<span class="plus">+</span></div><div class="faq-a"><p>Regen ist kein Problem, sondern Stimmung. Weiches, bewölktes Licht schmeichelt, und mit ein paar Kniffen wie einheitlichen, schlichten Schirmen wird daraus etwas Besonderes. Wie das aussieht, zeigt die <a href="hochzeit-tegernsee.html#regen">Regenhochzeit am Tegernsee mit allen Regen-Tipps</a>.</p></div></div>
+  <div class="faq"><div class="faq-q">Was machen wir bei Regen?<span class="plus">+</span></div><div class="faq-a"><p>Regen ist kein Spielverderber. Regenfotos können sogar richtig stimmungsvoll wirken, wie bei <a href="hochzeit-tegernsee.html">dieser Regenhochzeit am Tegernsee</a>. Durchsichtige Schirme halten das Gesicht hell und wirken einheitlich, während schwarze einheitliche Schirme für einen tiefen editorial Look sorgen (bunte lenken ab). Wir suchen einfach ein trockenes Plätzchen zum Fotografieren eures Paarshootings, ein paar Fotos unter den Schirmen; alles halb so wild meiner Erfahrung nach ;)<br>Pluspunkt: oft kommt direkt nach dem Schauer das schönste Licht oder sogar ein Regenbogen.</p></div></div>
   <div class="faq"><div class="faq-q">Wie funktioniert die Anzahlung?<span class="plus">+</span></div><div class="faq-a"><p>Zur Terminsicherung werden 50 % fällig, der Rest kurz vor dem Termin. Die genauen Konditionen stehen in eurem persönlichen Angebot.</p></div></div>
   <div class="faq"><div class="faq-q">Ab welcher Woche sind Babybauchfotos ideal?<span class="plus">+</span></div><div class="faq-a"><p>Meist die 30.–36. Schwangerschaftswoche — der Bauch ist schön rund und du bewegst dich noch wohl.</p></div></div>
 </section>
@@ -169,6 +172,6 @@
     <a href="https://instagram.com/by_antoniavalladares" target="_blank" rel="noopener">@by_antoniavalladares</a>
   </div>
 </footer>
-<script src="assets/js/script.js?v=2"></script>
+<script src="assets/js/script.js?v=4"></script>
 </body>
 </html>

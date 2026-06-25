@@ -17,7 +17,7 @@
 <link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg">
 <link rel="icon" type="image/png" href="assets/favicon/favicon-32x32.png" sizes="32x32">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
-<link rel="stylesheet" href="assets/css/style.css?v=3">
+<link rel="stylesheet" href="assets/css/style.css?v=5">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -38,8 +38,8 @@
 <div class="grain"></div>
 <nav class="nav over-hero">
   <div class="nav-inner">
-    <a class="navlink" href="portfolio.html">Portfolio</a>
-    <a class="navlink" href="about.html">About Me</a>
+    <span class="has-sub"><a class="navlink" href="portfolio.html">Portfolio</a><span class="subnav"><a href="portfolio.html#hochzeit">Hochzeit</a><a href="portfolio.html#familie">Familie &amp; Co.</a><a href="portfolio.html#business">Business</a></span></span>
+    <a class="navlink" href="about.html">About</a>
     <a class="nav-logo" href="index.html" aria-label="Home"><img src="assets/logo/logo-dark.png" alt="Antonia Valladares"></a>
     <a class="navlink" href="pricing.html">Preise</a>
     <a class="navlink" href="contact.html">Kontakt</a>
@@ -50,7 +50,10 @@
 <div class="m-overlay">
   <button class="m-close" type="button">Schließen</button>
   <a href="portfolio.html">Portfolio</a>
-  <a href="about.html">About Me</a>
+  <a class="m-sub" href="portfolio.html#hochzeit">Hochzeit</a>
+  <a class="m-sub" href="portfolio.html#familie">Familie &amp; Co.</a>
+  <a class="m-sub" href="portfolio.html#business">Business</a>
+  <a href="about.html">About</a>
   <a href="pricing.html">Preise</a>
   <a href="contact.html">Kontakt</a>
   <span class="m-lang">DE / EN</span>
@@ -67,9 +70,12 @@
   <div class="hero-ov"></div>
   <div class="hero-logo">
     <img src="assets/logo/logo-white.png" alt="Antonia Valladares">
-    <p class="hero-tag">You shine bright. I capture it.</p>
+    <p class="hero-pron">[ba.ʎaˈða.ɾes]</p>
   </div>
-  <div class="hero-foot"><span>Bookings open for 2026 &amp; 2027</span></div>
+  <div class="hero-foot">
+    <p class="hero-tag">You shine bright. I capture it.</p>
+    <span>Bookings open for 2026 &amp; 2027</span>
+  </div>
   <div class="hero-dots">
     <button class="hdot on" aria-label="1"></button><button class="hdot" aria-label="2"></button><button class="hdot" aria-label="3"></button><button class="hdot" aria-label="4"></button><button class="hdot" aria-label="5"></button>
   </div>
@@ -84,35 +90,31 @@
 </section>
 
 <div class="gal reveal">
-  <div class="gcol">
-    <a href="portfolio.html"><img src="assets/img/g_schleier.jpg" alt="Brautschleier im Wind — Hochzeitsfotografie München" loading="lazy"></a>
-    <a href="portfolio.html"><img src="assets/img/g_bridesmaids.jpg" alt="Braut mit Brautjungfern — Hochzeitsfotografie München" loading="lazy"></a>
-    <a href="portfolio.html"><img src="assets/img/m_jacquemus.jpg" alt="Braut mit Jacquemus Hut — Editorial Hochzeitsfotografie" loading="lazy"></a>
-  </div>
-  <div class="gcol">
-    <a href="portfolio.html"><img src="assets/img/g_champagne.jpg" alt="Champagner Anstoßen Hochzeit — Antonia Valladares" loading="lazy"></a>
-    <a href="portfolio.html"><img src="assets/img/g_brideback.jpg" alt="Rückenansicht Braut Hochzeitskleid — München" loading="lazy"></a>
-    <a href="portfolio.html"><img src="assets/img/g_spiegel.jpg" alt="Braut im Spiegel — Getting Ready Hochzeitsfotografie München" loading="lazy"></a>
-    <a href="portfolio.html"><img src="assets/img/m_vietnam.jpg" alt="Verlobungsshooting Vietnam — Paarfotografie Antonia Valladares" loading="lazy"></a>
-  </div>
-  <div class="gcol">
-    <a href="portfolio.html"><img src="assets/img/g_oldtimer.jpg" alt="Brautpaar vor Oldtimer München" loading="lazy"></a>
-    <a href="portfolio.html"><img src="assets/img/gay-couple-artsy.jpg" alt="Gay Couple Hochzeit artsy — Hochzeitsfotografie München" loading="lazy"></a>
-    <a href="portfolio.html"><img src="assets/img/g_aquazurra.jpg" alt="Braut in Aquazzura Schuhen — Hochzeitsdetails München" loading="lazy"></a>
-    <a href="portfolio.html"><img src="assets/img/hochzeit-umbria-wedding-guests.jpg" alt="Hochzeitsgäste Umbria Italien" loading="lazy"></a>
-  </div>
+  <img src="assets/img/g_schleier.jpg" alt="Brautschleier im Wind — Hochzeitsfotografie München" loading="lazy">
+  <img src="assets/img/portfolio/freie-trauung-weisse-stuehle-garten.jpg" alt="Freie Trauung — weiße Stühle im Garten, Hochzeit München" loading="lazy">
+  <img src="assets/img/g_brideback.jpg" alt="Rückenansicht Braut Hochzeitskleid — München" loading="lazy">
+  <img class="mood" src="assets/img/portfolio/reisen-comer-see-boote.jpg" alt="" loading="lazy">
+  <img src="assets/img/m_jacquemus.jpg" alt="Braut mit Jacquemus Hut — Editorial Hochzeitsfotografie" loading="lazy">
+  <img src="assets/img/g_champagne.jpg" alt="Champagner Anstoßen Hochzeit — Antonia Valladares" loading="lazy">
+  <img src="assets/img/portfolio/schloss-blutenburg-hochzeit-muenchen-braut.jpg" alt="Braut im Innenhof von Schloss Blutenburg — Hochzeit München, schwarz-weiß" loading="lazy">
+  <img src="assets/img/g_spiegel.jpg" alt="Braut im Spiegel — Getting Ready Hochzeitsfotografie München" loading="lazy">
+  <img src="assets/img/gay-couple-artsy.jpg" alt="Gay Couple Hochzeit artsy — Hochzeitsfotografie München" loading="lazy">
+  <img class="mood" src="assets/img/portfolio/reisen-regenbogen-daemmerung.jpg" alt="" loading="lazy">
+  <img src="assets/img/m_vietnam.jpg" alt="Verlobungsshooting Vietnam — Paarfotografie Antonia Valladares" loading="lazy">
+  <img src="assets/img/g_oldtimer.jpg" alt="Brautpaar vor Oldtimer München" loading="lazy">
+  <img src="assets/img/g_bridesmaids.jpg" alt="Braut mit Brautjungfern — Hochzeitsfotografie München" loading="lazy">
+  <img src="assets/img/g_aquazurra.jpg" alt="Braut in Aquazzura Schuhen — Hochzeitsdetails München" loading="lazy">
+  <img src="assets/img/hochzeit-umbria-wedding-guests.jpg" alt="Hochzeitsgäste Umbrien Italien" loading="lazy">
 </div>
 
 <div class="marq reveal"><div class="marq-track"><span>Toscana <i>·</i> Mallorca <i>·</i> Tegernsee <i>·</i> Bali <i>·</i> Kufstein <i>·</i> München <i>·</i> Vietnam <i>·</i> Starnberger See <i>·</i> Umbria <i>·</i> Südtirol <i>·</i> Comer See <i>·</i> Amalfiküste <i>·</i> Worldwide <i>·</i> </span><span>Toscana <i>·</i> Mallorca <i>·</i> Tegernsee <i>·</i> Bali <i>·</i> Kufstein <i>·</i> München <i>·</i> Vietnam <i>·</i> Starnberger See <i>·</i> Umbria <i>·</i> Südtirol <i>·</i> Comer See <i>·</i> Amalfiküste <i>·</i> Worldwide <i>·</i> </span></div></div>
 
-<div class="mood reveal"><img src="assets/img/portfolio/reisen-comer-see-boote.jpg" alt="" loading="lazy"></div>
-
 <section class="par-band tband reveal">
-  <img class="tband-bg" data-par="135" src="assets/img/tband.jpg" alt="" loading="lazy">
+  <img class="tband-bg" data-par="135" src="assets/img/portfolio/rezension-hochzeit-kloster-seeon.jpg" alt="" loading="lazy">
   <div class="band-ov"></div>
   <div class="tband-in">
-    <blockquote class="tband-q">„Antonia hat ein wahnsinnig talentiertes und gut geschultes Auge für Details. Mit ihrer empathischen Art hat sie wirklich die Essenz unserer Hochzeit festgehalten."</blockquote>
-    <p class="tband-a">J &amp; J, Bad Tölz</p>
+    <blockquote class="tband-q">„Antonia hat ein unglaubliches Talent! Sie hat unsere standesamtliche Hochzeit im Kloster Seeon fotografiert und wir waren schon — bevor wir die Fotos überhaupt hatten — so begeistert. Durch ihre sympathische, wertschätzende und ruhige Art haben wir uns sehr wohl bei ihr gefühlt."</blockquote>
+    <p class="tband-a">Standesamtliche Hochzeit · Kloster Seeon</p>
   </div>
 </section>
 
@@ -142,6 +144,6 @@
     <a href="https://instagram.com/by_antoniavalladares" target="_blank" rel="noopener">@by_antoniavalladares</a>
   </div>
 </footer>
-<script src="assets/js/script.js?v=2"></script>
+<script src="assets/js/script.js?v=4"></script>
 </body>
 </html>

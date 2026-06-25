@@ -17,13 +17,13 @@
 <link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg">
 <link rel="icon" type="image/png" href="assets/favicon/favicon-32x32.png" sizes="32x32">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
-<link rel="stylesheet" href="assets/css/style.css?v=3">
+<link rel="stylesheet" href="assets/css/style.css?v=5">
 </head>
 <body>
 <div class="grain"></div><nav class="nav">
   <div class="nav-inner">
-    <a class="navlink active" href="portfolio.html">Portfolio</a>
-    <a class="navlink" href="about.html">About Me</a>
+    <span class="has-sub"><a class="navlink active" href="portfolio.html">Portfolio</a><span class="subnav"><a href="portfolio.html#hochzeit">Hochzeit</a><a href="portfolio.html#familie">Familie &amp; Co.</a><a href="portfolio.html#business">Business</a></span></span>
+    <a class="navlink" href="about.html">About</a>
     <a class="nav-logo" href="index.html" aria-label="Home"><img src="assets/logo/logo-dark.png" alt="Antonia Valladares"></a>
     <a class="navlink" href="pricing.html">Preise</a>
     <a class="navlink" href="contact.html">Kontakt</a>
@@ -34,7 +34,10 @@
 <div class="m-overlay">
   <button class="m-close" type="button">Schließen</button>
   <a href="portfolio.html">Portfolio</a>
-  <a href="about.html">About Me</a>
+  <a class="m-sub" href="portfolio.html#hochzeit">Hochzeit</a>
+  <a class="m-sub" href="portfolio.html#familie">Familie &amp; Co.</a>
+  <a class="m-sub" href="portfolio.html#business">Business</a>
+  <a href="about.html">About</a>
   <a href="pricing.html">Preise</a>
   <a href="contact.html">Kontakt</a>
   <span class="m-lang">DE / EN</span>
@@ -43,7 +46,6 @@
 
 <section class="page-head reveal">
   <h1>Portfolio</h1>
-  <p>Hochzeit · Familie &amp; Co. · Business</p>
 </section>
 
 <div class="cat-tabs reveal">
@@ -91,8 +93,6 @@
   </div>
 </div>
 
-<div class="mood reveal"><img src="assets/img/portfolio/reisen-regenbogen-daemmerung.jpg" alt="" loading="lazy"></div>
-
 <section class="par-band cta reveal">
   <img class="cta-bg" data-par="125" src="assets/img/cta_bg.jpg" alt="" loading="lazy">
   <div class="band-ov"></div>
@@ -110,17 +110,25 @@
     <a href="https://instagram.com/by_antoniavalladares" target="_blank" rel="noopener">@by_antoniavalladares</a>
   </div>
 </footer>
-<script src="assets/js/script.js?v=2"></script>
+<script src="assets/js/script.js?v=4"></script>
 <script>
 (function(){
   var tabs=document.querySelectorAll('.cat-tab'),panels=document.querySelectorAll('.cat-panel');
+  function activate(id){
+    tabs.forEach(function(x){x.classList.toggle('is-active', x.getAttribute('data-tab')===id);});
+    panels.forEach(function(p){var on=(p.id===id);p.classList.toggle('is-active',on);if(on){p.classList.add('in');}});
+  }
   tabs.forEach(function(t){t.addEventListener('click',function(){
-    tabs.forEach(function(x){x.classList.remove('is-active')});
-    panels.forEach(function(p){p.classList.remove('is-active')});
-    t.classList.add('is-active');
-    var el=document.getElementById(t.getAttribute('data-tab'));
-    if(el){el.classList.add('is-active');el.classList.add('in');}
+    var id=t.getAttribute('data-tab');activate(id);
+    history.replaceState(null,'','#'+id.replace('cat-',''));
   });});
+  function fromHash(){
+    var h=(location.hash||'').replace('#','');
+    var map={hochzeit:'cat-hochzeit',familie:'cat-familie',business:'cat-business'};
+    if(map[h]){activate(map[h]);}
+  }
+  fromHash();
+  window.addEventListener('hashchange',fromHash);
 })();
 </script>
 </body>
