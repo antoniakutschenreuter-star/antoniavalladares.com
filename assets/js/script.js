@@ -128,3 +128,49 @@
   })();
 
 })();
+
+/* ---- Justified-Galerie: Reihen füllen die Breite, Originalformate bleiben erhalten ---- */
+(function () {
+  function layoutOne(c) {
+    var imgs = Array.prototype.slice.call(c.querySelectorAll('img'));
+    if (!imgs.length) return;
+    var cs = window.getComputedStyle(c);
+    var W = c.clientWidth - parseFloat(cs.paddingLeft || 0) - parseFloat(cs.paddingRight || 0);
+    if (W <= 0) return;
+    var gap = parseFloat(cs.columnGap || cs.gap || 10) || 10;
+    var vw = window.innerWidth;
+    var targetH = vw < 560 ? 168 : (vw < 900 ? 232 : 300);
+    var rows = [], row = [], sum = 0;
+    imgs.forEach(function (im) {
+      var ar = parseFloat(im.getAttribute('data-ar'));
+      if (!ar && im.naturalWidth && im.naturalHeight) ar = im.naturalWidth / im.naturalHeight;
+      if (!ar) ar = 1.4;
+      row.push({ im: im, ar: ar }); sum += ar;
+      if (sum * targetH + gap * (row.length - 1) >= W) { rows.push(row); row = []; sum = 0; }
+    });
+    if (row.length) rows.push(row);
+    rows.forEach(function (r) {
+      var gaps = gap * (r.length - 1), s = 0, i;
+      for (i = 0; i < r.length; i++) s += r[i].ar;
+      var h = (W - gaps) / s, used = 0, w;
+      for (i = 0; i < r.length; i++) {
+        r[i].im.style.height = Math.round(h) + 'px';
+        if (i < r.length - 1) { w = Math.round(h * r[i].ar); r[i].im.style.width = w + 'px'; used += w; }
+        else { r[i].im.style.width = Math.max(1, Math.round(W - gaps - used)) + 'px'; }
+      }
+    });
+  }
+  function layoutAll() {
+    Array.prototype.slice.call(document.querySelectorAll('.gal, .ports-g')).forEach(layoutOne);
+  }
+  window.__layoutGalleries = layoutAll;
+  var t;
+  function deb() { clearTimeout(t); t = setTimeout(layoutAll, 120); }
+  if (document.readyState !== 'loading') layoutAll();
+  else document.addEventListener('DOMContentLoaded', layoutAll);
+  window.addEventListener('load', layoutAll);
+  window.addEventListener('resize', deb);
+  Array.prototype.slice.call(document.querySelectorAll('.gal img, .ports-g img')).forEach(function (im) {
+    if (!im.complete) im.addEventListener('load', deb);
+  });
+})();
