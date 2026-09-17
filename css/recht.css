@@ -1,0 +1,29 @@
+/* =====================================================================
+   IMPRESSUM UND DATENSCHUTZ — schmale Lesespalte, sonst nichts Neues.
+   ===================================================================== */
+.rt-text {
+  max-width: 42rem; margin-inline: auto;
+  padding: clamp(2rem, 5vw, 3.5rem) var(--edge) clamp(3rem, 7vw, 5rem);
+}
+.rt-text h2 {
+  font-family: var(--font-ui); font-weight: var(--link-weight);
+  font-size: calc(var(--t-label) * var(--ui-scale));
+  letter-spacing: var(--ui-track); text-transform: uppercase;
+  margin: clamp(2.4rem, 5vw, 3.4rem) 0 .9rem;
+  padding-top: 1.4rem; border-top: 1px solid var(--hairline);
+}
+.rt-text h2:first-of-type { margin-top: 1.5rem; }
+.rt-text p {
+  font-family: var(--font-ui); font-size: var(--t-body);
+  line-height: 1.85; color: var(--ink-soft); margin-bottom: 1rem;
+}
+.rt-text a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--hairline); }
+.rt-text a:hover { color: var(--accent); border-bottom-color: currentColor; }
+.rt-stand {
+  font-family: var(--font-ui); font-weight: var(--link-weight);
+  font-size: calc(var(--t-label) * var(--ui-scale) * .92);
+  letter-spacing: var(--ui-track); text-transform: uppercase; color: var(--accent);
+}
+.rt-nowrap { white-space: nowrap; }
+body.rt .auftakt { padding-bottom: clamp(1rem, 3vw, 2rem); }
+body.rt .auftakt-wort { font-size: clamp(2rem, 9vw, 6.5rem); }

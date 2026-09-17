@@ -1,0 +1,150 @@
+/* =====================================================================
+   SCHRIFTEN — lokal gehostet, kein Google-CDN, kein externer Request.
+   DSGVO-konform: es verlässt kein Byte den eigenen Server.
+
+   VARIANTE A  "Editorial"  Cormorant Garamond + Jost   (Standard)
+   VARIANTE B  "Didone"     Bodoni Moda + Inter
+
+   Umschalten: <html data-font="a"> bzw. data-font="b".
+   Zum Vergleichen: index.html?schrift=1  → Schalter unten rechts.
+   ===================================================================== */
+
+/* ---------- Variante A ---------- */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal; font-weight: 300; font-display: swap;
+  src: url('../fonts/cormorant-garamond-latin-300-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+                 U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212;
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal; font-weight: 400; font-display: swap;
+  src: url('../fonts/cormorant-garamond-latin-400-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+                 U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212;
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic; font-weight: 300; font-display: swap;
+  src: url('../fonts/cormorant-garamond-latin-300-italic.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+                 U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212;
+}
+@font-face {
+  font-family: 'Jost';
+  font-style: normal; font-weight: 300; font-display: swap;
+  src: url('../fonts/jost-latin-300-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+                 U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212;
+}
+@font-face {
+  font-family: 'Jost';
+  font-style: normal; font-weight: 400; font-display: swap;
+  src: url('../fonts/jost-latin-400-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+                 U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212;
+}
+
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal; font-weight: 500; font-display: swap;
+  src: url('../fonts/cormorant-garamond-latin-500-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+                 U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212;
+}
+
+@font-face {
+  font-family: 'Jost';
+  font-style: normal; font-weight: 500; font-display: swap;
+  src: url('../fonts/jost-latin-500-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+                 U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212;
+}
+
+@font-face {
+  font-family: 'Jost';
+  font-style: normal; font-weight: 600; font-display: swap;
+  src: url('../fonts/jost-latin-600-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+                 U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212;
+}
+
+/* ---------- Variante B ---------- */
+@font-face {
+  font-family: 'Bodoni Moda';
+  font-style: normal; font-weight: 400; font-display: swap;
+  src: url('../fonts/bodoni-moda-latin-400-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+                 U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212;
+}
+@font-face {
+  font-family: 'Bodoni Moda';
+  font-style: italic; font-weight: 400; font-display: swap;
+  src: url('../fonts/bodoni-moda-latin-400-italic.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+                 U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal; font-weight: 300; font-display: swap;
+  src: url('../fonts/inter-latin-300-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+                 U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal; font-weight: 400; font-display: swap;
+  src: url('../fonts/inter-latin-400-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+                 U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212;
+}
+
+@font-face {
+  font-family: 'Bodoni Moda';
+  font-style: normal; font-weight: 500; font-display: swap;
+  src: url('../fonts/bodoni-moda-latin-500-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+                 U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212;
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal; font-weight: 500; font-display: swap;
+  src: url('../fonts/inter-latin-500-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+                 U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212;
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal; font-weight: 600; font-display: swap;
+  src: url('../fonts/inter-latin-600-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+                 U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212;
+}
+
+/* ---------- Zuweisung ---------- */
+:root,
+html[data-font='a'] {
+  --font-display: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-ui: 'Jost', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --display-weight: 300;
+  --display-scale: 1.10;   /* Cormorant läuft klein — wird ausgeglichen */
+  --ui-weight: 300;
+  --ui-track: .26em;       /* weit gesperrt = ruhig, nicht fett */
+  --ui-scale: .95;
+  --menu-weight: 500;
+  --link-weight: 600;
+}
+html[data-font='b'] {
+  --font-display: 'Bodoni Moda', Georgia, 'Times New Roman', serif;
+  --font-ui: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --display-weight: 400;
+  --display-scale: 1.00;
+  --ui-weight: 300;
+  --ui-track: .20em;
+  --ui-scale: .92;
+  --menu-weight: 500;
+  --link-weight: 600;
+}

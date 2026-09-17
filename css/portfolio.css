@@ -1,0 +1,476 @@
+/* =====================================================================
+   antoniavalladares.com — Portfolio und Galerien
+   Nutzt Kopfzeile, Fußzeile, Menü, Schriften, Linkstil und Farben der
+   Startseite unverändert. Hier stehen nur die seitenspezifischen Teile.
+
+   01 Fläche · 02 Bühne · 03 Kategorien · 04 Kacheln · 05 Flug
+   06 Querstrecke · 07 Galerie · 08 Responsive · 09 Reduced Motion
+   ===================================================================== */
+
+/* ── 01 FLÄCHE ────────────────────────────────────────────────────────
+   Hochzeiten stehen auf der CI-Farbe, Familien und Business auf Creme.
+   Ein Attribut am <body> schaltet um, der Wechsel läuft weich. */
+body.pf {
+  --pf-bg:   var(--bg);
+  --pf-ink:  var(--ink);
+  --pf-soft: var(--ink-soft);
+  background: var(--pf-bg);
+  color: var(--pf-ink);
+  transition: background-color .6s var(--ease), color .6s var(--ease);
+}
+body.pf[data-tab='hochzeiten'] {
+  --pf-bg:   var(--accent);
+  --pf-ink:  var(--on-accent);
+  --pf-soft: rgba(251, 249, 247, .74);
+}
+
+/* Kopfzeile wie auf der Preise-Seite: geschlossene Creme-Leiste, darunter
+   die Fläche. Harte Kante, kein Verlauf, der ins Bild blutet. */
+body.pf .site-header { background: var(--bg); color: var(--ink); }
+body.pf .site-header::before { display: none; }
+body.pf .site-header a:hover, body.pf .site-header button:hover { color: var(--accent); }
+
+/* ── 02 BÜHNE ─────────────────────────────────────────────────────── */
+.pf-stage { display: flex; align-items: flex-start; padding-top: var(--header-h); }
+
+.pf-aside {
+  flex: 0 0 41vw; max-width: 41vw;
+  position: sticky; top: var(--header-h);
+  height: calc(100vh - var(--header-h));
+  height: calc(100svh - var(--header-h));
+  padding: 0 clamp(1.5rem, 3vw, 3rem) 0 var(--edge);
+  display: flex; flex-direction: column; overflow: hidden;
+  z-index: 5; background: var(--pf-bg);
+  transition: flex-basis .7s var(--ease), max-width .7s var(--ease),
+              opacity .5s var(--ease), transform .7s var(--ease);
+}
+
+.pf-h1 {
+  margin: 0; padding-top: clamp(3.5rem, 11vh, 8rem);
+  font-family: var(--font-display); font-weight: var(--display-weight);
+  font-size: calc(clamp(2.4rem, 4.6vw, 4.4rem) * var(--display-scale));
+  line-height: 1.02; white-space: nowrap;
+}
+
+/* ── 03 KATEGORIEN ────────────────────────────────────────────────────
+   Aufbau wie die Menü-Navigation, nur linksbündig und kleiner. */
+.pf-tabs {
+  margin: clamp(2rem, 5vh, 3.6rem) 0 0;
+  display: flex; flex-direction: column; align-items: flex-start;
+  gap: clamp(.55rem, 1.5vh, 1.1rem);
+}
+.pf-tab {
+  font-family: var(--font-display); font-weight: var(--menu-weight);
+  font-size: calc(clamp(1.05rem, 1.85vw, 1.75rem) * var(--display-scale));
+  line-height: 1.18; text-transform: uppercase; letter-spacing: .015em;
+  text-align: left; color: inherit; opacity: .52;
+  transition: opacity .3s var(--ease);
+}
+.pf-tab:hover, .pf-tab:focus-visible { opacity: .8; }
+.pf-tab[aria-current='true'] { opacity: 1; }
+.pf-tab[aria-current='true']::after {
+  content: ''; display: block; height: 1px; width: 2.1em;
+  margin-top: .42em; background: currentColor;
+}
+
+.pf-aside-foot { margin-top: auto; padding-bottom: clamp(2rem, 6vh, 4.5rem); }
+.pf-lead {
+  margin: 0; max-width: 34ch;
+  font-family: var(--font-display);
+  font-size: calc(clamp(1rem, 1.25vw, 1.22rem) * var(--display-scale));
+  line-height: 1.72; color: var(--pf-soft);
+}
+.pf-closing {
+  margin: clamp(1.4rem, 3.5vh, 2.2rem) 0 0; max-width: 26ch;
+  font-family: var(--font-display); font-weight: var(--display-weight);
+  font-size: calc(clamp(1.05rem, 1.5vw, 1.42rem) * var(--display-scale));
+  line-height: 1.5;
+}
+
+.pf-panels { flex: 1 1 auto; min-width: 0; }
+.pf-panel { display: none; }
+.pf-panel.is-active { display: block; }
+
+/* ── 04 KACHELN (nur Hochzeiten) ──────────────────────────────────── */
+.pf-grid {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(2px, .32vw, 5px);
+}
+.pf-tile {
+  position: relative; margin: 0; display: block;
+  aspect-ratio: 2 / 3; overflow: hidden;
+  background: var(--pf-bg);
+  transition: background-color .6s var(--ease);
+}
+.pf-tile img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: opacity .55s var(--ease);
+}
+/* Das Foto blendet auf die Fläche zurück, der Titel steht frei darauf.
+   Kein Zoom, kein Kasten — die Ruhe kommt aus der Farbe. */
+.pf-tile:hover img, .pf-tile:focus-visible img { opacity: .08; }
+
+.pf-cap {
+  position: absolute; inset: 0; z-index: 2;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: .85em;
+  padding: 1.6rem 12%; text-align: center; color: var(--pf-ink);
+  opacity: 0; transform: translateY(6px); pointer-events: none;
+  transition: opacity .45s var(--ease), transform .45s var(--ease);
+}
+.pf-tile:hover .pf-cap, .pf-tile:focus-visible .pf-cap { opacity: 1; transform: none; }
+.pf-cap-ort {
+  font-family: var(--font-display); font-weight: var(--display-weight);
+  font-size: calc(clamp(1.25rem, 1.75vw, 1.85rem) * var(--display-scale));
+  line-height: 1.1;
+}
+.pf-cap-sub {
+  font-family: var(--font-ui);
+  font-size: calc(var(--t-label) * var(--ui-scale) * .96);
+  font-weight: 400; letter-spacing: var(--ui-track);
+  text-transform: uppercase; line-height: 1.75; max-width: 22ch;
+  color: var(--pf-soft);
+}
+.pf-cap-status {
+  margin-top: .2em; font-family: var(--font-ui);
+  font-size: calc(var(--t-label) * var(--ui-scale) * .86);
+  font-weight: var(--link-weight); letter-spacing: .32em;
+  text-transform: uppercase; color: var(--pf-soft);
+}
+a.pf-tile:hover { cursor: pointer; }
+.pf-tile[aria-disabled='true'] { cursor: default; }
+
+/* ── 05 FLUG (Familien und Business) ──────────────────────────────────
+   Gleiche Mechanik wie auf der Startseite, aber langsamer und mit
+   größeren Bildern. Die linke Spalte fährt hinaus, sobald es losgeht. */
+body.pf.is-wide .pf-aside {
+  flex-basis: 0; max-width: 0;
+  opacity: 0; transform: translateX(-2.5rem); pointer-events: none;
+}
+
+.pf-flow, .pf-reel {
+  position: relative;
+  width: 100vw; margin-left: calc(50% - 50vw);
+}
+.pf-flow-stage {
+  position: sticky; top: 0;
+  height: 100vh; height: 100svh; overflow: hidden;
+}
+.pf-flow-track {
+  position: absolute; top: 0; left: 0; width: 100%;
+  will-change: transform; transform: translate3d(0, 0, 0);
+}
+.pf-flow-track figure {
+  position: absolute; margin: 0; padding: 0;
+  cursor: zoom-in; overflow: hidden; background: rgba(18,16,15,.04);
+}
+.pf-flow-track img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform .9s var(--ease);
+}
+.pf-flow-track figure:hover img { transform: scale(1.035); }
+
+/* Schleier oben, damit die Kopfleiste nicht im Bild klebt */
+.pf-veil {
+  position: absolute; inset: 0 0 auto 0; height: 34vh; z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(to bottom,
+    rgb(var(--bg-rgb)) 0%, rgba(var(--bg-rgb), .78) 38%,
+    rgba(var(--bg-rgb), .34) 68%, rgba(var(--bg-rgb), 0) 100%);
+}
+.pf-veil--bottom {
+  inset: auto 0 0 0; height: 24vh;
+  background: linear-gradient(to top,
+    rgba(var(--bg-rgb), .92) 0%, rgba(var(--bg-rgb), .55) 45%, rgba(var(--bg-rgb), 0) 100%);
+}
+
+/* Rückweg zu den Kategorien, sobald die Spalte draußen ist */
+.pf-back {
+  position: fixed; left: 0; top: var(--header-h); z-index: 58;
+  padding: .95rem var(--edge) 1.05rem;
+  background: var(--pf-bg); color: var(--pf-ink);
+  border-bottom: 1px solid rgba(18,16,15,.08);
+  opacity: 0; visibility: hidden; transform: translateY(-6px);
+  transition: opacity .4s var(--ease), visibility .4s, transform .4s var(--ease), color .25s var(--ease);
+}
+body.pf.is-wide .pf-back { opacity: 1; visibility: visible; transform: none; }
+.pf-back:hover { color: var(--accent); }
+
+/* ── 06 QUERSTRECKE ───────────────────────────────────────────────────
+   Eine Serie steht mitten im Flug still und läuft waagerecht durch.
+   Gleiche Bauweise wie die Hochzeitsstrecke der Startseite. */
+.pf-reel { background: var(--bg); }
+.pf-reel-pin {
+  position: sticky; top: 0;
+  height: 100vh; height: 100svh; overflow: hidden;
+  display: flex; flex-direction: column; justify-content: center;
+  padding-top: clamp(7rem, 22vh, 13rem);
+}
+.pf-reel-kopf {
+  position: absolute; left: var(--edge); right: var(--edge);
+  top: calc(var(--header-h) + 3.5vh);
+  z-index: 4; max-width: 46ch;
+}
+.pf-reel-kopf h2 {
+  margin: 0; font-family: var(--font-display); font-weight: var(--display-weight);
+  font-size: calc(clamp(1.4rem, 2.4vw, 2.3rem) * var(--display-scale));
+  line-height: 1.15;
+}
+.pf-reel-kopf p { margin: .7rem 0 0; color: var(--ink-soft); max-width: 40ch; }
+
+.pf-reel-track {
+  display: flex; align-items: center;
+  gap: clamp(.9rem, 1.8vw, 2rem);
+  padding-inline: var(--edge);
+  will-change: transform; transform: translate3d(0, 0, 0);
+}
+.pf-reel-track figure {
+  margin: 0; flex: 0 0 auto;
+  height: clamp(220px, 46vh, 540px);
+  cursor: zoom-in; overflow: hidden; background: rgba(18,16,15,.04);
+}
+.pf-reel-track img { height: 100%; width: 100%; object-fit: cover; transition: transform .9s var(--ease); }
+.pf-reel-track figure:hover img { transform: scale(1.04); }
+
+.pf-reel-progress {
+  position: absolute; left: var(--edge); right: var(--edge); bottom: 5.5vh;
+  height: 1px; background: var(--hairline); z-index: 3; pointer-events: none;
+}
+.pf-reel-progress i { display: block; height: 100%; width: 0; background: var(--accent); }
+
+/* Ausstiege: am oberen und unteren Bildrand scrollt die Seite normal
+   weiter, statt seitwärts durch die Strecke zu ziehen. */
+.pf-escape {
+  position: absolute; left: 0; right: 0; z-index: 6;
+  height: 15vh; min-height: 92px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; opacity: 0; transition: opacity .3s var(--ease);
+}
+.pf-escape--top { top: var(--header-h); }
+.pf-escape--bottom { bottom: 0; }
+.pf-escape:hover, .pf-escape:focus-visible { opacity: 1; }
+.pf-escape .arrow { font-family: var(--font-ui); font-size: 1.15rem; line-height: 1; color: var(--ink-soft); }
+
+/* Abschluss unter dem Flug */
+.pf-outro {
+  padding: clamp(4rem, 10vh, 8rem) var(--edge);
+  text-align: center;
+}
+.pf-outro p {
+  margin: 0 auto clamp(1.6rem, 3vw, 2.4rem);
+  max-width: 24ch;
+  font-family: var(--font-display); font-weight: var(--display-weight);
+  font-size: calc(clamp(1.3rem, 2.2vw, 2rem) * var(--display-scale));
+  line-height: 1.4;
+}
+
+/* ── 07 GALERIE-UNTERSEITEN ───────────────────────────────────────────
+   Auftakt: der Ortsname riesig, Fotos überlappen die Buchstaben.
+   Der Name ist echter Text, kein Bild — Google liest ihn als H1. */
+body.gal { background: var(--bg); color: var(--ink); }
+body.gal .site-header { background: var(--bg); }
+body.gal .site-header::before { display: none; }
+body.gal main { padding-top: var(--header-h); }
+
+.gal-hero {
+  position: relative; overflow: hidden;
+  min-height: clamp(360px, 68vh, 760px);
+  display: flex; align-items: center; justify-content: center;
+  padding: clamp(2rem, 6vh, 5rem) var(--edge);
+}
+.gal-hero-wort {
+  position: relative; z-index: 2; margin: 0; text-align: center;
+  font-family: var(--font-display); font-weight: var(--display-weight);
+  /* Die Größe richtet sich nach der Wortlänge (--len setzt der
+     Generator). So füllt „Umbrien" die Breite genauso wie
+     „Donau-Ries", und auf dem Handy läuft nichts über den Rand. */
+  --len: 8;
+  font-size: calc(min(15.4vw, 145vw / var(--len)) * var(--display-scale));
+  line-height: .9; letter-spacing: -.012em; text-transform: uppercase;
+  white-space: nowrap; pointer-events: none;
+  max-width: 100%;
+}
+.gal-hero-wort .sr-only { white-space: normal; }
+/* Wortlänge als Klasse — ein Inline-Style wäre von der CSP verboten */
+.len-5  { --len: 5; }  .len-6  { --len: 6; }  .len-7  { --len: 7; }
+.len-8  { --len: 8; }  .len-9  { --len: 9; }  .len-10 { --len: 10; }
+.len-11 { --len: 11; } .len-12 { --len: 12; } .len-13 { --len: 13; }
+.gal-hero-bild {
+  position: absolute; margin: 0; overflow: hidden;
+  will-change: transform;
+}
+/* eines liegt hinter der Schrift, eines davor — das erzeugt die Tiefe */
+.gal-hero-bild--hinten { z-index: 1; }
+.gal-hero-bild--vorne  { z-index: 3; }
+.gal-hero-bild img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.gal-hero-b1 { left: 6%;  top: 8%;    width: 20vw; aspect-ratio: 2/3; }
+.gal-hero-b2 { right: 7%; bottom: 6%; width: 23vw; aspect-ratio: 3/2; }
+.gal-hero-b3 { right: 30%; top: -2%;  width: 12vw; aspect-ratio: 2/3; }
+
+.gal-kopf {
+  max-width: 1280px; margin: 0 auto;
+  padding: clamp(1rem, 3vw, 2.5rem) var(--edge) clamp(2.4rem, 5vw, 4rem);
+}
+.gal-ort { color: var(--ink-soft); margin: 0 0 1.1rem; display: block; }
+.gal-h2 {
+  margin: 0; max-width: 20ch;
+  font-family: var(--font-display); font-weight: var(--display-weight);
+  font-size: calc(clamp(1.7rem, 3.4vw, 3rem) * var(--display-scale));
+  line-height: 1.1;
+}
+.gal-satz {
+  margin: clamp(1.4rem, 3vw, 2.2rem) 0 0; max-width: 58ch;
+  font-family: var(--font-display);
+  font-size: calc(clamp(1.05rem, 1.45vw, 1.4rem) * var(--display-scale));
+  line-height: 1.68; color: #3a3734;
+}
+.gal-fakten {
+  margin: clamp(1.6rem, 3vw, 2.4rem) 0 0; padding: 0; list-style: none;
+  display: flex; flex-wrap: wrap; gap: .6rem clamp(1.4rem, 3vw, 2.6rem);
+  color: var(--ink-soft);
+}
+
+/* Der Rückweg steht oben wie unten an derselben Stelle im Raster */
+.gal-zurueck {
+  max-width: 1280px; margin: 0 auto;
+  padding: clamp(1.6rem, 3.4vw, 2.6rem) var(--edge);
+  display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+}
+.gal-zurueck--unten {
+  border-top: 1px solid var(--hairline);
+  margin-top: clamp(3rem, 7vw, 6rem);
+  padding-top: clamp(2rem, 4vw, 3rem); padding-bottom: clamp(2rem, 5vw, 4rem);
+}
+.gal-zurueck .zur .arrow { transition: transform .3s var(--ease); }
+.gal-zurueck .zur:hover .arrow { transform: translateX(-.35em); }
+
+.gal-raster {
+  max-width: 1280px; margin: 0 auto; padding: 0 var(--edge);
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(.4rem, 1vw, 1rem);
+}
+.gal-fig { margin: 0; overflow: hidden; background: rgba(18,16,15,.04); cursor: zoom-in; }
+.gal-fig--quer { grid-column: span 2; }
+.gal-fig img { width: 100%; height: auto; display: block; transition: transform .9s var(--ease); }
+.gal-fig:hover img { transform: scale(1.025); }
+
+/* Weiter zur nächsten Hochzeit */
+.gal-weiter {
+  max-width: 1280px; margin: 0 auto; padding: 0 var(--edge);
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(.4rem, 1vw, 1rem);
+}
+.gal-weiter a { display: block; position: relative; overflow: hidden; }
+.gal-weiter img { width: 100%; aspect-ratio: 3/2; object-fit: cover; display: block; transition: transform .9s var(--ease), opacity .4s; }
+.gal-weiter a:hover img { transform: scale(1.04); opacity: .82; }
+.gal-weiter span {
+  position: absolute; inset: auto 0 0 0; padding: 1rem;
+  background: linear-gradient(to top, rgba(18,16,15,.62), transparent);
+  color: #FBF9F7; text-align: center;
+}
+.gal-weiter-kopf { max-width: 1280px; margin: clamp(3rem, 7vw, 6rem) auto clamp(1.2rem, 2.4vw, 2rem); padding: 0 var(--edge); }
+
+/* ── 08 RESPONSIVE ────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .pf-stage { display: block; }
+  .pf-aside {
+    position: static; height: auto; max-width: none; flex-basis: auto;
+    padding: 0 var(--edge) clamp(2rem, 6vw, 3rem);
+    transform: none !important; opacity: 1 !important;
+  }
+  body.pf.is-wide .pf-aside { flex-basis: auto; max-width: none; pointer-events: auto; }
+  .pf-aside-foot { margin-top: clamp(1.6rem, 5vw, 2.4rem); padding-bottom: 0; }
+  .pf-lead { max-width: none; }
+
+  .pf-grid { grid-template-columns: 1fr; gap: clamp(2.2rem, 7vw, 3rem); }
+  .pf-tile { aspect-ratio: auto; }
+  .pf-tile img { opacity: 1 !important; }
+  /* Kein Hover auf dem Handy — die Beschriftung steht ruhig unter dem Foto */
+  .pf-cap {
+    position: static; opacity: 1; transform: none;
+    padding: 1.1rem 0 0; gap: .5em; align-items: flex-start; text-align: left;
+  }
+  .pf-cap-sub { max-width: none; }
+  .pf-back { display: none; }
+
+  .gal-raster { grid-template-columns: 1fr; }
+  .gal-fig--quer { grid-column: auto; }
+  .gal-zurueck { flex-direction: column; align-items: flex-start; gap: 1.1rem; }
+  .gal-weiter { grid-template-columns: 1fr; }
+  .gal-hero { min-height: clamp(300px, 52vh, 460px); }
+  .gal-hero-b1 { width: 34vw; left: 2%; }
+  .gal-hero-b2 { width: 38vw; right: 2%; }
+  .gal-hero-b3 { display: none; }
+}
+
+/* Touch: Querstrecke scrollt nativ statt gepinnt */
+@media (max-width: 900px), (hover: none) {
+  .pf-reel { height: auto !important; }
+  .pf-reel-pin { position: static; height: auto; padding: clamp(2rem, 6vw, 4rem) 0 0; }
+  .pf-reel-kopf { position: static; padding: 0 var(--edge) clamp(1.4rem, 4vw, 2rem); max-width: none; }
+  .pf-reel-track {
+    transform: none !important;
+    overflow-x: auto; overflow-y: hidden;
+    scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none;
+  }
+  .pf-reel-track::-webkit-scrollbar { display: none; }
+  .pf-reel-track figure { scroll-snap-align: center; }
+  .pf-reel-progress, .pf-escape { display: none; }
+  .pf-flow { height: auto !important; }
+  .pf-flow-stage { position: static; height: auto; overflow: visible; }
+  .pf-flow-track { position: static; transform: none !important; }
+  .pf-flow-track figure {
+    position: static !important; width: auto !important; height: auto !important;
+    margin: 0 0 clamp(2.2rem, 7vw, 3rem);
+  }
+  .pf-flow-track figure[aria-hidden='true'] { display: none; }
+  .pf-flow-track img { height: auto; }
+  .pf-veil { display: none; }
+}
+
+/* ── 09 REDUCED MOTION ────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .pf-aside, .pf-tile img, .pf-cap { transition-duration: .001ms !important; }
+  .pf-flow { height: auto !important; }
+  .pf-flow-stage { position: static; height: auto; overflow: visible; }
+  .pf-flow-track { position: static; transform: none !important; }
+  .pf-flow-track figure {
+    position: static !important; width: auto !important; height: auto !important;
+    margin: 0 0 2rem;
+  }
+  .pf-flow-track figure[aria-hidden='true'] { display: none; }
+  .pf-veil { display: none; }
+  .pf-reel { height: auto !important; }
+  .pf-reel-pin { position: static; height: auto; padding: 2rem 0 0; }
+  .pf-reel-kopf { position: static; padding: 0 var(--edge) 1.4rem; }
+  .pf-reel-track { transform: none !important; overflow-x: auto; }
+  .pf-reel-progress, .pf-escape { display: none; }
+  .gal-hero-bild { transform: none !important; }
+}
+
+@media print {
+  .pf-flow, .pf-reel { height: auto !important; }
+  .pf-back, .pf-escape { display: none !important; }
+}
+
+/* Kachel fährt beim Überfahren zusätzlich leicht heran. */
+.pf-tile img { transition: opacity .55s var(--ease), transform .8s var(--ease); }
+.pf-tile:hover img, .pf-tile:focus-visible img { transform: scale(1.05); }
+
+/* Das große Wort in der linken Spalte: gleiche Machart wie auf den
+   anderen Seiten, nur auf die Spaltenbreite eingepasst. */
+.pf-wort { font-size: clamp(2rem, 4.4vw, 4.4rem); line-height: .95; }
+
+/* Lesetext unter dem Raster: schmale Spalte, ruhige Typografie. */
+.gal-mehr { max-width: 44rem; margin-inline: auto;
+  padding: clamp(3rem, 7vw, 5.5rem) var(--edge) clamp(1rem, 3vw, 2rem); }
+.gal-mehr-block + .gal-mehr-block { margin-top: clamp(2.4rem, 5vw, 3.4rem); }
+.gal-mehr h2 {
+  font-family: var(--font-ui); font-weight: var(--link-weight);
+  font-size: calc(var(--t-label) * var(--ui-scale));
+  letter-spacing: var(--ui-track); text-transform: uppercase;
+  padding-top: 1.3rem; border-top: 1px solid var(--hairline); margin-bottom: .9rem;
+}
+.gal-mehr p { font-family: var(--font-ui); font-size: var(--t-body);
+  line-height: 1.9; color: var(--ink-soft); margin-bottom: .9rem; }

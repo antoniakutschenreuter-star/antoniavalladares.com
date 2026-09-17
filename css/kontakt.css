@@ -1,0 +1,68 @@
+/* =====================================================================
+   KONTAKT — Auftakt kommt aus style.css, hier steht nur das Formular.
+   ===================================================================== */
+
+.kt-direkt {
+  margin-top: clamp(1.4rem, 3vw, 2.2rem);
+  display: flex; flex-wrap: wrap; justify-content: center;
+  gap: clamp(1rem, 3vw, 2.6rem);
+}
+.regel {
+  display: block; width: 34px; height: 1px; background: var(--accent);
+  margin: clamp(2.6rem, 6vw, 4rem) auto 0;
+}
+
+.kt-form-teil {
+  max-width: 660px; margin-inline: auto;
+  padding: clamp(3rem, 7vw, 5rem) var(--edge) clamp(2rem, 5vw, 3rem);
+  text-align: center;
+}
+.kt-lead {
+  font-family: var(--font-display);
+  font-size: calc(clamp(1.15rem, 2.2vw, 1.6rem) * var(--display-scale));
+  line-height: 1.45; margin-top: .9rem;
+}
+
+.kt-form { margin-top: clamp(2.4rem, 5vw, 3.4rem); text-align: left; }
+
+.kt-feld { display: block; margin-bottom: clamp(1.5rem, 3.4vw, 2rem); }
+.kt-bez {
+  display: block;
+  font-family: var(--font-ui); font-weight: var(--link-weight);
+  font-size: calc(var(--t-label) * var(--ui-scale) * .92);
+  letter-spacing: var(--ui-track); text-transform: uppercase;
+}
+.kt-en { font-style: normal; color: var(--ink-soft); margin-left: .7em; }
+
+.kt-feld input, .kt-feld textarea, .kt-feld select {
+  width: 100%; margin-top: .6em; padding: .5em 0;
+  font-family: var(--font-display); font-weight: var(--display-weight);
+  font-size: calc(clamp(1.02rem, 2vw, 1.28rem) * var(--display-scale));
+  color: var(--ink); background: none;
+  border: 0; border-bottom: 1px solid var(--hairline); border-radius: 0;
+  appearance: none; transition: border-color .3s var(--ease);
+}
+.kt-feld select { color: var(--ink-soft); }
+.kt-feld textarea { min-height: 6.5em; resize: vertical; line-height: 1.6; }
+.kt-feld input:focus, .kt-feld textarea:focus, .kt-feld select:focus {
+  outline: none; border-bottom-color: var(--accent);
+}
+.kt-feld input::placeholder, .kt-feld textarea::placeholder { color: var(--ink-soft); opacity: .5; }
+
+.kt-paar { display: grid; gap: 0 clamp(1.4rem, 3vw, 2.6rem); }
+.kt-fangfrage { position: absolute; left: -9999px; }
+
+.kt-senden { margin-top: .8rem; background: none; border: 0; padding: 0; cursor: pointer; }
+
+.kt-klein {
+  margin-top: 2.2rem;
+  font-family: var(--font-ui); font-size: calc(var(--t-label) * var(--ui-scale) * 1.05);
+  color: var(--ink-soft); line-height: 1.75;
+}
+.kt-klein a { color: inherit; }
+
+@media (min-width: 760px) { .kt-paar { grid-template-columns: 1fr 1fr; } }
+
+/* Ohne Formular: nur die beiden Wege, mittig. */
+.kt-wege { margin-top: clamp(2.2rem, 5vw, 3.2rem); display: flex; flex-wrap: wrap;
+  justify-content: center; gap: clamp(1.2rem, 4vw, 3rem); }

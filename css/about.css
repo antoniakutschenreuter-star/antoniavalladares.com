@@ -1,0 +1,207 @@
+/* =====================================================================
+   ABOUT — drei Teile:
+   1) Auftakt: genau eine Bildschirmhöhe, Name links auf dem Foto
+   2) Fakten:  Bühne wird festgehalten, EIN Fakt je Bildschirm
+   3) Abschluss
+   Ohne JS, auf dem Handy und bei Reduced Motion: schlichte Liste.
+   ===================================================================== */
+
+body.ab .site-header .label,
+body.ab .site-header .label:hover { color: var(--on-accent); }
+body.ab .site-header::before { display: none; }
+body.ab .header-mark img { filter: brightness(0) invert(1); }
+body.ab .to-top { color: var(--on-accent); border-color: rgba(251,249,247,.4); }
+body.ab .site-footer { background: var(--bg); }
+
+/* ── gemeinsame Bausteine ─────────────────────────────────────────── */
+.ab-bild { margin: 0; position: relative; overflow: hidden; background: var(--ink); }
+.ab-bild img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+.ab-seite {
+  background: var(--accent-flaeche);
+  color: var(--on-accent);
+  display: flex; flex-direction: column; justify-content: center;
+  padding: clamp(3rem, 8vw, 5rem) var(--edge);
+}
+.ab-seite p {
+  font-family: var(--font-display);
+  font-weight: var(--display-weight, 300);
+  font-size: clamp(1.45rem, 5.4vw, 2rem);
+  line-height: 1.42;
+  max-width: 24ch;
+  text-wrap: pretty;
+}
+.ab-seite em { font-style: normal; color: #F6C9B4; }
+
+/* ── 1 Auftakt ────────────────────────────────────────────────────── */
+.ab-auftakt { display: grid; grid-template-rows: 62svh 38svh; }
+.ab-auftakt .ab-bild img { height: 62svh; }
+.ab-auftakt .ab-seite p { font-size: clamp(1.6rem, 6.4vw, 2.4rem); line-height: 1.3; }
+
+.ab-name {
+  position: absolute; z-index: 3; left: 0; right: 0; bottom: clamp(1.4rem, 4vh, 3rem);
+  text-align: center; color: var(--on-accent); pointer-events: none;
+}
+.ab-name h1 {
+  font-family: var(--font-display); font-weight: var(--display-weight, 300);
+  line-height: .98; letter-spacing: .015em;
+  font-size: clamp(2.1rem, 8vw, 4.4rem);
+  text-shadow: 0 1px 26px rgba(0,0,0,.4);
+}
+.ab-ort { display: block; margin-top: .95em; opacity: .92; }
+
+.ab-pfeil { display: none; }
+
+/* ── 2 Fakten ─────────────────────────────────────────────────────── */
+.ab-liste { list-style: none; margin: 0; padding: 0; }
+.ab-item  { display: block; }
+.ab-item .ab-bild img { height: 62svh; }
+
+/* ── 3 Abschluss ──────────────────────────────────────────────────── */
+.ab-schluss { display: grid; grid-template-rows: 62svh auto; }
+.ab-schluss .ab-bild img { height: 62svh; }
+.ab-signatur { display: block; margin-top: 1.1em; font-style: italic; }
+.ab-cta { display: inline-block; margin-top: 1.7em; color: var(--on-accent); text-decoration: none; }
+.ab-cta:hover { color: #F6C9B4; }
+
+/* ── ab 901 px: geteilte Flächen, Fakten werden festgehalten ──────── */
+@media (min-width: 901px) {
+
+  .ab-auftakt, .ab-schluss {
+    display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: none;
+    height: 100svh;
+  }
+  .ab-auftakt .ab-bild img, .ab-schluss .ab-bild img { height: 100svh; }
+  .ab-auftakt .ab-bild::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,0) 40%, rgba(0,0,0,.44) 100%);
+  }
+  .ab-auftakt .ab-seite { align-items: center; text-align: center; position: relative; }
+  .ab-auftakt .ab-seite p { font-size: clamp(1.9rem, 2.7vw, 3.1rem); max-width: 18ch; }
+  .ab-schluss .ab-seite p { font-size: clamp(1.5rem, 2.05vw, 2.3rem); }
+
+  .ab-pfeil {
+    display: block; position: absolute; left: 50%; bottom: clamp(1.6rem, 4vh, 3rem);
+    color: var(--on-accent); font-size: 1.1rem; opacity: .7;
+    animation: ab-wippen 2.6s var(--ease) infinite;
+  }
+  @keyframes ab-wippen { 0%,100% { transform: translateX(-50%) translateY(0); }
+                         50%     { transform: translateX(-50%) translateY(7px); } }
+
+  html.hat-js .ab-abschnitt { position: relative; }
+  html.hat-js .ab-buehne { position: sticky; top: 0; height: 100svh; overflow: hidden; }
+  html.hat-js .ab-liste  { height: 100%; }
+
+  html.hat-js .ab-item {
+    position: absolute; inset: 0;
+    display: grid; grid-template-columns: 1fr 1fr;
+    opacity: 0; visibility: hidden;
+    transition: opacity .5s var(--ease), visibility .5s;
+  }
+  html.hat-js .ab-item.ist-aktiv { opacity: 1; visibility: visible; }
+
+  html.hat-js .ab-item .ab-bild { height: 100svh; }
+  html.hat-js .ab-item .ab-bild img { height: 100svh; transform: scale(1.055);
+    transition: transform .8s var(--ease); }
+  html.hat-js .ab-item.ist-aktiv .ab-bild img { transform: none; }
+
+  html.hat-js .ab-item .ab-seite { padding: 0 clamp(2.5rem, 5.5vw, 6rem); }
+  html.hat-js .ab-item .ab-seite p {
+    font-size: clamp(1.5rem, 2.05vw, 2.35rem); max-width: 22ch;
+    opacity: 0; transition: transform .62s var(--ease), opacity .5s var(--ease);
+  }
+  html.hat-js .ab-item.ist-aktiv   .ab-seite p { opacity: 1; transform: none; }
+  html.hat-js .ab-item.ist-vorher  .ab-seite p { transform: translate3d(0,-46px,0); }
+  html.hat-js .ab-item.ist-nachher .ab-seite p { transform: translate3d(0,46px,0); }
+
+  html:not(.hat-js) .ab-item { display: grid; grid-template-columns: 1fr 1fr; }
+  html:not(.hat-js) .ab-item .ab-bild img { height: 88svh; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.hat-js .ab-buehne { position: static; height: auto; overflow: visible; }
+  html.hat-js .ab-item { position: static; opacity: 1; visibility: visible; transition: none; }
+  html.hat-js .ab-item .ab-seite p { opacity: 1; transform: none !important; transition: none; }
+  html.hat-js .ab-item .ab-bild img { transform: none !important; }
+  .ab-pfeil { animation: none; }
+}
+
+/* ── Auftakt: Einzug beim Laden ───────────────────────────────────── */
+.ab-gruss { display: block; }
+.ab-fakten-an { display: block; margin-top: 1.15em; font-size: .62em; opacity: .88; }
+.ab-zeile { display: block; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .ab-auftakt .ab-bild img { animation: ab-heran 2.6s var(--ease) both; }
+  .ab-zeile { animation: ab-hoch .95s var(--ease) both; }
+  .ab-zeile:nth-child(2) { animation-delay: .12s; }
+  .ab-ort   { animation: ab-hoch .9s var(--ease) .3s both; }
+  .ab-auftakt .ab-gruss { animation: ab-hoch .9s var(--ease) both; }
+  .ab-auftakt .ab-gruss + .ab-gruss { animation-delay: .14s; }
+  .ab-fakten-an { animation: ab-hoch .9s var(--ease) .34s both; }
+  .ab-pfeil { animation: ab-auf .8s var(--ease) .7s both, ab-wippen 2.6s var(--ease) 1.5s infinite; }
+
+  @keyframes ab-heran { from { transform: scale(1.09); } to { transform: none; } }
+  @keyframes ab-hoch  { from { opacity: 0; transform: translate3d(0,26px,0); } to { opacity: 1; transform: none; } }
+  @keyframes ab-auf   { from { opacity: 0; } to { opacity: .7; } }
+}
+
+/* ── Abschluss: Einzug beim Hereinscrollen ────────────────────────── */
+@media (prefers-reduced-motion: no-preference) {
+  html.hat-js .ab-schluss .ab-seite p,
+  html.hat-js .ab-schluss .ab-cta {
+    opacity: 0; transform: translate3d(0,30px,0);
+    transition: opacity .7s var(--ease), transform .7s var(--ease);
+  }
+  html.hat-js .ab-schluss .ab-cta { transition-delay: .18s; }
+  html.hat-js .ab-schluss.ist-da .ab-seite p,
+  html.hat-js .ab-schluss.ist-da .ab-cta { opacity: 1; transform: none; }
+
+  html.hat-js .ab-schluss .ab-bild img { transform: scale(1.07); transition: transform 1.6s var(--ease); }
+  html.hat-js .ab-schluss.ist-da .ab-bild img { transform: none; }
+}
+
+/* ── Fakten: Foto wechselt die Seite, Text kommt von der Seite ────── */
+@media (min-width: 901px) {
+  html.hat-js .ab-item:nth-child(even) .ab-bild { grid-column: 2; grid-row: 1; }
+  html.hat-js .ab-item:nth-child(even) .ab-seite { grid-column: 1; grid-row: 1; }
+
+  html.hat-js .ab-item .ab-seite p { transform: translate3d(0,46px,0); }
+  html.hat-js .ab-item:nth-child(even) .ab-seite p { transform: translate3d(-40px,26px,0); }
+  html.hat-js .ab-item.ist-vorher  .ab-seite p { transform: translate3d(0,-46px,0); }
+  html.hat-js .ab-item:nth-child(even).ist-vorher .ab-seite p { transform: translate3d(40px,-26px,0); }
+  html.hat-js .ab-item.ist-aktiv .ab-seite p { transform: none; }
+
+  /* das Foto schiebt sich beim Wechsel leicht mit */
+  html.hat-js .ab-item .ab-bild img { transform: scale(1.06) translate3d(0,0,0); }
+  html.hat-js .ab-item.ist-nachher .ab-bild img { transform: scale(1.06) translate3d(0,3%,0); }
+  html.hat-js .ab-item.ist-vorher  .ab-bild img { transform: scale(1.06) translate3d(0,-3%,0); }
+  html.hat-js .ab-item.ist-aktiv   .ab-bild img { transform: none; }
+}
+
+/* ── Zähler und feiner Pfeil, ohne Hinterlegung ───────────────────── */
+body.ab .to-top { background: none; }
+
+html.hat-js .ab-item .ab-seite { position: relative; }
+.ab-zaehler {
+  font-family: var(--font-ui); font-weight: 600;
+  font-size: .58rem; letter-spacing: .26em; text-transform: uppercase;
+  color: var(--on-accent); opacity: .5;
+  display: flex; align-items: center; gap: .9em;
+  margin-top: 2.6rem;
+}
+.ab-tick { font-weight: 300; letter-spacing: 0; font-size: .8rem; opacity: .8; }
+
+@media (min-width: 901px) {
+  html.hat-js .ab-item .ab-zaehler {
+    position: absolute; left: clamp(2.5rem, 5.5vw, 6rem);
+    bottom: clamp(2rem, 5vh, 3.6rem); margin: 0;
+  }
+  html.hat-js .ab-item:nth-child(even) .ab-zaehler {
+    left: auto; right: clamp(2.5rem, 5.5vw, 6rem);
+  }
+  html.hat-js .ab-item:last-child .ab-tick { display: none; }
+}
+
+/* Abschlussfoto: Kopf bleibt im Bild, statt oben und unten anzuschneiden. */
+.ab-schluss .ab-bild img { object-position: 50% 22%; }
