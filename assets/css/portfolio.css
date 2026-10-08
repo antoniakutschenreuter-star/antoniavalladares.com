@@ -149,8 +149,9 @@ body.pf.is-wide .pf-aside {
 }
 
 .pf-flow, .pf-reel {
-  position: relative;
-  width: 100vw; margin-left: calc(50% - 50vw);
+  /* Nicht aus der Spalte ausbrechen: sonst ragt die Bühne über den
+     rechten Rand, solange die Kategorienspalte noch steht. */
+  position: relative; width: 100%;
 }
 .pf-flow-stage {
   position: sticky; top: 0;
@@ -172,16 +173,16 @@ body.pf.is-wide .pf-aside {
 
 /* Schleier oben, damit die Kopfleiste nicht im Bild klebt */
 .pf-veil {
-  position: absolute; inset: 0 0 auto 0; height: 34vh; z-index: 2;
+  position: absolute; inset: 0 0 auto 0; height: 17vh; z-index: 2;
   pointer-events: none;
   background: linear-gradient(to bottom,
-    rgb(var(--bg-rgb)) 0%, rgba(var(--bg-rgb), .78) 38%,
-    rgba(var(--bg-rgb), .34) 68%, rgba(var(--bg-rgb), 0) 100%);
+    rgb(var(--bg-rgb)) 0%, rgba(var(--bg-rgb), .72) 46%,
+    rgba(var(--bg-rgb), .22) 78%, rgba(var(--bg-rgb), 0) 100%);
 }
 .pf-veil--bottom {
-  inset: auto 0 0 0; height: 24vh;
+  inset: auto 0 0 0; height: 12vh;
   background: linear-gradient(to top,
-    rgba(var(--bg-rgb), .92) 0%, rgba(var(--bg-rgb), .55) 45%, rgba(var(--bg-rgb), 0) 100%);
+    rgba(var(--bg-rgb), .85) 0%, rgba(var(--bg-rgb), .38) 50%, rgba(var(--bg-rgb), 0) 100%);
 }
 
 /* Rückweg zu den Kategorien, sobald die Spalte draußen ist */
@@ -306,9 +307,9 @@ body.gal main { padding-top: var(--header-h); }
 .gal-hero-bild--vorne  { z-index: 3; }
 .gal-hero-bild img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-.gal-hero-b1 { left: 6%;  top: 8%;    width: 20vw; aspect-ratio: 2/3; }
-.gal-hero-b2 { right: 7%; bottom: 6%; width: 23vw; aspect-ratio: 3/2; }
-.gal-hero-b3 { right: 30%; top: -2%;  width: 12vw; aspect-ratio: 2/3; }
+.gal-hero-b1 { left: 4%;  top: 5%;    width: 23vw; aspect-ratio: 2/3; }
+.gal-hero-b2 { right: 4%; bottom: 3%; width: 26vw; aspect-ratio: 3/2; }
+.gal-hero-b3 { right: 29%; top: -4%;  width: 15vw; aspect-ratio: 2/3; }
 
 .gal-kopf {
   max-width: 1280px; margin: 0 auto;
@@ -401,8 +402,8 @@ body.gal main { padding-top: var(--header-h); }
   .gal-zurueck { flex-direction: column; align-items: flex-start; gap: 1.1rem; }
   .gal-weiter { grid-template-columns: 1fr; }
   .gal-hero { min-height: clamp(300px, 52vh, 460px); }
-  .gal-hero-b1 { width: 34vw; left: 2%; }
-  .gal-hero-b2 { width: 38vw; right: 2%; }
+  .gal-hero-b1 { width: 40vw; left: 1%; }
+  .gal-hero-b2 { width: 44vw; right: 1%; }
   .gal-hero-b3 { display: none; }
 }
 
@@ -421,7 +422,7 @@ body.gal main { padding-top: var(--header-h); }
   .pf-reel-progress, .pf-escape { display: none; }
   .pf-flow { height: auto !important; }
   .pf-flow-stage { position: static; height: auto; overflow: visible; }
-  .pf-flow-track { position: static; transform: none !important; }
+  .pf-flow-track { position: static; transform: none !important; padding: 0 var(--edge); }
   .pf-flow-track figure {
     position: static !important; width: auto !important; height: auto !important;
     margin: 0 0 clamp(2.2rem, 7vw, 3rem);
@@ -522,3 +523,37 @@ body.gal main { padding-top: var(--header-h); }
 @media (min-width: 1000px) {
   .gal-raster:not(.ist-masonry) { column-count: 3; }
 }
+
+
+/* ── Kacheln als klickbar erkennbar ───────────────────────────────────
+   Ohne Hinweis sieht man den Hochzeiten nicht an, dass eine Galerie
+   dahinter liegt. Ein kleiner Pfeil steht dauerhaft in der Ecke, bei
+   Kacheln ohne Galerie steht dort stattdessen der Hinweis. */
+a.pf-tile::after,
+.pf-tile[aria-disabled='true']::after {
+  position: absolute; right: .9rem; bottom: .75rem; z-index: 3;
+  font-family: var(--font-ui);
+  font-size: calc(var(--t-label) * var(--ui-scale) * .82);
+  font-weight: var(--link-weight); letter-spacing: .24em;
+  text-transform: uppercase; color: #fff;
+  text-shadow: 0 1px 10px rgba(0,0,0,.55);
+  opacity: .92; transition: opacity .45s var(--ease), color .45s var(--ease);
+  pointer-events: none;
+}
+a.pf-tile::after { content: 'Ansehen \2192'; }
+.pf-tile[aria-disabled='true']::after { content: 'Bald'; opacity: .6; }
+.pf-tile:hover::after, .pf-tile:focus-visible::after { color: var(--pf-ink); text-shadow: none; }
+/* Beim Hover steht der Titel mittig — der Hinweis in der Ecke genügt */
+.pf-tile:hover .pf-cap-status, .pf-tile:focus-visible .pf-cap-status { display: none; }
+
+/* ── Abschluss steht immer auf Creme ──────────────────────────────────
+   Bei den Hochzeiten liegt die ganze Fläche auf der CI-Farbe. Das
+   Abschlussband erbte sie — und „memories?" ist in genau dieser Farbe
+   gesetzt, stand also unsichtbar auf dem eigenen Orange. Abschluss und
+   Fußzeile bekommen deshalb wieder den Creme-Grund. */
+body.pf .cta-section,
+body.pf .site-footer {
+  position: relative; z-index: 6;
+  background: var(--bg); color: var(--ink);
+}
+body.pf .cta-section .accent { color: var(--accent); }

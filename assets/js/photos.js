@@ -59,31 +59,27 @@ const FLOW_A = [
   ['hochzeit-hero-toskana-hochzeit.jpg',1.5009,"Brautpaar bei einer Hochzeit in der Toskana – Destination Wedding Fotografin"],
   ['hochzeit-moet-champagner-calla-lilie-editorial.jpg',1.5009,"Champagnerflasche und Calla-Lilie editorial arrangiert – Hochzeitsdetails von Hochzeitsfotografin Antonia Valladares"],
   ['m_firstlook.jpg',0.6667,"First Look des Brautpaars vor der Zeremonie – Hochzeitsfotografin München"],
-  ['portfolio/babybauch-detail-verlobungsring.jpg',1.5004,"Hand mit Ring auf weißem Spitzenkleid, Detail in Schwarzweiß – Babybauchshooting"],
-  ['portfolio/babybauch-wildblumenwiese.jpg',1.5004,"Schwangere im Spitzenkleid auf einer Kornblumenwiese – Babybauchshooting München"],
   ['portfolio/editorial-braut-natur.jpg',0.6665,"Braut in der Natur, editorial fotografiert – Hochzeitsfotografie München"],
-  ['portfolio/familie-babyfuesse-detail.jpg',0.6665,"Hände auf dem Babybauch als Detailaufnahme in Schwarzweiß – Babybauchshooting München"],
-  ['portfolio/familie-mutter-kind-lachen.jpg',1.5004,"Mutter und Kind lachen gemeinsam auf einer Wiese – Familienfotografie München"],
-  ['portfolio/familie-schwangere-mutter-kind-portrait.jpg',0.6670,"Schwangere Mutter mit Kleinkind auf dem Arm in der Kornblumenwiese – Familienfotografie München"],
   ['portfolio/freie-trauung-weisse-stuehle-garten.jpg',1.5009,"Freie Trauung mit weißen Stühlen im Garten – Hochzeitsfotografin München"],
-  ['portfolio/galerie-vietnam-verlobung/braut-treppe-tuellkleid.jpg',0.6665,"Frau im Tüllkleid auf der Treppe – Verlobungsshooting in Vietnam"],
-  ['portfolio/galerie-vietnam-verlobung/getting-ready-braut-vorbereitung.jpg',0.6665,"Vorbereitung vor dem Shooting, Getting Ready – Verlobungsshooting in Vietnam"],
-  ['portfolio/galerie-vietnam-verlobung/kleid-bewegung-sw.jpg',0.6665,"Kleid in Bewegung, Schwarzweiß – Verlobungsshooting in Vietnam"],
-  ['portfolio/galerie-vietnam-verlobung/museum-strasse-sw.jpg',0.6663,"Paar vor einem Museum auf der Straße, Schwarzweiß – Verlobungsshooting Vietnam"],
-  ['portfolio/galerie-vietnam-verlobung/paar-treppe-editorial.jpg',0.6665,"Paar auf geschwungener Treppe, editorial – Verlobungsshooting in Vietnam"],
   ['portfolio/hochzeit-dinner-anstossen-toskana.jpg',0.6665,"Anstoßen beim Hochzeitsdinner in der Toskana – Destination Wedding"],
   ['portfolio/rezension-hochzeit-kloster-seeon.jpg',1.5004,"Brautpaar in Tracht auf einem Holzsteg am See – Hochzeit im Kloster Seeon"],
-  ['tband.jpg',2.4194,"Brautpaar zwischen Bäumen in Schwarzweiß – Hochzeitsfotografie München"]
+  ['tband.jpg',2.4194,"Brautpaar zwischen Bäumen in Schwarzweiß – Hochzeitsfotografie München"],
+  ['editorial/aperitif-negroni-hochzeit-detail-muenchen.jpg',1.5003,"Negroni im Glas vor einer Bar, Aperitif am Hochzeitstag – Hochzeitsfotografie München"],
+  ['editorial/brautstrauss-hochzeit-am-see-schwarzweiss.jpg',0.6669,"Hochgehaltener Brautstrauß aus Farn und Schleierkraut vor dem See, Schwarzweiß – Hochzeitsfotografin München"],
+  ['editorial/hochzeitstanz-brautpaar-festsaal-schwarzweiss.jpg',1.4994,"Brautpaar dreht sich beim Hochzeitstanz im Festsaal, Schwarzweiß – Hochzeitsfotografie München"],
+  ['editorial/hochzeitsgeschenke-fensterbank-olivenbaum-italien.jpg',0.6665,"Geschenkkorb und Olivenbäumchen am Fenster im Abendlicht – Hochzeit in Italien"],
+  ['editorial/eheringe-holzschatulle-kirchliche-trauung.jpg',1.5003,"Eheringe in einer Holzschatulle auf rotem Samtkissen – kirchliche Trauung"],
+  ['editorial/standesamt-muenchen-regen-brautpaar-schwarzweiss.jpg',0.6669,"Brautpaar läuft im Regen unter einem Schirm die Stufen zum Standesamt hinauf, Schwarzweiß – Standesamt München"],
+  ['editorial/sektempfang-champagner-einschenken-hochzeit.jpg',1.5003,"Champagner wird beim Sektempfang in ein Glas eingeschenkt – Hochzeitsfotografie München"],
+  ['editorial/brautschuhe-spiegel-ankleide-schwarzweiss.jpg',0.6665,"Beine der Braut in hohen Schuhen vor dem Spiegel beim Getting Ready, Schwarzweiß – Hochzeitsfotografin München"],
 ];
 
 /* Fliegende Fotos, zweiter Abschnitt. */
 const FLOW_B = [
   ['dest.jpg',0.7170,"Lange Hochzeitstafel im Abendlicht vor einem Landhaus in Italien – Destination Wedding"],
-  ['familie-haende-babyfuesse-muenchen.jpg',1.5009,"Elternhände halten winzige Babyfüße – Neugeborenenfotografie München"],
   ['g_bridesmaids.jpg',0.6667,"Braut mit ihren Brautjungfern vor der Trauung – Hochzeitsreportage München"],
   ['g_candybar2.jpg',0.6667,"Süßigkeitenbar bei der Hochzeitsfeier – Hochzeitsreportage München"],
   ['g_festsaal.jpg',0.6667,"Festsaal mit gedeckten Tischen und Kronleuchter vor der Hochzeitsfeier – Hochzeitslocation"],
-  ['g_motherchild.jpg',0.6667,"Schwangere Mutter hält ihr Kind auf einer Wildblumenwiese – Familienfotografie München"],
   ['g_schleier.jpg',0.6667,"Brautschleier weht im Wind über dem Kleid – Hochzeitsfotografie München"],
   ['gay-couple-artsy.jpg',1.5009,"Gleichgeschlechtliches Paar bei der Hochzeit, editorial fotografiert – Hochzeitsfotografin München"],
   ['hochzeit-couple-artsy-atmosphaerisch.jpg',1.5009,"Braut und Bräutigam Hand in Hand auf einer Marmortreppe – atmosphärische Hochzeitsfotografie"],
@@ -91,21 +87,17 @@ const FLOW_B = [
   ['hochzeit-kirchliche-trauung.jpg',1.5009,"Kirchliche Trauung mit Blick durch das Kirchenschiff – Hochzeitsfotografin München"],
   ['hochzeit-standesamt-muenchen-auszug.jpg',1.5009,"Auszug des Brautpaars aus dem Standesamt im Konfettiregen – Standesamt München"],
   ['m_jacquemus.jpg',1.5013,"Braut mit Strohhut im editorialen Stil – Hochzeitsfotografie Antonia Valladares"],
-  ['portfolio/babybauch-portrait-olivenbaum.jpg',0.6663,"Schwangere Frau am Olivenbaum – Babybauchshooting von Antonia Valladares"],
-  ['portfolio/babyfoto-muenchen-familienfotografie.jpg',1.5004,"Schlafendes Neugeborenes ganz nah – Newborn-Fotografie München"],
-  ['portfolio/familie-babyfuesse-detail-farbe.jpg',0.6665,"Hände umfassen den Babybauch im warmen Licht – Babybauchfotografie München"],
-  ['portfolio/familie-mutter-kind-babybauch-naehe.jpg',1.5004,"Kleines Mädchen küsst den Babybauch ihrer Mutter – Babybauchshooting München"],
-  ['portfolio/familie-mutter-kind-wiese.jpg',1.5009,"Mutter hebt ihr Kind auf einer Sommerwiese hoch, Schwarzweiß – Familienfotografie München"],
-  ['portfolio/familie-schwangere-mutter-kind-wildblumen.jpg',0.6663,"Schwangere Mutter mit Kind zwischen Wildblumen – Babybauchshooting München"],
-  ['portfolio/galerie-vietnam-verlobung/balkon-lachen.jpg',1.5004,"Lachendes Paar auf dem Balkon – Verlobungsshooting in Vietnam"],
-  ['portfolio/galerie-vietnam-verlobung/er-traegt-sie.jpg',1.5009,"Er trägt sie lachend auf den Armen – Verlobungsshooting in Vietnam"],
-  ['portfolio/galerie-vietnam-verlobung/haende-merci-detail.jpg',4.1841,"Detailaufnahme von Händen – Verlobungsshooting in Vietnam"],
-  ['portfolio/galerie-vietnam-verlobung/museum-fassade.jpg',0.6663,"Paar vor kolonialer Museumsfassade – Verlobungsshooting in Vietnam"],
-  ['portfolio/galerie-vietnam-verlobung/paar-balkon-umarmung-sw.jpg',1.5004,"Umarmung auf dem Balkon in Schwarzweiß – Verlobungsshooting in Vietnam"],
-  ['portfolio/galerie-vietnam-verlobung/tanz-balkon-sw.jpg',0.6665,"Tanzendes Paar auf dem Balkon in Schwarzweiß – Verlobungsshooting in Vietnam"],
   ['portfolio/reisen-comer-see-boote.jpg',0.5625,"Boote am Comer See in Italien – Reisefotografie und Destination Weddings"],
   ['portfolio/schloss-blutenburg-hochzeit-muenchen-braut.jpg',0.6665,"Braut im Innenhof von Schloss Blutenburg – Hochzeitsfotografin München"],
-  ['verlobungsshooting-muenchen-preise.jpg',1.0000,"Hände mit Verlobungsring und Ehering übereinandergelegt – Verlobungsshooting München"]
+  ['verlobungsshooting-muenchen-preise.jpg',1.0000,"Hände mit Verlobungsring und Ehering übereinandergelegt – Verlobungsshooting München"],
+  ['editorial/brautpaar-tuerrahmen-gegenlicht-schwarzweiss.jpg',0.6665,"Brautpaar im Türrahmen im Gegenlicht, Schwarzweiß – Hochzeitsfotografie München"],
+  ['editorial/brautpaar-haende-treppe-tuell-hochzeit.jpg',1.4996,"Hände greifen nacheinander auf einer alten Treppe, Tüllrock der Braut – Hochzeitsfotografie"],
+  ['editorial/hochzeitsfeier-lichterkette-pavillon-abend.jpg',0.6665,"Lichterketten über dem Pavillon und gedeckter Tisch am Abend – Hochzeitsfeier"],
+  ['editorial/brautpaar-beine-kopfsteinpflaster-schwarzweiss.jpg',1.5003,"Brautpaar geht über Kopfsteinpflaster, nur die Beine im Bild, Schwarzweiß – Standesamt München"],
+  ['editorial/hochzeit-italien-tomaten-pasta-detail.jpg',0.6665,"Tomaten, Knoblauch und Olivenöl als Gastgeschenk im Sonnenlicht – Hochzeit in Italien"],
+  ['editorial/hochzeitsfeier-erdbeeren-etagere-abend.jpg',1.5003,"Erdbeeren auf einer Etagere werden nachgefüllt, Hochzeitsfeier am Abend – Hochzeitsfotografie München"],
+  ['editorial/brautpaar-spaziergang-allee-schwarzweiss.jpg',0.6665,"Brautpaar spaziert Hand in Hand durch eine Allee im Gegenlicht, Schwarzweiß – Hochzeitsfotografin München"],
+  ['editorial/hochzeitsauto-oldtimer-rosen-spiegel-detail.jpg',0.6665,"Weiße Rosen am Außenspiegel eines grünen Oldtimers – Hochzeitsauto, Hochzeitsfotografie München"],
 ];
 
 /* Bewusst NICHT auf der Startseite: Fotos von Antonia selbst, Business,
@@ -116,20 +108,10 @@ const NICHT_STARTSEITE = [
   ['a2.jpg',0.6667,"Portrait einer lächelnden Frau vor Backsteinmauer – Portraitfotografie München"],
   ['a3.jpg',0.6667,"Schwarzweiß-Portrait einer lächelnden Frau im Freien – Portraitfotografie München"],
   ['hochzeitsfotografin-antonia-valladares-muenchen.jpg',0.6665,"Antonia Valladares, Hochzeitsfotografin aus München, mit ihrer Kamera"],
-  ['portfolio/galerie-vietnam-verlobung/portrait-mann-fenster.jpg',1.5004,"Portrait eines Mannes am Fenster – Verlobungsshooting in Vietnam"]
 ];
 
 /* Preise-Seite. Das Toskana-Foto der Hochzeitskachel kommt aus FLOW_A
    und wird auf beiden Seiten verwendet. */
-const PREISE = [
-  ['paar-dirndl-hochzeit-fotografie-muenchen-valladares001.jpg',2.0429,"Brautpaar in Tracht mit Brautstrauß in Schwarzweiß – Hochzeit in Dirndl und Lederhose, Hochzeitsfotografin München"],
-  ['paar-standesamt-regenhochzeit-fotografie-mandlstrasse-valladares.jpg',0.6667,"Brautpaar läuft lachend unter Regenschirmen vom Standesamt in der Mandlstraße – spontane Hochzeit in München"],
-  ['businessfotografie-fotografie-muenchen-valladares001.jpg',1.5004,"Lachende Coachin in ihrem hellen Arbeitsraum – Personal Branding Fotografie München"],
-  ['paar-standesamt-wiese-hochzeit-fotografie-kufstein-valladares.jpg',2.3895,"Brautpaar tanzt lachend auf einer Sommerwiese in Schwarzweiß – Hochzeit am Standesamt Kufstein"],
-  ['paar-standesamt-wiese-hochzeit-fotografie-kufstein-valladares-2.jpg',2.1505,"Brautpaar Hand in Hand auf der Wiese nach der Trauung – Hochzeit am Standesamt Kufstein"]
-];
-
-
 /* ── PORTFOLIO ─────────────────────────────────────────────────────────
    Ab hier alles, was die Portfolio-Seite und die Galerien brauchen.
    Format bleibt [pfad, breite/hoehe, alt].
@@ -210,7 +192,8 @@ const GAL_UMBRIEN = [
 ];
 
 /* Querstrecke Business: die Schauspielportraits. */
-const REEL_KRANZ = [
+const FLOW_SCHAUSPIEL = [
+  ['portfolio/schauspieler-portrait-michael-kranz.jpg',1.5004,"Schauspielerportrait vor farbigem Hintergrund – Portraitfotografie München"],
   ['portfolio/galerie-schauspiel-kranz/schauspielportraits-muenchen-antonia-valladares-michael-kranz001.jpg',0.6667,"Schauspielportrait im Flanellhemd vor heller Wand, draußen – Schauspielerfotografie München"],
   ['portfolio/galerie-schauspiel-kranz/schauspielportraits-muenchen-antonia-valladares-michael-kranz002.jpg',0.6665,"Schauspieler sitzt auf einer Treppe im rostroten Rippshirt – Schauspielerfotografie München"],
   ['portfolio/galerie-schauspiel-kranz/schauspielportraits-muenchen-antonia-valladares-michael-kranz003.jpg',0.6667,"Nahes Schauspielportrait mit Schnauzer vor weißen Kacheln – Schauspielerfotografie München"],
@@ -231,19 +214,34 @@ const REEL_BABYBAUCH = [
   ['portfolio/familie-schwangere-mutter-kind-wildblumen.jpg',0.6663,"Schwangere Mutter und Tochter lachen auf der Wildblumenwiese"],
   ['portfolio/familie-mutter-kind-babybauch-naehe.jpg',1.5004,"Kleines Mädchen küsst den Babybauch ihrer Mutter"],
   ['portfolio/familie-mutter-kind-lachen.jpg',1.5004,"Mutter und Tochter lachen sich auf der Sommerwiese an"],
-  ['portfolio/familie-kind-blume-detail.jpg',0.6665,"Kind hält eine Wildblume in den Händen, Detail"],
   ['portfolio/familie-babyfuesse-detail.jpg',0.6665,"Hände auf dem Babybauch als Detail in Schwarzweiß"],
   ['portfolio/babybauch-detail-verlobungsring.jpg',1.5004,"Hand mit Ring auf dem Spitzenkleid, Detail in Schwarzweiß"]
 ];
 
 /* Flug Familien — alles außer der Querstrecke. */
 const FLOW_FAMILIEN = [
-  ['portfolio/babyfoto-muenchen-familienfotografie.jpg',1.5004,"Schlafendes Neugeborenes ganz nah – Newborn-Fotografie München"],
+  ['portfolio/babyfoto-muenchen-familienfotografie.jpg',1.5,"Ohr und Hand eines Neugeborenen ganz nah – Newborn-Fotografie München"],
   ['portfolio/familie-babyfuesse-detail-farbe.jpg',0.6665,"Hände umfassen den Babybauch im warmen Licht – Babybauchfotografie München"],
   ['portfolio/familie-mutter-kind-wiese.jpg',1.5009,"Mutter hebt ihr Kind auf einer Sommerwiese hoch, Schwarzweiß – Familienfotografie München"],
   ['portfolio/babybauch-portrait-olivenbaum.jpg',0.6663,"Schwangere Frau am Olivenbaum – Babybauchshooting von Antonia Valladares"],
   ['familie-haende-babyfuesse-muenchen.jpg',1.5009,"Elternhände halten winzige Babyfüße – Neugeborenenfotografie München"],
-  ['g_motherchild.jpg',0.6667,"Schwangere Mutter hält ihr Kind auf einer Wildblumenwiese – Familienfotografie München"]
+  ['g_motherchild.jpg',0.6667,"Schwangere Mutter hält ihr Kind auf einer Wildblumenwiese – Familienfotografie München"],
+  ['portfolio/babybauch-gewaechshaus/babybauch-shooting-gewaechshaus-muenchen-antonia-valladares-001.jpg',0.6665,"Schwangere im weißen Leinenhemd vor einer Palme im Gewächshaus – Babybauchshooting München"],
+  ['portfolio/babybauch-gewaechshaus/babybauch-shooting-gewaechshaus-muenchen-antonia-valladares-004.jpg',0.6665,"Schwangere im Gegenlicht zwischen Palmwedeln – Babybauchshooting München"],
+  ['portfolio/babybauch-gewaechshaus/babybauch-shooting-gewaechshaus-muenchen-antonia-valladares-009.jpg',0.6665,"Schwangere schaut lachend auf ihren Babybauch, Schwarzweiß – Babybauchshooting München"],
+  ['portfolio/babybauch-gewaechshaus/babybauch-shooting-gewaechshaus-muenchen-antonia-valladares-002.jpg',1.5003,"Schwangere hält ihren Babybauch, Palmen im Gegenlicht – Babybauchshooting München"],
+  ['portfolio/babybauch-gewaechshaus/babybauch-shooting-gewaechshaus-muenchen-antonia-valladares-007.jpg',0.6665,"Schwangere im Profil mit Hand auf dem Bauch, Schwarzweiß – Babybauchshooting München"],
+  ['portfolio/babybauch-gewaechshaus/babybauch-shooting-gewaechshaus-muenchen-antonia-valladares-010.jpg',0.6665,"Palmenschatten auf dem Babybauch – Babybauchshooting München"],
+  ['portfolio/babybauch-gewaechshaus/babybauch-shooting-gewaechshaus-muenchen-antonia-valladares-003.jpg',1.5003,"Schwangere zwischen zwei Palmen im Gewächshaus – Babybauchshooting München"],
+  ['portfolio/babybauch-gewaechshaus/babybauch-shooting-gewaechshaus-muenchen-antonia-valladares-012.jpg',0.6665,"Babybauch mit Palmenschatten als Detail in Schwarzweiß – Babybauchshooting München"],
+  ['portfolio/babybauch-gewaechshaus/babybauch-shooting-gewaechshaus-muenchen-antonia-valladares-005.jpg',0.6665,"Schwangere lacht unter einem Palmwedel – Babybauchshooting München"],
+  ['portfolio/babybauch-gewaechshaus/babybauch-shooting-gewaechshaus-muenchen-antonia-valladares-011.jpg',1.5003,"Babybauch mit Palmenschatten, Detail – Babybauchshooting München"],
+  ['portfolio/babybauch-gewaechshaus/babybauch-shooting-gewaechshaus-muenchen-antonia-valladares-008.jpg',0.6665,"Schwangere mit Blick über die Schulter im Gewächshaus – Babybauchshooting München"],
+  ['portfolio/babybauch-gewaechshaus/babybauch-shooting-gewaechshaus-muenchen-antonia-valladares-014.jpg',0.6665,"Schwangere im weißen Kleid auf einem Weg zwischen hohen Hecken – Babybauchshooting München"],
+  ['portfolio/babybauch-gewaechshaus/babybauch-shooting-gewaechshaus-muenchen-antonia-valladares-006.jpg',1.5003,"Schwangere lacht, Palmwedel im Vordergrund – Babybauchshooting München"],
+  ['portfolio/babybauch-gewaechshaus/babybauch-shooting-gewaechshaus-muenchen-antonia-valladares-013.jpg',1.5003,"Hände auf dem Babybauch im Gegenlicht, Schwarzweiß – Babybauchshooting München"],
+  ['portfolio/newborn/newborn-fotografie-muenchen-babyfuesse-bett.jpg',1.5003,"Füße eines Neugeborenen auf hellem Leinen – Newborn-Fotografie München"],
+  ['portfolio/newborn/newborn-fotografie-muenchen-elternhaende-babyfuesse-schwarzweiss.jpg',0.6665,"Elternhände halten die Füße des Neugeborenen, Schwarzweiß – Newborn-Fotografie München"],
 ];
 
 /* Flug Business — alles außer der Querstrecke. */
@@ -255,8 +253,6 @@ const FLOW_BUSINESS = [
   ['business-portrait-fotografie-muenchen.jpg',1.5009,"Business-Portrait einer Frau im Tageslicht – Businessfotografin München"],
   ['businessfotografie-fotografie-muenchen-valladares001.jpg',1.5004,"Lachende Coachin in ihrem hellen Arbeitsraum – Personal Branding Fotografie München"],
   ['business-fotografie-steuerkanzlei-muenchen.jpg',1.5009,"Teamfoto einer Steuerkanzlei in München – Businessfotografie Antonia Valladares"],
-  ['portfolio/schauspieler-portrait-michael-kranz.jpg',1.5004,"Schauspielerportrait vor farbigem Hintergrund – Portraitfotografie München"],
-  ['portfolio/editorial-slipdress-cafe.jpg',0.6665,"Frau im Slipdress im Café, editorial – Portraitfotografie München"]
 ];
 
 /* Galerie Kufstein — 36 Fotos, Reihenfolge erzählt den Tag. */
@@ -465,5 +461,43 @@ const GAL_VIETNAM = [
   ['portfolio/galerie-vietnam-verlobung/haende-merci-detail.jpg',4.1841,"Detailaufnahme von Händen – Verlobungsshooting in Vietnam"]
 ];
 
-window.AV_PHOTOS = { REEL, TILES, PORTRAIT, MENU_SHOTS, FLOW_A, FLOW_B, NICHT_STARTSEITE, PREISE,
-  PF_HOCHZEITEN, GAL_UMBRIEN, GAL_KUFSTEIN, GAL_VIETNAM, GAL_BLUTENBURG, GAL_MANDLSTRASSE, REEL_KRANZ, REEL_BABYBAUCH, FLOW_FAMILIEN, FLOW_BUSINESS };
+/* ---------------------------------------------------------------------
+   Durchmischen: Fotos aus demselben Shooting tragen denselben Dateinamen
+   mit fortlaufender Nummer. Die Nummer fällt weg, der Rest ist die
+   Motivgruppe. Danach wird reihum aus der jeweils größten Gruppe
+   genommen, die nicht gerade dran war — so stehen nie zwei fast gleiche
+   Aufnahmen nebeneinander. Zusätzlich wechseln sich hoch und quer ab.
+   Die Galerien der einzelnen Hochzeiten bleiben unberührt, dort erzählt
+   die Reihenfolge die Geschichte.
+   ------------------------------------------------------------------ */
+window.AV_mischen = function (liste) {
+  if (!liste || liste.length < 3) { return liste || []; }
+  var gruppen = {}, namen = [];
+  for (var i = 0; i < liste.length; i++) {
+    var g = liste[i][0].replace(/^.*\//, '').replace(/\.[^.]+$/, '').replace(/[-_]?\d+$/, '');
+    if (!gruppen[g]) { gruppen[g] = []; namen.push(g); }
+    gruppen[g].push(liste[i]);
+  }
+  var aus = [], letzte = '', vorletzte = '', letztQuer = null, offen = liste.length;
+  while (offen > 0) {
+    var beste = null, bestwert = -1e9;
+    for (var k = 0; k < namen.length; k++) {
+      var n = namen[k];
+      if (!gruppen[n].length) { continue; }
+      /* Die Gruppengröße wiegt am schwersten: wer viele Bilder hat, kommt
+         zuerst dran, sonst bleibt am Ende ein Klumpen übrig. */
+      var wert = gruppen[n].length * 1000;
+      if (n === letzte) { wert -= 1e9; }
+      if (n === vorletzte) { wert -= 400; }
+      if (letztQuer !== null && (gruppen[n][0][1] > 1) === letztQuer) { wert -= 60; }
+      if (wert > bestwert) { bestwert = wert; beste = n; }
+    }
+    var e = gruppen[beste].shift();
+    aus.push(e); offen--;
+    vorletzte = letzte; letzte = beste; letztQuer = e[1] > 1;
+  }
+  return aus;
+};
+
+window.AV_PHOTOS = { REEL, TILES, PORTRAIT, MENU_SHOTS, FLOW_A, FLOW_B, NICHT_STARTSEITE,
+  PF_HOCHZEITEN, GAL_UMBRIEN, GAL_KUFSTEIN, GAL_VIETNAM, GAL_BLUTENBURG, GAL_MANDLSTRASSE, REEL_BABYBAUCH, FLOW_SCHAUSPIEL, FLOW_FAMILIEN, FLOW_BUSINESS };

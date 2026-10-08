@@ -54,11 +54,12 @@
    gerade kürzeste Spalte, so bleibt die Erzählreihenfolge ungefähr erhalten.
    Die Höhen kommen aus width/height der Bilder, es springt nichts. Zwischentexte
    teilen das Raster in Kapitel. Ohne Skript bleibt ein ruhiges 2-Spalten-Raster. */
-(function () {
+window.AV_masonry = function (raster) {
   'use strict';
-  var raster = document.querySelector('.gal-raster');
-  if (!raster) { return; }
+  if (!raster || raster.dataset.masonry === 'ja') { return; }
+  raster.dataset.masonry = 'ja';
   var kinder = [].slice.call(raster.children);
+  if (!kinder.length) { return; }
   var nr = 0;
   kinder.forEach(function (k) { if (k.classList.contains('lb-fig')) { k.dataset.nr = nr++; } });
   var mq = window.matchMedia('(min-width: 1000px)');
@@ -100,4 +101,10 @@
   bauen();
   if (mq.addEventListener) { mq.addEventListener('change', bauen); }
   else if (mq.addListener) { mq.addListener(bauen); }
-})();
+};
+
+/* Alle Raster, die beim Laden schon gefüllt im HTML stehen. Raster, die
+   erst per Skript gefüllt werden (Portfolio), rufen AV_masonry selbst. */
+[].forEach.call(document.querySelectorAll('.gal-raster'), function (r) {
+  if (r.children.length) { window.AV_masonry(r); }
+});
