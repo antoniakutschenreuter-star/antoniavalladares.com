@@ -1,0 +1,13 @@
+{
+  "name": "Antonia Valladares",
+  "short_name": "A. Valladares",
+  "lang": "de-DE",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#FBF9F7",
+  "theme_color": "#FBF9F7",
+  "icons": [
+    { "src": "/assets/logo/favicon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "/assets/logo/monogram.png", "sizes": "173x173", "type": "image/png", "purpose": "any" }
+  ]
+}
