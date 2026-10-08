@@ -67,6 +67,13 @@
 .kt-wege { margin-top: clamp(2.2rem, 5vw, 3.2rem); display: flex; flex-wrap: wrap;
   justify-content: center; gap: clamp(1.2rem, 4vw, 3rem); }
 
+/* Breites Foto unter den Kontaktdaten, ohne Beschriftung */
+.kt-band {
+  margin: clamp(1.2rem, 3vw, 2.4rem) auto 0;
+  width: min(1280px, calc(100% - 2 * var(--edge)));
+}
+.kt-band img { display: block; width: 100%; height: auto; aspect-ratio: 1600 / 661; object-fit: cover; }
+
 /* Handy: die lange Mailadresse soll in die Spalte passen, nicht darüber hinaus */
 @media (max-width: 900px) {
   .kt-direkt .link { letter-spacing: .06em; font-size: .86rem; max-width: 100%; overflow-wrap: anywhere; }

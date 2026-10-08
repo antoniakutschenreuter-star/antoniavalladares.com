@@ -97,20 +97,21 @@
      Der Streifen wird einmal aufgebaut und einmal geklont, damit der
      Durchlauf nahtlos wieder von vorn beginnt. */
   var LANES_3 = [
-    { l0: 1,  l1: 24, w0: 13, w1: 20 },
-    { l0: 34, l1: 56, w0: 15, w1: 23 },
-    { l0: 66, l1: 86, w0: 12, w1: 19 }
+    { l0: 1,  l1: 20, w0: 17, w1: 25 },
+    { l0: 33, l1: 52, w0: 19, w1: 28 },
+    { l0: 64, l1: 81, w0: 16, w1: 24 }
   ];
   var LANES_2 = [
-    { l0: 2,  l1: 16, w0: 30, w1: 40 },
-    { l0: 52, l1: 66, w0: 28, w1: 38 }
+    { l0: 2,  l1: 13, w0: 36, w1: 46 },
+    { l0: 50, l1: 61, w0: 34, w1: 44 }
   ];
 
   function Flow(section, list, seed) {
     this.sec   = section;
     this.stage = section.querySelector('.flow-stage');
     this.track = section.querySelector('.flow-track');
-    this.list  = list;
+    /* durchmischt, damit nie zwei fast gleiche Aufnahmen nebeneinander stehen */
+    this.list  = window.AV_mischen ? window.AV_mischen(list) : list;
     this.seed  = seed;
     this.pos   = 0;
     this.band  = 0;
@@ -615,8 +616,22 @@
       else if (e.key === 'Tab') { e.preventDefault(); }
     }
 
+    /* Das Foto liegt auf einer fast bildschirmgroßen Bühne (object-fit:
+       contain). Ein Klick „neben" das Foto trifft deshalb noch die Bühne.
+       Hier wird die tatsächlich sichtbare Bildfläche ausgerechnet; alles
+       außerhalb schließt die Lightbox. */
+    function aufFoto(e) {
+      var nw = img.naturalWidth, nh = img.naturalHeight;
+      if (!nw || !nh) { return true; }
+      var r = img.getBoundingClientRect();
+      var k = Math.min(r.width / nw, r.height / nh);
+      var w = nw * k, h = nh * k;
+      var l = r.left + (r.width - w) / 2, t = r.top + (r.height - h) / 2;
+      return e.clientX >= l && e.clientX <= l + w && e.clientY >= t && e.clientY <= t + h;
+    }
     ov.addEventListener('click', function (e) {
-      if (!wrap.contains(e.target)) { close(); }
+      if (e.target === img && aufFoto(e)) { return; }
+      close();
     });
 
     document.addEventListener('click', function (e) {

@@ -97,15 +97,20 @@ GALERIEN = [
   liste='GAL_MANDLSTRASSE',
   wort='Mandlstraße',
   ort='Standesamt Mandlstraße, München',
-  h2='Standesamt, erster Schnee und eine alte U-Bahn',
+  h2='Standesamt, U-Bahn und E-Kutsche durch München',
   titel='Hochzeit Standesamt Mandlstraße München — Bilder',
-  meta='Standesamtliche Trauung in der Mandlstraße in München: erster Schnee, U-Bahnhof und Großmarkthalle. 65 Bilder von Antonia Valladares.',
-  satz='Keine aufgesetzten Hochzeitsfotos, das war den beiden wichtig. Also ging es nach der '
-       'Trauung in der Mandlstraße nicht im schicken Auto weiter, sondern durch den ersten '
-       'Schnee des Jahres und hinunter zur U-Bahn. Zu unserem Glück fuhr auch noch eine alte '
-       'Bahn vorbei; das Foto davor ist bis heute eines meiner Lieblingsbilder. Danach ein '
-       'Abstecher zur Großmarkthalle, wo die beiden sich als freiwillige Helfer der Tafel '
-       'kennengelernt haben. Die Ehrenschürzen lagen sofort bereit.',
+  meta='Standesamtliche Hochzeit in der Mandlstraße in München: First Look, Weg zur U-Bahn, Großmarkthalle und E-Kutsche. 65 Bilder von Antonia Valladares.',
+  satz='Keine aufgesetzten Hochzeitsfotos, das war den beiden wichtig. Da bin ich sofort dabei! '
+       'Nachdem ich die beiden mit ihrem süßen Nachwuchs im Café in München kennengelernt habe, '
+       'haben wir den Hochzeitstag fotografisch mit einem First Look vor dem Standesamt in der '
+       'Mandlstraße begonnen. Nach der Trauung in der Mandlstraße liefen wir gemütlich hinunter '
+       'zur U-Bahn, auf dem Weg haben wir wunderschöne Fotos gemacht. Zu unserem Glück fuhr unten '
+       'auch noch eine alte Bahn vorbei; das Foto davor ist bis heute eines meiner Lieblingsbilder. '
+       'Vor dem Mittagessen in der Großmarkthalle haben wir einen Abstecher zur Tafel gemacht, die '
+       'anderen Helfer begrüßten sie freudig mit den Ehrenschürzen - ist das nicht eine wundervolle '
+       'Geschichte?\n\n'
+       'Nach dem Hochzeitsschmaus in der Großmarkthalle ging\'s dann in der E-Kutsche durch München '
+       'weiter, um den Tag noch gebührend zu zelebrieren...',
   mehr=[
    ('Standesamt Mandlstraße in München',
     ['Ihr plant eure Trauung im Standesamt in der Mandlstraße? Als Hochzeitsfotografin in '
@@ -256,6 +261,8 @@ def bau(g, js, teile):
         mehr = '\n  <div class="gal-mehr">\n' + '\n'.join(teile_mehr) + '\n  </div>\n'
 
     fakten = ''.join(f'<li class="label">{x}</li>' for x in g['fakten'])
+    # Ein Absatz je Leerzeile im Text (zwei Zeilenumbrüche hintereinander)
+    saetze = '\n    '.join(f'<p class="gal-satz">{a}</p>' for a in g['satz'].split('\n\n'))
 
     html = f'''<!DOCTYPE html>
 <html lang="de" data-font="a">
@@ -321,7 +328,7 @@ def bau(g, js, teile):
   <div class="gal-kopf">
     <p class="label gal-ort">{g['ort']}</p>
     <h2 class="gal-h2">{g['h2']}</h2>
-    <p class="gal-satz">{g['satz']}</p>
+    {saetze}
     <ul class="gal-fakten">{fakten}</ul>
   </div>
 
