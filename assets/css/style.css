@@ -42,12 +42,12 @@
    10 Pixel — das liest niemand mehr. Dort bleiben sie in voller Größe
    stehen und die Sperrung wird etwas enger, damit sie trotzdem ruhig
    wirken. */
-@media (max-width: 759px) {
+@media (max-width: 900px), (hover: none) and (pointer: coarse) {
   :root {
-    --t-label: .86rem;
+    --t-label: 1rem;
     --ui-scale: 1;
-    --ui-track: .2em;
-    --t-body: 1.02rem;
+    --ui-track: .18em;
+    --t-body: 1.1rem;
   }
 }
 
@@ -65,8 +65,10 @@ body {
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
   overflow-x: clip;
 }
+html { overflow-x: hidden; overflow-x: clip; }
 
 img { display: block; max-width: 100%; height: auto; }
 a   { color: inherit; text-decoration: none; }
@@ -347,8 +349,8 @@ body.intro-done main, body.intro-done .site-header, body.intro-done .site-footer
 .intro-link .link { margin-left: auto; }
 
 /* ── 10 CTA ───────────────────────────────────────────────────────── */
-.cta-section { padding: clamp(3.4rem, 7vw, 6.4rem) var(--edge); text-align: center; }
-.cta-section .display { margin-bottom: clamp(1.4rem, 2.4vw, 2.2rem); }
+.cta-section { padding: clamp(2.2rem, 4vw, 3.6rem) var(--edge) clamp(1.8rem, 3.2vw, 3rem); text-align: center; }
+.cta-section .display { margin-bottom: clamp(1rem, 1.8vw, 1.6rem); }
 .cta-section p { margin: 0; }
 /* Die Zeile führt zur Buchung, sieht aber nicht nach Link aus */
 .cta-still { color: inherit; text-decoration: none; }
@@ -356,7 +358,7 @@ body.intro-done main, body.intro-done .site-header, body.intro-done .site-footer
 
 /* ── 11 KACHELN ───────────────────────────────────────────────────── */
 .tiles-section {
-  padding: 0 var(--edge) clamp(4rem, 8vw, 7rem);
+  padding: 0 var(--edge) clamp(2.4rem, 4vw, 3.6rem);
   display: flex; flex-direction: column; align-items: center;
   gap: clamp(1.2rem, 2.4vw, 2rem);
 }
@@ -371,7 +373,7 @@ body.intro-done main, body.intro-done .site-header, body.intro-done .site-footer
 
 /* ── 12 FUSSZEILE ─────────────────────────────────────────────────── */
 .site-footer {
-  padding: clamp(3rem, 7vw, 7rem) var(--edge) clamp(2rem, 4vw, 3.5rem);
+  padding: clamp(2rem, 3.6vw, 3.4rem) var(--edge) clamp(1.2rem, 2.2vw, 2rem);
   text-align: center; border-top: 1px solid var(--hairline);
 }
 .footer-mark { display: inline-block; }
@@ -379,11 +381,12 @@ img.monogram { width: clamp(52px, 7vw, 88px); }
 .footer-row {
   display: flex; align-items: center; justify-content: center;
   gap: clamp(1.4rem, 5vw, 4.5rem); flex-wrap: wrap;
-  margin-top: clamp(1.6rem, 3vw, 2.6rem);
+  margin-top: clamp(1.2rem, 2.2vw, 2rem);
 }
 .footer-row a { transition: color .25s var(--ease); }
 .footer-row a:hover { color: var(--accent); }
-.footer-legal { margin-top: clamp(1.6rem, 3vw, 2.4rem); color: var(--ink-soft); }
+@media (max-width: 900px) { .site-footer { padding-bottom: 5rem; } }
+.footer-legal { margin-top: clamp(1rem, 2vw, 1.6rem); color: var(--ink-soft); }
 .footer-legal a:hover { color: var(--accent); }
 
 /* ── 13 BOOKING-LEISTE ────────────────────────────────────────────── */
@@ -531,7 +534,7 @@ img.monogram { width: clamp(52px, 7vw, 88px); }
   display: block; width: 88vw; height: 88vh;
   object-fit: contain;
 }
-@media (max-width: 759px) {
+@media (max-width: 900px) {
   /* Auf dem Handy zählt jeder Pixel Breite */
   .lb-img-wrap, .lb-img-wrap img { width: 96vw; height: 84vh; }
 }
@@ -594,6 +597,8 @@ body.show-font-switch .font-switch { display: flex; }
 
   .overlay-foot { grid-template-columns: 1fr; justify-items: center; gap: 1rem; text-align: center; }
   .overlay-foot .mail, .overlay-foot .tel { justify-self: center; }
+  .overlay-foot { min-width: 0; max-width: 100%; }
+  .overlay-foot .mail { letter-spacing: .05em; font-size: .86rem; max-width: 100%; overflow-wrap: anywhere; }
   .bookings-bar { padding-top: 3.4rem; }
   .bookings-bar p { letter-spacing: .16em; line-height: 2.1; }
 }
@@ -836,7 +841,7 @@ body:has(.preis-hero) .site-header::before { display: none; }
    ===================================================================== */
 .auftakt {
   position: relative;
-  padding: clamp(7rem, 17vh, 12rem) var(--edge) clamp(2.5rem, 6vw, 4.5rem);
+  padding: clamp(7rem, 17vh, 12rem) var(--edge) clamp(1.5rem, 3.5vw, 2.8rem);
   text-align: center;
   isolation: isolate;
 }
@@ -874,6 +879,8 @@ body:has(.preis-hero) .site-header::before { display: none; }
 }
 .ecke--links  { left: var(--edge);  top: 46vh; }
 .ecke--rechts { right: var(--edge); top: 46vh; text-align: right; }
+/* Unter 1200px würden die Eckmarken in die Kontaktzeile ragen */
+@media (max-width: 1199px) { .ecke { display: none; } }
 
 @media (max-width: 759px) {
   /* Auf dem Handy ist kein Platz für überlappende Fotos: sie legen sich

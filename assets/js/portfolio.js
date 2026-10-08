@@ -188,7 +188,7 @@
   };
 
   var LEADS = {
-    hochzeiten: 'Neun ausgewählte Hochzeiten, von der Blitzhochzeit im Standesamt bis zu zwei Tagen in den Weinbergen Umbriens. Wählt eine Hochzeit aus.',
+    hochzeiten: 'Neun ausgewählte Hochzeiten, vom Standesamt in der Mandlstraße bis zu zwei Tagen in den Weinbergen Umbriens. Wählt eine Hochzeit aus.',
     familien:   'Babybauch, Neugeborene und Familien, fotografiert in München, Donauwörth und dort, wo ihr zu Hause seid.',
     business:   'Business-Portraits und Teamfotos aus München, für Website, LinkedIn und Bewerbung.',
     schauspiel: 'Schauspielportraits für die Kartei: mehrere Typen an einem Nachmittag, vorher in Ruhe besprochen.'

@@ -9,7 +9,7 @@
 }
 .regel {
   display: block; width: 34px; height: 1px; background: var(--accent);
-  margin: clamp(2.6rem, 6vw, 4rem) auto 0;
+  margin: clamp(1.6rem, 3.4vw, 2.4rem) auto 0;
 }
 
 .kt-form-teil {
@@ -66,3 +66,8 @@
 /* Ohne Formular: nur die beiden Wege, mittig. */
 .kt-wege { margin-top: clamp(2.2rem, 5vw, 3.2rem); display: flex; flex-wrap: wrap;
   justify-content: center; gap: clamp(1.2rem, 4vw, 3rem); }
+
+/* Handy: die lange Mailadresse soll in die Spalte passen, nicht darüber hinaus */
+@media (max-width: 900px) {
+  .kt-direkt .link { letter-spacing: .06em; font-size: .86rem; max-width: 100%; overflow-wrap: anywhere; }
+}
