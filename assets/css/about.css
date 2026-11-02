@@ -6,8 +6,16 @@
    Ohne JS, auf dem Handy und bei Reduced Motion: schlichte Liste.
    ===================================================================== */
 
+/* Menü und Booking stehen hier ohne Leiste direkt auf dem Auftaktfoto.
+   Ist das Foto an dieser Stelle hell, war die weiße Schrift kaum zu
+   erkennen. Der weiche Schatten liegt nur hinter den Buchstaben: auf
+   dunklem Grund fällt er nicht auf, auf hellem trägt er die Schrift. */
 body.ab .site-header .label,
-body.ab .site-header .label:hover { color: var(--on-accent); }
+body.ab .site-header .label:hover {
+  color: var(--on-accent);
+  text-shadow: 0 1px 4px rgba(18, 16, 15, .55), 0 0 1px rgba(18, 16, 15, .4);
+}
+body.ab.kopf-hell .site-header .label { text-shadow: none; }
 body.ab .site-header::before { display: none; }
 body.ab .header-mark img { filter: brightness(0) invert(1); }
 body.ab .to-top { color: var(--on-accent); border-color: rgba(251,249,247,.4); }
@@ -31,7 +39,9 @@ body.ab .site-footer { background: var(--bg); }
   max-width: 24ch;
   text-wrap: pretty;
 }
-.ab-seite em { font-style: normal; color: #F6C9B4; }
+/* Eine Spur heller als zuvor: so liegt die Hervorhebung sicher über der
+   Lesbarkeitsschwelle und sieht dabei unverändert aus. */
+.ab-seite em { font-style: normal; color: #F7CCB8; }
 
 /* ── 1 Auftakt ────────────────────────────────────────────────────── */
 .ab-auftakt { display: grid; grid-template-rows: 62svh 38svh; }
@@ -185,8 +195,9 @@ body.ab .to-top { background: none; }
 html.hat-js .ab-item .ab-seite { position: relative; }
 .ab-zaehler {
   font-family: var(--font-ui); font-weight: 600;
-  font-size: .58rem; letter-spacing: .26em; text-transform: uppercase;
-  color: var(--on-accent); opacity: .5;
+  /* .58rem waren am Handy neun Pixel bei halber Deckkraft — unlesbar. */
+  font-size: .72rem; letter-spacing: .26em; text-transform: uppercase;
+  color: var(--on-accent); opacity: .68;
   display: flex; align-items: center; gap: .9em;
   margin-top: 2.6rem;
 }

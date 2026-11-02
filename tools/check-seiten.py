@@ -27,10 +27,10 @@ for f in seiten:
     sag = lambda t: fehler.append(f'{f}: {t}')
 
     for css in PFLICHT_CSS:
-        if f'href="{css}"' not in h:
+        if f'href="{css}"' not in h and f'href="{css}?v=' not in h:
             sag(f'Stylesheet fehlt — {css}')
     for js in PFLICHT_JS:
-        if f'src="{js}"' not in h:
+        if f'src="{js}"' not in h and f'src="{js}?v=' not in h:
             sag(f'Skript fehlt — {js}')
     for teil in PFLICHT_KOPF:
         if teil not in h:

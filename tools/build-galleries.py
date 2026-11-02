@@ -29,14 +29,23 @@ GALERIEN = [
   liste='GAL_UMBRIEN',
   wort='Umbrien',
   ort='Umbrien, Italien',
-  h2='Zwei Tage in den Hügeln Umbriens',
+  h2='Zwei Tage in den H\u00fcgeln Umbriens',
   titel='Hochzeit in Umbrien — freie Trauung auf einem Weingut',
-  meta='Zweitägige Hochzeit in Umbrien: Trauung mit dem Bürgermeister im Bergdorf, Alfa Romeo Spider, lange Tafel über den Weinbergen. Fotografiert von Antonia Valladares.',
-  satz='Eine Autostunde hinter der toskanischen Grenze liegt ein Bergdorf, in dem der '
-       'Bürgermeister persönlich traut und die Nachbarin vom Fenster aus zusieht. Zwei Tage, '
-       'ein weißer Alfa Romeo Spider über Kopfsteinpflaster, eine Tafel, die sich bis zum '
-       'Talrand zieht, und Kinder, die zwischen den Olivenbäumen barfuß laufen. Umbrien macht '
-       'aus einer Hochzeit ein langes Wochenende, an das sich alle erinnern.',
+  meta='Mehrt\u00e4gige Hochzeit in Umbrien: Pre-Party am Haus, Trauung mit Blick auf die Weinberge, Fest auf dem Weingut bis in die Nacht. Fotografiert von Antonia Valladares.',
+  satz=(
+   'Was f\u00fcr ein rauschendes, mehrt\u00e4giges Fest! Das Paar wurde in Italien auf mich '
+   'aufmerksam und hat mich prompt gefragt, ob ich die Hochzeit fotografieren m\u00f6chte. '
+   '\u00dcberm\u00e4\u00dfig gestellte, klassische Hochzeitsfotos kamen f\u00fcr die beiden nicht in Frage. Als '
+   'sie meinen Stil sahen und ich ihnen versichert habe, dass sie mich an ihrem Hochzeitstag '
+   'kaum bemerken werden, haben sie mich direkt engagiert.'
+   '\n\n'
+   'Begonnen hat die Feier in ihrem h\u00fcbschen, frisch renovierten Haus in Umbrien, wo ich die '
+   'Pre-Party begleiten und Fotos vor einem Luftballonbogen f\u00fcrs G\u00e4stebuch machen durfte. An '
+   'Tag zwei ging es weiter: Niemand Geringerer als Frans Timmermans und der B\u00fcrgermeister '
+   'des Dorfes haben die beiden getraut. Nach der wundersch\u00f6nen Trauung mit Blick auf die '
+   'Weinberge im urigen D\u00f6rfchen ging es weiter aufs Weingut, wo vom Feinsten gespeist wurde '
+   'und das rauschende Fest bis in die Nacht ging.'
+  ),
   fakten=['Tenuta Vitalonga', 'Freie Trauung &amp; Standesamt', '57 Bilder'],
   hero=[10, 22, 30]),
  dict(
@@ -44,14 +53,25 @@ GALERIEN = [
   liste='REEL',
   wort='Tegernsee',
   ort='Tegernsee, Oberbayern',
-  h2='Wunderschöne Regenhochzeit am See',
-  titel='Regenhochzeit am Tegernsee — Standesamt mit Seeblick',
-  meta='Regenhochzeit am Tegernsee: Standesamt, First Look im Regen, Feier mit Seeblick. Hochzeitsfotografin Antonia Valladares.',
-  satz='Regen macht eine Hochzeit nicht kleiner, er macht sie weicher. Das Licht wird ruhig, '
-       'die Farben werden satt, und unter zwei schwarzen Schirmen entsteht eine Nähe, die an '
-       'einem strahlenden Tag so nie zustande käme. Wer sich vorher auf einheitliche Schirme '
-       'einigt, bekommt statt eines Notfalls ein Bildmotiv.',
-  fakten=['Tegernsee', 'Standesamt &amp; Feier', '12 Bilder'],
+  h2='Standesamt am See, Balkonfotos und Tafel im Aran',
+  titel='Regenhochzeit am Tegernsee — Standesamt im Rathaus',
+  meta='Standesamt Tegernsee im Rathaus direkt am See: Trauung bei Regen, Fotos auf dem Balkon mit Seeblick, Feier im Aran nebenan. Hochzeitsfotografin Antonia Valladares.',
+  satz=(
+   'Das Standesamt am Tegernsee sitzt im Rathaus, direkt am Wasser. Ein Haus, das auch dann '
+   'eine Kulisse hergibt, wenn der See grau ist und es den ganzen Tag durchregnet — und genau '
+   'so war dieser Tag.'
+   '\n\n'
+   'Nach der Trauung ging es hinaus auf den Balkon des Rathauses, mit dem See im Rücken. Von '
+   'dort waren es nur ein paar Schritte ins Aran nebenan, wo die lange Tafel schon auf die '
+   'Hochzeitsgesellschaft gewartet hat.'
+   '\n\n'
+   'Mein Tipp für jede Hochzeit: Schaut euch ein paar Tage vorher den Wetterbericht an und '
+   'legt euch vorsorglich einheitliche Schirme zurecht. Ob schwarz, durchsichtig oder bunt, '
+   'ist ganz eure Sache — ich bin ein großer Fan von schlichten, eleganten schwarzen Schirmen. '
+   'Eine Gesellschaft mit gleichen Schirmen wirkt auf den Bildern sofort ruhig, und aus dem '
+   'Regen wird ein Motiv.'
+  ),
+  fakten=['Rathaus Tegernsee', 'Standesamt &amp; Feier', '12 Bilder'],
   hero=[5, 9, 0]),
 
  dict(
@@ -59,13 +79,23 @@ GALERIEN = [
   liste='GAL_BLUTENBURG',
   wort='Blutenburg',
   ort='Schloss Blutenburg, München',
-  h2='Eine freie Trauung im Schlosshof',
+  h2='Schloss Blutenburg, Paartanz und Feier bis in die Nacht',
   titel='Hochzeit Schloss Blutenburg München — freie Trauung',
-  meta='Freie Trauung auf Schloss Blutenburg in München: Sektempfang im Innenhof unter der alten Linde, Fest im Festsaal. 73 Bilder von Antonia Valladares.',
-  satz='Gibt es etwas Schöneres, als von jemandem getraut zu werden, der die eigene '
-       'Geschichte jahrelang hautnah miterlebt hat? Der sie noch einmal aus einer ganz '
-       'eigenen Perspektive erzählen kann? Genau so war diese freie Trauung im Schloss '
-       'Blutenburg in München.',
+  meta='Freie Trauung im Schloss Blutenburg in M\u00fcnchen: Zeremonie im Hof, Paarfotos am Schloss, Paartanz und Feier bis in die Nacht. Fotografiert von Antonia Valladares.',
+  satz=(
+   'Einfach eine richtige Traumhochzeit in M\u00fcnchen. F\u00fcr mich war es super besonders, das Paar '
+   'schon bei der ersten, standesamtlichen Hochzeit begleitet zu haben: eine wundersch\u00f6ne, '
+   'intime Winterhochzeit im <a href="/hochzeit-standesamt-mandlstrasse.html">Standesamt in der '
+   'Mandlstra\u00dfe</a> in M\u00fcnchen, und dann noch die zweite im Schloss Blutenburg. Kennengelernt '
+   'haben wir uns ein Jahr vorher, als ich die beiden auf einen Kaffee zu Hause besucht habe '
+   'und direkt einen ersten Eindruck vom Stil der beiden bekommen konnte. Eins war klar: sie '
+   'mochten Schnappsch\u00fcsse, ungestellte, authentische Candid-Fotos, dazu ein paar sanft '
+   'angeleitete im Editorial Style.'
+   '\n\n'
+   'Bei den Paarfotos waren wir dann schon ein richtig eingespieltes Team, das hat einfach nur '
+   'Spa\u00df gemacht. Ich habe die ganze Feier bis in die Nacht begleitet, so sind auch noch '
+   'sch\u00f6ne Aufnahmen von der Party und vom Paartanz entstanden.'
+  ),
   zwischen={
    27: ['Nach dieser berührenden freien Trauung ging es zum Sektempfang im Innenhof unter '
         'der alten Linde, wo alle Gäste mit einem fantastischen flying buffet verköstigt wurden.',
@@ -138,15 +168,57 @@ GALERIEN = [
   liste='GAL_KUFSTEIN',
   wort='Kufstein',
   ort='Kufstein, Tirol',
-  h2='Standesamt Kufstein und ein feines Gasthaus',
+  h2='Standesamt Kufstein und Feier im Unterwirt',
   titel='Hochzeit am Standesamt Kufstein — Rathaus in Tirol',
-  meta='Standesamtliche Hochzeit in Kufstein: Einzug mit dem Vater durch das gewölbte Foyer, Trauung im Rathaus, Feier im Gasthaus. Fotografiert von Antonia Valladares.',
-  satz='Das Rathaus in Kufstein hat ein Gewölbe, in dem jeder Schritt hallt, und ein Portal, '
-       'durch das an diesem Morgen genau das richtige Licht fiel. Kleine Hochzeit, enger Kreis, '
-       'blaue Hortensien im Strauß — und danach Weißwein im Gasthaus. Nicht jede Trauung '
-       'braucht dreihundert Gäste, um groß zu sein.',
+  meta='Intime standesamtliche Trauung in Kufstein: Gew\u00f6lbe im Rathaus, Paarshooting vor dem Bergpanorama, Feier im Lokal Unterwirt. Fotografiert von Antonia Valladares.',
+  satz=(
+   'Das Paar hat sich f\u00fcr eine intime standesamtliche Trauung in Kufstein entschieden, die '
+   'feiner nicht h\u00e4tte sein k\u00f6nnen. Das h\u00fcbsche Standesamt Kufstein kannte ich schon aus dem '
+   'Vorjahr, deshalb war ich umso erfreuter, wieder in diesem sch\u00f6nen Gew\u00f6lbe fotografieren '
+   'zu d\u00fcrfen. Gefeiert wurde diesmal im Lokal Unterwirt.'
+   '\n\n'
+   'Das wundersch\u00f6ne Bergpanorama und die ungem\u00e4hte Wiese waren der perfekte Ort f\u00fcr das '
+   'Paarshooting. Der Sektempfang war im Garten des sch\u00f6nen Lokals, weiter ging es mit den '
+   'feinen Speisen, bis der sch\u00f6ne Tag feierlich seinen Ausklang fand. Die '
+   '<a href="/hochzeit-freie-trauung-bad-toelz.html">freie Trauung der beiden in Bad T\u00f6lz</a> '
+   'durfte ich sp\u00e4ter auch begleiten.'
+  ),
   fakten=['Rathaus Kufstein', 'Standesamt &amp; Gasthaus', '36 Bilder'],
   hero=[0, 12, 10]),
+ dict(
+  datei='hochzeit-freie-trauung-bad-toelz.html',
+  liste='GAL_BAD_TOELZ',
+  wort='Bad T\u00f6lz',
+  ort='Kurhaus Bad T\u00f6lz, Oberbayern',
+  h2='Getting Ready, First Look und freie Trauung im Kurhaus',
+  titel='Freie Trauung im Kurhaus Bad T\u00f6lz \u2014 Hochzeitsbilder',
+  meta='Freie Trauung im Kurhaus Bad T\u00f6lz: Getting Ready, First Look in der Pergola, Handfasting, '
+       'Tortenanschnitt und Party. 91 Bilder von Antonia Valladares.',
+  satz=(
+   'Die standesamtliche Trauung durfte ich schon '
+   '<a href="/hochzeit-standesamt-kufstein.html">in Kufstein</a> begleiten, deshalb waren wir '
+   'bei der freien Trauung in Bad T\u00f6lz schon richtig vertraut. F\u00fcr mich begann der Tag beim '
+   'Getting Ready. Ich mag es richtig gern, das Getting Ready f\u00fcr die Paare zu fotografieren: '
+   'Es ist der eine Moment des Tages, den der jeweils andere nicht miterlebt. Auf den Bildern '
+   'kann jeder hinterher doch noch sehen, wie es beim anderen abgelaufen ist.'
+   '\n\n'
+   'Dann ging es weiter mit dem First Look, sehr klassisch in der wundersch\u00f6nen Pergola des '
+   'Kurhauses in Bad T\u00f6lz. Die freie Trauung war unfassbar feierlich, mit dem sch\u00f6nen Ritual '
+   'des Handfastings: Den beiden wurde ein Band um die H\u00e4nde gelegt und mit einem Knoten der '
+   'Bund noch einmal symbolisch besiegelt.'
+   '\n\n'
+   'Ein kleines Paarshooting, Familienfotos, Tortenanschnitt. Der Tag lief so wundersch\u00f6n, '
+   'entspannt und unaufgeregt ab und war doch so feierlich. Und bei der Party hat DJane Anna '
+   'Geilano aus M\u00fcnchen eingeheizt. Ich liebe die Fotos vom Dancefloor.'
+  ),
+  mehr=[
+   ('Freie Trauung im Kurhaus Bad T\u00f6lz',
+    ['Ihr plant eure freie Trauung im Kurhaus in Bad T\u00f6lz oder im Oberland? Als '
+     'Hochzeitsfotografin aus M\u00fcnchen bin ich gern den ganzen Tag dabei, vom Getting Ready '
+     'bis zum Dancefloor. Schreibt mir einfach.']),
+  ],
+  fakten=['Kurhaus Bad T\u00f6lz', 'Oberbayern', 'Freie Trauung', '91 Bilder'],
+  hero=[6, 37, 51]),
 ]
 
 # Reihenfolge der Kacheln auf der Portfolio-Seite, für „weiter zur nächsten"
@@ -155,6 +227,9 @@ NAV = [
  ('/hochzeit-standesamt-kufstein.html', 'Kufstein', 'portfolio/cover/standesamt-kufstein-gasthaus-valladares.jpg'),
  ('/hochzeit-tegernsee-regenhochzeit.html', 'Tegernsee', 'portfolio/cover/tegernsee-standesamt-regenhochzeit-paar-mit-regenschirmen-valladares.jpg'),
  ('/verlobungsshooting-vietnam.html', 'Vietnam', 'portfolio/cover/vietnam-ho-chi-minh-verlobungsshooting-elopement-bw-valladares.jpg'),
+ ('/hochzeit-schloss-blutenburg.html', 'Blutenburg', 'portfolio/cover/freie-trauung-schloss-blutenburg-hochzeitspaar-valladares.jpg'),
+ ('/hochzeit-standesamt-mandlstrasse.html', 'Mandlstraße', 'portfolio/cover/standesamt-mandlstrasse-hochzeitspaar-fenster-schwarzweiss-valladares.jpg'),
+ ('/hochzeit-freie-trauung-bad-toelz.html', 'Bad Tölz', 'portfolio/cover/freie-trauung-bad-toelz-hochzeitspaar-braut-getragen.jpg'),
 ]
 
 
@@ -167,9 +242,43 @@ def lies_liste(js, name):
     return [(p, float(r), a.replace('\\"', '"')) for p, r, a in treffer]
 
 
-def masse(pfad):
-    with Image.open('assets/img/' + pfad) as im:
-        return im.size
+_MASSE_AUS_HTML = None
+_SEITE = None
+
+
+def _masse_aus_html():
+    """Breite und Höhe, die schon einmal ins HTML geschrieben wurden.
+
+    Die Originalfotos liegen nicht immer vollständig vor. Dann werden die
+    Werte aus den bestehenden Seiten übernommen, damit sich am Seitenbau
+    nichts verschiebt."""
+    global _MASSE_AUS_HTML
+    if _MASSE_AUS_HTML is None:
+        _MASSE_AUS_HTML = {}
+        import glob as _g
+        # Die Seite, die gerade gebaut wird, zuerst: ihre eigenen Werte
+        # gelten, sonst erbt sie Maße aus einer anderen Seite.
+        dateien = ([_SEITE] if _SEITE and os.path.exists(_SEITE) else []) + \
+                  [d for d in sorted(_g.glob('*.html')) if d != _SEITE]
+        for datei in dateien:
+            for m in re.finditer(r'<img src="assets/img/([^"]+)"[^>]*?width="(\d+)" height="(\d+)"',
+                                 open(datei, encoding='utf-8').read()):
+                _MASSE_AUS_HTML.setdefault(m.group(1), (int(m.group(2)), int(m.group(3))))
+    return _MASSE_AUS_HTML
+
+
+def masse(pfad, ratio=None):
+    try:
+        with Image.open('assets/img/' + pfad) as im:
+            return im.size
+    except (FileNotFoundError, OSError):
+        pass
+    bekannt = _masse_aus_html().get(pfad)
+    if bekannt:
+        return bekannt
+    if ratio:
+        return (2000, round(2000 / ratio)) if ratio >= 1 else (round(2000 * ratio), 2000)
+    raise SystemExit('Bilddatei fehlt und keine Maße bekannt: assets/img/' + pfad)
 
 
 def picture(pfad, alt, sizes, klasse='', lazy=True, w=None, h=None):
@@ -185,6 +294,8 @@ def picture(pfad, alt, sizes, klasse='', lazy=True, w=None, h=None):
 
 
 def bau(g, js, teile):
+    global _MASSE_AUS_HTML, _SEITE
+    _SEITE, _MASSE_AUS_HTML = g['datei'], None
     fotos = lies_liste(js, g['liste'])
     if not fotos:
         raise SystemExit('Liste leer: ' + g['liste'])
@@ -195,7 +306,7 @@ def bau(g, js, teile):
     hero_bilder = []
     for i, (idx, pos, klasse) in enumerate([(h[0], 'b1', 'hinten'), (h[1], 'b2', 'vorne'), (h[2], 'b3', 'hinten')]):
         f = fotos[idx % len(fotos)]
-        w, hh = masse(f[0])
+        w, hh = masse(f[0], f[1])
         hero_bilder.append(
             f'    <figure class="gal-hero-bild gal-hero-bild--{klasse} gal-hero-{pos}" data-tiefe="{0.12 + i * 0.06:.2f}">'
             + picture(f[0], f[2], '(max-width: 900px) 38vw, min(22vw, 330px)', lazy=(i > 0), w=w, h=hh)
@@ -208,7 +319,7 @@ def bau(g, js, teile):
         if nr_f in zwischen:
             absaetze = ''.join(f'<p>{a}</p>' for a in zwischen[nr_f])
             raster.append(f'    <div class="gal-einschub">{absaetze}</div>')
-        w, hh = masse(pfad)
+        w, hh = masse(pfad, ratio)
         klasse = 'gal-fig gal-fig--quer' if ratio > 1.1 else 'gal-fig'
         sizes = ('(max-width: 900px) 94vw, min(46vw, 600px)' if ratio <= 1.1
                  else '(max-width: 900px) 94vw, min(92vw, 1216px)')
@@ -219,7 +330,10 @@ def bau(g, js, teile):
     # ── Weiter zur nächsten Hochzeit: hält Besucher auf der Seite und
     #    verteilt Linkkraft zwischen den Galerien
     weiter = []
-    for url, name, cover in NAV:
+    # Ab der eigenen Position weiterzählen: so zeigt jede Galerie andere
+    # Nachbarn statt immer der ersten drei aus der Liste.
+    start = next((i for i, n in enumerate(NAV) if n[0].endswith(g['datei'])), -1) + 1
+    for url, name, cover in NAV[start:] + NAV[:start]:
         if url.endswith(g['datei']):
             continue
         w, hh = masse(cover)
@@ -238,7 +352,7 @@ def bau(g, js, teile):
              "@id": f"https://antoniavalladares.com/{g['datei']}#gallery",
              "url": f"https://antoniavalladares.com/{g['datei']}",
              "name": g['titel'],
-             "description": re.sub(r'\s+', ' ', g['satz']),
+             "description": re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', '', g['satz'])),
              "inLanguage": "de-DE",
              "contentLocation": {"@type": "Place", "name": g['ort']},
              "numberOfItems": len(fotos),
@@ -299,9 +413,9 @@ def bau(g, js, teile):
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/cormorant-garamond-latin-300-normal.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/jost-latin-300-normal.woff2" crossorigin>
 
-<link rel="stylesheet" href="assets/css/fonts.css">
-<link rel="stylesheet" href="assets/css/style.css">
-<link rel="stylesheet" href="assets/css/portfolio.css">
+<link rel="stylesheet" href="assets/css/fonts.css?v=20261102a">
+<link rel="stylesheet" href="assets/css/style.css?v=20261102a">
+<link rel="stylesheet" href="assets/css/portfolio.css?v=20261102a">
 
 <script type="application/ld+json">
 {json.dumps(ld, ensure_ascii=False, indent=1)}
@@ -356,9 +470,9 @@ def bau(g, js, teile):
 {teile['menu']}<button class="to-top" type="button" aria-label="Zurück nach oben"><span aria-hidden="true">&uarr;</span></button>
 <div class="grain" aria-hidden="true"></div>
 
-<script src="assets/js/photos.js" defer></script>
-<script src="assets/js/main.js" defer></script>
-<script src="assets/js/galerie.js" defer></script>
+<script src="assets/js/photos.js?v=20261102a" defer></script>
+<script src="assets/js/main.js?v=20261102a" defer></script>
+<script src="assets/js/galerie.js?v=20261102a" defer></script>
 </body>
 </html>
 '''

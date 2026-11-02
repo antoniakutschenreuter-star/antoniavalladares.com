@@ -56,6 +56,77 @@
     if (el.classList.contains(name) !== on) { el.classList.toggle(name, on); }
   }
 
+  /* ── 01b BILD-RETTUNG ───────────────────────────────────────────────
+     Jedes Foto liegt doppelt vor: als WebP (klein, modern) und als JPG.
+     Der Browser nimmt immer das WebP. Fehlt genau diese eine WebP-Datei
+     auf dem Server oder bricht der Download ab, dann greift der Browser
+     von sich aus NICHT auf das JPG zurück — er zeigt stattdessen nur den
+     Alt-Text. Das trifft immer nur einzelne Fotos und sieht deshalb
+     zufällig aus. Hier wird jeder Ladefehler abgefangen: erst wird das
+     WebP aus dem Weg geräumt und das JPG geladen, und wenn auch das
+     scheitert, folgt ein zweiter Versuch ohne Zwischenspeicher. Damit
+     verschwindet kein Foto mehr, solange eine der Dateien erreichbar
+     ist. */
+  function rette(img) {
+    if (!img || img.tagName !== 'IMG' || img.dataset.avRettung === 'fertig') { return; }
+    /* Bilder ohne Quelle (etwa die noch leere Lightbox) bleiben unberührt */
+    if (!img.getAttribute('src')) { return; }
+    var pic = img.parentNode;
+
+    /* Schritt 1: WebP-Quellen entfernen, JPG direkt laden */
+    if (pic && pic.tagName === 'PICTURE' && pic.querySelector('source')) {
+      var quellen = pic.querySelectorAll('source');
+      for (var i = 0; i < quellen.length; i++) { pic.removeChild(quellen[i]); }
+      img.removeAttribute('srcset');
+      img.dataset.avRettung = 'jpg';
+      img.setAttribute('src', img.getAttribute('src'));
+      return;
+    }
+
+    /* Schritt 2: einmal ohne Zwischenspeicher nachladen */
+    if (img.dataset.avRettung !== 'nochmal') {
+      img.dataset.avRettung = 'nochmal';
+      var url = img.getAttribute('src') || '';
+      if (url) {
+        img.setAttribute('src', url + (url.indexOf('?') === -1 ? '?' : '&') + 'av=1');
+        return;
+      }
+    }
+    /* Beide Wege gescheitert: statt zerrissenem Alt-Text über die halbe
+       Seite bleibt eine ruhige Fläche stehen. Der Alt-Text selbst bleibt
+       im Dokument und damit für Vorleseprogramme und Google erhalten. */
+    img.dataset.avRettung = 'fertig';
+    img.classList.add('av-leer');
+  }
+
+  /* error steigt bei Bildern nicht auf, wird aber in der Abwärtsphase
+     zugestellt — deshalb der dritte Parameter. */
+  document.addEventListener('error', function (e) {
+    if (e.target && e.target.tagName === 'IMG') { rette(e.target); }
+  }, true);
+
+  /* Lädt dasselbe Element später doch noch ein Bild — etwa die Lightbox,
+     die immer wieder neu befüllt wird —, fällt die Ersatzfläche weg. */
+  document.addEventListener('load', function (e) {
+    var el = e.target;
+    if (el && el.tagName === 'IMG' && el.naturalWidth > 0) {
+      el.classList.remove('av-leer');
+      if (el.dataset.avRettung === 'fertig') { delete el.dataset.avRettung; }
+    }
+  }, true);
+
+  /* Fotos, die schon vor dem Start dieses Skripts gescheitert sind */
+  function pruefeFertige() {
+    var alle = document.images;
+    for (var i = 0; i < alle.length; i++) {
+      if (alle[i].complete && alle[i].naturalWidth === 0 && alle[i].getAttribute('src')) {
+        rette(alle[i]);
+      }
+    }
+  }
+  pruefeFertige();
+  window.addEventListener('load', pruefeFertige);
+
   /* ── 02 BILDAUSGABE ─────────────────────────────────────────────── */
   /* Liefert ein <picture> mit WebP in zwei Breiten und JPG als Rückfall.
      Das Original-JPG bleibt für die Lightbox erhalten. */
@@ -486,6 +557,43 @@
     window.addEventListener('keydown', lift, { once: true });
   })();
 
+  /* ── 07b VERLAUF FÜR OVERLAYS ───────────────────────────────────────
+     Menü und Lightbox liegen über der Seite, sind aber keine eigene
+     Adresse. Ohne Zutun führt der Zurück-Knopf des Browsers deshalb von
+     der Seite weg statt das Overlay zu schließen — und wenn der Besucher
+     direkt auf dieser Seite gelandet ist, hat der Tab keinen Eintrag
+     davor und schließt sich. Jedes offene Overlay bekommt hier einen
+     eigenen Verlaufseintrag: Zurück schließt dann nur das Overlay. */
+  var AV_verlauf = (function () {
+    var offen = null;     /* Funktion, die das offene Overlay schließt */
+    var eigen = false;    /* haben wir selbst einen Eintrag gesetzt?   */
+
+    window.addEventListener('popstate', function () {
+      if (!offen) { return; }
+      var schliessen = offen;
+      offen = null; eigen = false;
+      schliessen(true);   /* true = kommt vom Zurück-Knopf */
+    });
+
+    return {
+      auf: function (schliessen) {
+        if (offen) {                     /* schon eins offen: Eintrag weiter nutzen */
+          var alt = offen; offen = null; alt(true);
+        }
+        offen = schliessen;
+        if (!eigen) {
+          try { history.pushState({ avOverlay: 1 }, ''); eigen = true; }
+          catch (e) { eigen = false; }
+        }
+      },
+      zu: function (vomZurueck) {
+        var hatEintrag = eigen;
+        offen = null; eigen = false;
+        if (hatEintrag && !vomZurueck) { try { history.back(); } catch (e) {} }
+      }
+    };
+  })();
+
   /* ── 08 MENÜ ────────────────────────────────────────────────────── */
   (function () {
     var overlay = document.getElementById('menu');
@@ -523,14 +631,16 @@
       document.documentElement.style.overflow = 'hidden';
       if (closer) { closer.focus(); }
       document.addEventListener('keydown', onKey);
+      AV_verlauf.auf(close);
     }
-    function close() {
+    function close(vomZurueck) {
       overlay.classList.remove('is-open');
       overlay.setAttribute('aria-hidden', 'true');
       if (opener) { opener.setAttribute('aria-expanded', 'false'); }
       document.documentElement.style.overflow = '';
       document.removeEventListener('keydown', onKey);
       if (lastFocus && lastFocus.focus) { lastFocus.focus(); }
+      AV_verlauf.zu(vomZurueck === true);
     }
     function onKey(e) {
       if (e.key === 'Escape') { close(); return; }
@@ -601,12 +711,14 @@
       ov.setAttribute('aria-hidden', 'false');
       wrap.focus();
       document.addEventListener('keydown', onKey);
+      AV_verlauf.auf(close);
     }
-    function close() {
+    function close(vomZurueck) {
       ov.classList.remove('is-open');
       ov.setAttribute('aria-hidden', 'true');
       document.removeEventListener('keydown', onKey);
       if (lastFocus && lastFocus.focus) { lastFocus.focus(); }
+      AV_verlauf.zu(vomZurueck === true);
       setTimeout(function () { if (!ov.classList.contains('is-open')) { img.removeAttribute('src'); img.removeAttribute('srcset'); } }, 350);
     }
     function onKey(e) {

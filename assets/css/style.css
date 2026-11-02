@@ -48,6 +48,10 @@
     --ui-scale: 1;
     --ui-track: .18em;
     --t-body: 1.1rem;
+    /* Magerschnitt 300 wirkt auf Handy- und Windows-Bildschirmen dünn und
+       grau. Am Handy steht die Grundschrift deshalb im Normalschnitt. Die
+       Serifenschrift der Überschriften bleibt unverändert. */
+    --ui-weight: 400;
   }
 }
 
@@ -71,6 +75,15 @@ body {
 html { overflow-x: hidden; overflow-x: clip; }
 
 img { display: block; max-width: 100%; height: auto; }
+/* Ein Foto, das sich auf keinem Weg laden lässt, hinterlässt eine ruhige
+   Fläche statt eines zerrissenen Alt-Textes quer über die Seite. Der
+   Text bleibt im Dokument — nur unsichtbar. (Siehe Bild-Rettung in
+   main.js.) */
+img.av-leer {
+  color: transparent; font-size: 0; line-height: 0;
+  background: rgba(18, 16, 15, .055);
+  min-height: 4rem; overflow: hidden;
+}
 a   { color: inherit; text-decoration: none; }
 button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
 
@@ -601,6 +614,8 @@ body.show-font-switch .font-switch { display: flex; }
   /* Auf schmalen Schirmen darf die Wortmarke Menü und Booking nicht berühren */
   .header-mark img { height: 12px; }
   .site-header { gap: .6rem; }
+  /* Menü und Booking am Handy deutlich größer und kräftiger */
+  .site-header .label { font-size: 1.12rem; font-weight: 600; letter-spacing: .12em; }
 
   .overlay-foot { grid-template-columns: 1fr; justify-items: center; gap: 1rem; text-align: center; }
   .overlay-foot .mail, .overlay-foot .tel { justify-self: center; }
