@@ -30,7 +30,7 @@ GALERIEN = [
   wort='Umbrien',
   ort='Umbrien, Italien',
   h2='Zwei Tage in den H\u00fcgeln Umbriens',
-  titel='Hochzeit in Umbrien — freie Trauung auf einem Weingut',
+  titel='Hochzeit in Umbrien, Italien',
   meta='Mehrt\u00e4gige Hochzeit in Umbrien: Pre-Party am Haus, Trauung mit Blick auf die Weinberge, Fest auf dem Weingut bis in die Nacht. Fotografiert von Antonia Valladares.',
   satz=(
    'Was f\u00fcr ein rauschendes, mehrt\u00e4giges Fest! Das Paar wurde in Italien auf mich '
@@ -50,11 +50,11 @@ GALERIEN = [
   hero=[10, 22, 30]),
  dict(
   datei='hochzeit-tegernsee-regenhochzeit.html',
-  liste='REEL',
+  liste='GAL_TEGERNSEE',
   wort='Tegernsee',
   ort='Tegernsee, Oberbayern',
   h2='Standesamt am See, Balkonfotos und Tafel im Aran',
-  titel='Regenhochzeit am Tegernsee — Standesamt im Rathaus',
+  titel='Regenhochzeit am Tegernsee',
   meta='Standesamt Tegernsee im Rathaus direkt am See: Trauung bei Regen, Fotos auf dem Balkon mit Seeblick, Feier im Aran nebenan. Hochzeitsfotografin Antonia Valladares.',
   satz=(
    'Das Standesamt am Tegernsee sitzt im Rathaus, direkt am Wasser. Ein Haus, das auch dann '
@@ -71,8 +71,38 @@ GALERIEN = [
    'Eine Gesellschaft mit gleichen Schirmen wirkt auf den Bildern sofort ruhig, und aus dem '
    'Regen wird ein Motiv.'
   ),
-  fakten=['Rathaus Tegernsee', 'Standesamt &amp; Feier', '12 Bilder'],
-  hero=[5, 9, 0]),
+  fakten=['Rathaus Tegernsee', 'Standesamt &amp; Feier', '76 Bilder'],
+  hero=[12, 49, 25]),
+
+ dict(
+  datei='hochzeit-freie-trauung-pfalz.html',
+  liste='GAL_PFALZ',
+  wort='Pfalz',
+  ort='Weinberge in Rheinland-Pfalz',
+  h2='Das Wingertsheisel mitten in den Weinbergen',
+  titel='Freie Trauung in der Pfalz',
+  meta='Freie Trauung in den Weinbergen von Rheinland-Pfalz: First Look zwischen den Rebzeilen, Traurede von einer Freundin, Spielenachmittag und Tanz bis in die Nacht.',
+  satz=(
+   'Diese Hochzeit h\u00e4tte sch\u00f6ner nicht sein k\u00f6nnen. Mitten in den Weinbergen von '
+   'Rheinland-Pfalz haben die beiden einen absoluten Schatz zum Heiraten aufgetan: das '
+   'Wingertsheisel. Morgens sah es noch nach Regen aus \u2014 beim First Look zwischen den '
+   'Rebzeilen hat uns das nicht gest\u00f6rt.'
+   '\n\n'
+   'Das Besondere: Au\u00dfer beim Essen gab es fast keine Dienstleister. Die Traurede hat eine '
+   'gute Freundin der beiden gehalten, die Cousins haben die Bar und das DJ-Pult gerockt. '
+   'Nachmittags gab es eine Spielerunde, bei der einige G\u00e4ste h\u00f6chstes '
+   'schauspielerisches Talent bewiesen haben \u2014 ich habe selten so gelacht. So kann man\u2019s '
+   'eben auch machen.'
+   '\n\n'
+   'Die G\u00e4ste kamen aus ganz Deutschland angereist, und weil die beiden echte Foodies sind, '
+   'war kulinarisch rundum gesorgt: Eiswagen, Kaffeewagen, Foodtruck und viel Selbstgemachtes.'
+   '\n\n'
+   'So eine gro\u00dfe Feier trotzdem so intim und vertraut zu gestalten, war wirklich ein '
+   'sch\u00f6nes Erlebnis. Danke, dass ich eure Liebsten, euch und eure Liebe fotografieren '
+   'durfte \U0001F979'
+  ),
+  fakten=['Weingut in Rheinland-Pfalz', 'Freie Trauung', '134 Bilder'],
+  hero=[39, 115, 120]),
 
  dict(
   datei='hochzeit-schloss-blutenburg.html',
@@ -80,7 +110,7 @@ GALERIEN = [
   wort='Blutenburg',
   ort='Schloss Blutenburg, München',
   h2='Schloss Blutenburg, Paartanz und Feier bis in die Nacht',
-  titel='Hochzeit Schloss Blutenburg München — freie Trauung',
+  titel='Hochzeit Schloss Blutenburg München',
   meta='Freie Trauung im Schloss Blutenburg in M\u00fcnchen: Zeremonie im Hof, Paarfotos am Schloss, Paartanz und Feier bis in die Nacht. Fotografiert von Antonia Valladares.',
   satz=(
    'Einfach eine richtige Traumhochzeit in M\u00fcnchen. F\u00fcr mich war es super besonders, das Paar '
@@ -128,7 +158,7 @@ GALERIEN = [
   wort='Mandlstraße',
   ort='Standesamt Mandlstraße, München',
   h2='Standesamt, U-Bahn und E-Kutsche durch München',
-  titel='Hochzeit Standesamt Mandlstraße München — Bilder',
+  titel='Standesamt Mandlstraße München',
   meta='Standesamtliche Hochzeit in der Mandlstraße in München: First Look, Weg zur U-Bahn, Großmarkthalle und E-Kutsche. 65 Bilder von Antonia Valladares.',
   satz='Keine aufgesetzten Hochzeitsfotos, das war den beiden wichtig. Da bin ich sofort dabei! '
        'Nachdem ich die beiden mit ihrem süßen Nachwuchs im Café in München kennengelernt habe, '
@@ -155,7 +185,7 @@ GALERIEN = [
   wort='Vietnam',
   ort='Ho-Chi-Minh-Stadt, Vietnam',
   h2='Verlobungsshooting zwischen Museum und Motorrollern',
-  titel='Verlobungsshooting in Vietnam — Ho-Chi-Minh-Stadt',
+  titel='Verlobungsshooting in Vietnam',
   meta='Verlobungsshooting in Ho-Chi-Minh-Stadt: koloniale Fassaden, Motorroller, Schwarzweiß. Fotografiert von Antonia Valladares.',
   satz='Ho-Chi-Minh-Stadt steht nie still. Genau das macht sie zur Kulisse: Vor dem Fine Arts '
        'Museum ziehen die Roller zu Hunderten vorbei, und mittendrin stehen zwei Menschen '
@@ -169,7 +199,7 @@ GALERIEN = [
   wort='Kufstein',
   ort='Kufstein, Tirol',
   h2='Standesamt Kufstein und Feier im Unterwirt',
-  titel='Hochzeit am Standesamt Kufstein — Rathaus in Tirol',
+  titel='Hochzeit am Standesamt Kufstein',
   meta='Intime standesamtliche Trauung in Kufstein: Gew\u00f6lbe im Rathaus, Paarshooting vor dem Bergpanorama, Feier im Lokal Unterwirt. Fotografiert von Antonia Valladares.',
   satz=(
    'Das Paar hat sich f\u00fcr eine intime standesamtliche Trauung in Kufstein entschieden, die '
@@ -191,7 +221,7 @@ GALERIEN = [
   wort='Bad T\u00f6lz',
   ort='Kurhaus Bad T\u00f6lz, Oberbayern',
   h2='Getting Ready, First Look und freie Trauung im Kurhaus',
-  titel='Freie Trauung im Kurhaus Bad T\u00f6lz \u2014 Hochzeitsbilder',
+  titel='Freie Trauung im Kurhaus Bad T\u00f6lz',
   meta='Freie Trauung im Kurhaus Bad T\u00f6lz: Getting Ready, First Look in der Pergola, Handfasting, '
        'Tortenanschnitt und Party. 91 Bilder von Antonia Valladares.',
   satz=(
@@ -229,6 +259,7 @@ NAV = [
  ('/verlobungsshooting-vietnam.html', 'Vietnam', 'portfolio/cover/vietnam-ho-chi-minh-verlobungsshooting-elopement-bw-valladares.jpg'),
  ('/hochzeit-schloss-blutenburg.html', 'Blutenburg', 'portfolio/cover/freie-trauung-schloss-blutenburg-hochzeitspaar-valladares.jpg'),
  ('/hochzeit-standesamt-mandlstrasse.html', 'Mandlstraße', 'portfolio/cover/standesamt-mandlstrasse-hochzeitspaar-fenster-schwarzweiss-valladares.jpg'),
+ ('/hochzeit-freie-trauung-pfalz.html', 'Pfalz', 'portfolio/cover/freie-trauung-pfalz-weinberge-hochzeitspaar-valladares.jpg'),
  ('/hochzeit-freie-trauung-bad-toelz.html', 'Bad Tölz', 'portfolio/cover/freie-trauung-bad-toelz-hochzeitspaar-braut-getragen.jpg'),
 ]
 
@@ -365,7 +396,9 @@ def bau(g, js, teile):
                  {"@type": "ListItem", "position": 2, "name": "Portfolio", "item": "https://antoniavalladares.com/portfolio.html"},
                  {"@type": "ListItem", "position": 3, "name": g['wort'], "item": f"https://antoniavalladares.com/{g['datei']}"}]}]}
 
-    og = 'https://antoniavalladares.com/assets/img/' + fotos[h[0] % len(fotos)][0]
+    og_foto = fotos[h[0] % len(fotos)]
+    og = 'https://antoniavalladares.com/assets/img/' + og_foto[0]
+    og_w, og_h = masse(og_foto[0], og_foto[1])
     mehr = ''
     if g.get('mehr'):
         teile_mehr = []
@@ -403,6 +436,8 @@ def bau(g, js, teile):
 <meta property="og:title" content="{g['titel']}">
 <meta property="og:description" content="{g['meta']}">
 <meta property="og:image" content="{og}">
+<meta property="og:image:width" content="{og_w}">
+<meta property="og:image:height" content="{og_h}">
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="icon" href="assets/logo/favicon.png" sizes="180x180">
@@ -413,9 +448,9 @@ def bau(g, js, teile):
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/cormorant-garamond-latin-300-normal.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/jost-latin-300-normal.woff2" crossorigin>
 
-<link rel="stylesheet" href="assets/css/fonts.css?v=20261102a">
-<link rel="stylesheet" href="assets/css/style.css?v=20261102a">
-<link rel="stylesheet" href="assets/css/portfolio.css?v=20261102a">
+<link rel="stylesheet" href="assets/css/fonts.css?v=20261103b">
+<link rel="stylesheet" href="assets/css/style.css?v=20261103b">
+<link rel="stylesheet" href="assets/css/portfolio.css?v=20261103b">
 
 <script type="application/ld+json">
 {json.dumps(ld, ensure_ascii=False, indent=1)}
@@ -470,9 +505,9 @@ def bau(g, js, teile):
 {teile['menu']}<button class="to-top" type="button" aria-label="Zurück nach oben"><span aria-hidden="true">&uarr;</span></button>
 <div class="grain" aria-hidden="true"></div>
 
-<script src="assets/js/photos.js?v=20261102a" defer></script>
-<script src="assets/js/main.js?v=20261102a" defer></script>
-<script src="assets/js/galerie.js?v=20261102a" defer></script>
+<script src="assets/js/photos.js?v=20261103b" defer></script>
+<script src="assets/js/main.js?v=20261103b" defer></script>
+<script src="assets/js/galerie.js?v=20261103b" defer></script>
 </body>
 </html>
 '''

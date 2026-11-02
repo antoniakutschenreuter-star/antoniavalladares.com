@@ -106,6 +106,7 @@
     var H = this.stage.clientHeight || window.innerHeight;
     if (!W) { return; }
 
+    this.gebautW = W;
     var schmal = W < 760;
     var wenig = this.liste.length <= 9;
     var spuren = schmal ? SPUREN_HANDY : (wenig ? SPUREN_2 : SPUREN_3);
@@ -188,10 +189,10 @@
   };
 
   var LEADS = {
-    hochzeiten: 'Neun ausgewählte Hochzeiten, vom Standesamt in der Mandlstraße bis zu zwei Tagen in den Weinbergen Umbriens. Wählt eine Hochzeit aus.',
+    hochzeiten: 'Eine Auswahl an Hochzeiten – gemeinsam finden wir eure Vision und euren Stil heraus! Von der glamourösen Blitzhochzeit im Editorial Style über das traute Elopement auf einer Bergalm bis zur Trauung mitten in den Weinbergen: Ich bin dabei.',
     familien:   'Babybauch, Neugeborene und Familien, fotografiert in München, Donauwörth und dort, wo ihr zu Hause seid.',
     business:   'Business-Portraits und Teamfotos aus München, für Website, LinkedIn und Bewerbung.',
-    schauspiel: 'Schauspielportraits für die Kartei: mehrere Typen an einem Nachmittag, vorher in Ruhe besprochen.'
+    schauspiel: 'Du gibst deine Typen vor – ich fange sie ein. Wir können gerne gemeinsam über Typisierung, mögliche Rollenprofile und Outfits sprechen. Kontaktiere mich einfach für einen unverbindlichen Kennenlerncall.'
   };
   var ANKER = { weddings: 'hochzeiten', couples: 'hochzeiten',
                 families: 'familien',  newborn: 'familien',
@@ -242,6 +243,35 @@
     for (var i = 0; i < fluege.length; i++) { fluege[i].messen(); }
   }
 
+  /* Die Kategorienspalte fährt beim Scrollen hinaus, die Bildfläche wird
+     dadurch deutlich breiter. Die Fotos wurden aber einmalig für die
+     schmale Fläche gesetzt und blieben danach links kleben, während
+     rechts ein leerer Streifen stehen blieb. Sobald die Fläche ihre
+     Breite ändert und wieder ruhig steht, werden sie neu verteilt. */
+  var breiteTimer = null, letzteBreite = -1;
+  function pruefeBreite() {
+    var breit = 0;
+    for (var i = 0; i < fluege.length; i++) {
+      if (fluege[i].stage && fluege[i].stage.clientWidth) {
+        breit = fluege[i].stage.clientWidth; break;
+      }
+    }
+    if (!breit) { return; }
+    /* Nur solange sich die Breite wirklich noch ändert, wird gewartet.
+       Steht sie still, wird einmal neu verteilt. */
+    if (breit !== letzteBreite) {
+      letzteBreite = breit;
+      clearTimeout(breiteTimer);
+      breiteTimer = setTimeout(neuVerteilen, 140);
+    }
+  }
+  function neuVerteilen() {
+    for (var i = 0; i < fluege.length; i++) {
+      if (fluege[i].stage && fluege[i].stage.clientWidth) { fluege[i].bauen(); }
+    }
+    messen();
+  }
+
   var y = window.scrollY || 0, lastY = y, lastT = 0;
   window.addEventListener('scroll', function () { y = window.scrollY || 0; }, { passive: true });
 
@@ -260,6 +290,7 @@
     else if (!body.classList.contains('is-wide') && y > RAUS) { setClass(body, 'is-wide', true); }
     else if (body.classList.contains('is-wide') && y < REIN) { setClass(body, 'is-wide', false); }
 
+    pruefeBreite();
     requestAnimationFrame(frame);
   }
 

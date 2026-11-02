@@ -3,13 +3,13 @@
    ===================================================================== */
 
 .kt-direkt {
-  margin-top: clamp(1.4rem, 3vw, 2.2rem);
+  margin-top: clamp(2rem, 4.2vw, 3.2rem);
   display: flex; flex-wrap: wrap; justify-content: center;
   gap: clamp(1rem, 3vw, 2.6rem);
 }
 .regel {
   display: block; width: 34px; height: 1px; background: var(--accent);
-  margin: clamp(1.6rem, 3.4vw, 2.4rem) auto 0;
+  margin: clamp(2.2rem, 4.4vw, 3.4rem) auto 0;
 }
 
 .kt-form-teil {

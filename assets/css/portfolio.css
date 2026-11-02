@@ -49,44 +49,67 @@ body.pf .site-header a:hover, body.pf .site-header button:hover { color: var(--a
 }
 
 .pf-h1 {
-  margin: 0; padding-top: clamp(3.5rem, 11vh, 8rem);
+  margin: 0; padding-top: clamp(2.6rem, 9vh, 8rem);
   font-family: var(--font-display); font-weight: var(--display-weight);
-  font-size: calc(clamp(2.4rem, 4.6vw, 4.4rem) * var(--display-scale));
+  font-size: calc(clamp(2.1rem, min(4.6vw, 7vh), 4.4rem) * var(--display-scale));
   line-height: 1.02; white-space: nowrap;
 }
 
 /* ── 03 KATEGORIEN ────────────────────────────────────────────────────
    Aufbau wie die Menü-Navigation, nur linksbündig und kleiner. */
+/* Dass hier etwas zur Auswahl steht, zeigen die Pfeile und der feine
+   Strich darüber — ohne erklärende Zeile. Der Strich trennt die Liste
+   von der Überschrift und lässt sie als Navigation lesen. */
 .pf-tabs {
+  position: relative;
   margin: clamp(2rem, 5vh, 3.6rem) 0 0;
+  padding-top: clamp(1.2rem, 3vh, 2rem);
   display: flex; flex-direction: column; align-items: flex-start;
   gap: clamp(.55rem, 1.5vh, 1.1rem);
 }
+.pf-tabs::before {
+  content: ''; position: absolute; left: 0; top: 0;
+  width: clamp(44px, 5vw, 72px); height: 1px;
+  background: currentColor; opacity: .45;
+}
 .pf-tab {
   font-family: var(--font-display); font-weight: var(--menu-weight);
-  font-size: calc(clamp(1.05rem, 1.85vw, 1.75rem) * var(--display-scale));
+  font-size: calc(clamp(1rem, min(1.85vw, 2.5vh), 1.75rem) * var(--display-scale));
   line-height: 1.18; text-transform: uppercase; letter-spacing: .015em;
-  text-align: left; color: inherit; opacity: .52;
-  transition: opacity .3s var(--ease);
+  text-align: left; color: inherit; opacity: .66;
+  /* Der Pfeil macht sichtbar, dass die Zeile zu etwas hinführt. */
+  display: flex; align-items: baseline; gap: .55em;
+  max-width: 100%;
+  transition: opacity .3s var(--ease), transform .3s var(--ease);
 }
-.pf-tab:hover, .pf-tab:focus-visible { opacity: .8; }
+.pf-tab-wort { min-width: 0; }
+.pf-tab::before {
+  content: '\2192'; font-family: var(--font-ui);
+  font-size: .62em; opacity: .55;
+  transition: transform .3s var(--ease), opacity .3s var(--ease);
+}
+.pf-tab:hover, .pf-tab:focus-visible { opacity: 1; }
+.pf-tab:hover::before, .pf-tab:focus-visible::before {
+  transform: translateX(.3em); opacity: 1;
+}
 .pf-tab[aria-current='true'] { opacity: 1; }
-.pf-tab[aria-current='true']::after {
+.pf-tab[aria-current='true']::before { opacity: 1; }
+.pf-tab[aria-current='true'] .pf-tab-wort::after {
   content: ''; display: block; height: 1px; width: 2.1em;
   margin-top: .42em; background: currentColor;
 }
 
-.pf-aside-foot { margin-top: auto; padding-bottom: clamp(2rem, 6vh, 4.5rem); }
+.pf-aside-foot { margin-top: auto; padding-bottom: clamp(1.4rem, 4.5vh, 4.5rem); }
 .pf-lead {
   margin: 0; max-width: 34ch;
   font-family: var(--font-display);
-  font-size: calc(clamp(1rem, 1.25vw, 1.22rem) * var(--display-scale));
-  line-height: 1.72; color: var(--pf-soft);
+  font-size: calc(clamp(.92rem, min(1.25vw, 1.75vh), 1.22rem) * var(--display-scale));
+  line-height: 1.58; color: var(--pf-soft);
 }
 .pf-closing {
-  margin: clamp(1.4rem, 3.5vh, 2.2rem) 0 0; max-width: 26ch;
+  margin: clamp(1rem, 2.6vh, 2.2rem) 0 0; max-width: 26ch;
   font-family: var(--font-display); font-weight: var(--display-weight);
-  font-size: calc(clamp(1.05rem, 1.5vw, 1.42rem) * var(--display-scale));
+  font-size: calc(clamp(.98rem, min(1.5vw, 2vh), 1.42rem) * var(--display-scale));
   line-height: 1.5;
 }
 
@@ -148,6 +171,9 @@ a.pf-tile:hover { cursor: pointer; }
    größeren Bildern. Die linke Spalte fährt hinaus, sobald es losgeht. */
 body.pf.is-wide .pf-aside {
   flex-basis: 0; max-width: 0;
+  /* Ohne das Nullsetzen der Polster bleibt die Spalte rund hundert Pixel
+     breit stehen — die Fotos starten dann nicht am linken Rand. */
+  padding-left: 0; padding-right: 0;
   opacity: 0; transform: translateX(-2.5rem); pointer-events: none;
 }
 
@@ -482,19 +508,38 @@ body.gal main { padding-top: var(--header-h); }
   letter-spacing: var(--ui-track); text-transform: uppercase;
   padding-top: 1.3rem; border-top: 1px solid var(--hairline); margin-bottom: .9rem;
 }
-.gal-mehr p { font-family: var(--font-ui); font-size: var(--t-body);
-  line-height: 1.9; color: var(--ink-soft); margin-bottom: .9rem; }
+/* Auch die Blöcke am Seitenende lesen sich jetzt wie Fließtext der
+   Seite und nicht wie ein angehängter Beipackzettel. */
+.gal-mehr p {
+  font-family: var(--font-display); font-weight: var(--display-weight);
+  font-size: calc(clamp(1rem, 1.25vw, 1.22rem) * var(--display-scale));
+  line-height: 1.68; color: #3a3734; margin-bottom: .9em;
+}
 
 /* Zwischentext im Bilderraster: nimmt beide Spalten, liest sich wie ein
    Absatz im Fließtext und trennt die Kapitel der Geschichte. */
+/* Die Zwischentexte standen in kleiner, grauer Serifenloser mitten im
+   Bilderstrom und wirkten wie ein Fremdkörper. Sie tragen jetzt dieselbe
+   Serifenschrift wie der Einleitungstext der Galerie, nur eine Spur
+   kleiner, und ein kurzer Strich darüber kündigt sie als eigenes
+   Kapitel an. */
 .gal-einschub {
   grid-column: 1 / -1;
-  max-width: 40rem; margin-inline: auto;
-  padding: clamp(1.5rem, 4vw, 3.2rem) 0 clamp(0.5rem, 2vw, 1.4rem);
+  max-width: 36rem; margin-inline: auto;
+  padding: clamp(2.6rem, 6vw, 5rem) 0 clamp(1.8rem, 4vw, 3.2rem);
+  text-align: center;
+}
+.gal-einschub::before {
+  content: ''; display: block;
+  width: clamp(34px, 4vw, 54px); height: 1px;
+  background: var(--accent); opacity: .6;
+  margin: 0 auto clamp(1.6rem, 3.4vw, 2.6rem);
 }
 .gal-einschub p {
-  font-family: var(--font-ui); font-size: var(--t-body);
-  line-height: 1.95; color: var(--ink-soft); margin-bottom: 1rem;
+  font-family: var(--font-display); font-weight: var(--display-weight);
+  font-size: calc(clamp(1.02rem, 1.35vw, 1.32rem) * var(--display-scale));
+  line-height: 1.62; color: #3a3734; margin-bottom: 1em;
+  text-align: left;
 }
 .gal-einschub p:last-child { margin-bottom: 0; }
 .gal-einschub a { color: var(--ink); border-bottom: 1px solid var(--hairline); text-decoration: none; }

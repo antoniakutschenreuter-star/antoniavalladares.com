@@ -156,13 +156,22 @@ a.label:hover, a.label:focus-visible,
 .h-left  { justify-self: start; }
 .h-right { justify-self: end; }
 
+/* Das Zeichen in der Mitte führt zurück zur Startseite. Auf allen
+   Unterseiten steht es deshalb von Anfang an da. Nur auf der Startseite
+   selbst bleibt es zunächst weg, weil dort die große Wortmarke im Bild
+   steht — es rückt erst ein, wenn die beim Scrollen verschwindet. */
 .header-mark {
   justify-self: center;
-  opacity: 0; visibility: hidden;
+  opacity: 1; visibility: visible;
   transition: opacity .45s var(--ease), visibility .45s;
 }
+body.start .header-mark { opacity: 0; visibility: hidden; }
+body.start .header-mark.is-docked { opacity: 1; visibility: visible; }
+
 .header-mark img { height: clamp(17px, 2.1vw, 28px); width: auto; }
-.header-mark.is-docked { opacity: 1; visibility: visible; }
+/* Am Handy ist für den ausgeschriebenen Namen kein Platz zwischen Menü
+   und Booking — dort steht das AV-Zeichen. */
+.header-mark .hm-av { display: none; }
 
 /* ── 05 INTRO-VORHANG ─────────────────────────────────────────────── */
 .curtain {
@@ -523,6 +532,25 @@ img.monogram { width: clamp(52px, 7vw, 88px); }
 .overlay.is-open .overlay-nav li:nth-child(5) { transition-delay: .34s; }
 .overlay-nav a { display: block; padding: .02em .2em; }
 
+/* Unter Portfolio stehen die vier Bereiche einzeln. Ohne sie war im
+   Menü nicht zu erkennen, dass es neben Hochzeiten noch Familien,
+   Business und Portraits gibt. */
+.nav-unter {
+  display: flex; flex-direction: column; align-items: center;
+  gap: .18em; margin: .5em 0 .1em;
+  /* Ohne Begrenzung sprengte die längste Zeile auf schmalen Handys die
+     ganze Seite in die Breite — der Schließen-Knopf rutschte dabei aus
+     dem Bild. */
+  max-width: min(90vw, 30rem); text-align: center;
+  font-family: var(--font-ui);
+  font-size: clamp(.7rem, 2.6vw, .92rem);
+  font-weight: var(--link-weight);
+  letter-spacing: var(--ui-track); text-transform: uppercase;
+  line-height: 1.5;
+}
+.nav-unter a { opacity: .72; transition: opacity .25s var(--ease); }
+.nav-unter a:hover, .nav-unter a:focus-visible { opacity: 1; }
+
 .overlay-foot {
   position: relative; z-index: 3;
   display: grid; grid-template-columns: 1fr auto 1fr;
@@ -566,7 +594,11 @@ img.monogram { width: clamp(52px, 7vw, 88px); }
   display: grid; place-items: center;
   font-family: var(--font-ui); font-size: 1.05rem; line-height: 1;
   color: var(--ink);
-  background: rgba(var(--bg-rgb), .82);
+  /* Der Pfeil war als schwebendes Zeichen kaum zu erkennen. Ein feiner
+     Ring und ein etwas deckenderer Grund machen ihn als Schaltfläche
+     lesbar, ohne dass er sich vordrängt. */
+  background: rgba(var(--bg-rgb), .92);
+  border: 1px solid var(--hairline); border-radius: 50%;
   opacity: 0; visibility: hidden; transform: translateY(8px);
   transition: opacity .35s var(--ease), visibility .35s, transform .35s var(--ease), color .25s var(--ease);
 }
@@ -611,18 +643,25 @@ body.show-font-switch .font-switch { display: flex; }
 
 @media (max-width: 640px) {
   #hero { height: 620vh; }
-  /* Auf schmalen Schirmen darf die Wortmarke Menü und Booking nicht berühren */
-  .header-mark img { height: 12px; }
+  /* Auf schmalen Schirmen steht statt des Namens das AV-Zeichen */
+  .header-mark .hm-wort { display: none; }
+  .header-mark .hm-av { display: block; height: 26px; }
   .site-header { gap: .6rem; }
-  /* Menü und Booking am Handy deutlich größer und kräftiger */
-  .site-header .label { font-size: 1.12rem; font-weight: 600; letter-spacing: .12em; }
+  /* Menü und Booking am Handy deutlich größer und kräftiger. Die engere
+     Sperrung schafft den Platz, den die größere Schrift braucht. */
+  .site-header .label { font-size: 1.34rem; font-weight: 700; letter-spacing: .07em; }
 
   .overlay-foot { grid-template-columns: 1fr; justify-items: center; gap: 1rem; text-align: center; }
   .overlay-foot .mail, .overlay-foot .tel { justify-self: center; }
   .overlay-foot { min-width: 0; max-width: 100%; }
   .overlay-foot .mail { letter-spacing: .05em; font-size: .86rem; max-width: 100%; overflow-wrap: anywhere; }
-  .bookings-bar { padding-top: 3.4rem; }
-  .bookings-bar p { letter-spacing: .16em; line-height: 2.1; }
+  /* Unten rechts sitzt der Pfeil nach oben — die Leiste endet darüber,
+     damit sich beide nicht überlagern. */
+  .bookings-bar { padding-top: 3.4rem; padding-bottom: 5.7rem; }
+  /* Die Leiste stand am Handy in 11,5 Pixeln mit weiter Sperrung — das
+     war kaum zu entziffern. Größer und enger gesperrt liest sie sich. */
+  .bookings-bar p { font-size: .9rem; letter-spacing: .09em; line-height: 1.85; }
+  .bookings-lead { font-size: 1rem !important; letter-spacing: .16em !important; }
 }
 
 /* Touch: Reel scrollt nativ statt gepinnt */
@@ -878,7 +917,8 @@ body:has(.preis-hero) .site-header::before { display: none; }
 .auftakt-wort .z { display: inline-block; }
 .auftakt-wort .akzent { color: var(--accent); }
 .auftakt-zeile {
-  margin-top: clamp(3.5rem, 8vw, 6rem);
+  /* Slogan und Kontaktzeile brauchen Luft nach den Fotos darüber. */
+  margin-top: clamp(5rem, 13vw, 10rem);
   font-family: var(--font-display);
   font-size: calc(clamp(1.1rem, 2vw, 1.55rem) * var(--display-scale));
   color: var(--ink-soft);
@@ -890,10 +930,20 @@ body:has(.preis-hero) .site-header::before { display: none; }
    Text, der darunter folgt. */
 /* Fotos dürfen die Buchstaben halb verdecken, aber nie einander.
    Foto c beginnt deshalb immer rechts neben dem Ende von Foto a. */
-.auftakt { --fa-w: clamp(112px, 15vw, 232px); --fb-w: clamp(100px, 12.8vw, 196px); --fa-top: clamp(4rem, 7.5vh, 5.6rem); --fb-top: clamp(5.5rem, 11vh, 8rem); }
-.auftakt-foto--a { left: 4%;  top: var(--fa-top);  width: var(--fa-w); aspect-ratio: 2/3; z-index: 3; }
-.auftakt-foto--b { right: 5%; top: var(--fb-top);  width: var(--fb-w); aspect-ratio: 2/3; z-index: 1; }
-.auftakt-foto--c { left: calc(4% + var(--fa-w) + 2.4vw); top: clamp(11rem, 26vh, 16.5rem); width: clamp(124px, 16.5vw, 262px); aspect-ratio: 3/2; z-index: 3; }
+/* Zwei hohe Fotos fassen das Wort links und rechts ein, das querformatige
+   sitzt versetzt darunter. Vorher standen zwei Fotos links beieinander
+   und eines allein rechts — das wirkte zufällig hingeworfen. */
+.auftakt {
+  --fa-w: clamp(112px, 14.5vw, 226px);
+  --fb-w: clamp(104px, 13.2vw, 206px);
+  --fc-w: clamp(124px, 16vw, 254px);
+  --fa-top: clamp(3rem, 6vh, 4.4rem);
+  --fb-top: clamp(4.4rem, 9vh, 6.6rem);
+  --fc-top: clamp(11.5rem, 25vh, 16rem);
+}
+.auftakt-foto--a { left: 5%;  top: var(--fa-top); width: var(--fa-w); aspect-ratio: 2/3; z-index: 3; }
+.auftakt-foto--b { right: 5%; top: var(--fb-top); width: var(--fb-w); aspect-ratio: 2/3; z-index: 1; }
+.auftakt-foto--c { right: calc(5% + var(--fb-w) + 4vw); top: var(--fc-top); width: var(--fc-w); aspect-ratio: 3/2; z-index: 3; }
 
 /* Eckmarken, auf jeder Unterseite an derselben Stelle */
 .ecke {
@@ -902,8 +952,8 @@ body:has(.preis-hero) .site-header::before { display: none; }
   font-size: calc(var(--t-label) * var(--ui-scale) * .88);
   letter-spacing: .28em; text-transform: uppercase; color: var(--ink-soft);
 }
-.ecke--links  { left: var(--edge);  top: max(46vh, calc(var(--fa-top) + var(--fa-w) * 1.5 + 1.6rem)); }
-.ecke--rechts { right: var(--edge); top: max(46vh, calc(var(--fb-top) + var(--fb-w) * 1.5 + 1.6rem)); text-align: right; }
+.ecke--links  { left: var(--edge);  top: max(46vh, calc(var(--fa-top) + var(--fa-w) * 1.5 + 1.8rem)); }
+.ecke--rechts { right: var(--edge); top: max(46vh, calc(var(--fc-top) + var(--fc-w) / 1.5 + 1.8rem)); text-align: right; }
 /* Unter 1200px würden die Eckmarken in die Kontaktzeile ragen */
 @media (max-width: 1199px) { .ecke { display: none; } }
 
