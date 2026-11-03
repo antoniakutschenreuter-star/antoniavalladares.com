@@ -169,17 +169,30 @@ verteilt. Die letzten Fotos jedes Abschnitts werden durchprobiert
 Zwischentext eine Lücke von bis zu einer ganzen Bildhöhe. Ein kleiner Rest wird
 auf die Zwischenräume der kürzeren Spalten verteilt (`ausgleichen()`).
 
-**Helle Zweitschrift im Auftakt der Galerien.** Wo ein dunkles Foto hinter dem
-Ortsnamen liegt, steckt im Foto eine zweite, helle Kopie des Wortes
-(`.gal-hero-echo`). Das Foto schneidet sie selbst zurecht — auf Creme bleibt
-die dunkle Schrift, auf dem Foto wird sie hell. Damit beide Kopien exakt
-übereinanderliegen, ist `.gal-hero` ein Größen-Container (`container-type:
-size`, feste Höhe, kein Innenabstand) und die ganze Geometrie steht in `cqw`
-und `cqh`. `--len` steht am Auftakt, nicht am Wort, sonst rechnen die beiden
-mit verschiedenen Schriftgrößen. Die Parallaxe in `galerie.js` zieht der Kopie
-die Verschiebung des Fotos wieder ab. Ob ein Foto dunkel ist, misst
-`build-galleries.py` im mittleren Drittel — liegt die Datei nicht im
-Arbeitsordner, gibt es keine Kopie.
+**Zweitschrift im Auftakt der Galerien.** Alle drei Hero-Fotos liegen VOR dem
+Ortsnamen (z-index 3, das Wort hat 2). In jedem Foto steckt eine zweite Kopie
+des Wortes (`.gal-hero-echo`), die das Foto selbst zurechtschneidet: auf dem Foto
+ist der Buchstabe weiß (oder Akzentrot, Klasse `--rot`, wenn das Foto hell ist),
+daneben bleibt die schwarze Schrift stehen. Ein Buchstabe wird so genau an der
+Fotokante geteilt und ist nie verdeckt. Damit beide Kopien exakt übereinander
+liegen, ist `.gal-hero` ein Größen-Container (`container-type: size`, feste
+Höhe, kein Innenabstand), die Geometrie steht in `cqw`/`cqh`, und `--len` steht
+am Auftakt, nicht am Wort. Die Parallaxe in `galerie.js` zieht der Kopie die
+Verschiebung des Fotos wieder ab. Die Farbe wählt `galerie.js` beim Laden an den
+echten Pixeln unter dem Wort (Canvas, Kontrast Weiß gegen Rot); der Generator
+setzt nur einen Startwert (`wort_helligkeit()`), falls die Datei im Arbeitsordner
+liegt.
+
+**Startseite, Flugstrecke.** Die Strecke beginnt direkt unter der Wortmarke und
+schließt nahtlos (`band = cursor_ende - cursor_start`). Hinter dem Zitat gibt es
+keinen Kasten: die Fotos werden stattdessen schwächer (`track.opacity`).
+Die Booking-Leiste ist nur sichtbar, solange die Flug-Bühne den ganzen
+Bildschirm füllt.
+
+**Handy im Desktop-Modus.** Zeigt Chrome auf dem Handy die Desktop-Version
+(⋮ → „Desktop-Website"), sieht man das Desktop-Layout verkleinert. Dann
+greifen die Handy-Regeln nie. Zuerst das prüfen, bevor man Handy-CSS ändert.
+Zum Testen: Playwright mit `is_mobile=True`.
 
 **Seitenverhältnisse.** Kein Foto wird irgendwo in ein fremdes Format
 geschnitten. Hero-Fotos, Menüfotos und die Fotos auf der Preise-Seite bekommen

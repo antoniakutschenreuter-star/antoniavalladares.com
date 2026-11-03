@@ -232,7 +232,7 @@ body.intro-done main, body.intro-done .site-header, body.intro-done .site-footer
    Er reicht jetzt nur noch so weit, wie die Wortmarke wirklich Grund
    braucht, und wird danach schnell durchsichtig. */
 .flow-veil {
-  position: absolute; inset: 0 0 auto 0; height: 34vh; z-index: 2;
+  position: absolute; inset: 0 0 auto 0; height: min(34vh, 320px); z-index: 2;
   pointer-events: none;
   transition: opacity .5s var(--ease);
   background: linear-gradient(to bottom,
@@ -242,7 +242,7 @@ body.intro-done main, body.intro-done .site-header, body.intro-done .site-footer
 }
 #flow2 .flow-veil { opacity: .42; }
 .flow-veil--bottom {
-  inset: auto 0 0 0; height: 22vh;
+  inset: auto 0 0 0; height: min(22vh, 200px);
   background: linear-gradient(to top,
     rgba(var(--bg-rgb), .9) 0%, rgba(var(--bg-rgb), .52) 42%, rgba(var(--bg-rgb), 0) 100%);
 }
@@ -275,9 +275,6 @@ body.intro-done main, body.intro-done .site-header, body.intro-done .site-footer
   z-index: 22; text-align: center;
   opacity: 0; pointer-events: none;
   padding: 9vh 5vw;
-  background: radial-gradient(ellipse 70% 60% at 50% 50%,
-    rgba(var(--bg-rgb), .94) 0%, rgba(var(--bg-rgb), .88) 42%,
-    rgba(var(--bg-rgb), .55) 68%, rgba(var(--bg-rgb), 0) 100%);
 }
 .flow-quote p {
   font-family: var(--font-display);
@@ -1028,3 +1025,14 @@ body.kommt .vorhang-seite { animation: vorhang-weg .62s var(--ease) forwards; }
 
 /* Querformat im Auftakt (Investment) — gleiche Bühne, anderes Seitenverhältnis */
 .auftakt-foto--quer { aspect-ratio: 3/2; }
+
+/* ── Handy: nichts unter 15 Pixel ─────────────────────────────────── */
+@media (max-width: 640px) {
+  .phonetic { font-size: .95rem; letter-spacing: .2em; }
+  .bookings-bar p { font-size: 1rem; }
+  .bookings-lead { font-size: 1.08rem !important; }
+  .paket .pk-bundle, .pk-bundle { font-size: .96rem; }
+  .hinweis { font-size: .96rem; }
+  .pf-cap-sub { font-size: .96rem; }
+  .pf-lead { font-size: 1.04rem; }
+}

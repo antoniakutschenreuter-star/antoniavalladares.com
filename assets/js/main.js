@@ -198,7 +198,16 @@
     var lanes = W < 760 ? LANES_2 : LANES_3;
     var rng   = prng(this.seed * 977 + 13);
     var items = [];
-    var cursor = H * 0.34;          /* startet unterhalb des Schleiers */
+    /* Die Strecke beginnt direkt unter der Wortmarke — nicht bei einem
+       festen Bruchteil der Bildschirmhöhe, sonst entsteht auf hohen
+       Handys ein riesiger leerer Streifen über den ersten Fotos. */
+    var cursor = H * 0.2;
+    var wm = this.sec.querySelector('.hero-wordmark');
+    if (wm) {
+      var wr = wm.getBoundingClientRect(), sr = this.stage.getBoundingClientRect();
+      if (wr.height) { cursor = Math.max(H * 0.12, Math.min(H * 0.34, wr.bottom - sr.top + H * 0.025)); }
+    }
+    var cursor0 = cursor;
 
     for (var i = 0; i < this.list.length; i++) {
       var entry = this.list[i];
@@ -215,7 +224,9 @@
       cursor += h * 0.55 + gap;
     }
 
-    this.band = cursor + H * 0.28;
+    /* nahtloser Übergang: das erste Foto der zweiten Runde steht genau
+       dort, wo nach dem letzten das nächste käme — keine Lücke mehr */
+    this.band = Math.max(H * 0.5, cursor - cursor0);
 
     var frag = document.createDocumentFragment();
     for (var pass = 0; pass < 2; pass++) {
@@ -393,6 +404,8 @@
       var op   = into * (1 - away);
 
       setStyle(quote, 'opacity', op.toFixed(3));
+      /* Statt eines Kastens hinter dem Satz treten die Fotos zurück */
+      if (flows[0]) { setStyle(flows[0].track, 'opacity', (1 - 0.8 * op).toFixed(3)); }
       var lift = (1 - into) * 5 - away * 5;   /* dezent, kein Springen */
       setStyle(quote, 'transform', 'translate(-50%, calc(-50% + ' + lift.toFixed(2) + 'vh))');
 
@@ -412,7 +425,7 @@
       var onFlow = false;
       for (var f = 0; f < flows.length; f++) {
         var fl = flows[f];
-        if (y + vh * 0.5 > fl.top && y < fl.top + fl.height - vh * 0.2) { onFlow = true; }
+        if (y + vh * 0.5 > fl.top && y < fl.top + fl.height - vh) { onFlow = true; }
       }
       /* Nicht über der Bildstrecke — dort steht schon „See Gallery“ */
       if (reel && reel.height && y + vh > reel.top && y < reel.top + reel.height) { onFlow = false; }

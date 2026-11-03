@@ -353,31 +353,54 @@ def masse(pfad, ratio=None):
     raise SystemExit('Bilddatei fehlt und keine Maße bekannt: assets/img/' + pfad)
 
 
-_DUNKEL = {}
+_HELL = {}
+
+# Lage der drei Hero-Fotos (wie in portfolio.css, in % der Hero-Breite/-höhe)
+_PLATZ = {'b1': ('top', 5, 23), 'b2': ('bottom', 3, 26), 'b3': ('top', 6, 15)}
 
 
-def ist_dunkel(pfad):
-    """Ist das Foto dort dunkel, wo das Wort darüberläuft?
-
-    Gemessen wird nur das mittlere waagerechte Drittel — genau die Bahn,
-    in der die Lettern liegen. Liegt die Datei nicht im Arbeitsordner,
-    bleibt es bei der dunklen Schrift (kein Echo)."""
-    if pfad in _DUNKEL:
-        return _DUNKEL[pfad]
-    hell = None
+def wort_helligkeit(pfad, pos, ratio, laenge):
+    """Mittlere Leuchtdichte (0 = schwarz, 1 = weiß) des Fotos genau dort,
+    wo das Wort darüberläuft. Grundlage ist eine Referenzgröße von
+    1440 × 900 px; die Bahn des Wortes ergibt sich aus Schriftgröße und
+    Mittellage. Liegt die Datei nicht im Arbeitsordner: None."""
+    schl = (pfad, pos, laenge)
+    if schl in _HELL:
+        return _HELL[schl]
+    wert = None
     try:
         with Image.open('assets/img/' + pfad) as im:
-            g = im.convert('L')
+            g = im.convert('RGB')
+            W, H = 1440.0, 612.0
+            fs = min(0.154 * W, (W - 80) * 1.3 / laenge)
+            wort_o, wort_u = H / 2 - 0.40 * fs, H / 2 + 0.40 * fs
+            seite, rand, breite = _PLATZ[pos]
+            fw = W * breite / 100.0
+            fh = fw / ratio
+            top = H * rand / 100.0 if seite == 'top' else H - H * rand / 100.0 - fh
+            v0 = max(0.0, (wort_o - top) / fh)
+            v1 = min(1.0, (wort_u - top) / fh)
+            if v1 - v0 < 0.05:
+                v0, v1 = 0.33, 0.67
             b, h = g.size
-            band = g.crop((0, int(h * 0.33), b, int(h * 0.67)))
+            band = g.crop((0, int(h * v0), b, max(int(h * v1), int(h * v0) + 2)))
             band.thumbnail((60, 60))
-            px = list(band.getdata())
-            hell = sum(px) / len(px) / 255.0
-    except (FileNotFoundError, OSError):
+            lin = lambda c: ((c / 255.0 + 0.055) / 1.055) ** 2.4 if c > 10 else c / 3294.6
+            px = list(band.get_flattened_data() if hasattr(band, 'get_flattened_data') else band.getdata())
+            wert = sum(0.2126 * lin(r) + 0.7152 * lin(gg) + 0.0722 * lin(bb) for r, gg, bb in px) / len(px)
+    except (FileNotFoundError, OSError, KeyError):
         pass
-    _DUNKEL[pfad] = hell is not None and hell < 0.46
-    return _DUNKEL[pfad]
+    _HELL[schl] = wert
+    return wert
 
+
+def echo_farbe(lum):
+    """Weiß oder Akzentrot — je nachdem, was auf dem Foto mehr Kontrast hat."""
+    if lum is None:
+        return ''
+    weiss = 1.05 / (lum + 0.05)
+    rot = (max(lum, 0.105) + 0.05) / (min(lum, 0.105) + 0.05)
+    return '' if (lum <= 0.42 or weiss >= rot) else ' gal-hero-echo--rot'
 
 
 def picture(pfad, alt, sizes, klasse='', lazy=True, w=None, h=None):
@@ -416,15 +439,16 @@ def bau(g, js, teile):
 
     h = g['hero']
     hero_bilder = []
-    for i, (idx, pos, klasse) in enumerate([(h[0], 'b1', 'hinten'), (h[1], 'b2', 'hinten'), (h[2], 'b3', 'vorne')]):
+    for i, (idx, pos, klasse) in enumerate([(h[0], 'b1', 'hinten'), (h[1], 'b2', 'hinten'), (h[2], 'b3', 'hinten')]):
         f = passend(idx, pos == 'b2')
         w, hh = masse(f[0], f[1])
         # Liegt das Foto hinter dem Wort und ist es dunkel, bekommt es eine
         # helle Kopie des Wortes mit — sonst ist die Schrift darauf nicht
         # zu lesen. Das Foto schneidet die Kopie selbst zurecht.
-        echo = ''
-        if klasse == 'hinten' and ist_dunkel(f[0]):
-            echo = f'<span class="gal-hero-echo" aria-hidden="true">{g["wort"]}</span>'
+        # Jedes Foto bekommt die Kopie: weiß auf dunklem, Akzentrot auf
+        # hellem Grund — die Buchstaben liegen immer sichtbar auf dem Foto.
+        farbe = echo_farbe(wort_helligkeit(f[0], pos, f[1], len(g['wort'])))
+        echo = f'<span class="gal-hero-echo{farbe}" aria-hidden="true">{g["wort"]}</span>'
         hero_bilder.append(
             f'    <figure class="gal-hero-bild gal-hero-bild--{klasse} gal-hero-{pos}" data-tiefe="{0.12 + i * 0.06:.2f}">'
             + picture(f[0], f[2], '(max-width: 900px) 38vw, min(22vw, 330px)', lazy=(i > 0), w=w, h=hh)
@@ -538,9 +562,9 @@ def bau(g, js, teile):
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/cormorant-garamond-latin-300-normal.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/jost-latin-300-normal.woff2" crossorigin>
 
-<link rel="stylesheet" href="assets/css/fonts.css?v=20261103h">
-<link rel="stylesheet" href="assets/css/style.css?v=20261103h">
-<link rel="stylesheet" href="assets/css/portfolio.css?v=20261103h">
+<link rel="stylesheet" href="assets/css/fonts.css?v=20261103i">
+<link rel="stylesheet" href="assets/css/style.css?v=20261103i">
+<link rel="stylesheet" href="assets/css/portfolio.css?v=20261103i">
 
 <script type="application/ld+json">
 {json.dumps(ld, ensure_ascii=False, indent=1)}
@@ -595,9 +619,9 @@ def bau(g, js, teile):
 {teile['menu']}<button class="to-top" type="button" aria-label="Zurück nach oben"><span aria-hidden="true">&uarr;</span></button>
 <div class="grain" aria-hidden="true"></div>
 
-<script src="assets/js/photos.js?v=20261103h" defer></script>
-<script src="assets/js/main.js?v=20261103h" defer></script>
-<script src="assets/js/galerie.js?v=20261103h" defer></script>
+<script src="assets/js/photos.js?v=20261103i" defer></script>
+<script src="assets/js/main.js?v=20261103i" defer></script>
+<script src="assets/js/galerie.js?v=20261103i" defer></script>
 </body>
 </html>
 '''

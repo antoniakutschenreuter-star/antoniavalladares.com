@@ -238,3 +238,8 @@ body.ab.kopf-hell .to-top { color: var(--ink); border-color: var(--hairline); }
 }
 .ab-schluss .ab-signatur { margin-top: 1.3em; }
 .ab-schluss .ab-cta { margin-top: 2em; }
+
+@media (max-width: 640px) {
+  .ab-zaehler, .ab-von { font-size: .96rem; }
+  .ab-tick { font-size: .9rem; }
+}

@@ -359,6 +359,7 @@ body.gal main { padding-top: var(--header-h); }
   white-space: nowrap;
   color: #FBF9F7;
 }
+.gal-hero-echo--rot { color: var(--accent-flaeche); }
 .gal-hero-b1 .gal-hero-echo { left: -4cqw;  top: -5cqh; }
 .gal-hero-b3 .gal-hero-echo { left: -52cqw; top: -6cqh; }
 .gal-hero-b2 .gal-hero-echo { left: -70cqw; bottom: -3cqh; }
@@ -371,8 +372,7 @@ body.gal main { padding-top: var(--header-h); }
   .gal-hero-echo { display: none; }
 }
 
-.gal-hero-bild--hinten { z-index: 1; }
-.gal-hero-bild--vorne  { z-index: 3; }
+.gal-hero-bild--hinten, .gal-hero-bild--vorne { z-index: 3; }
 /* Die Fotos behalten ihr Originalformat. Vorher war den drei Plätzen ein
    Seitenverhältnis fest vorgeschrieben (2:3 und 3:2) und das Bild wurde
    per object-fit hineingeschnitten — ein Querformat im Hochformatplatz

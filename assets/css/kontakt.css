@@ -82,3 +82,5 @@
 @media (max-width: 900px) {
   .kt-direkt .link { letter-spacing: .06em; font-size: .86rem; max-width: 100%; overflow-wrap: anywhere; }
 }
+
+@media (max-width: 640px) { .kt-direkt .link, .kt-direkt a { font-size: 1rem; } }

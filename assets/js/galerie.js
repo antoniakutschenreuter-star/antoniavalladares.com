@@ -6,6 +6,66 @@
    rAF-Schleife, im Frame kein Layout lesen, nur transform schreiben.
    Lightbox und Menü kommen aus main.js.
    ===================================================================== */
+/* ---------------------------------------------------------------------
+   Farbe der Zweitschrift im Auftakt: weiß oder Akzentrot — je nachdem,
+   was auf dem Foto genau dort, wo das Wort darüberläuft, mehr Kontrast
+   hat. Gemessen wird im Browser an den echten Pixeln und der echten
+   Lage (der Generator kennt nur eine Referenzgröße und nicht jede
+   Fotodatei). Fehlt die Messung, bleibt es beim Wert aus dem HTML.
+   --------------------------------------------------------------------- */
+(function () {
+  'use strict';
+  var hero = document.querySelector('.gal-hero');
+  var wort = hero && hero.querySelector('.gal-hero-wort');
+  if (!wort || !document.createElement('canvas').getContext) { return; }
+  var ROT = 0.105;                         /* Leuchtdichte von --accent-flaeche */
+
+  function lin(c) { c /= 255; return c <= 0.04045 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4); }
+
+  function messen() {
+    var rg = document.createRange();
+    rg.selectNodeContents(wort);
+    var wr = rg.getBoundingClientRect();
+    var h = wr.height * 0.62;               /* nur die Versalhöhe, nicht der Zeilenraum */
+    var wo = wr.top + (wr.height - h) / 2, wu = wo + h;
+    [].forEach.call(hero.querySelectorAll('.gal-hero-bild'), function (fig) {
+      var img = fig.querySelector('img'), echo = fig.querySelector('.gal-hero-echo');
+      if (!img || !echo || !img.complete || !img.naturalWidth) { return; }
+      var fr = fig.getBoundingClientRect();
+      var l = Math.max(fr.left, wr.left), r = Math.min(fr.right, wr.right);
+      var o = Math.max(fr.top, wo), u = Math.min(fr.bottom, wu);
+      if (r - l < 4 || u - o < 4) { return; }
+      var sx = (l - fr.left) / fr.width * img.naturalWidth;
+      var sy = (o - fr.top) / fr.height * img.naturalHeight;
+      var sw = (r - l) / fr.width * img.naturalWidth;
+      var sh = (u - o) / fr.height * img.naturalHeight;
+      try {
+        var cv = document.createElement('canvas'); cv.width = 48; cv.height = 48;
+        var cx = cv.getContext('2d');
+        cx.drawImage(img, sx, sy, sw, sh, 0, 0, 48, 48);
+        var d = cx.getImageData(0, 0, 48, 48).data, sum = 0, n = 0;
+        for (var i = 0; i < d.length; i += 4) {
+          sum += 0.2126 * lin(d[i]) + 0.7152 * lin(d[i + 1]) + 0.0722 * lin(d[i + 2]); n++;
+        }
+        var L = sum / n;
+        var weiss = 1.05 / (L + 0.05);
+        var rot = (Math.max(L, ROT) + 0.05) / (Math.min(L, ROT) + 0.05);
+        echo.classList.toggle('gal-hero-echo--rot', L > 0.42 && rot > weiss);
+      } catch (e) { /* Messung nicht möglich — HTML-Wert bleibt */ }
+    });
+  }
+
+  var t = 0;
+  function spaeter() { clearTimeout(t); t = setTimeout(messen, 120); }
+  window.addEventListener('load', messen);
+  window.addEventListener('resize', spaeter, { passive: true });
+  [].forEach.call(hero.querySelectorAll('.gal-hero-bild img'), function (im) {
+    im.addEventListener('load', spaeter);
+  });
+  if (document.fonts && document.fonts.ready) { document.fonts.ready.then(spaeter); }
+  messen();
+})();
+
 (function () {
   'use strict';
 
