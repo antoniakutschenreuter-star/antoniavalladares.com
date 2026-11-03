@@ -692,7 +692,38 @@ body.show-font-switch .font-switch { display: flex; }
   .reel-track figure { scroll-snap-align: center; }
   .reel-progress, .reel-escape { display: none; }
   .reel-exit { position: static; margin: clamp(2.5rem, 6vw, 4rem) 0 0; }
+
+  /* Die Fotos sind schmaler als der Bildschirm, damit das nächste schon
+     hereinschaut. Vorher war das erste Foto breiter als das Handy und
+     die Reihe sah aus wie ein einzelnes Bild. */
+  .reel-track { gap: 10px; padding-inline: 5vw; scroll-padding-inline: 5vw; }
+  .reel-track figure { height: auto; }
+  .reel-track figure.reel-quer { width: 76vw; }
+  .reel-track figure.reel-hoch { width: 52vw; }
+
+  /* Pfeil: zeigt, dass es weitergeht. Ein Tipp springt zum nächsten Foto. */
+  .reel-pin { position: relative; }
+  .reel-weiter {
+    display: flex; align-items: center; justify-content: center;
+    position: absolute; z-index: 5; right: 10px;
+    top: calc(var(--header-h) + 3rem + 39vw - 22px);
+    width: 44px; height: 44px; padding: 0;
+    border: 1px solid var(--hairline); border-radius: 50%;
+    background: rgba(var(--bg-rgb), .88); color: var(--ink);
+    font-family: var(--font-ui); font-size: 1.15rem; line-height: 1;
+    cursor: pointer; -webkit-tap-highlight-color: transparent;
+    transition: opacity .4s var(--ease);
+  }
+  .reel-weiter span { display: block; animation: reel-wink 2.2s var(--ease) infinite; }
+  .reel-weiter.is-weg { opacity: 0; pointer-events: none; }
 }
+@keyframes reel-wink {
+  0%, 55%, 100% { transform: translateX(0); }
+  75% { transform: translateX(5px); }
+}
+/* Am Zeigegerät ist die Reihe gepinnt, dort braucht es den Pfeil nicht */
+.reel-weiter { display: none; }
+@media (max-width: 900px), (hover: none) { .reel-weiter { display: flex; } }
 
 /* ── 19 REDUCED MOTION ────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {

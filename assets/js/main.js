@@ -192,8 +192,8 @@
 
     var klein = W < 760;
     var WR  = klein ? [34, 50] : [15, 27];     /* Fotobreite in % der Bühne */
-    var MX  = (klein ? 0.05 : 0.04) * W;       /* Mindestabstand seitlich   */
-    var MY  = (klein ? 0.055 : 0.075) * H;     /* Mindestabstand oben/unten */
+    var MX  = (klein ? 0.05 : 0.036) * W;      /* Mindestabstand seitlich   */
+    var MY  = (klein ? 0.055 : 0.065) * H;     /* Mindestabstand oben/unten */
     var rng = prng(this.seed * 977 + 13);
     var cursor = H * 0.2;
     var wm = this.sec.querySelector('.hero-wordmark');
@@ -213,7 +213,7 @@
     }
 
     function platzieren() {
-      var placed = [], out = [], last = null, i, c;
+      var placed = [], out = [], last = null, seiten = [], i, c;
       var r2 = prng(7919 + n);
       function frei(x, w, h, y0) {
         var y = y0, moved = true, guard = 0;
@@ -232,19 +232,27 @@
       for (i = 0; i < n; i++) {
         var w = sizes[i].w, h = sizes[i].h;
         var best = null, bestScore = 1e9;
-        var floor = last ? last.y + (0.10 + r2() * 0.22) * H : 0;
+        var floor = last ? last.y + (0.05 + r2() * 0.15) * H : 0;
         for (c = 0; c < 14; c++) {
           var x = 8 + r2() * (W - w - 16);
           var y = frei(x, w, h, floor);
-          var score = y + r2() * 0.14 * H;
+          var score = y + r2() * 0.12 * H;
           /* die Seiten wechseln, damit nicht mehrere Fotos hintereinander
              in derselben Ecke stehen */
           if (last) {
             var dx = Math.abs((x + w / 2) - (last.x + last.w / 2)) / W;
             if (dx < 0.2) { score += 0.30 * H; }
           }
+          var seite = (x + w / 2) < W / 2 ? 0 : 1;
+          if (seiten.length > 1 && seiten[seiten.length - 1] === seite &&
+              seiten[seiten.length - 2] === seite) { score += 0.40 * H; }
+          var links = 0;
+          for (var sq = Math.max(0, seiten.length - 6); sq < seiten.length; sq++) { links += seiten[sq]; }
+          var bilanz = seiten.length ? links / Math.min(6, seiten.length) : 0.5;
+          if ((seite === 1 && bilanz > 0.67) || (seite === 0 && bilanz < 0.33)) { score += 0.25 * H; }
           if (score < bestScore) { bestScore = score; best = { x: x, y: y }; }
         }
+        seiten.push((best.x + w / 2) < W / 2 ? 0 : 1);
         last = { x: best.x, y: best.y, w: w, h: h };
         placed.push(last);
         out.push({ entry: list[i], x: best.x, y: best.y, w: w, h: h, i: i });
@@ -375,6 +383,20 @@
   if (flow2) { flows.push(new Flow(flow2, P.FLOW_B, 1)); }
   var reel = reelSec ? new Reel(reelSec) : null;
 
+  /* Handy: Pfeil an der Bildstrecke. Er bleibt, bis das Ende erreicht ist. */
+  var reelWeiter = reelSec ? reelSec.querySelector('.reel-weiter') : null;
+  if (reelWeiter && reel && reel.track) {
+    var rt = reel.track;
+    reelWeiter.addEventListener('click', function () {
+      var fg = rt.querySelector('figure');
+      var schritt = fg ? fg.getBoundingClientRect().width + 10 : rt.clientWidth * 0.8;
+      rt.scrollBy({ left: schritt, behavior: 'smooth' });
+    });
+    rt.addEventListener('scroll', function () {
+      setClass(reelWeiter, 'is-weg', rt.scrollLeft + rt.clientWidth >= rt.scrollWidth - 12);
+    }, { passive: true });
+  }
+
   /* Parallax-Kandidaten */
   var paraEls = [].slice.call(document.querySelectorAll('[data-parallax]')).map(function (el) {
     return { el: el, strength: parseFloat(el.dataset.parallax) || 24, top: 0, h: 0, active: false };
@@ -435,14 +457,13 @@
     if (reel) { reel.step(y, vh); }
 
     /* ── 06 ZITAT UND WORTMARKE ───────────────────────────────────
-       Das Zitat blendet früh ein, steht dann lange (Plateau von
-       0,30 bis 0,74 des Hero-Scrollwegs ≈ zweieinhalb Bildschirme)
-       und geht erst spät wieder. Die Fotos fliegen die ganze Zeit
+       Das Zitat blendet ein, steht kurz (Plateau von 0,40 bis 0,52
+       des Hero-Scrollwegs ≈ ein Bildschirm) und geht wieder. Die Fotos fliegen die ganze Zeit
        weiter, weil der Flug eine eigene Grunddrift hat. */
     if (hero && quote) {
       var p    = clamp((y - metrics.heroTop) / metrics.heroSpan, 0, 1);
-      var into = seg(p, 0.36, 0.44);
-      var away = seg(p, 0.80, 0.88);
+      var into = seg(p, 0.34, 0.40);
+      var away = seg(p, 0.52, 0.58);
       var op   = into * (1 - away);
 
       setStyle(quote, 'opacity', op.toFixed(3));

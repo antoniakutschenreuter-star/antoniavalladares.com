@@ -1,7 +1,7 @@
 /* GENERIERT von tools/build-galleries.py aus tools/photos-quelle.js. Nicht von Hand ändern. */
 const MENU_SHOTS = [
   ['menu-kronleuchter-festsaal-hochzeit.jpg',0.6653,"Kristallleuchter über einem festlich gedeckten Hochzeitssaal im rosa Licht – Hochzeitsfotografie"],
-  ['menu-hochzeit-umbrien-braut-oldtimer-schwarzweiss.jpg',1.506,"Der Bräutigam hilft der Braut in einen weißen Oldtimer, die Gäste schauen zu, Schwarzweiß – Hochzeit in Umbrien"],
+  ['portfolio/galerie-umbrien-italien/umbrien-hochzeit-freie-trauung-antonia-valladares-039.jpg',1.5000,"Bräutigam hilft der Braut in den Oldtimer, umringt von Gästen – Hochzeit in Umbrien, Italien"],
   ['menu-hochzeit-umbrien-gaeste-gegenlicht.jpg',0.6653,"Drei Gäste gehen im Gegenlicht an der gedeckten Hochzeitstafel vor einem Steinhaus vorbei – Hochzeit in Umbrien"],
   ['menu-brautpaar-haende-marmortreppe.jpg',1.5083,"Das Paar hält sich an den Händen auf einer Marmortreppe mit weißem Geländer – Hochzeitsfotografie"]
 ];

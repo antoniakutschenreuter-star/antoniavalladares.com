@@ -297,3 +297,11 @@ den Block ein und drückt danach **Commit to main** und **Push origin**.
 - Menü: Handy zeigt 3 Fotos, Desktop 4. Unterpunkte unter Portfolio nur am Desktop.
 - Kontakt: Instagram nur als Zeichen, kein Google-Link (auch nicht in den
   strukturierten Daten).
+- Zitat auf der Startseite: blendet bei 0,34 bis 0,40 des Hero-Scrollwegs ein, steht bis
+  0,52, ist bei 0,58 weg (insgesamt etwa 1,6 Bildschirmhöhen Scrollweg, vorher 3,6).
+- Flugstrecke Desktop: Mindestabstand seitlich 3,6 % der Breite, oben/unten 6,5 % der
+  Höhe, Seiten wechseln (nie dreimal hintereinander dieselbe Hälfte). Gemessen in
+  sechs Fenstergrößen: 0 Überlappungen, kein Foto angeschnitten.
+- Handy: Die Bildstrecke auf der Startseite ist schmaler als der Bildschirm, damit das
+  nächste Foto hereinragt. Dazu ein Pfeil (`.reel-weiter`), der bis zum Ende bleibt.
+- Menü-Auto-Foto ist das Original aus der Umbrien-Galerie (`...-039.jpg`), keine Kopie.
