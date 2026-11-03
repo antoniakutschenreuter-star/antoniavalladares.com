@@ -2,8 +2,9 @@
    KONTAKT — Auftakt kommt aus style.css, hier steht nur das Formular.
    ===================================================================== */
 
+/* Zwischen Slogan und Kontaktdaten stand zu wenig Luft. */
 .kt-direkt {
-  margin-top: clamp(2rem, 4.2vw, 3.2rem);
+  margin-top: clamp(3.2rem, 7vw, 5.6rem);
   display: flex; flex-wrap: wrap; justify-content: center;
   gap: clamp(1rem, 3vw, 2.6rem);
 }

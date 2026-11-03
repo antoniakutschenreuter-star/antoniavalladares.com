@@ -38,11 +38,11 @@ vollständige Kontext übergeben.
 | `kontakt.html` | Kontakt (nur Links, **kein Formular** — siehe offene Punkte) |
 | `impressum.html`, `datenschutz.html` | Pflichtseiten |
 | **Galerien (generiert)** | |
-| `hochzeit-freie-trauung-pfalz.html` | 134 Fotos — J&M, Weinberge Rheinland-Pfalz |
+| `hochzeit-freie-trauung-pfalz.html` | 136 Fotos — J&M, Weinberge Rheinland-Pfalz |
 | `hochzeit-freie-trauung-bad-toelz.html` | 91 Fotos — J&J, Kurhaus Bad Tölz |
 | `hochzeit-freie-trauung-out-of-office-muenchen.html` | 74 Fotos — J&M, Out of Office München |
 | `hochzeit-schloss-blutenburg.html` | 73 Fotos — L&D, Schloss Blutenburg |
-| `hochzeit-umbrien-italien.html` | 57 Fotos — Umbrien (**Initialen fehlen noch**) |
+| `hochzeit-umbrien-italien.html` | 57 Fotos — S&D, Umbrien |
 | `hochzeit-standesamt-mandlstrasse.html` | 65 Fotos — L&D, Standesamt Mandlstraße |
 | `hochzeit-tegernsee-regenhochzeit.html` | 76 Fotos — L&S, Regenhochzeit Tegernsee |
 | `verlobungsshooting-vietnam.html` | 43 Fotos — V&B, Ho-Chi-Minh-Stadt |
@@ -91,7 +91,7 @@ Listen:
 |---|---|
 | `REEL` | Bildstrecke der Startseite (15 Fotos, Out of Office München) |
 | `FLOW_A`, `FLOW_B` | die beiden Flugstrecken der Startseite |
-| `TILES`, `PORTRAIT`, `MENU_SHOTS` | Kleinteile, Menühintergrund |
+| `PORTRAIT`, `MENU_SHOTS` | Portrait neben dem Text, Menühintergrund |
 | `PF_HOCHZEITEN` | Manifest der Portfolio-Kacheln (die Kacheln selbst stehen im HTML) |
 | `GAL_*` | je eine Galerie |
 | `FLOW_FAMILIEN`, `FLOW_BUSINESS`, `FLOW_SCHAUSPIEL`, `REEL_BABYBAUCH` | Portfolio-Flugstrecken |
@@ -158,6 +158,11 @@ Danach: `python3 tools/build-galleries.py`
 
 ## 6 · Besonderheiten im Code
 
+**Durchmischen (`AV_mischen` in `photos.js`).** Die Reihenfolge der Listen ist
+bewusst gesetzt und wird nicht neu gewürfelt — sie bestimmt, was oben in der
+Flugstrecke steht. Die Funktion entklumpt nur: kein Foto aus demselben Shooting
+innerhalb von drei Plätzen, hoch und quer im Wechsel.
+
 **Masonry (`galerie.js`).** Die Galeriefotos werden in zwei bzw. drei Spalten
 verteilt. Die letzten Fotos jedes Abschnitts werden durchprobiert
 (`verteile()`), damit alle Spalten gleich tief enden — sonst klafft vor jedem
@@ -206,11 +211,13 @@ den Block ein und drückt danach **Commit to main** und **Push origin**.
 
 ## 8 · Offene Punkte
 
-- **Umbrien:** die Initialen des Paares fehlen — als einzige Galerie.
 - **Kontaktseite:** es gibt kein Formular, nur vier Links. Die kompletten
   Formularstile liegen ungenutzt in `kontakt.css`. Auf GitHub Pages bräuchte es
   einen Dienst wie Formspree.
 - **Donau-Ries:** Fotos fehlen, Kachel ist deshalb ausgeblendet.
+- **Newborn:** `portfolio/newborn/newborn-fotografie-muenchen-babyfuesse-bett.jpg` und
+  `…-elternhaende-babyfuesse-schwarzweiss.jpg` sind in `photos.js` eingetragen, liegen
+  aber nicht im Repo — auf der Seite erscheint ein grauer Kasten. Dateien fehlen.
 - **Pfalz:** sechs Fotos wurden entfernt, weil Kindergesichter zu sehen waren.
   Sobald es Versionen mit abgedeckten Gesichtern gibt, kommen sie zurück.
 - **Preise-Seite:** für ein Foto fehlen im Arbeitsordner die Maße; im Repo ist

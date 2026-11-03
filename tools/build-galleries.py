@@ -33,8 +33,8 @@ GALERIEN = [
   titel='Hochzeit in Umbrien, Italien',
   meta='Mehrt\u00e4gige Hochzeit in Umbrien: Pre-Party am Haus, Trauung mit Blick auf die Weinberge, Fest auf dem Weingut bis in die Nacht. Fotografiert von Antonia Valladares.',
   satz=(
-   'Was f\u00fcr ein rauschendes, mehrt\u00e4giges Fest! Das Paar wurde in Italien auf mich '
-   'aufmerksam und hat mich prompt gefragt, ob ich die Hochzeit fotografieren m\u00f6chte. '
+   'Was f\u00fcr ein rauschendes, mehrt\u00e4giges Fest! S&amp;D wurden in Italien auf mich '
+   'aufmerksam und haben mich prompt gefragt, ob ich die Hochzeit fotografieren m\u00f6chte. '
    '\u00dcberm\u00e4\u00dfig gestellte, klassische Hochzeitsfotos kamen f\u00fcr die beiden nicht in Frage. Als '
    'sie meinen Stil sahen und ich ihnen versichert habe, dass sie mich an ihrem Hochzeitstag '
    'kaum bemerken werden, haben sie mich direkt engagiert.'
@@ -209,8 +209,8 @@ GALERIEN = [
   ort='Out of Office, München',
   h2='Freie Trauung über den Dächern Münchens',
   titel='Freie Trauung im Out of Office München',
-  meta='Freie Trauung im Out of Office in München: First Look mit Liebesbriefen im Englischen '
-       'Garten, Zeremonie auf der Dachterrasse mit Blick auf die Frauenkirche, Feier bis in die Nacht.',
+  meta='Freie Trauung im Out of Office München: First Look im Englischen Garten, Zeremonie auf '
+       'der Dachterrasse mit Blick auf die Frauenkirche, Feier bis in die Nacht.',
   satz=(
    'Was für eine schöne symbolische Hochzeit über den Dächern Münchens! J&amp;M '
    'durfte ich schon bei ihrer standesamtlichen Trauung im '
@@ -294,8 +294,8 @@ GALERIEN = [
 # Reihenfolge wie die Kacheln auf der Portfolio-Seite
 NAV = [
  ('/hochzeit-freie-trauung-pfalz.html', 'Pfalz', 'portfolio/cover/freie-trauung-pfalz-weinberge-hochzeitspaar-valladares.jpg'),
- ('/hochzeit-freie-trauung-bad-toelz.html', 'Bad Tölz', 'portfolio/cover/freie-trauung-bad-toelz-hochzeitspaar-braut-getragen.jpg'),
- ('/hochzeit-freie-trauung-out-of-office-muenchen.html', 'Out of Office', 'portfolio/cover/freie-trauung-out-of-office-muenchen-hochzeitspaar-valladares.jpg'),
+ ('/hochzeit-freie-trauung-bad-toelz.html', 'Bad Tölz', 'portfolio/cover/freie-trauung-bad-toelz-paartanz-festsaal-schwarzweiss.jpg'),
+ ('/hochzeit-freie-trauung-out-of-office-muenchen.html', 'Out of Office', 'portfolio/cover/freie-trauung-out-of-office-muenchen-brautpaar-traubogen.jpg'),
  ('/hochzeit-schloss-blutenburg.html', 'Blutenburg', 'portfolio/cover/freie-trauung-schloss-blutenburg-hochzeitspaar-valladares.jpg'),
  ('/hochzeit-umbrien-italien.html', 'Umbrien', 'portfolio/cover/italy-wedding-umbria-weinberge-oldtimer-valladares.jpg'),
  ('/hochzeit-standesamt-mandlstrasse.html', 'Mandlstraße', 'portfolio/cover/standesamt-mandlstrasse-hochzeitspaar-fenster-schwarzweiss-valladares.jpg'),
@@ -376,7 +376,7 @@ def bau(g, js, teile):
     #    Der Name ist echter Text — Google liest ihn als H1, kein Bild.
     h = g['hero']
     hero_bilder = []
-    for i, (idx, pos, klasse) in enumerate([(h[0], 'b1', 'hinten'), (h[1], 'b2', 'vorne'), (h[2], 'b3', 'hinten')]):
+    for i, (idx, pos, klasse) in enumerate([(h[0], 'b1', 'hinten'), (h[1], 'b2', 'hinten'), (h[2], 'b3', 'vorne')]):
         f = fotos[idx % len(fotos)]
         w, hh = masse(f[0], f[1])
         hero_bilder.append(
@@ -489,9 +489,9 @@ def bau(g, js, teile):
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/cormorant-garamond-latin-300-normal.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/jost-latin-300-normal.woff2" crossorigin>
 
-<link rel="stylesheet" href="assets/css/fonts.css?v=20261103d">
-<link rel="stylesheet" href="assets/css/style.css?v=20261103d">
-<link rel="stylesheet" href="assets/css/portfolio.css?v=20261103d">
+<link rel="stylesheet" href="assets/css/fonts.css?v=20261103e">
+<link rel="stylesheet" href="assets/css/style.css?v=20261103e">
+<link rel="stylesheet" href="assets/css/portfolio.css?v=20261103e">
 
 <script type="application/ld+json">
 {json.dumps(ld, ensure_ascii=False, indent=1)}
@@ -546,9 +546,9 @@ def bau(g, js, teile):
 {teile['menu']}<button class="to-top" type="button" aria-label="Zurück nach oben"><span aria-hidden="true">&uarr;</span></button>
 <div class="grain" aria-hidden="true"></div>
 
-<script src="assets/js/photos.js?v=20261103d" defer></script>
-<script src="assets/js/main.js?v=20261103d" defer></script>
-<script src="assets/js/galerie.js?v=20261103d" defer></script>
+<script src="assets/js/photos.js?v=20261103e" defer></script>
+<script src="assets/js/main.js?v=20261103e" defer></script>
+<script src="assets/js/galerie.js?v=20261103e" defer></script>
 </body>
 </html>
 '''

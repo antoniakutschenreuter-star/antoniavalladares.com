@@ -921,9 +921,6 @@ body:has(.preis-hero) .site-header::before { display: none; }
   font-family: var(--font-display); font-weight: var(--display-weight);
   font-size: clamp(2rem, 9.6vw, 11rem); line-height: .93; letter-spacing: .012em;
   overflow-wrap: anywhere;
-  /* Wo ein Foto an die Lettern stößt, hebt ein weicher Schein in der
-     Grundfarbe sie ab — dieselbe Lösung wie auf den Galerieseiten. */
-  text-shadow: 0 0 10px rgba(251,249,247,.9), 0 0 30px rgba(251,249,247,.6);
 }
 .auftakt-wort .z { display: inline-block; }
 .auftakt-wort .akzent { color: var(--accent); }

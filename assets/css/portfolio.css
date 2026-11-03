@@ -319,10 +319,6 @@ body.gal main { padding-top: var(--header-h); }
      langes Wort wie „Blutenburg" auf dem Handy über die Kante. */
   font-size: calc(min(15.4vw, (100vw - 2 * var(--edge)) * 1.3 / var(--len)) * var(--display-scale));
   line-height: .9; letter-spacing: -.012em; text-transform: uppercase;
-  /* Wo das Wort über ein unruhiges Foto läuft, war es schlecht zu lesen.
-     Ein weicher Schein in der Grundfarbe hebt die Lettern ab, ohne dass
-     man einen Kasten sieht. */
-  text-shadow: 0 0 10px rgba(251,249,247,.9), 0 0 30px rgba(251,249,247,.65);
   white-space: nowrap; pointer-events: none;
   max-width: 100%;
 }
@@ -342,7 +338,10 @@ body.gal main { padding-top: var(--header-h); }
 
 .gal-hero-b1 { left: 4%;  top: 5%;    width: 23vw; aspect-ratio: 2/3; }
 .gal-hero-b2 { right: 4%; bottom: 3%; width: 26vw; aspect-ratio: 3/2; }
-.gal-hero-b3 { right: 33%; top: -4%;  width: 15vw; aspect-ratio: 2/3; }
+/* Das kleine Hochformat liegt VOR dem Wort und schneidet ein paar
+   Buchstaben an, die beiden großen liegen dahinter. Dadurch liegen die
+   Lettern mal auf einem Foto und werden mal von einem verdeckt. */
+.gal-hero-b3 { right: 33%; top: 6%;   width: 15vw; aspect-ratio: 2/3; }
 
 .gal-kopf {
   max-width: 1280px; margin: 0 auto;
@@ -401,7 +400,10 @@ body.gal main { padding-top: var(--header-h); }
   gap: clamp(.4rem, 1vw, 1rem);
 }
 .gal-weiter a { display: block; position: relative; overflow: hidden; }
-.gal-weiter img { width: 100%; aspect-ratio: 3/2; object-fit: cover; display: block; transition: transform .9s var(--ease), opacity .4s; }
+/* Die Titelbilder der Galerien sind Hochformate. Die Leiste hat sie auf
+   3:2 beschnitten, dabei ging oben und unten das halbe Motiv verloren.
+   Sie behalten jetzt ihr Format. */
+.gal-weiter img { width: 100%; aspect-ratio: 2/3; object-fit: cover; display: block; transition: transform .9s var(--ease), opacity .4s; }
 .gal-weiter a:hover img { transform: scale(1.04); opacity: .82; }
 .gal-weiter span {
   position: absolute; inset: auto 0 0 0; padding: 1rem;
