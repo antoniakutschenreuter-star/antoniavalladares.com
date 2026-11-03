@@ -304,7 +304,12 @@ body.gal main { padding-top: var(--header-h); }
 
 .gal-hero {
   position: relative; overflow: hidden;
-  min-height: clamp(360px, 68vh, 760px);
+  /* Seit die Fotos ihr Originalformat behalten, richtet sich die Höhe des
+     Abschnitts nach dem höchsten davon: das linke Hochformat ist 23vw
+     breit, also 34,5vw hoch, und sitzt bei 5 %. Ohne diesen Mindestwert
+     ragte es unten heraus und wurde von overflow:hidden abgeschnitten —
+     also wieder ein Zuschnitt, nur an anderer Stelle. */
+  min-height: max(clamp(360px, 68vh, 760px), 38vw);
   display: flex; align-items: center; justify-content: center;
   padding: clamp(2rem, 6vh, 5rem) var(--edge);
 }
@@ -334,14 +339,19 @@ body.gal main { padding-top: var(--header-h); }
 /* eines liegt hinter der Schrift, eines davor — das erzeugt die Tiefe */
 .gal-hero-bild--hinten { z-index: 1; }
 .gal-hero-bild--vorne  { z-index: 3; }
-.gal-hero-bild img { width: 100%; height: 100%; object-fit: cover; display: block; }
+/* Die Fotos behalten ihr Originalformat. Vorher war den drei Plätzen ein
+   Seitenverhältnis fest vorgeschrieben (2:3 und 3:2) und das Bild wurde
+   per object-fit hineingeschnitten — ein Querformat im Hochformatplatz
+   verlor dadurch rechts und links die Hälfte. Jetzt gibt die Datei die
+   Höhe vor: width steht fest, height ergibt sich. */
+.gal-hero-bild img { width: 100%; height: auto; display: block; }
 
-.gal-hero-b1 { left: 4%;  top: 5%;    width: 23vw; aspect-ratio: 2/3; }
-.gal-hero-b2 { right: 4%; bottom: 3%; width: 26vw; aspect-ratio: 3/2; }
+.gal-hero-b1 { left: 4%;  top: 5%;    width: 23vw; }
+.gal-hero-b2 { right: 4%; bottom: 3%; width: 26vw; }
 /* Das kleine Hochformat liegt VOR dem Wort und schneidet ein paar
    Buchstaben an, die beiden großen liegen dahinter. Dadurch liegen die
    Lettern mal auf einem Foto und werden mal von einem verdeckt. */
-.gal-hero-b3 { right: 33%; top: 6%;   width: 15vw; aspect-ratio: 2/3; }
+.gal-hero-b3 { right: 33%; top: 6%;   width: 15vw; }
 
 .gal-kopf {
   max-width: 1280px; margin: 0 auto;
@@ -442,7 +452,7 @@ body.gal main { padding-top: var(--header-h); }
   .gal-fig--quer { grid-column: auto; }
   .gal-zurueck { flex-direction: column; align-items: flex-start; gap: 1.1rem; }
   .gal-weiter { grid-template-columns: 1fr; }
-  .gal-hero { min-height: clamp(300px, 52vh, 460px); }
+  .gal-hero { min-height: max(clamp(300px, 52vh, 460px), 66vw); }
   .gal-hero-b1 { width: 40vw; left: 1%; }
   .gal-hero-b2 { width: 44vw; right: 1%; }
   .gal-hero-b3 { display: none; }

@@ -374,10 +374,23 @@ def bau(g, js, teile):
 
     # ── Auftakt: der Ortsname riesig, drei Fotos überlappen die Lettern.
     #    Der Name ist echter Text — Google liest ihn als H1, kein Bild.
+    # Die Plätze haben kein festes Seitenverhältnis mehr, aber die
+    # Komposition lebt davon, dass links und in der Mitte Hochformate
+    # stehen und rechts ein Querformat. Passt ein Index nicht, wird das
+    # nächste Foto mit der richtigen Lage genommen — so verrutscht nichts
+    # mehr, wenn später Fotos in die Liste eingefügt werden.
+    def passend(idx, quer):
+        n = len(fotos)
+        for schritt in range(n):
+            f = fotos[(idx + schritt) % n]
+            if (f[1] > 1) == quer:
+                return f
+        return fotos[idx % n]
+
     h = g['hero']
     hero_bilder = []
     for i, (idx, pos, klasse) in enumerate([(h[0], 'b1', 'hinten'), (h[1], 'b2', 'hinten'), (h[2], 'b3', 'vorne')]):
-        f = fotos[idx % len(fotos)]
+        f = passend(idx, pos == 'b2')
         w, hh = masse(f[0], f[1])
         hero_bilder.append(
             f'    <figure class="gal-hero-bild gal-hero-bild--{klasse} gal-hero-{pos}" data-tiefe="{0.12 + i * 0.06:.2f}">'
@@ -437,7 +450,10 @@ def bau(g, js, teile):
                  {"@type": "ListItem", "position": 2, "name": "Portfolio", "item": "https://antoniavalladares.com/portfolio.html"},
                  {"@type": "ListItem", "position": 3, "name": g['wort'], "item": f"https://antoniavalladares.com/{g['datei']}"}]}]}
 
-    og_foto = fotos[h[0] % len(fotos)]
+    # Facebook und WhatsApp schneiden das Vorschaubild auf etwa 1,91:1 —
+    # ein Hochformat verliert dabei oben und unten fast alles. Deshalb
+    # das Querformat des Auftakts.
+    og_foto = passend(h[1], True)
     og = 'https://antoniavalladares.com/assets/img/' + og_foto[0]
     og_w, og_h = masse(og_foto[0], og_foto[1])
     mehr = ''
@@ -489,9 +505,9 @@ def bau(g, js, teile):
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/cormorant-garamond-latin-300-normal.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/jost-latin-300-normal.woff2" crossorigin>
 
-<link rel="stylesheet" href="assets/css/fonts.css?v=20261103e">
-<link rel="stylesheet" href="assets/css/style.css?v=20261103e">
-<link rel="stylesheet" href="assets/css/portfolio.css?v=20261103e">
+<link rel="stylesheet" href="assets/css/fonts.css?v=20261103g">
+<link rel="stylesheet" href="assets/css/style.css?v=20261103g">
+<link rel="stylesheet" href="assets/css/portfolio.css?v=20261103g">
 
 <script type="application/ld+json">
 {json.dumps(ld, ensure_ascii=False, indent=1)}
@@ -546,9 +562,9 @@ def bau(g, js, teile):
 {teile['menu']}<button class="to-top" type="button" aria-label="Zurück nach oben"><span aria-hidden="true">&uarr;</span></button>
 <div class="grain" aria-hidden="true"></div>
 
-<script src="assets/js/photos.js?v=20261103e" defer></script>
-<script src="assets/js/main.js?v=20261103e" defer></script>
-<script src="assets/js/galerie.js?v=20261103e" defer></script>
+<script src="assets/js/photos.js?v=20261103g" defer></script>
+<script src="assets/js/main.js?v=20261103g" defer></script>
+<script src="assets/js/galerie.js?v=20261103g" defer></script>
 </body>
 </html>
 '''

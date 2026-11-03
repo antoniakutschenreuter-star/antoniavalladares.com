@@ -40,42 +40,28 @@ const MENU_SHOTS = [
 /* Fliegende Fotos, Hero. */
 const FLOW_A = [
   ['hochzeit-moet-champagner-calla-lilie-editorial.jpg',1.5009,"Champagnerflasche und Calla-Lilie editorial arrangiert – Hochzeitsdetails von Hochzeitsfotografin Antonia Valladares"],
-  ['editorial/brautschuhe-spiegel-ankleide-schwarzweiss.jpg',0.6665,"Beine der Braut in hohen Schuhen vor dem Spiegel beim Getting Ready, Schwarzweiß – Hochzeitsfotografin München"],
-  ['g_aquazurra.jpg',1.5000,"Brautschuhe von Aquazzura als Detailaufnahme – Hochzeitsdetails München"],
   ['portfolio/galerie-pfalz-weinberge/freie-trauung-pfalz-weinberge-hochzeit-135.jpg',0.6629,"Das Brautpaar küsst sich unter dem Schleier im Abendlicht, Schwarzweiß – Freie Trauung in den Weinbergen der Pfalz, Hochzeitsfotografin Antonia Valladares"],
-  ['editorial/aperitif-negroni-hochzeit-detail-muenchen.jpg',1.5003,"Negroni im Glas vor einer Bar, Aperitif am Hochzeitstag – Hochzeitsfotografie München"],
-  ['m_haende.jpg',0.6667,"Hände des Brautpaars halten sich zärtlich – Hochzeitsfotografie München"],
-  ['editorial/hochzeit-italien-tomaten-pasta-detail.jpg',0.6665,"Tomaten, Knoblauch und Olivenöl als Gastgeschenk im Sonnenlicht – Hochzeit in Italien"],
   ['hochzeit-couple-innige-umarmung.jpg',1.5009,"Innige Umarmung des Brautpaars nach der Trauung – Hochzeitsfotografie München"],
   ['editorial/brautstrauss-anthurie-magnolie-detail.jpg',1.5004,"Brautstrauß aus Magnolie, Anthurien und Lotosblüten auf weißem Tüll – Hochzeitsdetails, Hochzeitsfotografin München"],
   ['g_brideback.jpg',1.3997,"Rückenansicht der Braut im Hochzeitskleid – Hochzeitsfotografie München"],
-  ['m_schuhe.jpg',1.5013,"Elegante Brautschuhe auf Parkettboden – Hochzeitsdetails München"],
-  ['editorial/standesamt-muenchen-regen-brautpaar-schwarzweiss.jpg',0.6669,"Brautpaar läuft im Regen unter einem Schirm die Stufen zum Standesamt hinauf, Schwarzweiß – Standesamt München"],
   ['editorial/brautschuhe-tasche-parfum-tuell-detail.jpg',1.5004,"Brautschuhe, Kristalltasche und Parfum auf dem Tüllkleid – Hochzeitsmorgen, Hochzeitsfotografin München"],
   ['portfolio/galerie-pfalz-weinberge/freie-trauung-pfalz-weinberge-hochzeit-108.jpg',0.6665,"Der Bräutigam küsst die lachende Braut im Gegenlicht – Freie Trauung in den Weinbergen der Pfalz, Hochzeitsfotografin Antonia Valladares"],
   ['g_kronleuchter.jpg',0.6667,"Hochzeitslocation mit Kronleuchter im Kerzenlicht – Hochzeitsfotografie Bayern"],
   ['m_firstlook.jpg',0.6667,"First Look des Brautpaars vor der Zeremonie – Hochzeitsfotografin München"],
   ['editorial/getting-ready-braut-kimono-schwarzweiss.jpg',1.4993,"Die Braut im Kimono wird geschminkt, ein Glas Sekt in der Hand, Schwarzweiß – Getting Ready in München"],
   ['portfolio/editorial-braut-natur.jpg',0.6665,"Braut in der Natur, editorial fotografiert – Hochzeitsfotografie München"],
-  ['editorial/eheringe-holzschatulle-kirchliche-trauung.jpg',1.5003,"Eheringe in einer Holzschatulle auf rotem Samtkissen – kirchliche Trauung"],
   ['g_oldtimer.jpg',0.6667,"Brautpaar vor einem Oldtimer – Hochzeitsreportage München"],
   ['editorial/bestickte-pantoffeln-am-brautkleid-detail.jpg',1.5004,"Bestickte Samtpantoffeln neben dem Saum des Brautkleids – Hochzeitsdetails, Hochzeitsfotografin München"],
   ['portfolio/galerie-pfalz-weinberge/freie-trauung-pfalz-weinberge-hochzeit-121.jpg',0.6665,"Der Bräutigam neigt die Braut zum Kuss vor dem rosa Abendhimmel – Freie Trauung in den Weinbergen der Pfalz, Hochzeitsfotografin Antonia Valladares"],
-  ['editorial/brautstrauss-hochzeit-am-see-schwarzweiss.jpg',0.6669,"Hochgehaltener Brautstrauß aus Farn und Schleierkraut vor dem See, Schwarzweiß – Hochzeitsfotografin München"],
   ['cta_bg.jpg',0.9009,"Bräutigam hilft der Braut in einen weißen Oldtimer vor italienischer Steinfassade – Destination Wedding"],
   ['editorial/getting-ready-koffer-erdbeeren-hochzeitsmorgen.jpg',0.6665,"Geöffneter Koffer mit Make-up und eine Kiste Erdbeeren beim Getting Ready – Hochzeitsmorgen in München"],
   ['g_candybar.jpg',1.5000,"Brautpaar an der Candybar der Hochzeitsfeier – Hochzeitsreportage"],
-  ['editorial/hochzeitsgeschenke-fensterbank-olivenbaum-italien.jpg',0.6665,"Geschenkkorb und Olivenbäumchen am Fenster im Abendlicht – Hochzeit in Italien"],
   ['portfolio/galerie-pfalz-weinberge/freie-trauung-pfalz-weinberge-hochzeit-106.jpg',0.6665,"Das Brautpaar umarmt sich im goldenen Abendlicht vor der Weinlaube – Freie Trauung in den Weinbergen der Pfalz, Hochzeitsfotografin Antonia Valladares"],
-  ['m_balishoot.jpg',0.6667,"Paarshooting auf Bali – Destination Wedding Fotografin Antonia Valladares"],
-  ['editorial/sektempfang-grissini-blumen-detail.jpg',1.5004,"Grissini werden zwischen Hortensien und Anthurien gerichtet – Sektempfang, Hochzeitsfotografin München"],
   ['groups.jpg',2.6786,"Brautpaar mit Gästen am Seeufer in Schwarzweiß – Hochzeitsreportage am See"],
   ['portfolio/freie-trauung-weisse-stuehle-garten.jpg',1.5009,"Freie Trauung mit weißen Stühlen im Garten – Hochzeitsfotografin München"],
   ['editorial/braut-kurzes-kleid-kopfsteinpflaster-standesamt.jpg',0.6665,"Die Braut läuft im kurzen Kleid mit Brautstrauß über das Kopfsteinpflaster – standesamtliche Hochzeit in München"],
   ['hochzeit-hero-toskana-hochzeit.jpg',1.5009,"Brautpaar bei einer Hochzeit in der Toskana – Destination Wedding Fotografin"],
   ['portfolio/galerie-pfalz-weinberge/freie-trauung-pfalz-weinberge-hochzeit-113.jpg',0.6665,"Das Brautpaar im warmen Licht der Abendsonne zwischen den Reben – Freie Trauung in den Weinbergen der Pfalz, Hochzeitsfotografin Antonia Valladares"],
-  ['editorial/hochzeitstanz-brautpaar-festsaal-schwarzweiss.jpg',1.4994,"Brautpaar dreht sich beim Hochzeitstanz im Festsaal, Schwarzweiß – Hochzeitsfotografie München"],
-  ['m_vietnam.jpg',1.5013,"Verlobungsshooting in Vietnam – Paarfotografie Antonia Valladares"],
   ['destination-wedding-muenchen-preise.jpg',1.0000,"Festlich gedeckte Hochzeitstafel im Freien zur blauen Stunde – Destination Wedding Preise"],
   ['portfolio/hochzeit-dinner-anstossen-toskana.jpg',0.6665,"Anstoßen beim Hochzeitsdinner in der Toskana – Destination Wedding"],
   ['g_champagne.jpg',0.6667,"Anstoßen mit Champagner bei der Hochzeitsfeier – Hochzeitsreportage"],
@@ -100,13 +86,6 @@ const FLOW_B = [
   ['portfolio/reisen-comer-see-boote.jpg',0.5625,"Boote am Comer See in Italien – Reisefotografie und Destination Weddings"],
   ['portfolio/schloss-blutenburg-hochzeit-muenchen-braut.jpg',0.6665,"Braut im Innenhof von Schloss Blutenburg – Hochzeitsfotografin München"],
   ['verlobungsshooting-muenchen-preise.jpg',1.0000,"Hände mit Verlobungsring und Ehering übereinandergelegt – Verlobungsshooting München"],
-  ['editorial/brautpaar-tuerrahmen-gegenlicht-schwarzweiss.jpg',0.6665,"Brautpaar im Türrahmen im Gegenlicht, Schwarzweiß – Hochzeitsfotografie München"],
-  ['editorial/brautpaar-haende-treppe-tuell-hochzeit.jpg',1.4996,"Hände greifen nacheinander auf einer alten Treppe, Tüllrock der Braut – Hochzeitsfotografie"],
-  ['editorial/hochzeitsfeier-lichterkette-pavillon-abend.jpg',0.6665,"Lichterketten über dem Pavillon und gedeckter Tisch am Abend – Hochzeitsfeier"],
-  ['editorial/brautpaar-beine-kopfsteinpflaster-schwarzweiss.jpg',1.5003,"Brautpaar geht über Kopfsteinpflaster, nur die Beine im Bild, Schwarzweiß – Standesamt München"],
-  ['editorial/hochzeitsfeier-erdbeeren-etagere-abend.jpg',1.5003,"Erdbeeren auf einer Etagere werden nachgefüllt, Hochzeitsfeier am Abend – Hochzeitsfotografie München"],
-  ['editorial/brautpaar-spaziergang-allee-schwarzweiss.jpg',0.6665,"Brautpaar spaziert Hand in Hand durch eine Allee im Gegenlicht, Schwarzweiß – Hochzeitsfotografin München"],
-  ['editorial/hochzeitsauto-oldtimer-rosen-spiegel-detail.jpg',0.6665,"Weiße Rosen am Außenspiegel eines grünen Oldtimers – Hochzeitsauto, Hochzeitsfotografie München"],
   ['paar-standesamt-wiese-hochzeit-fotografie-kufstein-valladares.jpg',2.3895,"Brautpaar tanzt lachend auf einer Sommerwiese in Schwarzweiß – Hochzeit am Standesamt Kufstein"],
   ['paar-standesamt-wiese-hochzeit-fotografie-kufstein-valladares-2.jpg',2.1505,"Brautpaar auf der Sommerwiese nach der standesamtlichen Trauung – Hochzeitsfotografin München"]
 ];
@@ -118,7 +97,7 @@ const NICHT_STARTSEITE = [
   ['a1.jpg',0.6667,"Frau im blauen Strickpullover vor Backsteinwand – Portraitshooting München"],
   ['a2.jpg',0.6667,"Portrait einer lächelnden Frau vor Backsteinmauer – Portraitfotografie München"],
   ['a3.jpg',0.6667,"Schwarzweiß-Portrait einer lächelnden Frau im Freien – Portraitfotografie München"],
-  ['hochzeitsfotografin-antonia-valladares-muenchen.jpg',0.6665,"Antonia Valladares, Hochzeitsfotografin aus München, mit ihrer Kamera"],
+  ['hochzeitsfotografin-antonia-valladares-muenchen.jpg',0.6665,"Antonia Valladares, Hochzeitsfotografin aus München, mit ihrer Kamera"]
 ];
 
 /* Preise-Seite. Das Toskana-Foto der Hochzeitskachel kommt aus FLOW_A
@@ -287,7 +266,7 @@ const FLOW_BUSINESS = [
   ['portfolio/business/business-portraits-bewerbungsfoto-muenchen-antonia-valladares004.jpg',1.5000,"Business-Portrait im hellen Blazer vor Frühlingsgrün – Bewerbungsfoto und Businessfotografie München"],
   ['business-portrait-fotografie-muenchen.jpg',1.5009,"Business-Portrait einer Frau im Tageslicht – Businessfotografin München"],
   ['businessfotografie-fotografie-muenchen-valladares001.jpg',1.5004,"Lachende Coachin in ihrem hellen Arbeitsraum – Personal Branding Fotografie München"],
-  ['business-fotografie-steuerkanzlei-muenchen.jpg',1.5009,"Teamfoto einer Steuerkanzlei in München – Businessfotografie Antonia Valladares"],
+  ['business-fotografie-steuerkanzlei-muenchen.jpg',1.5009,"Teamfoto einer Steuerkanzlei in München – Businessfotografie Antonia Valladares"]
 ];
 
 /* Galerie Kufstein — 36 Fotos, Reihenfolge erzählt den Tag. */
@@ -664,7 +643,7 @@ const GAL_BAD_TOELZ = [
   ['portfolio/galerie-bad-toelz-kurhaus/freie-trauung-bad-toelz-kurhaus-hochzeit-088.jpg',0.6665,"Die Braut tanzt im Nebel, Schwarzweiß – Freie Trauung Kurhaus Bad Tölz, Hochzeitsfotografin Antonia Valladares"],
   ['portfolio/galerie-bad-toelz-kurhaus/freie-trauung-bad-toelz-kurhaus-hochzeit-089.jpg',0.6665,"Der Festsaal mit Kronleuchter während der Feier – Freie Trauung Kurhaus Bad Tölz, Hochzeitsfotografin Antonia Valladares"],
   ['portfolio/galerie-bad-toelz-kurhaus/freie-trauung-bad-toelz-kurhaus-hochzeit-090.jpg',0.6665,"Der Dancefloor mit der Braut mittendrin – Freie Trauung Kurhaus Bad Tölz, Hochzeitsfotografin Antonia Valladares"],
-  ['portfolio/galerie-bad-toelz-kurhaus/freie-trauung-bad-toelz-kurhaus-hochzeit-091.jpg',0.6665,"Tischdeko mit bunten Blumen und Kerzen – Freie Trauung Kurhaus Bad Tölz, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-bad-toelz-kurhaus/freie-trauung-bad-toelz-kurhaus-hochzeit-091.jpg',0.6665,"Tischdeko mit bunten Blumen und Kerzen – Freie Trauung Kurhaus Bad Tölz, Hochzeitsfotografin Antonia Valladares"]
 ];
 
 const GAL_PFALZ = [

@@ -507,12 +507,14 @@ img.monogram { width: clamp(52px, 7vw, 88px); }
 .overlay.is-open .overlay-shots figure:nth-child(2) { transition-delay: .08s; }
 .overlay.is-open .overlay-shots figure:nth-child(3) { transition-delay: .16s; }
 .overlay.is-open .overlay-shots figure:nth-child(4) { transition-delay: .24s; }
-.overlay-shots img { width: 100%; height: 100%; object-fit: cover; }
+/* Auch im Menü behalten die Fotos ihr Format — vorher wurden Querformate
+   in Hochformatplätze gezwängt und verloren links und rechts die Hälfte. */
+.overlay-shots img { width: 100%; height: auto; display: block; }
 
-.shot-1 { left: 5%;   top: 10%;    width: 15vw; aspect-ratio: 3/4; }
-.shot-2 { left: 11.5%; bottom: 29%; width: 16vw; aspect-ratio: 4/5; }
-.shot-3 { right: 11.5%; top: 10%;   width: 16vw; aspect-ratio: 4/5; }
-.shot-4 { right: 5%;  bottom: 29%;  width: 15vw; aspect-ratio: 3/4; }
+.shot-1 { left: 5%;   top: 10%;    width: 15vw; }
+.shot-2 { left: 11.5%; bottom: 29%; width: 16vw; }
+.shot-3 { right: 11.5%; top: 10%;   width: 16vw; }
+.shot-4 { right: 5%;  bottom: 29%;  width: 15vw; }
 
 .overlay-nav {
   position: relative; z-index: 3;
@@ -640,7 +642,7 @@ body.show-font-switch .font-switch { display: flex; }
 @media (max-width: 900px) {
   :root { --wm-width: clamp(260px, 82vw, 640px); --wm-top: 11vh; }
   .intro-grid { grid-template-columns: 1fr; }
-  .intro-figure img { aspect-ratio: 4 / 5; height: auto; }
+  .intro-figure img { height: auto; }
   .intro-link { margin-top: 1.6rem; }
   .tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .shot-1 { width: 34vw; top: 13%; left: 0; }
@@ -762,8 +764,9 @@ body:has(.preis-hero) .site-header::before { display: none; }
   max-width: 1280px; margin: 0 auto;
   padding: clamp(3.5rem, 8vw, 8rem) var(--edge) 0;
 }
-.spontan-figure { margin: 0; overflow: hidden; aspect-ratio: 4 / 5; }
-.spontan-figure img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
+/* Originalformat: das Foto wurde vorher von 2:3 auf 4:5 beschnitten. */
+.spontan-figure { margin: 0; overflow: hidden; }
+.spontan-figure img { width: 100%; height: auto; display: block; }
 .spontan-text { display: flex; flex-direction: column; justify-content: space-between; }
 .spontan-text > p:last-child { margin: clamp(1.5rem, 3vw, 2.5rem) 0 0; }
 .spontan-slogan {
@@ -790,7 +793,8 @@ body:has(.preis-hero) .site-header::before { display: none; }
   padding-top: clamp(1.6rem, 3vw, 2.4rem);
 }
 .pk-figure { margin: 0; overflow: hidden; }
-.pk-figure img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 5 / 4; }
+/* Originalformat statt erzwungener 5:4. */
+.pk-figure img { width: 100%; height: auto; display: block; }
 .pk-nr { margin: 0; color: var(--ink-soft); }
 .pk-preis { margin: .8rem 0 0; display: flex; align-items: baseline; gap: .8em; flex-wrap: wrap; }
 .pk-zahl { font-size: clamp(2rem, 3.4vw, 3.1rem); font-weight: 300; line-height: 1; }
@@ -881,7 +885,6 @@ body:has(.preis-hero) .site-header::before { display: none; }
 /* ── Responsive ───────────────────────────────────────────────────── */
 @media (max-width: 900px) {
   .spontan { grid-template-columns: 1fr; }
-  .spontan-figure img { aspect-ratio: 4 / 5; height: auto; }
   .paket-gross { grid-template-columns: 1fr; }
   .paket-gross .pk-figure { order: -1; }
   .paket-raster { grid-template-columns: 1fr; }
@@ -889,19 +892,6 @@ body:has(.preis-hero) .site-header::before { display: none; }
   .preis-hero-bild { height: clamp(360px, 62vh, 560px); }
 }
 
-/* ── Reel: Seitenverhältnisse (generiert aus photos.js) ─────────── */
-.reel-track figure:nth-child(1) { aspect-ratio: 0.6667; }
-.reel-track figure:nth-child(2) { aspect-ratio: 1.5004; }
-.reel-track figure:nth-child(3) { aspect-ratio: 0.6665; }
-.reel-track figure:nth-child(4) { aspect-ratio: 1.5004; }
-.reel-track figure:nth-child(5) { aspect-ratio: 0.6665; }
-.reel-track figure:nth-child(6) { aspect-ratio: 0.6665; }
-.reel-track figure:nth-child(7) { aspect-ratio: 0.6680; }
-.reel-track figure:nth-child(8) { aspect-ratio: 1.5004; }
-.reel-track figure:nth-child(9) { aspect-ratio: 1.5004; }
-.reel-track figure:nth-child(10) { aspect-ratio: 1.5004; }
-.reel-track figure:nth-child(11) { aspect-ratio: 1.5004; }
-.reel-track figure:nth-child(12) { aspect-ratio: 1.5004; }
 
 /* =====================================================================
    09 GEMEINSAME BAUSTEINE FÜR ALLE UNTERSEITEN
@@ -931,8 +921,9 @@ body:has(.preis-hero) .site-header::before { display: none; }
   font-size: calc(clamp(1.1rem, 2vw, 1.55rem) * var(--display-scale));
   color: var(--ink-soft);
 }
+/* Auch hier gibt die Datei das Format vor, nichts wird zugeschnitten. */
 .auftakt-foto { position: absolute; z-index: 1; overflow: hidden; }
-.auftakt-foto img { width: 100%; height: 100%; object-fit: cover; }
+.auftakt-foto img { width: 100%; height: auto; display: block; }
 /* Von oben gemessen, nicht in Prozent der Abschnittshöhe: sonst wandern
    die Fotos bei kurzem Inhalt nach unten heraus und legen sich über den
    Text, der darunter folgt. */
@@ -956,11 +947,11 @@ body:has(.preis-hero) .site-header::before { display: none; }
   --fb-top: calc(var(--header-h) + clamp(7.5rem, 16vh, 10.5rem));
   --fc-top: calc(var(--header-h) + clamp(9rem, 19.9vh, 13rem));
 }
-.auftakt-foto--a { left: 4%;  top: var(--fa-top); width: var(--fa-w); aspect-ratio: 2/3; z-index: 3; }
-.auftakt-foto--b { right: 4%; top: var(--fb-top); width: var(--fb-w); aspect-ratio: 2/3; z-index: 3; }
+.auftakt-foto--a { left: 4%;  top: var(--fa-top); width: var(--fa-w); z-index: 3; }
+.auftakt-foto--b { right: 4%; top: var(--fb-top); width: var(--fb-w); z-index: 3; }
 /* Das Querformat sitzt nicht mehr auf den Buchstaben, sondern in der
    leeren Bahn zwischen Wort und Zeile darunter. */
-.auftakt-foto--c { left: calc(4% + var(--fa-w) + 3vw); top: var(--fc-top); width: var(--fc-w); aspect-ratio: 3/2; z-index: 1; }
+.auftakt-foto--c { left: calc(4% + var(--fa-w) + 3vw); top: var(--fc-top); width: var(--fc-w); z-index: 1; }
 
 /* Eckmarken, auf jeder Unterseite an derselben Stelle */
 .ecke {

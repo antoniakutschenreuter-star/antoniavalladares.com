@@ -169,6 +169,12 @@ verteilt. Die letzten Fotos jedes Abschnitts werden durchprobiert
 Zwischentext eine Lücke von bis zu einer ganzen Bildhöhe. Ein kleiner Rest wird
 auf die Zwischenräume der kürzeren Spalten verteilt (`ausgleichen()`).
 
+**Seitenverhältnisse.** Kein Foto wird irgendwo in ein fremdes Format
+geschnitten. Hero-Fotos, Menüfotos und die Fotos auf der Preise-Seite bekommen
+nur eine Breite, die Höhe ergibt sich aus `width`/`height` der Datei. Bewusste
+Ausnahmen: das breite Band auf der Kontaktseite, das quadratische
+Instagram-Raster der Startseite und die Bildbänder der About-Seite.
+
 **Bildstrecke der Startseite.** Jede Figur bekommt `reel-hoch` (2:3) oder
 `reel-quer` (3:2) als Klasse und daraus ihr `aspect-ratio`. Ohne das zieht sich
 die Figur auf die Originalbreite des Bildes und schneidet Hochformate zu breiten
@@ -208,6 +214,23 @@ Antonia öffnet dafür in GitHub Desktop **Repository → Open in Terminal**, f�
 den Block ein und drückt danach **Commit to main** und **Push origin**.
 
 ---
+
+## 7a · Fallen, die schon zugeschlagen haben
+
+- **Veraltete `nth-child`-Regeln.** Am Ende von `style.css` stand ein Block
+  `.reel-track figure:nth-child(n) { aspect-ratio: … }` aus einer alten
+  Reihenfolge. Er hat die Klassen überstimmt und jedem Platz der Bildstrecke
+  ein falsches Format aufgezwungen. Entfernt. Niemals Formate an Positionen
+  binden, immer an Klassen.
+- **Referenzen ohne Datei.** `photos.js` enthielt fünfzehn `editorial/`-Fotos,
+  die es im Repo nie gab — auf der Seite blieb nur der Alt-Text. Entfernt.
+  `check-images.py` meldet das nur, wenn die Dateien lokal liegen; im
+  Arbeitsordner liegen aber nie alle. Vor dem Ausliefern also prüfen, ob eine
+  neue Referenz auch wirklich eine Datei hat.
+- **Doppelte Fotos auf einer Seite.** Die Liste `TILES` in `photos.js` wurde von
+  keinem Skript ausgegeben — die sechs Fotos standen aber fest im
+  Instagram-Raster von `index.html`. Wer sie „wieder sichtbar macht“, zeigt sie
+  zweimal auf derselben Seite.
 
 ## 8 · Offene Punkte
 
