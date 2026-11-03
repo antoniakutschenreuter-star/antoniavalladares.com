@@ -189,7 +189,7 @@
   };
 
   var LEADS = {
-    hochzeiten: 'Eine Auswahl an Hochzeiten – gemeinsam finden wir eure Vision und euren Stil heraus! Von der glamourösen Blitzhochzeit im Editorial Style über das traute Elopement auf einer Bergalm bis zur Trauung mitten in den Weinbergen: Ich bin dabei.',
+    hochzeiten: 'Von der glamourösen Blitzhochzeit im Editorial Style über das traute Elopement auf einer Bergalm bis zur Trauung mitten in den Weinbergen: Ich bin dabei. Ob dreamy und eher matt, aufgeblitzt oder der documentary Style, wir finden, was zu euch passt. Gemeinsam setzen wir eure Vision um, die sich so richtig nach euch anfühlt.',
     familien:   'Babybauch, Neugeborene und Familien, fotografiert in München, Donauwörth und dort, wo ihr zu Hause seid.',
     business:   'Business-Portraits und Teamfotos aus München, für Website, LinkedIn und Bewerbung.',
     schauspiel: 'Du gibst deine Typen vor – ich fange sie ein. Wir können gerne gemeinsam über Typisierung, mögliche Rollenprofile und Outfits sprechen. Kontaktiere mich einfach für einen unverbindlichen Kennenlerncall.'

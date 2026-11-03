@@ -4,24 +4,24 @@
    Jede Datei aus assets/img/ steht hier genau einmal.
    tools/check-images.py meldet jede Datei, die fehlt oder doppelt ist.
    ===================================================================== */
-
-/* EINE Hochzeit, horizontale Strecke. PLATZHALTER: Tegernsee-Galerie. */
+/* Startseite: eine Hochzeit, horizontal. Münchner Trauung im Out of Office.
+   Hochkant und quer wechseln sich ab, nie zwei Schwarzweiße nebeneinander. */
 const REEL = [
-  ['portfolio/galerie-pfalz-weinberge/freie-trauung-pfalz-weinberge-hochzeit-001.jpg',0.6665,"Tomaten, Pasta und Geschenke als Detail am Morgen der Hochzeit – Freie Trauung in den Weinbergen der Pfalz, Hochzeitsfotografin Antonia Valladares"],
-  ['portfolio/galerie-pfalz-weinberge/freie-trauung-pfalz-weinberge-hochzeit-018.jpg',1.5004,"Das Brautpaar lacht beim Paarshooting zwischen den Reben – Freie Trauung in den Weinbergen der Pfalz, Hochzeitsfotografin Antonia Valladares"],
-  ['portfolio/galerie-pfalz-weinberge/freie-trauung-pfalz-weinberge-hochzeit-035.jpg',0.6665,"Die Braut steckt sich den Schleier ins Haar, Schwarzweiß – Freie Trauung in den Weinbergen der Pfalz, Hochzeitsfotografin Antonia Valladares"],
-  ['portfolio/galerie-pfalz-weinberge/freie-trauung-pfalz-weinberge-hochzeit-040.jpg',0.6665,"Die Braut im Gegenlicht des hellen Türdurchgangs, Schwarzweiß – Freie Trauung in den Weinbergen der Pfalz, Hochzeitsfotografin Antonia Valladares"],
-  ['portfolio/galerie-pfalz-weinberge/freie-trauung-pfalz-weinberge-hochzeit-041.jpg',0.6665,"Die Braut steht im goldenen Licht des Türrahmens – Freie Trauung in den Weinbergen der Pfalz, Hochzeitsfotografin Antonia Valladares"],
-  ['portfolio/galerie-pfalz-weinberge/freie-trauung-pfalz-weinberge-hochzeit-047.jpg',0.6665,"Das Brautpaar im warmen Licht des Türdurchgangs – Freie Trauung in den Weinbergen der Pfalz, Hochzeitsfotografin Antonia Valladares"],
-  ['portfolio/galerie-pfalz-weinberge/freie-trauung-pfalz-weinberge-hochzeit-063.jpg',0.6665,"Der Kuss nach der Trauung, die Hände am Gesicht unter dem Schleier – Freie Trauung in den Weinbergen der Pfalz, Hochzeitsfotografin Antonia Valladares"],
-  ['portfolio/galerie-pfalz-weinberge/freie-trauung-pfalz-weinberge-hochzeit-065.jpg',1.5004,"Auszug des Brautpaars durch das Spalier der Gäste mit Bändern – Freie Trauung in den Weinbergen der Pfalz, Hochzeitsfotografin Antonia Valladares"],
-  ['portfolio/galerie-pfalz-weinberge/freie-trauung-pfalz-weinberge-hochzeit-108.jpg',0.6665,"Das Brautpaar lacht im Abendlicht vor der Weinlaube – Freie Trauung in den Weinbergen der Pfalz, Hochzeitsfotografin Antonia Valladares"],
-  ['portfolio/galerie-pfalz-weinberge/freie-trauung-pfalz-weinberge-hochzeit-116.jpg',0.6665,"Das Brautpaar unter dem Schleier, Schwarzweiß – Freie Trauung in den Weinbergen der Pfalz, Hochzeitsfotografin Antonia Valladares"],
-  ['portfolio/galerie-pfalz-weinberge/freie-trauung-pfalz-weinberge-hochzeit-121.jpg',0.6665,"Der Bräutigam neigt die Braut zum Kuss vor dem rosa Abendhimmel – Freie Trauung in den Weinbergen der Pfalz, Hochzeitsfotografin Antonia Valladares"],
-  ['portfolio/galerie-pfalz-weinberge/freie-trauung-pfalz-weinberge-hochzeit-125.jpg',0.6665,"Der Bräutigam spielt Federball vor dem Sonnenuntergang über den Weinbergen – Freie Trauung in den Weinbergen der Pfalz, Hochzeitsfotografin Antonia Valladares"],
-  ['portfolio/galerie-pfalz-weinberge/freie-trauung-pfalz-weinberge-hochzeit-126.jpg',0.6665,"Braut und Bräutigam spielen Federball im letzten Licht des Tages – Freie Trauung in den Weinbergen der Pfalz, Hochzeitsfotografin Antonia Valladares"],
-  ['portfolio/galerie-pfalz-weinberge/freie-trauung-pfalz-weinberge-hochzeit-134.jpg',1.5004,"Die Braut tanzt ausgelassen am Abend, Schwarzweiß – Freie Trauung in den Weinbergen der Pfalz, Hochzeitsfotografin Antonia Valladares"],
-  ['portfolio/galerie-pfalz-weinberge/freie-trauung-pfalz-weinberge-hochzeit-138.jpg',1.5004,"Das Brautpaar tanzt im Nebel und bunten Licht der Nacht – Freie Trauung in den Weinbergen der Pfalz, Hochzeitsfotografin Antonia Valladares"]
+  ['portfolio/startseite-slideshow/hochzeitsfotografin-muenchen-startseite-001.jpg',0.6665,"Das Brautpaar lacht beim First Look, Schwarzweiß – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/startseite-slideshow/hochzeitsfotografin-muenchen-startseite-002.jpg',1.5004,"Der Bräutigam liest seiner Braut den Liebesbrief vor – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/startseite-slideshow/hochzeitsfotografin-muenchen-startseite-007.jpg',0.6665,"Die freie Trauung über den Dächern mit Blick auf die Frauenkirche – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/startseite-slideshow/hochzeitsfotografin-muenchen-startseite-003.jpg',1.5004,"Das Brautpaar am Eisbach im Englischen Garten, Schwarzweiß – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/startseite-slideshow/hochzeitsfotografin-muenchen-startseite-008.jpg',0.6670,"Das Brautpaar unter dem Blumenbogen auf der Dachterrasse – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/startseite-slideshow/hochzeitsfotografin-muenchen-startseite-005.jpg',1.5004,"Das Brautpaar geht den Weg im Englischen Garten entlang – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/startseite-slideshow/hochzeitsfotografin-muenchen-startseite-014.jpg',0.6670,"Die Hände des Brautpaars als Detail, Schwarzweiß – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/startseite-slideshow/hochzeitsfotografin-muenchen-startseite-009.jpg',1.5004,"Der Ringtausch mit Blick über München – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/startseite-slideshow/hochzeitsfotografin-muenchen-startseite-011.jpg',0.6665,"Das Brautpaar am Abend auf der Dachterrasse – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/startseite-slideshow/hochzeitsfotografin-muenchen-startseite-004.jpg',1.5004,"Das Brautpaar ganz nah beieinander, Schwarzweiß – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/startseite-slideshow/hochzeitsfotografin-muenchen-startseite-013.jpg',0.6665,"Die Braut lacht mit ihren Freundinnen über das Geschenk – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/startseite-slideshow/hochzeitsfotografin-muenchen-startseite-006.jpg',1.5004,"Das Brautpaar auf der Straße in München, Schwarzweiß – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/startseite-slideshow/hochzeitsfotografin-muenchen-startseite-015.jpg',0.6665,"Die Freunde feiern mit dem Brautpaar am Abend – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/startseite-slideshow/hochzeitsfotografin-muenchen-startseite-010.jpg',1.5004,"Der Auszug durch das Spalier der Gäste, Schwarzweiß – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/startseite-slideshow/hochzeitsfotografin-muenchen-startseite-012.jpg',1.5004,"Anstoßen auf der Dachterrasse über den Dächern Münchens – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"]
 ];
 
 /* PLATZHALTER: durch die echten Instagram-Fotos ersetzen. */
@@ -74,7 +74,12 @@ const FLOW_A = [
   ['editorial/eheringe-holzschatulle-kirchliche-trauung.jpg',1.5003,"Eheringe in einer Holzschatulle auf rotem Samtkissen – kirchliche Trauung"],
   ['editorial/standesamt-muenchen-regen-brautpaar-schwarzweiss.jpg',0.6669,"Brautpaar läuft im Regen unter einem Schirm die Stufen zum Standesamt hinauf, Schwarzweiß – Standesamt München"],
   ['editorial/sektempfang-champagner-einschenken-hochzeit.jpg',1.5003,"Champagner wird beim Sektempfang in ein Glas eingeschenkt – Hochzeitsfotografie München"],
-  ['editorial/brautschuhe-spiegel-ankleide-schwarzweiss.jpg',0.6665,"Beine der Braut in hohen Schuhen vor dem Spiegel beim Getting Ready, Schwarzweiß – Hochzeitsfotografin München"],
+  ['editorial/brautschuhe-spiegel-ankleide-schwarzweiss.jpg',0.6665,"Beine der Braut in hohen Schuhen vor dem Spiegel beim Getting Ready, Schwarzweiß – Hochzeitsfotografin München"],,
+  ['portfolio/galerie-pfalz-weinberge/freie-trauung-pfalz-weinberge-hochzeit-106.jpg',0.6665,"Das Brautpaar umarmt sich im goldenen Abendlicht vor der Weinlaube – Freie Trauung in den Weinbergen der Pfalz, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-pfalz-weinberge/freie-trauung-pfalz-weinberge-hochzeit-108.jpg',0.6665,"Der Bräutigam küsst die lachende Braut im Gegenlicht – Freie Trauung in den Weinbergen der Pfalz, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-pfalz-weinberge/freie-trauung-pfalz-weinberge-hochzeit-113.jpg',0.6665,"Das Brautpaar im warmen Licht der Abendsonne zwischen den Reben – Freie Trauung in den Weinbergen der Pfalz, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-pfalz-weinberge/freie-trauung-pfalz-weinberge-hochzeit-117.jpg',0.6665,"Das Brautpaar tanzt eng umschlungen vor dem rosa Abendhimmel – Freie Trauung in den Weinbergen der Pfalz, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-pfalz-weinberge/freie-trauung-pfalz-weinberge-hochzeit-121.jpg',0.6665,"Der Bräutigam neigt die Braut zum Kuss vor dem rosa Abendhimmel – Freie Trauung in den Weinbergen der Pfalz, Hochzeitsfotografin Antonia Valladares"]
 ];
 
 /* Fliegende Fotos, zweiter Abschnitt. */
@@ -120,16 +125,19 @@ const NICHT_STARTSEITE = [
    Format bleibt [pfad, breite/hoehe, alt].
    ─────────────────────────────────────────────────────────────────── */
 
-/* Die neun Kacheln der Hochzeiten. Reihenfolge = Reihenfolge auf der Seite. */
+/* Die Kacheln der Hochzeiten. Reihenfolge = Reihenfolge auf der Seite.
+   Donau-Ries steht am Ende: das Titelbild liegt bereit, die Kachel wird
+   erst gezeigt, wenn die Fotos da sind. */
 const PF_HOCHZEITEN = [
-  ['portfolio/cover/italy-wedding-umbria-weinberge-oldtimer-valladares.jpg',0.6666,"Brautpaar im weißen Oldtimer-Cabrio im Abendlicht zwischen Zypressen – Hochzeit in Umbrien, Italien",'Umbrien','2 Days in Umbria · Pre Party and Wedding in the Vineyards','/hochzeit-umbrien-italien.html'],
-  ['portfolio/cover/standesamt-kufstein-gasthaus-valladares.jpg',0.6667,"Brautpaar Hand in Hand im Park, Schwarzweiß – Hochzeit am Standesamt Kufstein",'Kufstein','Standesamt Kufstein und feines Gasthaus','/hochzeit-standesamt-kufstein.html'],
-  ['portfolio/cover/freie-trauung-pfalz-weinberge-hochzeitspaar-valladares.jpg',0.6667,"Bräutigam küsst die Braut in der Beuge vor Efeuwand und Rebzeilen – freie Trauung in der Pfalz",'Pfalz','Freie Trauung inmitten von Weinbergen',''],
+  ['portfolio/cover/freie-trauung-pfalz-weinberge-hochzeitspaar-valladares.jpg',0.6667,"Bräutigam küsst die Braut in der Beuge vor Efeuwand und Rebzeilen – freie Trauung in der Pfalz",'Pfalz','Freie Trauung inmitten von Weinbergen','/hochzeit-freie-trauung-pfalz.html'],
   ['portfolio/cover/freie-trauung-bad-toelz-hochzeitspaar-braut-getragen.jpg',0.6667,"Bräutigam trägt die Braut mit Brautstrauß durch den Festsaal – freie Trauung im Kurhaus Bad Tölz",'Bad Tölz','Freie Trauung im wunderschönen Kurhaus','/hochzeit-freie-trauung-bad-toelz.html'],
+  ['portfolio/cover/freie-trauung-out-of-office-muenchen-hochzeitspaar-valladares.jpg',0.6665,"Die Braut steckt dem Bräutigam den Ring an, unter dem Blumenbogen über den Dächern Münchens – freie Trauung im Out of Office",'München','Out of Office – Freie Trauung über den Dächern','/hochzeit-freie-trauung-out-of-office-muenchen.html'],
   ['portfolio/cover/freie-trauung-schloss-blutenburg-hochzeitspaar-valladares.jpg',0.6667,"Brautpaar geht Hand in Hand über das Kopfsteinpflaster an der Schlosskapelle – Hochzeit Schloss Blutenburg München",'München','Schloss Blutenburg – Hochzeit vom Feinsten','/hochzeit-schloss-blutenburg.html'],
+  ['portfolio/cover/italy-wedding-umbria-weinberge-oldtimer-valladares.jpg',0.6666,"Brautpaar im weißen Oldtimer-Cabrio im Abendlicht zwischen Zypressen – Hochzeit in Umbrien, Italien",'Umbrien','2 Days in Umbria · Pre Party and Wedding in the Vineyards','/hochzeit-umbrien-italien.html'],
   ['portfolio/cover/standesamt-mandlstrasse-hochzeitspaar-fenster-schwarzweiss-valladares.jpg',0.6667,"Brautpaar sitzt Arm in Arm am Fenster im Standesamt, Schwarzweiß – Hochzeit Standesamt Mandlstraße München",'München','Standesamt, U-Bahn und E-Kutsche durch München','/hochzeit-standesamt-mandlstrasse.html'],
   ['portfolio/cover/tegernsee-standesamt-regenhochzeit-paar-mit-regenschirmen-valladares.jpg',0.6666,"Brautpaar mit schwarzen Regenschirmen an der Seepromenade vor dem Ausflugsboot – Regenhochzeit am Tegernsee",'Tegernsee','Wunderschöne Regenhochzeit','/hochzeit-tegernsee-regenhochzeit.html'],
-  ['portfolio/cover/vietnam-ho-chi-minh-verlobungsshooting-elopement-bw-valladares.jpg',0.6667,"Paar vor dem Fine Arts Museum in Ho-Chi-Minh-Stadt, verwischte Roller, Schwarzweiß – Verlobungsshooting Vietnam",'Vietnam','Verlobungsshooting im Museum','/verlobungsshooting-vietnam.html'],
+  ['portfolio/cover/vietnam-ho-chi-minh-verlobungsshooting-elopement-bw-valladares.jpg',0.6667,"Paar vor dem Fine Arts Museum in Ho-Chi-Minh-Stadt, verwischte Roller, Schwarzweiß – Verlobungsshooting Vietnam",'Ho Chi Minh','Verlobungsshooting im Fine Arts Museum','/verlobungsshooting-vietnam.html'],
+  ['portfolio/cover/standesamt-kufstein-gasthaus-valladares.jpg',0.6667,"Brautpaar Hand in Hand im Park, Schwarzweiß – Hochzeit am Standesamt Kufstein",'Kufstein','Standesamt Kufstein und feines Gasthaus','/hochzeit-standesamt-kufstein.html'],
   ['portfolio/cover/kirchliche-trauung-harburg-schwaben-hochzeitspaar.jpg',0.6666,"Brautpaar unter der alten Eiche am Weiher im Gegenlicht – kirchliche Trauung in Harburg, Donau-Ries",'Donau-Ries','Kirchliche Trauung in Harburg und Monheim','']
 ];
 
@@ -467,21 +475,51 @@ const GAL_MANDLSTRASSE = [
   ['portfolio/galerie-mandlstrasse-standesamt/standesamt-mandlstrasse-hochzeit-muenchen-065.jpg',1.5004,"Brautpaar in der Kutsche – Standesamt Mandlstraße München, Hochzeitsfotografin Antonia Valladares"]
 ];
 
-
-/* Galerie Vietnam — 12 Fotos, aus mehreren Listen zusammengeführt. */
-const GAL_VIETNAM = [
-  ['portfolio/galerie-vietnam-verlobung/getting-ready-braut-vorbereitung.jpg',0.6665,"Vorbereitung vor dem Shooting, Getting Ready – Verlobungsshooting in Vietnam"],
-  ['portfolio/galerie-vietnam-verlobung/braut-treppe-tuellkleid.jpg',0.6665,"Frau im Tüllkleid auf der Treppe – Verlobungsshooting in Vietnam"],
-  ['portfolio/galerie-vietnam-verlobung/paar-treppe-editorial.jpg',0.6665,"Paar auf geschwungener Treppe, editorial – Verlobungsshooting in Vietnam"],
-  ['portfolio/galerie-vietnam-verlobung/museum-fassade.jpg',0.6663,"Paar vor kolonialer Museumsfassade – Verlobungsshooting in Vietnam"],
-  ['portfolio/galerie-vietnam-verlobung/museum-strasse-sw.jpg',0.6663,"Paar vor einem Museum auf der Straße, Schwarzweiß – Verlobungsshooting Vietnam"],
-  ['portfolio/galerie-vietnam-verlobung/kleid-bewegung-sw.jpg',0.6665,"Kleid in Bewegung, Schwarzweiß – Verlobungsshooting in Vietnam"],
-  ['portfolio/galerie-vietnam-verlobung/er-traegt-sie.jpg',1.5009,"Er trägt sie lachend auf den Armen – Verlobungsshooting in Vietnam"],
-  ['portfolio/galerie-vietnam-verlobung/tanz-balkon-sw.jpg',0.6665,"Tanzendes Paar auf dem Balkon in Schwarzweiß – Verlobungsshooting in Vietnam"],
-  ['portfolio/galerie-vietnam-verlobung/paar-balkon-umarmung-sw.jpg',1.5004,"Umarmung auf dem Balkon in Schwarzweiß – Verlobungsshooting in Vietnam"],
-  ['portfolio/galerie-vietnam-verlobung/balkon-lachen.jpg',1.5004,"Lachendes Paar auf dem Balkon – Verlobungsshooting in Vietnam"],
-  ['portfolio/galerie-vietnam-verlobung/portrait-mann-fenster.jpg',1.5004,"Portrait eines Mannes am Fenster – Verlobungsshooting in Vietnam"],
-  ['portfolio/galerie-vietnam-verlobung/haende-merci-detail.jpg',4.1841,"Detailaufnahme von Händen – Verlobungsshooting in Vietnam"]
+/* Verlobungsshooting im Fine Arts Museum, Ho-Chi-Minh-Stadt. */
+const GAL_HOCHIMINH = [
+  ['portfolio/galerie-hochiminh-verlobung/verlobungsshooting-ho-chi-minh-vietnam-001.jpg',0.6665,"Die Braut am Fenster im Morgenlicht, Schwarzweiß – Verlobungsshooting in Ho-Chi-Minh-Stadt, Vietnam, Fotografin Antonia Valladares"],
+  ['portfolio/galerie-hochiminh-verlobung/verlobungsshooting-ho-chi-minh-vietnam-002.jpg',0.6665,"Die Braut im Tüllkleid auf dem Bett vor dem Shooting – Verlobungsshooting in Ho-Chi-Minh-Stadt, Vietnam, Fotografin Antonia Valladares"],
+  ['portfolio/galerie-hochiminh-verlobung/verlobungsshooting-ho-chi-minh-vietnam-003.jpg',0.6665,"Das Paar vor dem Fine Arts Museum, die Motorroller ziehen vorbei – Verlobungsshooting in Ho-Chi-Minh-Stadt, Vietnam, Fotografin Antonia Valladares"],
+  ['portfolio/galerie-hochiminh-verlobung/verlobungsshooting-ho-chi-minh-vietnam-004.jpg',0.6665,"Das Treppenhaus des Museums mit seinen bunten Glasfenstern – Verlobungsshooting in Ho-Chi-Minh-Stadt, Vietnam, Fotografin Antonia Valladares"],
+  ['portfolio/galerie-hochiminh-verlobung/verlobungsshooting-ho-chi-minh-vietnam-005.jpg',1.5004,"Das Paar im Türrahmen zwischen zwei bunten Glasfenstern – Verlobungsshooting in Ho-Chi-Minh-Stadt, Vietnam, Fotografin Antonia Valladares"],
+  ['portfolio/galerie-hochiminh-verlobung/verlobungsshooting-ho-chi-minh-vietnam-006.jpg',0.6665,"Das Paar Hand in Hand auf der geschwungenen Treppe – Verlobungsshooting in Ho-Chi-Minh-Stadt, Vietnam, Fotografin Antonia Valladares"],
+  ['portfolio/galerie-hochiminh-verlobung/verlobungsshooting-ho-chi-minh-vietnam-007.jpg',1.5004,"Buntglasfenster und offener Fensterflügel im Museum – Verlobungsshooting in Ho-Chi-Minh-Stadt, Vietnam, Fotografin Antonia Valladares"],
+  ['portfolio/galerie-hochiminh-verlobung/verlobungsshooting-ho-chi-minh-vietnam-008.jpg',1.5004,"Das Paar an der Treppe des Museums – Verlobungsshooting in Ho-Chi-Minh-Stadt, Vietnam, Fotografin Antonia Valladares"],
+  ['portfolio/galerie-hochiminh-verlobung/verlobungsshooting-ho-chi-minh-vietnam-009.jpg',0.6665,"Der Heiratsantrag auf der Treppe des Museums – Verlobungsshooting in Ho-Chi-Minh-Stadt, Vietnam, Fotografin Antonia Valladares"],
+  ['portfolio/galerie-hochiminh-verlobung/verlobungsshooting-ho-chi-minh-vietnam-010.jpg',0.6665,"Das Paar auf der Treppe, die Hände ineinander – Verlobungsshooting in Ho-Chi-Minh-Stadt, Vietnam, Fotografin Antonia Valladares"],
+  ['portfolio/galerie-hochiminh-verlobung/verlobungsshooting-ho-chi-minh-vietnam-011.jpg',0.6665,"Das Kleid in Bewegung auf den Stufen – Verlobungsshooting in Ho-Chi-Minh-Stadt, Vietnam, Fotografin Antonia Valladares"],
+  ['portfolio/galerie-hochiminh-verlobung/verlobungsshooting-ho-chi-minh-vietnam-012.jpg',0.6665,"Eine zärtliche Geste auf der Museumstreppe – Verlobungsshooting in Ho-Chi-Minh-Stadt, Vietnam, Fotografin Antonia Valladares"],
+  ['portfolio/galerie-hochiminh-verlobung/verlobungsshooting-ho-chi-minh-vietnam-013.jpg',0.6665,"Das Paar kommt die geschwungene Treppe herunter – Verlobungsshooting in Ho-Chi-Minh-Stadt, Vietnam, Fotografin Antonia Valladares"],
+  ['portfolio/galerie-hochiminh-verlobung/verlobungsshooting-ho-chi-minh-vietnam-014.jpg',1.5004,"Die Hände des Paars auf dem Treppengeländer – Verlobungsshooting in Ho-Chi-Minh-Stadt, Vietnam, Fotografin Antonia Valladares"],
+  ['portfolio/galerie-hochiminh-verlobung/verlobungsshooting-ho-chi-minh-vietnam-015.jpg',0.6665,"Die Braut im Türrahmen des Museums, Schwarzweiß – Verlobungsshooting in Ho-Chi-Minh-Stadt, Vietnam, Fotografin Antonia Valladares"],
+  ['portfolio/galerie-hochiminh-verlobung/verlobungsshooting-ho-chi-minh-vietnam-016.jpg',0.6665,"Das Paar am Balkongeländer über dem Innenhof – Verlobungsshooting in Ho-Chi-Minh-Stadt, Vietnam, Fotografin Antonia Valladares"],
+  ['portfolio/galerie-hochiminh-verlobung/verlobungsshooting-ho-chi-minh-vietnam-017.jpg',0.6670,"Ein Tanz auf dem Balkon des Museums – Verlobungsshooting in Ho-Chi-Minh-Stadt, Vietnam, Fotografin Antonia Valladares"],
+  ['portfolio/galerie-hochiminh-verlobung/verlobungsshooting-ho-chi-minh-vietnam-018.jpg',1.5004,"Das Paar im Türrahmen zwischen den Buntglasfenstern, Schwarzweiß – Verlobungsshooting in Ho-Chi-Minh-Stadt, Vietnam, Fotografin Antonia Valladares"],
+  ['portfolio/galerie-hochiminh-verlobung/verlobungsshooting-ho-chi-minh-vietnam-019.jpg',1.0000,"Die Hand des Verlobten am Tüllkleid als Detail – Verlobungsshooting in Ho-Chi-Minh-Stadt, Vietnam, Fotografin Antonia Valladares"],
+  ['portfolio/galerie-hochiminh-verlobung/verlobungsshooting-ho-chi-minh-vietnam-020.jpg',1.5004,"Das Paar zwischen den weißen Fensterläden, Schwarzweiß – Verlobungsshooting in Ho-Chi-Minh-Stadt, Vietnam, Fotografin Antonia Valladares"],
+  ['portfolio/galerie-hochiminh-verlobung/verlobungsshooting-ho-chi-minh-vietnam-021.jpg',3.3003,"Das Paar an den Fensterläden des Museums, Panorama – Verlobungsshooting in Ho-Chi-Minh-Stadt, Vietnam, Fotografin Antonia Valladares"],
+  ['portfolio/galerie-hochiminh-verlobung/verlobungsshooting-ho-chi-minh-vietnam-022.jpg',0.6665,"Das Paar im Park von Ho-Chi-Minh-Stadt, Schwarzweiß – Verlobungsshooting in Ho-Chi-Minh-Stadt, Vietnam, Fotografin Antonia Valladares"],
+  ['portfolio/galerie-hochiminh-verlobung/verlobungsshooting-ho-chi-minh-vietnam-023.jpg',0.6665,"Das Paar lacht im Park von Ho-Chi-Minh-Stadt – Verlobungsshooting in Ho-Chi-Minh-Stadt, Vietnam, Fotografin Antonia Valladares"],
+  ['portfolio/galerie-hochiminh-verlobung/verlobungsshooting-ho-chi-minh-vietnam-024.jpg',1.5004,"Das Tüllkleid auf dem gemusterten Fliesenboden – Verlobungsshooting in Ho-Chi-Minh-Stadt, Vietnam, Fotografin Antonia Valladares"],
+  ['portfolio/galerie-hochiminh-verlobung/verlobungsshooting-ho-chi-minh-vietnam-025.jpg',0.6670,"Die Braut geht über den gemusterten Fliesenboden – Verlobungsshooting in Ho-Chi-Minh-Stadt, Vietnam, Fotografin Antonia Valladares"],
+  ['portfolio/galerie-hochiminh-verlobung/verlobungsshooting-ho-chi-minh-vietnam-026.jpg',1.5004,"Das Paar im Flur des Fine Arts Museum – Verlobungsshooting in Ho-Chi-Minh-Stadt, Vietnam, Fotografin Antonia Valladares"],
+  ['portfolio/galerie-hochiminh-verlobung/verlobungsshooting-ho-chi-minh-vietnam-027.jpg',1.2500,"Eine lachende Umarmung vor den Fensterläden, Schwarzweiß – Verlobungsshooting in Ho-Chi-Minh-Stadt, Vietnam, Fotografin Antonia Valladares"],
+  ['portfolio/galerie-hochiminh-verlobung/verlobungsshooting-ho-chi-minh-vietnam-028.jpg',1.5004,"Portrait des Verlobten am bunten Glasfenster – Verlobungsshooting in Ho-Chi-Minh-Stadt, Vietnam, Fotografin Antonia Valladares"],
+  ['portfolio/galerie-hochiminh-verlobung/verlobungsshooting-ho-chi-minh-vietnam-029.jpg',1.5004,"Der Verlobte lehnt in der Tür des Museums – Verlobungsshooting in Ho-Chi-Minh-Stadt, Vietnam, Fotografin Antonia Valladares"],
+  ['portfolio/galerie-hochiminh-verlobung/verlobungsshooting-ho-chi-minh-vietnam-030.jpg',0.6665,"Die Hände des Paars mit dem Verlobungsring – Verlobungsshooting in Ho-Chi-Minh-Stadt, Vietnam, Fotografin Antonia Valladares"],
+  ['portfolio/galerie-hochiminh-verlobung/verlobungsshooting-ho-chi-minh-vietnam-031.jpg',0.6665,"Das Paar vor der dunklen Flügeltür – Verlobungsshooting in Ho-Chi-Minh-Stadt, Vietnam, Fotografin Antonia Valladares"],
+  ['portfolio/galerie-hochiminh-verlobung/verlobungsshooting-ho-chi-minh-vietnam-032.jpg',0.6665,"Das bestickte Oberteil des Kleides als Detail – Verlobungsshooting in Ho-Chi-Minh-Stadt, Vietnam, Fotografin Antonia Valladares"],
+  ['portfolio/galerie-hochiminh-verlobung/verlobungsshooting-ho-chi-minh-vietnam-033.jpg',0.6665,"Der Antrag im Licht des großen Fensters – Verlobungsshooting in Ho-Chi-Minh-Stadt, Vietnam, Fotografin Antonia Valladares"],
+  ['portfolio/galerie-hochiminh-verlobung/verlobungsshooting-ho-chi-minh-vietnam-034.jpg',0.6665,"Das Paar auf dem Balkon des Museums – Verlobungsshooting in Ho-Chi-Minh-Stadt, Vietnam, Fotografin Antonia Valladares"],
+  ['portfolio/galerie-hochiminh-verlobung/verlobungsshooting-ho-chi-minh-vietnam-035.jpg',0.6665,"Das Paar auf dem geschwungenen Balkon, von Weitem – Verlobungsshooting in Ho-Chi-Minh-Stadt, Vietnam, Fotografin Antonia Valladares"],
+  ['portfolio/galerie-hochiminh-verlobung/verlobungsshooting-ho-chi-minh-vietnam-036.jpg',0.6665,"Das Paar vor einem bunten Glasfenster – Verlobungsshooting in Ho-Chi-Minh-Stadt, Vietnam, Fotografin Antonia Valladares"],
+  ['portfolio/galerie-hochiminh-verlobung/verlobungsshooting-ho-chi-minh-vietnam-037.jpg',0.6665,"Der Innenhof des Fine Arts Museum – Verlobungsshooting in Ho-Chi-Minh-Stadt, Vietnam, Fotografin Antonia Valladares"],
+  ['portfolio/galerie-hochiminh-verlobung/verlobungsshooting-ho-chi-minh-vietnam-038.jpg',0.6665,"Der Kronleuchter im Saal des Museums – Verlobungsshooting in Ho-Chi-Minh-Stadt, Vietnam, Fotografin Antonia Valladares"],
+  ['portfolio/galerie-hochiminh-verlobung/verlobungsshooting-ho-chi-minh-vietnam-039.jpg',1.5004,"Das Paar auf der Balustrade über der Straße, Schwarzweiß – Verlobungsshooting in Ho-Chi-Minh-Stadt, Vietnam, Fotografin Antonia Valladares"],
+  ['portfolio/galerie-hochiminh-verlobung/verlobungsshooting-ho-chi-minh-vietnam-040.jpg',0.6670,"Das Paar sitzt vor dem Museum in Ho-Chi-Minh-Stadt – Verlobungsshooting in Ho-Chi-Minh-Stadt, Vietnam, Fotografin Antonia Valladares"],
+  ['portfolio/galerie-hochiminh-verlobung/verlobungsshooting-ho-chi-minh-vietnam-041.jpg',0.6670,"Das Paar sitzt an der Treppe des Museums, Schwarzweiß – Verlobungsshooting in Ho-Chi-Minh-Stadt, Vietnam, Fotografin Antonia Valladares"],
+  ['portfolio/galerie-hochiminh-verlobung/verlobungsshooting-ho-chi-minh-vietnam-042.jpg',0.6665,"Die gelbe Fassade des Fine Arts Museum – Verlobungsshooting in Ho-Chi-Minh-Stadt, Vietnam, Fotografin Antonia Valladares"],
+  ['portfolio/galerie-hochiminh-verlobung/verlobungsshooting-ho-chi-minh-vietnam-043.jpg',0.6665,"Das Paar vor dem Museum, die Roller ziehen vorbei, Schwarzweiß – Verlobungsshooting in Ho-Chi-Minh-Stadt, Vietnam, Fotografin Antonia Valladares"]
 ];
 
 /* ---------------------------------------------------------------------
@@ -833,5 +871,83 @@ const GAL_TEGERNSEE = [
   ['portfolio/galerie-tegernsee-standesamt/standesamt-tegernsee-regenhochzeit-076.jpg',1.4993,"Die Hände des Brautpaars mit Ehering als Detail – Regenhochzeit am Standesamt Tegernsee, Hochzeitsfotografin Antonia Valladares"]
 ];
 
+/* Freie Trauung im Out of Office über den Dächern Münchens. */
+const GAL_OUTOFOFFICE = [
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-001.jpg',1.5004,"Das Brautpaar geht über die Straße in München, Schwarzweiß – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-002.jpg',1.5004,"Innige Umarmung zur Begrüßung im Englischen Garten, Schwarzweiß – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-003.jpg',1.5004,"Das Brautpaar überquert die Straße in München – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-004.jpg',0.6665,"Dem Bräutigam wird die Krawatte gerichtet – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-005.jpg',0.6665,"Eine Freundin richtet der Braut das Kleid im Englischen Garten – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-006.jpg',1.5004,"Die Braut lacht mit einer Freundin, der Brautstrauß in der Hand – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-007.jpg',0.6665,"Die Braut geht mit ihrer Freundin den Weg entlang – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-008.jpg',1.5004,"Die Braut am Ufer des Eisbachs im Englischen Garten – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-009.jpg',0.6665,"Portrait des Bräutigams im Englischen Garten – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-010.jpg',0.6665,"Brautpaar Stirn an Stirn beim First Look, Schwarzweiß – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-011.jpg',1.5004,"Das Brautpaar liest sich am Wasser die Liebesbriefe vor, Schwarzweiß – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-012.jpg',0.6665,"Das Brautpaar am Eisbach, die Schleppe liegt auf dem Weg – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-013.jpg',0.6665,"Die Braut lacht ihren Bräutigam beim First Look an, Schwarzweiß – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-014.jpg',0.6665,"Die Braut liest den Liebesbrief ihres Bräutigams – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-015.jpg',0.6665,"Der Bräutigam liest seinen Liebesbrief vor – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-016.jpg',0.6665,"Das Brautpaar hält sich an den Händen am Eisbach – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-017.jpg',1.5004,"Der Bräutigam lacht beim Vorlesen des Briefes – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-018.jpg',1.5004,"Das Brautpaar am Eisbach zwischen den Bäumen, Schwarzweiß – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-019.jpg',1.5004,"Das Brautpaar ganz nah beieinander, Schwarzweiß – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-020.jpg',1.5004,"Das Brautpaar geht den Weg im Englischen Garten entlang – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-021.jpg',0.6665,"Das Brautpaar auf dem Weg durch den Englischen Garten – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-022.jpg',1.5004,"Portrait der Braut im Profil, Schwarzweiß – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-023.jpg',0.6665,"Getting Ready am Morgen der Hochzeit – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-024.jpg',1.5004,"Bräutigam und Trauzeuge auf dem Weg zur Trauung, Schwarzweiß – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-025.jpg',0.6665,"Der Traubogen auf der Dachterrasse mit Blick auf die Frauenkirche – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-026.jpg',0.6665,"Die gedeckte Tafel mit Blumen und Menükarte – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-027.jpg',0.6665,"Der Sitzplan wird an der Wand befestigt – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-028.jpg',0.6665,"Der Vater der Braut kommt den Gang entlang – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-029.jpg',1.5004,"First Look mit dem Vater der Braut – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-030.jpg',1.5004,"Die Braut kommt mit ihrem Vater die Treppe herunter, Schwarzweiß – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-031.jpg',1.5004,"Der Bräutigam wartet mit den Gästen auf der Dachterrasse – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-032.jpg',1.5004,"Einzug der Braut mit ihrem Vater zwischen den Gästen – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-033.jpg',0.6670,"Das Brautpaar sitzt bei der freien Trauung, Schwarzweiß – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-034.jpg',1.5004,"Das Brautpaar Hand in Hand während der Zeremonie, Schwarzweiß – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-035.jpg',0.6670,"Freie Trauung über den Dächern mit Blick auf die Frauenkirche – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-036.jpg',1.5004,"Die Hände des Brautpaars mit Ehering als Detail – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-037.jpg',1.5004,"Die Gäste bei der freien Trauung über den Dächern Münchens – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-038.jpg',0.6665,"Das Brautpaar lacht während der Trauung – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-039.jpg',0.6665,"Das Brautpaar während der Zeremonie, Schwarzweiß – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-040.jpg',1.5004,"Die Trauung unter dem Blumenbogen auf der Dachterrasse – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-041.jpg',1.5004,"Das Brautpaar unter dem Traubogen, Schwarzweiß – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-042.jpg',1.5004,"Der Ringtausch als Detail, Schwarzweiß – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-043.jpg',1.5004,"Ringtausch mit Blick über die Dächer von München – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-044.jpg',0.6665,"Die Braut steckt dem Bräutigam den Ring an, Schwarzweiß – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-045.jpg',0.6665,"Der Ringtausch unter dem Blumenbogen – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-046.jpg',1.5004,"Das Brautpaar umarmt sich unter dem Traubogen – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-047.jpg',1.5004,"Der Auszug des Brautpaars zwischen den Gästen – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-048.jpg',1.5004,"Die Gäste jubeln dem Brautpaar beim Auszug zu – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-049.jpg',1.5004,"Auszug zwischen den gratulierenden Gästen, Schwarzweiß – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-050.jpg',1.5004,"Das Brautpaar nach der Trauung, Schwarzweiß – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-051.jpg',0.6665,"Gratulation nach der Trauung, Schwarzweiß – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-052.jpg',0.6665,"Umarmung auf der Dachterrasse im Sonnenlicht – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-053.jpg',0.6665,"Die Braut wird von den Gästen umarmt – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-054.jpg',0.6665,"Der Geschenketisch unter dem Out-of-Office-Schriftzug – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-055.jpg',1.5004,"Anstoßen mit den Gästen auf der Dachterrasse, Schwarzweiß – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-056.jpg',1.5004,"Das Brautpaar hält seine Rede an der Bar – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-057.jpg',1.5004,"Sektempfang auf der Dachterrasse im Abendlicht – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-058.jpg',0.6665,"Das Brautpaar am Tisch auf der Dachterrasse – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-059.jpg',1.5004,"Die Braut bekommt von ihren Freundinnen ein Fotoalbum geschenkt – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-060.jpg',0.6665,"Die Braut lacht mit ihren Freundinnen über das Geschenk – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-061.jpg',1.4993,"Die Freunde heben den Bräutigam hoch, Schwarzweiß – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-062.jpg',0.6665,"Der Bräutigam wird von seinen Freunden in die Luft geworfen – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-063.jpg',0.6665,"Das Buffet auf der Dachterrasse – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-064.jpg',1.5004,"Vom Grill auf den Teller: das Essen am Abend – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-065.jpg',1.5004,"Das Brautpaar unter dem Blumenbogen am Abend – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-066.jpg',0.6665,"Der Bräutigam am Abend auf der Terrasse, Schwarzweiß – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-067.jpg',1.5004,"Eine Rede am Abend, das Brautpaar hört zu, Schwarzweiß – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-068.jpg',1.5004,"Sekt wird im Abendlicht eingeschenkt – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-069.jpg',1.5004,"Das Brautpaar mit Sonnenbrille am Abend, Schwarzweiß – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-070.jpg',1.5004,"Gäste über den Dächern Münchens im Abendlicht – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-071.jpg',0.6665,"Anstoßen im Gegenlicht der Abendsonne – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-072.jpg',0.6670,"Die Hände des Brautpaars als Detail, Schwarzweiß – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-073.jpg',1.5004,"Das Brautpaar mit Brautstrauß am Abend, Schwarzweiß – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"],
+  ['portfolio/galerie-outofoffice-muenchen/freie-trauung-out-of-office-muenchen-hochzeit-074.jpg',0.6665,"Die Freunde feiern mit dem Bräutigam auf der Dachterrasse – Freie Trauung im Out of Office in München, Hochzeitsfotografin Antonia Valladares"]
+];
+
 window.AV_PHOTOS = { REEL, TILES, PORTRAIT, MENU_SHOTS, FLOW_A, FLOW_B, NICHT_STARTSEITE,
-  PF_HOCHZEITEN, GAL_UMBRIEN, GAL_KUFSTEIN, GAL_VIETNAM, GAL_BLUTENBURG, GAL_MANDLSTRASSE, GAL_BAD_TOELZ, GAL_PFALZ, GAL_TEGERNSEE, REEL_BABYBAUCH, FLOW_SCHAUSPIEL, FLOW_FAMILIEN, FLOW_BUSINESS };
+  PF_HOCHZEITEN, GAL_UMBRIEN, GAL_KUFSTEIN, GAL_HOCHIMINH, GAL_OUTOFOFFICE, GAL_BLUTENBURG, GAL_MANDLSTRASSE, GAL_BAD_TOELZ, GAL_PFALZ, GAL_TEGERNSEE, REEL_BABYBAUCH, FLOW_SCHAUSPIEL, FLOW_FAMILIEN, FLOW_BUSINESS };

@@ -181,18 +181,57 @@ GALERIEN = [
   hero=[14, 17, 24]),
  dict(
   datei='verlobungsshooting-vietnam.html',
-  liste='GAL_VIETNAM',
-  wort='Vietnam',
+  liste='GAL_HOCHIMINH',
+  wort='Ho Chi Minh',
   ort='Ho-Chi-Minh-Stadt, Vietnam',
-  h2='Verlobungsshooting zwischen Museum und Motorrollern',
-  titel='Verlobungsshooting in Vietnam',
-  meta='Verlobungsshooting in Ho-Chi-Minh-Stadt: koloniale Fassaden, Motorroller, Schwarzweiß. Fotografiert von Antonia Valladares.',
-  satz='Ho-Chi-Minh-Stadt steht nie still. Genau das macht sie zur Kulisse: Vor dem Fine Arts '
-       'Museum ziehen die Roller zu Hunderten vorbei, und mittendrin stehen zwei Menschen '
-       'vollkommen ruhig. Schwarzweiß, weil die Stadt in Farbe alles überstrahlen würde, was '
-       'zwischen den beiden passiert.',
-  fakten=['Ho-Chi-Minh-Stadt', 'Verlobung &amp; Elopement', '12 Bilder'],
-  hero=[3, 7, 1]),
+  h2='Verlobungsshooting im Fine Arts Museum',
+  titel='Verlobungsshooting in Ho-Chi-Minh-Stadt',
+  meta='Verlobungsshooting im Fine Arts Museum in Ho-Chi-Minh-Stadt: Buntglasfenster, '
+       'geschwungene Treppen und ein Antrag. Fotografiert von Antonia Valladares.',
+  satz=(
+   'Ho-Chi-Minh-Stadt, eine Stadt, die niemals schläft! Den beiden bin ich beim Reisen '
+   'begegnet, und als sie hörten, dass ich Hochzeitsfotografin bin, waren sie sofort Feuer '
+   'und Flamme: Sie hatten sich frisch verlobt und wollten die Verlobung unbedingt festhalten. '
+   'Und an welchem schöneren Ort könnte man das tun als im Fine Arts Museum?'
+   '\n\n'
+   'Die Vision für das Shooting war klar: dreamy, sanft, die Zärtlichkeit der beiden '
+   'miteinander einfangen. Genau so ist der Stil geworden.'
+   '\n\n'
+   'Wir hatten wahnsinnig viel Spaß beim Fotografieren — und bei diesen Bildern sind '
+   'einige meiner liebsten dabei, die ich bisher gemacht habe.'
+  ),
+  fakten=['Fine Arts Museum', 'Ho-Chi-Minh-Stadt', 'Verlobungsshooting', '43 Bilder'],
+  hero=[12, 4, 2]),
+ dict(
+  datei='hochzeit-freie-trauung-out-of-office-muenchen.html',
+  liste='GAL_OUTOFOFFICE',
+  wort='Out of Office',
+  ort='Out of Office, München',
+  h2='Freie Trauung über den Dächern Münchens',
+  titel='Freie Trauung im Out of Office München',
+  meta='Freie Trauung im Out of Office in München: First Look mit Liebesbriefen im Englischen '
+       'Garten, Zeremonie auf der Dachterrasse mit Blick auf die Frauenkirche, Feier bis in die Nacht.',
+  satz=(
+   'Was für eine schöne symbolische Hochzeit über den Dächern Münchens! Die beiden '
+   'durfte ich schon bei ihrer standesamtlichen Trauung im '
+   '<a href="/hochzeit-standesamt-mandlstrasse.html">Standesamt in der Mandlstraße</a> '
+   'begleiten, ganz in Tracht. Der Vibe bei der freien Trauung war ein ganz anderer, aber '
+   'genauso besonders.'
+   '\n\n'
+   'An einem herrlichen Sonnentag haben sie im Out of Office noch einmal ihre Liebe besiegelt '
+   '— und ich glaube, das ist eine der süßesten Liebesgeschichten, die ich je '
+   'gehört habe.'
+   '\n\n'
+   'Gestartet sind wir im Englischen Garten mit einem First Look direkt am Wasser. Die beiden '
+   'haben sich Liebesbriefe vorgelesen, und ich habe das aus der Ferne für sie dokumentiert. '
+   'Danach ging es weiter in die Location, die auch direkt am Englischen Garten liegt. Dort gab '
+   'es noch einen First Look mit dem Vater der Braut — das war so schön.'
+   '\n\n'
+   'Getraut wurde auf der Dachterrasse, mit der Frauenkirche im Rücken. Danach wurde oben '
+   'weitergefeiert, und der DJ hat bis in die Nacht eingeheizt.'
+  ),
+  fakten=['Out of Office', 'München', 'Freie Trauung', '74 Bilder'],
+  hero=[11, 42, 34]),
  dict(
   datei='hochzeit-standesamt-kufstein.html',
   liste='GAL_KUFSTEIN',
@@ -252,15 +291,17 @@ GALERIEN = [
 ]
 
 # Reihenfolge der Kacheln auf der Portfolio-Seite, für „weiter zur nächsten"
+# Reihenfolge wie die Kacheln auf der Portfolio-Seite
 NAV = [
- ('/hochzeit-umbrien-italien.html', 'Umbrien', 'portfolio/cover/italy-wedding-umbria-weinberge-oldtimer-valladares.jpg'),
- ('/hochzeit-standesamt-kufstein.html', 'Kufstein', 'portfolio/cover/standesamt-kufstein-gasthaus-valladares.jpg'),
- ('/hochzeit-tegernsee-regenhochzeit.html', 'Tegernsee', 'portfolio/cover/tegernsee-standesamt-regenhochzeit-paar-mit-regenschirmen-valladares.jpg'),
- ('/verlobungsshooting-vietnam.html', 'Vietnam', 'portfolio/cover/vietnam-ho-chi-minh-verlobungsshooting-elopement-bw-valladares.jpg'),
- ('/hochzeit-schloss-blutenburg.html', 'Blutenburg', 'portfolio/cover/freie-trauung-schloss-blutenburg-hochzeitspaar-valladares.jpg'),
- ('/hochzeit-standesamt-mandlstrasse.html', 'Mandlstraße', 'portfolio/cover/standesamt-mandlstrasse-hochzeitspaar-fenster-schwarzweiss-valladares.jpg'),
  ('/hochzeit-freie-trauung-pfalz.html', 'Pfalz', 'portfolio/cover/freie-trauung-pfalz-weinberge-hochzeitspaar-valladares.jpg'),
  ('/hochzeit-freie-trauung-bad-toelz.html', 'Bad Tölz', 'portfolio/cover/freie-trauung-bad-toelz-hochzeitspaar-braut-getragen.jpg'),
+ ('/hochzeit-freie-trauung-out-of-office-muenchen.html', 'Out of Office', 'portfolio/cover/freie-trauung-out-of-office-muenchen-hochzeitspaar-valladares.jpg'),
+ ('/hochzeit-schloss-blutenburg.html', 'Blutenburg', 'portfolio/cover/freie-trauung-schloss-blutenburg-hochzeitspaar-valladares.jpg'),
+ ('/hochzeit-umbrien-italien.html', 'Umbrien', 'portfolio/cover/italy-wedding-umbria-weinberge-oldtimer-valladares.jpg'),
+ ('/hochzeit-standesamt-mandlstrasse.html', 'Mandlstraße', 'portfolio/cover/standesamt-mandlstrasse-hochzeitspaar-fenster-schwarzweiss-valladares.jpg'),
+ ('/hochzeit-tegernsee-regenhochzeit.html', 'Tegernsee', 'portfolio/cover/tegernsee-standesamt-regenhochzeit-paar-mit-regenschirmen-valladares.jpg'),
+ ('/verlobungsshooting-vietnam.html', 'Ho Chi Minh', 'portfolio/cover/vietnam-ho-chi-minh-verlobungsshooting-elopement-bw-valladares.jpg'),
+ ('/hochzeit-standesamt-kufstein.html', 'Kufstein', 'portfolio/cover/standesamt-kufstein-gasthaus-valladares.jpg'),
 ]
 
 
@@ -448,9 +489,9 @@ def bau(g, js, teile):
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/cormorant-garamond-latin-300-normal.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/jost-latin-300-normal.woff2" crossorigin>
 
-<link rel="stylesheet" href="assets/css/fonts.css?v=20261103b">
-<link rel="stylesheet" href="assets/css/style.css?v=20261103b">
-<link rel="stylesheet" href="assets/css/portfolio.css?v=20261103b">
+<link rel="stylesheet" href="assets/css/fonts.css?v=20261103c">
+<link rel="stylesheet" href="assets/css/style.css?v=20261103c">
+<link rel="stylesheet" href="assets/css/portfolio.css?v=20261103c">
 
 <script type="application/ld+json">
 {json.dumps(ld, ensure_ascii=False, indent=1)}
@@ -505,9 +546,9 @@ def bau(g, js, teile):
 {teile['menu']}<button class="to-top" type="button" aria-label="Zurück nach oben"><span aria-hidden="true">&uarr;</span></button>
 <div class="grain" aria-hidden="true"></div>
 
-<script src="assets/js/photos.js?v=20261103b" defer></script>
-<script src="assets/js/main.js?v=20261103b" defer></script>
-<script src="assets/js/galerie.js?v=20261103b" defer></script>
+<script src="assets/js/photos.js?v=20261103c" defer></script>
+<script src="assets/js/main.js?v=20261103c" defer></script>
+<script src="assets/js/galerie.js?v=20261103c" defer></script>
 </body>
 </html>
 '''

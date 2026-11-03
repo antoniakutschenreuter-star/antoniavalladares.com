@@ -296,12 +296,20 @@ body.intro-done main, body.intro-done .site-header, body.intro-done .site-footer
   padding-inline: var(--edge);
   will-change: transform; transform: translate3d(0, 0, 0);
 }
+/* Alle Bilder stehen auf derselben Höhe, die Breite folgt dem Format.
+   Vorher bekam die Figur ihre Breite aus dem Originalbild: Hochformate
+   wurden dadurch zu breiten Streifen beschnitten und man sah nur noch
+   einen Ausschnitt. Mit festem Seitenverhältnis bleibt jedes Foto ganz —
+   die Hochformate sind nur schmaler als die Querformate. */
 .reel-track figure {
   margin: 0; flex: 0 0 auto;
-  height: clamp(240px, 52vh, 600px);
+  height: clamp(240px, 52vh, 600px); width: auto;
+  aspect-ratio: 3 / 2;
   cursor: zoom-in; overflow: hidden;
   background: rgba(18,16,15,.04);
 }
+.reel-track figure.reel-hoch { aspect-ratio: 2 / 3; }
+.reel-track figure.reel-quer { aspect-ratio: 3 / 2; }
 .reel-track img { height: 100%; width: 100%; object-fit: cover; transition: transform .9s var(--ease); }
 .reel-track figure:hover img { transform: scale(1.04); }
 
@@ -930,20 +938,23 @@ body:has(.preis-hero) .site-header::before { display: none; }
    Text, der darunter folgt. */
 /* Fotos dürfen die Buchstaben halb verdecken, aber nie einander.
    Foto c beginnt deshalb immer rechts neben dem Ende von Foto a. */
-/* Zwei hohe Fotos fassen das Wort links und rechts ein, das querformatige
-   sitzt versetzt darunter. Vorher standen zwei Fotos links beieinander
-   und eines allein rechts — das wirkte zufällig hingeworfen. */
+/* Die drei Fotos endeten vorher alle auf fast derselben Höhe — eine
+   unsichtbare Linie quer über die Seite, die wie abgeschnitten wirkte.
+   Jetzt sind Ansatz und Fuß bei jedem Foto verschieden: links das große
+   Hochformat hoch oben, rechts daneben versetzt das Querformat, ganz
+   rechts das kleinere Hochformat, das am tiefsten reicht. Dieselbe
+   Staffelung wie im Auftakt der Galerieseiten. */
 .auftakt {
-  --fa-w: clamp(112px, 14.5vw, 226px);
-  --fb-w: clamp(104px, 13.2vw, 206px);
-  --fc-w: clamp(124px, 16vw, 254px);
-  --fa-top: clamp(3rem, 6vh, 4.4rem);
-  --fb-top: clamp(4.4rem, 9vh, 6.6rem);
-  --fc-top: clamp(11.5rem, 25vh, 16rem);
+  --fa-w: clamp(118px, 16vw, 244px);
+  --fb-w: clamp(96px, 12.2vw, 190px);
+  --fc-w: clamp(118px, 15vw, 236px);
+  --fa-top: clamp(1.6rem, 3.4vh, 2.6rem);
+  --fb-top: clamp(9.5rem, 20.5vh, 14rem);
+  --fc-top: clamp(2.8rem, 6vh, 4.4rem);
 }
-.auftakt-foto--a { left: 5%;  top: var(--fa-top); width: var(--fa-w); aspect-ratio: 2/3; z-index: 3; }
-.auftakt-foto--b { right: 5%; top: var(--fb-top); width: var(--fb-w); aspect-ratio: 2/3; z-index: 1; }
-.auftakt-foto--c { right: calc(5% + var(--fb-w) + 4vw); top: var(--fc-top); width: var(--fc-w); aspect-ratio: 3/2; z-index: 3; }
+.auftakt-foto--a { left: 4%;  top: var(--fa-top); width: var(--fa-w); aspect-ratio: 2/3; z-index: 3; }
+.auftakt-foto--b { right: 4%; top: var(--fb-top); width: var(--fb-w); aspect-ratio: 2/3; z-index: 3; }
+.auftakt-foto--c { right: calc(4% + var(--fb-w) + 5vw); top: var(--fc-top); width: var(--fc-w); aspect-ratio: 3/2; z-index: 1; }
 
 /* Eckmarken, auf jeder Unterseite an derselben Stelle */
 .ecke {
@@ -953,7 +964,7 @@ body:has(.preis-hero) .site-header::before { display: none; }
   letter-spacing: .28em; text-transform: uppercase; color: var(--ink-soft);
 }
 .ecke--links  { left: var(--edge);  top: max(46vh, calc(var(--fa-top) + var(--fa-w) * 1.5 + 1.8rem)); }
-.ecke--rechts { right: var(--edge); top: max(46vh, calc(var(--fc-top) + var(--fc-w) / 1.5 + 1.8rem)); text-align: right; }
+.ecke--rechts { right: var(--edge); top: max(46vh, calc(var(--fb-top) + var(--fb-w) * 1.5 + 1.8rem)); text-align: right; }
 /* Unter 1200px würden die Eckmarken in die Kontaktzeile ragen */
 @media (max-width: 1199px) { .ecke { display: none; } }
 

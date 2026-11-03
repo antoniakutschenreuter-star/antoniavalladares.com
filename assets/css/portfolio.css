@@ -99,12 +99,12 @@ body.pf .site-header a:hover, body.pf .site-header button:hover { color: var(--a
   margin-top: .42em; background: currentColor;
 }
 
-.pf-aside-foot { margin-top: auto; padding-bottom: clamp(1.4rem, 4.5vh, 4.5rem); }
+.pf-aside-foot { margin-top: auto; padding-bottom: clamp(1.1rem, 4vh, 4.5rem); }
 .pf-lead {
   margin: 0; max-width: 34ch;
   font-family: var(--font-display);
-  font-size: calc(clamp(.92rem, min(1.25vw, 1.75vh), 1.22rem) * var(--display-scale));
-  line-height: 1.58; color: var(--pf-soft);
+  font-size: calc(clamp(.87rem, min(1.25vw, 1.75vh), 1.22rem) * var(--display-scale));
+  line-height: 1.54; color: var(--pf-soft);
 }
 .pf-closing {
   margin: clamp(1rem, 2.6vh, 2.2rem) 0 0; max-width: 26ch;
@@ -319,6 +319,10 @@ body.gal main { padding-top: var(--header-h); }
      langes Wort wie „Blutenburg" auf dem Handy über die Kante. */
   font-size: calc(min(15.4vw, (100vw - 2 * var(--edge)) * 1.3 / var(--len)) * var(--display-scale));
   line-height: .9; letter-spacing: -.012em; text-transform: uppercase;
+  /* Wo das Wort über ein unruhiges Foto läuft, war es schlecht zu lesen.
+     Ein weicher Schein in der Grundfarbe hebt die Lettern ab, ohne dass
+     man einen Kasten sieht. */
+  text-shadow: 0 0 10px rgba(251,249,247,.9), 0 0 30px rgba(251,249,247,.65);
   white-space: nowrap; pointer-events: none;
   max-width: 100%;
 }
@@ -351,10 +355,12 @@ body.gal main { padding-top: var(--header-h); }
   font-size: calc(clamp(1.7rem, 3.4vw, 3rem) * var(--display-scale));
   line-height: 1.1;
 }
+/* Dieselbe ruhige Textgröße wie in der Portfolio-Spalte: die Serifen
+   standen auf den Galerieseiten deutlich zu groß. */
 .gal-satz {
-  margin: clamp(1.4rem, 3vw, 2.2rem) 0 0; max-width: 58ch;
+  margin: clamp(1.4rem, 3vw, 2.2rem) 0 0; max-width: 68ch;
   font-family: var(--font-display);
-  font-size: calc(clamp(1.05rem, 1.45vw, 1.4rem) * var(--display-scale));
+  font-size: calc(clamp(.95rem, 1.08vw, 1.1rem) * var(--display-scale));
   line-height: 1.68; color: #3a3734;
 }
 .gal-satz + .gal-satz { margin-top: 1em; }
@@ -499,9 +505,18 @@ body.gal main { padding-top: var(--header-h); }
 .pf-wort { font-size: clamp(2rem, 4.4vw, 4.4rem); line-height: .95; }
 
 /* Lesetext unter dem Raster: schmale Spalte, ruhige Typografie. */
-.gal-mehr { max-width: 44rem; margin-inline: auto;
-  padding: clamp(3rem, 7vw, 5.5rem) var(--edge) clamp(1rem, 3vw, 2rem); }
+.gal-mehr { max-width: 54rem; margin-inline: auto;
+  padding: clamp(2.2rem, 5vw, 3.6rem) var(--edge) clamp(1rem, 3vw, 2rem); }
 .gal-mehr-block + .gal-mehr-block { margin-top: clamp(2.4rem, 5vw, 3.4rem); }
+
+/* Auf der Portfolio-Seite stand dieser Text unter der Flugstrecke. Die ist
+   mehrere Bildschirmhöhen hoch — wer nicht bis ganz unten scrollte, hat ihn
+   nie gesehen. Er steht jetzt vor den Fotos, linksbündig in der Bildspalte. */
+.gal-mehr--oben {
+  margin-inline: 0; max-width: 46rem;
+  padding-top: clamp(1rem, 2.5vw, 1.8rem);
+  padding-bottom: clamp(1.6rem, 4vw, 2.8rem);
+}
 .gal-mehr h2 {
   font-family: var(--font-ui); font-weight: var(--link-weight);
   font-size: calc(var(--t-label) * var(--ui-scale));
@@ -512,7 +527,7 @@ body.gal main { padding-top: var(--header-h); }
    Seite und nicht wie ein angehängter Beipackzettel. */
 .gal-mehr p {
   font-family: var(--font-display); font-weight: var(--display-weight);
-  font-size: calc(clamp(1rem, 1.25vw, 1.22rem) * var(--display-scale));
+  font-size: calc(clamp(.95rem, 1.08vw, 1.1rem) * var(--display-scale));
   line-height: 1.68; color: #3a3734; margin-bottom: .9em;
 }
 
@@ -523,22 +538,28 @@ body.gal main { padding-top: var(--header-h); }
    Serifenschrift wie der Einleitungstext der Galerie, nur eine Spur
    kleiner, und ein kurzer Strich darüber kündigt sie als eigenes
    Kapitel an. */
+/* Oberhalb des Textes klaffte eine Lücke, unterhalb gar keine: die
+   Bildspalten endeten unterschiedlich tief, und die Polsterung war oben
+   doppelt so groß wie unten. Die Spalten enden jetzt gleichmäßig (siehe
+   galerie.js), und der Text bekommt oben wie unten denselben Abstand.
+   Er darf außerdem breiter laufen — wenig Text in einer schmalen Spalte
+   kostete sonst unnötig viel Scrollweg. */
 .gal-einschub {
   grid-column: 1 / -1;
-  max-width: 36rem; margin-inline: auto;
-  padding: clamp(2.6rem, 6vw, 5rem) 0 clamp(1.8rem, 4vw, 3.2rem);
+  max-width: 54rem; margin-inline: auto;
+  padding: clamp(2rem, 4.5vw, 3.4rem) 0 clamp(2rem, 4.5vw, 3.4rem);
   text-align: center;
 }
 .gal-einschub::before {
   content: ''; display: block;
   width: clamp(34px, 4vw, 54px); height: 1px;
   background: var(--accent); opacity: .6;
-  margin: 0 auto clamp(1.6rem, 3.4vw, 2.6rem);
+  margin: 0 auto clamp(1.2rem, 2.6vw, 2rem);
 }
 .gal-einschub p {
   font-family: var(--font-display); font-weight: var(--display-weight);
-  font-size: calc(clamp(1.02rem, 1.35vw, 1.32rem) * var(--display-scale));
-  line-height: 1.62; color: #3a3734; margin-bottom: 1em;
+  font-size: calc(clamp(.95rem, 1.08vw, 1.1rem) * var(--display-scale));
+  line-height: 1.68; color: #3a3734; margin-bottom: .95em;
   text-align: left;
 }
 .gal-einschub p:last-child { margin-bottom: 0; }

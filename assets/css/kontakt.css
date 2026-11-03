@@ -72,7 +72,9 @@
   margin: clamp(1.2rem, 3vw, 2.4rem) auto 0;
   width: min(1280px, calc(100% - 2 * var(--edge)));
 }
-.kt-band img { display: block; width: 100%; height: auto; aspect-ratio: 1600 / 661; object-fit: cover; }
+/* Das Foto behält sein Format: die bunten Fenster links und rechts
+   würden ein Band von 1600/661 oben und unten abschneiden. */
+.kt-band img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
 
 /* Handy: die lange Mailadresse soll in die Spalte passen, nicht darüber hinaus */
 @media (max-width: 900px) {
