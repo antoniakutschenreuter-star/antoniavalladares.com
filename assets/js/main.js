@@ -191,9 +191,9 @@
     if (!W || !H) { return; }
 
     var klein = W < 760;
-    var WR  = klein ? [34, 50] : [15, 27];     /* Fotobreite in % der Bühne */
-    var MX  = (klein ? 0.05 : 0.036) * W;      /* Mindestabstand seitlich   */
-    var MY  = (klein ? 0.055 : 0.065) * H;     /* Mindestabstand oben/unten */
+    var WR  = klein ? [34, 50] : [20, 32];     /* Fotobreite in % der Bühne */
+    var MX  = (klein ? 0.05 : 0.03) * W;       /* Mindestabstand seitlich   */
+    var MY  = (klein ? 0.055 : 0.05) * H;      /* Mindestabstand oben/unten */
     var rng = prng(this.seed * 977 + 13);
     var cursor = H * 0.2;
     var wm = this.sec.querySelector('.hero-wordmark');
@@ -208,6 +208,8 @@
     var sizes = [], flaeche = 0, i;
     for (i = 0; i < n; i++) {
       var w0 = (WR[0] + rng() * (WR[1] - WR[0])) * W / 100;
+      /* Hochformate nie höher als zwei Drittel der Bühne */
+      if (w0 / list[i][1] > H * 0.66) { w0 = H * 0.66 * list[i][1]; }
       sizes.push({ w: w0, h: w0 / list[i][1] });
       flaeche += (w0 + MX) * (sizes[i].h + MY);
     }
@@ -232,24 +234,34 @@
       for (i = 0; i < n; i++) {
         var w = sizes[i].w, h = sizes[i].h;
         var best = null, bestScore = 1e9;
-        var floor = last ? last.y + (0.05 + r2() * 0.15) * H : 0;
-        for (c = 0; c < 14; c++) {
+        var floor = last ? Math.max(0, last.y - 0.45 * H) : 0;
+        for (c = 0; c < 30; c++) {
           var x = 8 + r2() * (W - w - 16);
           var y = frei(x, w, h, floor);
-          var score = y + r2() * 0.12 * H;
+          /* ab und zu etwas mehr Luft, sonst dicht an dicht */
+          if (r2() < 0.22) { y = frei(x, w, h, y + (0.03 + r2() * 0.08) * H); }
+          var score = y + r2() * 0.07 * H;
           /* die Seiten wechseln, damit nicht mehrere Fotos hintereinander
              in derselben Ecke stehen */
           if (last) {
             var dx = Math.abs((x + w / 2) - (last.x + last.w / 2)) / W;
-            if (dx < 0.2) { score += 0.30 * H; }
+            if (dx < 0.2) { score += 0.18 * H; }
           }
+          /* die Last der beiden Hälften in der Nachbarschaft: wo schon mehr
+             steht, kommt seltener das nächste Foto hin */
           var seite = (x + w / 2) < W / 2 ? 0 : 1;
-          if (seiten.length > 1 && seiten[seiten.length - 1] === seite &&
-              seiten[seiten.length - 2] === seite) { score += 0.40 * H; }
-          var links = 0;
-          for (var sq = Math.max(0, seiten.length - 6); sq < seiten.length; sq++) { links += seiten[sq]; }
-          var bilanz = seiten.length ? links / Math.min(6, seiten.length) : 0.5;
-          if ((seite === 1 && bilanz > 0.67) || (seite === 0 && bilanz < 0.33)) { score += 0.25 * H; }
+          var last0 = 0, last1 = 0;
+          for (var q2 = 0; q2 < placed.length; q2++) {
+            var pr = placed[q2];
+            if (pr.y + pr.h > y - 0.7 * H && pr.y < y + h + 0.7 * H) {
+              if ((pr.x + pr.w / 2) < W / 2) { last0 += pr.w * pr.h; } else { last1 += pr.w * pr.h; }
+            }
+          }
+          var summe = last0 + last1;
+          if (summe > 0) {
+            var mehr = (seite === 0 ? last0 : last1) / summe;      /* 0,5 = ausgewogen */
+            score += Math.max(0, mehr - 0.5) * 1.2 * H;
+          }
           if (score < bestScore) { bestScore = score; best = { x: x, y: y }; }
         }
         seiten.push((best.x + w / 2) < W / 2 ? 0 : 1);
@@ -260,21 +272,26 @@
       return out;
     }
 
-    var items = platzieren();
-
     /* Länge der Schleife: so kurz, dass der Anfang der nächsten Runde
        gerade noch den Mindestabstand zum Ende dieser Runde hält. Nur
        Fotos, die nebeneinander stehen, zählen — wo seitlich Platz ist,
        darf die nächste Runde schon hineinragen. */
-    var band = 0, j;
-    for (i = 0; i < items.length; i++) {
-      for (j = 0; j < items.length; j++) {
-        var A = items[i], B = items[j];
-        if (A.x < B.x + B.w + MX && B.x < A.x + A.w + MX) {
-          band = Math.max(band, A.y + A.h + MY - B.y);
+    function bandVon(liste) {
+      var bnd = 0, a, b;
+      for (a = 0; a < liste.length; a++) {
+        for (b = 0; b < liste.length; b++) {
+          var A = liste[a], B = liste[b];
+          if (A.x < B.x + B.w + MX && B.x < A.x + A.w + MX) {
+            bnd = Math.max(bnd, A.y + A.h + MY - B.y);
+          }
         }
       }
+      return bnd;
     }
+
+    var items = platzieren();
+    var band = bandVon(items), j;
+
     for (i = 0; i < items.length; i++) { items[i].y += cursor0; }
     this.band = Math.max(H * 0.5, band);
 
@@ -402,6 +419,7 @@
     return { el: el, strength: parseFloat(el.dataset.parallax) || 24, top: 0, h: 0, active: false };
   });
 
+  var deskMQ = window.matchMedia('(min-width: 901px) and (hover: hover)');
   var metrics = { vh: 0, vw: 0, heroTop: 0, heroSpan: 1 };
 
   function measureAll() {
@@ -462,8 +480,12 @@
        weiter, weil der Flug eine eigene Grunddrift hat. */
     if (hero && quote) {
       var p    = clamp((y - metrics.heroTop) / metrics.heroSpan, 0, 1);
-      var into = seg(p, 0.34, 0.40);
-      var away = seg(p, 0.52, 0.58);
+      /* Am Zeigegerät (Maus, Trackpad) ist ein Bildschirm schnell
+         durchgescrollt, dort ist das Fenster für das Zitat kürzer:
+         etwa ein Dreivierteilbildschirm statt anderthalb. */
+      var zz = deskMQ.matches ? [0.35, 0.375, 0.43, 0.455] : [0.34, 0.40, 0.52, 0.58];
+      var into = seg(p, zz[0], zz[1]);
+      var away = seg(p, zz[2], zz[3]);
       var op   = into * (1 - away);
 
       setStyle(quote, 'opacity', op.toFixed(3));

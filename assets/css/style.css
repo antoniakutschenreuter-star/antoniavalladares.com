@@ -1112,3 +1112,12 @@ body.kommt .vorhang-seite { animation: vorhang-weg .62s var(--ease) forwards; }
 #av-cookie button:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
 @media (min-width: 901px) { #av-cookie { left: 28px; bottom: 28px; width: 460px; transform: translate(0, 18px); } #av-cookie.ist-da { transform: none; } }
 @media (prefers-reduced-motion: reduce) { #av-cookie { transition: none; } }
+
+/* Desktop: Zwischen Flugstrecke und Bildstrecke blieb ein ganzer
+   Bildschirmviertel leer, weil die gepinnte Bildstrecke oben Luft hat.
+   Der Abschnitt ragt jetzt ein Stück in die Flugstrecke hinein
+   (durchsichtig und für Klicks durchlässig). */
+@media (min-width: 901px) and (hover: hover) {
+  .reel-section { margin-top: -17vh; background: transparent; pointer-events: none; }
+  .reel-track figure, .reel-escape, .reel-exit a { pointer-events: auto; }
+}

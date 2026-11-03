@@ -6,6 +6,12 @@
    erst laden, wenn das Ereignis "av:einwilligung" mit ok === true kommt. */
 (function () {
   'use strict';
+  /* Sicherheitsnetz: wer die Seite über http:// öffnet, landet bei https://
+     (GitHub Pages leitet das auch selbst um, sobald "Enforce HTTPS" an ist). */
+  if (location.protocol === 'http:' && /(^|\.)antoniavalladares\.com$/.test(location.hostname)) {
+    location.replace('https://' + location.host + location.pathname + location.search + location.hash);
+    return;
+  }
   var AKTIV = false;
   var KEY = 'av-cookie';
 

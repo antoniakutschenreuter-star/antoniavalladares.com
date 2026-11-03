@@ -297,11 +297,17 @@ den Block ein und drückt danach **Commit to main** und **Push origin**.
 - Menü: Handy zeigt 3 Fotos, Desktop 4. Unterpunkte unter Portfolio nur am Desktop.
 - Kontakt: Instagram nur als Zeichen, kein Google-Link (auch nicht in den
   strukturierten Daten).
-- Zitat auf der Startseite: blendet bei 0,34 bis 0,40 des Hero-Scrollwegs ein, steht bis
-  0,52, ist bei 0,58 weg (insgesamt etwa 1,6 Bildschirmhöhen Scrollweg, vorher 3,6).
-- Flugstrecke Desktop: Mindestabstand seitlich 3,6 % der Breite, oben/unten 6,5 % der
-  Höhe, Seiten wechseln (nie dreimal hintereinander dieselbe Hälfte). Gemessen in
-  sechs Fenstergrößen: 0 Überlappungen, kein Foto angeschnitten.
+- Zitat auf der Startseite: Am Handy blendet es bei 0,34 bis 0,40 des Hero-Scrollwegs
+  ein und bei 0,52 bis 0,58 aus. Am Desktop (Maus/Trackpad) kürzer: 0,35 bis 0,375 ein,
+  0,43 bis 0,455 aus, zusammen etwa 0,7 Bildschirmhöhen Scrollweg (Werte `zz` in main.js).
+- Flugstrecke Desktop: Fotobreite 20 bis 32 % der Bühne (Hochformate höchstens zwei Drittel
+  der Höhe), Mindestabstand seitlich 3 %, oben/unten 5 %. Jedes Foto wird an die tiefste
+  freie Stelle gesetzt (auch in Lücken über dem letzten Foto), die Hälften links/rechts
+  werden ausgeglichen. Gemessen: 0 Überlappungen, kein Anschnitt, Deckung etwa 60 %.
+- Desktop: `.reel-section` ragt mit `margin-top: -17vh` in die Flugstrecke, damit zwischen
+  letztem Flugfoto und Bildstrecke keine Lücke von einem Viertelbildschirm bleibt.
+- https: `cookie.js` leitet http:// auf https:// um. In GitHub unter Settings, Pages muss
+  "Enforce HTTPS" angehakt sein.
 - Handy: Die Bildstrecke auf der Startseite ist schmaler als der Bildschirm, damit das
   nächste Foto hereinragt. Dazu ein Pfeil (`.reel-weiter`), der bis zum Ende bleibt.
 - Menü-Auto-Foto ist das Original aus der Umbrien-Galerie (`...-039.jpg`), keine Kopie.
