@@ -74,12 +74,19 @@ const FLOW_A = [
   ['editorial/eheringe-holzschatulle-kirchliche-trauung.jpg',1.5003,"Eheringe in einer Holzschatulle auf rotem Samtkissen – kirchliche Trauung"],
   ['editorial/standesamt-muenchen-regen-brautpaar-schwarzweiss.jpg',0.6669,"Brautpaar läuft im Regen unter einem Schirm die Stufen zum Standesamt hinauf, Schwarzweiß – Standesamt München"],
   ['editorial/sektempfang-champagner-einschenken-hochzeit.jpg',1.5003,"Champagner wird beim Sektempfang in ein Glas eingeschenkt – Hochzeitsfotografie München"],
-  ['editorial/brautschuhe-spiegel-ankleide-schwarzweiss.jpg',0.6665,"Beine der Braut in hohen Schuhen vor dem Spiegel beim Getting Ready, Schwarzweiß – Hochzeitsfotografin München"],,
+  ['editorial/brautschuhe-spiegel-ankleide-schwarzweiss.jpg',0.6665,"Beine der Braut in hohen Schuhen vor dem Spiegel beim Getting Ready, Schwarzweiß – Hochzeitsfotografin München"],
   ['portfolio/galerie-pfalz-weinberge/freie-trauung-pfalz-weinberge-hochzeit-106.jpg',0.6665,"Das Brautpaar umarmt sich im goldenen Abendlicht vor der Weinlaube – Freie Trauung in den Weinbergen der Pfalz, Hochzeitsfotografin Antonia Valladares"],
   ['portfolio/galerie-pfalz-weinberge/freie-trauung-pfalz-weinberge-hochzeit-108.jpg',0.6665,"Der Bräutigam küsst die lachende Braut im Gegenlicht – Freie Trauung in den Weinbergen der Pfalz, Hochzeitsfotografin Antonia Valladares"],
   ['portfolio/galerie-pfalz-weinberge/freie-trauung-pfalz-weinberge-hochzeit-113.jpg',0.6665,"Das Brautpaar im warmen Licht der Abendsonne zwischen den Reben – Freie Trauung in den Weinbergen der Pfalz, Hochzeitsfotografin Antonia Valladares"],
   ['portfolio/galerie-pfalz-weinberge/freie-trauung-pfalz-weinberge-hochzeit-117.jpg',0.6665,"Das Brautpaar tanzt eng umschlungen vor dem rosa Abendhimmel – Freie Trauung in den Weinbergen der Pfalz, Hochzeitsfotografin Antonia Valladares"],
-  ['portfolio/galerie-pfalz-weinberge/freie-trauung-pfalz-weinberge-hochzeit-121.jpg',0.6665,"Der Bräutigam neigt die Braut zum Kuss vor dem rosa Abendhimmel – Freie Trauung in den Weinbergen der Pfalz, Hochzeitsfotografin Antonia Valladares"]
+  ['portfolio/galerie-pfalz-weinberge/freie-trauung-pfalz-weinberge-hochzeit-121.jpg',0.6665,"Der Bräutigam neigt die Braut zum Kuss vor dem rosa Abendhimmel – Freie Trauung in den Weinbergen der Pfalz, Hochzeitsfotografin Antonia Valladares"],
+  ['editorial/brautstrauss-anthurie-magnolie-detail.jpg',1.5004,"Brautstrauß aus Magnolie, Anthurien und Lotosblüten auf weißem Tüll – Hochzeitsdetails, Hochzeitsfotografin München"],
+  ['editorial/brautschuhe-tasche-parfum-tuell-detail.jpg',1.5004,"Brautschuhe, Kristalltasche und Parfum auf dem Tüllkleid – Hochzeitsmorgen, Hochzeitsfotografin München"],
+  ['editorial/getting-ready-koffer-erdbeeren-hochzeitsmorgen.jpg',0.6665,"Geöffneter Koffer mit Make-up und eine Kiste Erdbeeren beim Getting Ready – Hochzeitsmorgen in München"],
+  ['editorial/sektempfang-grissini-blumen-detail.jpg',1.5004,"Grissini werden zwischen Hortensien und Anthurien gerichtet – Sektempfang, Hochzeitsfotografin München"],
+  ['editorial/getting-ready-braut-kimono-schwarzweiss.jpg',1.4993,"Die Braut im Kimono wird geschminkt, ein Glas Sekt in der Hand, Schwarzweiß – Getting Ready in München"],
+  ['editorial/bestickte-pantoffeln-am-brautkleid-detail.jpg',1.5004,"Bestickte Samtpantoffeln neben dem Saum des Brautkleids – Hochzeitsdetails, Hochzeitsfotografin München"],
+  ['editorial/braut-kurzes-kleid-kopfsteinpflaster-standesamt.jpg',0.6665,"Die Braut läuft im kurzen Kleid mit Brautstrauß über das Kopfsteinpflaster – standesamtliche Hochzeit in München"]
 ];
 
 /* Fliegende Fotos, zweiter Abschnitt. */

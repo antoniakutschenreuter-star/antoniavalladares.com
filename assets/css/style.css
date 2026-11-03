@@ -921,6 +921,9 @@ body:has(.preis-hero) .site-header::before { display: none; }
   font-family: var(--font-display); font-weight: var(--display-weight);
   font-size: clamp(2rem, 9.6vw, 11rem); line-height: .93; letter-spacing: .012em;
   overflow-wrap: anywhere;
+  /* Wo ein Foto an die Lettern stößt, hebt ein weicher Schein in der
+     Grundfarbe sie ab — dieselbe Lösung wie auf den Galerieseiten. */
+  text-shadow: 0 0 10px rgba(251,249,247,.9), 0 0 30px rgba(251,249,247,.6);
 }
 .auftakt-wort .z { display: inline-block; }
 .auftakt-wort .akzent { color: var(--accent); }
@@ -944,17 +947,23 @@ body:has(.preis-hero) .site-header::before { display: none; }
    Hochformat hoch oben, rechts daneben versetzt das Querformat, ganz
    rechts das kleinere Hochformat, das am tiefsten reicht. Dieselbe
    Staffelung wie im Auftakt der Galerieseiten. */
+/* Die Kopfzeile liegt fest über der Seite. Die Fotos wurden vom oberen
+   Rand des Abschnitts gemessen — also von hinter der Kopfzeile. Ihr
+   oberes Stück verschwand dadurch unter der cremefarbenen Leiste. Alle
+   drei beginnen jetzt unterhalb der Kopfzeile. */
 .auftakt {
   --fa-w: clamp(118px, 16vw, 244px);
   --fb-w: clamp(96px, 12.2vw, 190px);
   --fc-w: clamp(118px, 15vw, 236px);
-  --fa-top: clamp(1.6rem, 3.4vh, 2.6rem);
-  --fb-top: clamp(9.5rem, 20.5vh, 14rem);
-  --fc-top: clamp(2.8rem, 6vh, 4.4rem);
+  --fa-top: calc(var(--header-h) + clamp(.3rem, .8vh, .8rem));
+  --fb-top: calc(var(--header-h) + clamp(7.5rem, 16vh, 10.5rem));
+  --fc-top: calc(var(--header-h) + clamp(9rem, 19.9vh, 13rem));
 }
 .auftakt-foto--a { left: 4%;  top: var(--fa-top); width: var(--fa-w); aspect-ratio: 2/3; z-index: 3; }
 .auftakt-foto--b { right: 4%; top: var(--fb-top); width: var(--fb-w); aspect-ratio: 2/3; z-index: 3; }
-.auftakt-foto--c { right: calc(4% + var(--fb-w) + 5vw); top: var(--fc-top); width: var(--fc-w); aspect-ratio: 3/2; z-index: 1; }
+/* Das Querformat sitzt nicht mehr auf den Buchstaben, sondern in der
+   leeren Bahn zwischen Wort und Zeile darunter. */
+.auftakt-foto--c { left: calc(4% + var(--fa-w) + 3vw); top: var(--fc-top); width: var(--fc-w); aspect-ratio: 3/2; z-index: 1; }
 
 /* Eckmarken, auf jeder Unterseite an derselben Stelle */
 .ecke {
@@ -963,8 +972,8 @@ body:has(.preis-hero) .site-header::before { display: none; }
   font-size: calc(var(--t-label) * var(--ui-scale) * .88);
   letter-spacing: .28em; text-transform: uppercase; color: var(--ink-soft);
 }
-.ecke--links  { left: var(--edge);  top: max(46vh, calc(var(--fa-top) + var(--fa-w) * 1.5 + 1.8rem)); }
-.ecke--rechts { right: var(--edge); top: max(46vh, calc(var(--fb-top) + var(--fb-w) * 1.5 + 1.8rem)); text-align: right; }
+.ecke--links  { left: var(--edge);  top: calc(var(--fa-top) + var(--fa-w) * 1.5 + 1.8rem); }
+.ecke--rechts { right: var(--edge); top: calc(var(--fb-top) + var(--fb-w) * 1.5 + 1.8rem); text-align: right; }
 /* Unter 1200px würden die Eckmarken in die Kontaktzeile ragen */
 @media (max-width: 1199px) { .ecke { display: none; } }
 
