@@ -164,18 +164,13 @@
   }
 
   /* ── 03 FOTO-FLUG ───────────────────────────────────────────────── */
-  /* Drei Spuren, gemeinsamer Cursor: dadurch überlappt garantiert nichts.
+  /* Die Fotos stehen locker verstreut: mal links, mal rechts, mal groß, mal
+     klein, mal etwas mehr Luft, mal weniger. Jedes Foto wird dort
+     eingesetzt, wo es zu keinem anderen den Mindestabstand unterschreitet
+     (auch nicht über die Nahtstelle der Schleife hinweg). Dadurch
+     überlappt nie etwas, und trotzdem wirkt es nicht wie ein Raster.
      Der Streifen wird einmal aufgebaut und einmal geklont, damit der
      Durchlauf nahtlos wieder von vorn beginnt. */
-  var LANES_3 = [
-    { l0: 1,  l1: 20, w0: 17, w1: 25 },
-    { l0: 33, l1: 52, w0: 19, w1: 28 },
-    { l0: 64, l1: 81, w0: 16, w1: 24 }
-  ];
-  var LANES_2 = [
-    { l0: 2,  l1: 13, w0: 36, w1: 46 },
-    { l0: 50, l1: 61, w0: 34, w1: 44 }
-  ];
 
   function Flow(section, list, seed) {
     this.sec   = section;
@@ -195,12 +190,11 @@
     var H = this.stage.clientHeight;
     if (!W || !H) { return; }
 
-    var lanes = W < 760 ? LANES_2 : LANES_3;
-    var rng   = prng(this.seed * 977 + 13);
-    var items = [];
-    /* Die Strecke beginnt direkt unter der Wortmarke — nicht bei einem
-       festen Bruchteil der Bildschirmhöhe, sonst entsteht auf hohen
-       Handys ein riesiger leerer Streifen über den ersten Fotos. */
+    var klein = W < 760;
+    var WR  = klein ? [34, 50] : [15, 27];     /* Fotobreite in % der Bühne */
+    var MX  = (klein ? 0.05 : 0.04) * W;       /* Mindestabstand seitlich   */
+    var MY  = (klein ? 0.055 : 0.075) * H;     /* Mindestabstand oben/unten */
+    var rng = prng(this.seed * 977 + 13);
     var cursor = H * 0.2;
     var wm = this.sec.querySelector('.hero-wordmark');
     if (wm) {
@@ -208,25 +202,73 @@
       if (wr.height) { cursor = Math.max(H * 0.12, Math.min(H * 0.34, wr.bottom - sr.top + H * 0.025)); }
     }
     var cursor0 = cursor;
+    var list = this.list, n = list.length;
 
-    for (var i = 0; i < this.list.length; i++) {
-      var entry = this.list[i];
-      var ratio = entry[1];
-      var lane  = lanes[i % lanes.length];
-
-      var w = (lane.w0 + rng() * (lane.w1 - lane.w0)) * W / 100;
-      var h = w / ratio;
-      var left = (lane.l0 + rng() * (lane.l1 - lane.l0)) * W / 100;
-      left = clamp(left, 8, W - w - 8);
-      var gap = (2 + rng() * 5) * H / 100;
-
-      items.push({ entry: entry, x: left, y: cursor, w: w, h: h, i: i });
-      cursor += h * 0.55 + gap;
+    /* Größen vorab, damit die Länge der Schleife geschätzt werden kann */
+    var sizes = [], flaeche = 0, i;
+    for (i = 0; i < n; i++) {
+      var w0 = (WR[0] + rng() * (WR[1] - WR[0])) * W / 100;
+      sizes.push({ w: w0, h: w0 / list[i][1] });
+      flaeche += (w0 + MX) * (sizes[i].h + MY);
     }
 
-    /* nahtloser Übergang: das erste Foto der zweiten Runde steht genau
-       dort, wo nach dem letzten das nächste käme — keine Lücke mehr */
-    this.band = Math.max(H * 0.5, cursor - cursor0);
+    function platzieren() {
+      var placed = [], out = [], last = null, i, c;
+      var r2 = prng(7919 + n);
+      function frei(x, w, h, y0) {
+        var y = y0, moved = true, guard = 0;
+        while (moved && guard++ < 400) {
+          moved = false;
+          for (var q = 0; q < placed.length; q++) {
+            var r = placed[q];
+            if (x < r.x + r.w + MX && r.x < x + w + MX &&
+                y < r.y + r.h + MY && r.y < y + h + MY) {
+              y = r.y + r.h + MY; moved = true;
+            }
+          }
+        }
+        return y;
+      }
+      for (i = 0; i < n; i++) {
+        var w = sizes[i].w, h = sizes[i].h;
+        var best = null, bestScore = 1e9;
+        var floor = last ? last.y + (0.10 + r2() * 0.22) * H : 0;
+        for (c = 0; c < 14; c++) {
+          var x = 8 + r2() * (W - w - 16);
+          var y = frei(x, w, h, floor);
+          var score = y + r2() * 0.14 * H;
+          /* die Seiten wechseln, damit nicht mehrere Fotos hintereinander
+             in derselben Ecke stehen */
+          if (last) {
+            var dx = Math.abs((x + w / 2) - (last.x + last.w / 2)) / W;
+            if (dx < 0.2) { score += 0.30 * H; }
+          }
+          if (score < bestScore) { bestScore = score; best = { x: x, y: y }; }
+        }
+        last = { x: best.x, y: best.y, w: w, h: h };
+        placed.push(last);
+        out.push({ entry: list[i], x: best.x, y: best.y, w: w, h: h, i: i });
+      }
+      return out;
+    }
+
+    var items = platzieren();
+
+    /* Länge der Schleife: so kurz, dass der Anfang der nächsten Runde
+       gerade noch den Mindestabstand zum Ende dieser Runde hält. Nur
+       Fotos, die nebeneinander stehen, zählen — wo seitlich Platz ist,
+       darf die nächste Runde schon hineinragen. */
+    var band = 0, j;
+    for (i = 0; i < items.length; i++) {
+      for (j = 0; j < items.length; j++) {
+        var A = items[i], B = items[j];
+        if (A.x < B.x + B.w + MX && B.x < A.x + A.w + MX) {
+          band = Math.max(band, A.y + A.h + MY - B.y);
+        }
+      }
+    }
+    for (i = 0; i < items.length; i++) { items[i].y += cursor0; }
+    this.band = Math.max(H * 0.5, band);
 
     var frag = document.createDocumentFragment();
     for (var pass = 0; pass < 2; pass++) {
@@ -627,7 +669,7 @@
       for (var i = 0; i < P.MENU_SHOTS.length; i++) {
         var fig = document.createElement('figure');
         fig.className = 'shot-' + (i + 1);
-        fig.appendChild(media(P.MENU_SHOTS[i][0], '', '24vw', false));
+        fig.appendChild(media(P.MENU_SHOTS[i][0], '', '(max-width: 900px) 40vw, 17vw', false));
         fig.setAttribute('aria-hidden', 'true');
         shots.appendChild(fig);
       }

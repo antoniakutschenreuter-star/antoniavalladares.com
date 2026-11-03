@@ -20,7 +20,7 @@ txt = ''
 import glob as _g
 SEITEN = sorted(_g.glob('*.html'))
 SEITEN = [f for f in SEITEN if not f.startswith('mockup-')]
-for f in SEITEN + ['assets/css/style.css', 'assets/js/main.js', 'assets/js/photos.js',
+for f in SEITEN + ['assets/css/style.css', 'assets/js/main.js', 'tools/photos-quelle.js',
                    'assets/js/portfolio.js', 'assets/css/portfolio.css']:
     txt += open(f, encoding='utf-8').read()
 refs = set(re.findall(r"assets/img/([\w\-/.]+?\.(?:jpg|jpeg|png))", txt))
@@ -48,7 +48,7 @@ for tag in re.findall(r'<img\b[^>]*>', doc):
         errors.append('<img> ohne alt: ' + tag[:90])
     elif re.search(r'alt=""', tag) and 'aria-hidden' not in tag and 'curtain' not in doc[:0]:
         pass  # leeres alt ist bei rein dekorativen Bildern korrekt
-manifest = open('assets/js/photos.js', encoding='utf-8').read()
+manifest = open('tools/photos-quelle.js', encoding='utf-8').read()
 empty_alts = re.findall(r"\['[\w\-/.]+',[\d.]+,\"\"\]", manifest)
 if empty_alts:
     errors.append(f'{len(empty_alts)} Einträge im Manifest ohne Alt-Text')

@@ -20,7 +20,7 @@ PFLICHT_KOPF = ['<title>', 'name="description"', 'rel="canonical"',
                 'name="viewport"', 'rel="icon"']
 
 fehler = []
-seiten = sorted(f for f in glob.glob('*.html') if not f.startswith('mockup-'))
+seiten = sorted(f for f in glob.glob('*.html') if not f.startswith('mockup-') and f != '404.html')
 
 for f in seiten:
     h = open(f, encoding='utf-8').read()

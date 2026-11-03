@@ -44,9 +44,9 @@
    wirken. */
 @media (max-width: 900px), (hover: none) and (pointer: coarse) {
   :root {
-    --t-label: 1rem;
+    --t-label: .8rem;
     --ui-scale: 1;
-    --ui-track: .18em;
+    --ui-track: .2em;
     --t-body: 1.1rem;
     /* Magerschnitt 300 wirkt auf Handy- und Windows-Bildschirmen dünn und
        grau. Am Handy steht die Grundschrift deshalb im Normalschnitt. Die
@@ -380,7 +380,7 @@ body.intro-done main, body.intro-done .site-header, body.intro-done .site-footer
 .intro-link .link { margin-left: auto; }
 
 /* ── 10 CTA ───────────────────────────────────────────────────────── */
-.cta-section { padding: clamp(1.4rem, 2.4vw, 2.2rem) var(--edge) clamp(1.2rem, 2vw, 1.8rem); text-align: center; }
+.cta-section { padding: clamp(1.4rem, 2.4vw, 2.2rem) var(--edge) clamp(3.4rem, 6vw, 5.2rem); text-align: center; }
 .cta-section .display { margin-bottom: clamp(.7rem, 1.2vw, 1.1rem); font-size: calc(clamp(2.4rem, 5.2vw, 4.6rem) * var(--display-scale)); }
 .cta-section p { margin: 0; }
 /* Die Zeile führt zur Buchung, sieht aber nicht nach Link aus */
@@ -404,7 +404,7 @@ body.intro-done main, body.intro-done .site-header, body.intro-done .site-footer
 
 /* ── 12 FUSSZEILE ─────────────────────────────────────────────────── */
 .site-footer {
-  padding: clamp(1.1rem, 2vw, 1.8rem) var(--edge) clamp(.8rem, 1.4vw, 1.2rem);
+  padding: clamp(2.6rem, 5vw, 4.4rem) var(--edge) clamp(2.2rem, 3.4vw, 3.2rem);
   text-align: center; border-top: 1px solid var(--hairline);
 }
 .footer-mark { display: inline-block; }
@@ -414,17 +414,17 @@ img.monogram { width: clamp(52px, 7vw, 88px); }
 .site-footer img.monogram {
   --mono: clamp(46px, 5.2vw, 68px);
   width: var(--mono); height: auto; display: block;
-  margin-block: calc(var(--mono) * -.2);
+  margin-block: 0;
 }
 .footer-row {
   display: flex; align-items: center; justify-content: center;
   gap: clamp(1.4rem, 5vw, 4.5rem); flex-wrap: wrap;
-  margin-top: clamp(.7rem, 1.3vw, 1.1rem);
+  margin-top: clamp(1.6rem, 2.8vw, 2.4rem);
 }
 .footer-row a { transition: color .25s var(--ease); }
 .footer-row a:hover { color: var(--accent); }
-@media (max-width: 900px) { .site-footer { padding-bottom: 4.2rem; } }
-.footer-legal { margin-top: clamp(.6rem, 1.2vw, 1rem); color: var(--ink-soft); }
+@media (max-width: 900px) { .site-footer { padding-bottom: 5.6rem; } }
+.footer-legal { margin-top: clamp(1.4rem, 2.4vw, 2rem); color: var(--ink-soft); }
 .footer-legal a:hover { color: var(--accent); }
 
 /* ── 13 BOOKING-LEISTE ────────────────────────────────────────────── */
@@ -491,14 +491,6 @@ img.monogram { width: clamp(52px, 7vw, 88px); }
 
 /* Fotos: spiegelbildlich angeordnet, mittlere Spalte bleibt frei */
 .overlay-shots { position: absolute; inset: 0; z-index: 1; pointer-events: none; overflow: hidden; }
-.overlay-shots::after {
-  content: ''; position: absolute; inset: 0;
-  /* nur ein zurückhaltender Hauch hinter der Navigation — die Fotos
-     bleiben unverfälscht, weil sie ohnehin außerhalb der Mitte liegen */
-  background: radial-gradient(ellipse 30% 50% at 50% 50%,
-    rgba(var(--accent-rgb), .85) 0%, rgba(var(--accent-rgb), .45) 55%,
-    rgba(var(--accent-rgb), 0) 76%);
-}
 .overlay-shots figure {
   position: absolute; margin: 0; overflow: hidden;
   opacity: 0; transform: translateY(16px);
@@ -512,10 +504,13 @@ img.monogram { width: clamp(52px, 7vw, 88px); }
    in Hochformatplätze gezwängt und verloren links und rechts die Hälfte. */
 .overlay-shots img { width: 100%; height: auto; display: block; }
 
-.shot-1 { left: 5%;   top: 10%;    width: 15vw; }
-.shot-2 { left: 11.5%; bottom: 29%; width: 16vw; }
-.shot-3 { right: 11.5%; top: 10%;   width: 16vw; }
-.shot-4 { right: 5%;  bottom: 29%;  width: 15vw; }
+/* Vier Fotos, links zwei und rechts zwei. Rechts steht ein großes
+   Hochformat über einem kleinen Querformat, nah beieinander. Nichts
+   überlappt, auch nicht die Navigation in der Mitte. */
+.shot-1 { left: 6vw;  top: 12%;     width: 13vw; }
+.shot-2 { left: 12vw; bottom: 26%;  width: 17vw; }
+.shot-3 { right: 10vw; top: 14%;    width: 13vw; }
+.shot-4 { right: 5vw;  bottom: 36%; width: 11vw; }
 
 .overlay-nav {
   position: relative; z-index: 3;
@@ -548,18 +543,15 @@ img.monogram { width: clamp(52px, 7vw, 88px); }
    Business und Portraits gibt. */
 .nav-unter {
   display: flex; flex-direction: column; align-items: center;
-  gap: .18em; margin: .5em 0 .1em;
-  /* Ohne Begrenzung sprengte die längste Zeile auf schmalen Handys die
-     ganze Seite in die Breite — der Schließen-Knopf rutschte dabei aus
-     dem Bild. */
+  gap: .5em; margin: .9em 0 .3em;
   max-width: min(90vw, 30rem); text-align: center;
   font-family: var(--font-ui);
-  font-size: clamp(.7rem, 2.6vw, .92rem);
-  font-weight: var(--link-weight);
-  letter-spacing: var(--ui-track); text-transform: uppercase;
-  line-height: 1.5;
+  font-size: clamp(.68rem, .9vw, .8rem);
+  font-weight: 300;
+  letter-spacing: .26em; text-transform: uppercase;
+  line-height: 1.6;
 }
-.nav-unter a { opacity: .72; transition: opacity .25s var(--ease); }
+.nav-unter a { opacity: .78; transition: opacity .25s var(--ease); }
 .nav-unter a:hover, .nav-unter a:focus-visible { opacity: 1; }
 
 .overlay-foot {
@@ -646,10 +638,21 @@ body.show-font-switch .font-switch { display: flex; }
   .intro-figure img { height: auto; }
   .intro-link { margin-top: 1.6rem; }
   .tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .shot-1 { width: 34vw; top: 13%; left: 0; }
-  .shot-2 { width: 30vw; bottom: 30%; left: 4%; }
-  .shot-3 { width: 30vw; top: 12%; right: 0; }
+  /* Handy: drei Fotos mit Rand, leicht versetzt, über und unter den Menüpunkten */
+  .shot-1 { left: 7vw;  top: 12%;     width: 27vw; }
+  .shot-2 { left: 9vw;  bottom: 28%;  width: 40vw; }
+  .shot-3 { right: 6vw; top: 13%;     width: 28vw; }
   .shot-4 { display: none; }
+  .nav-unter { display: none; }
+}
+@media (max-width: 900px) and (max-height: 780px) {
+  /* niedrige Handys: kleinere Fotos, das untere entfällt */
+  .shot-1 { width: 22vw; top: 11%; }
+  .shot-3 { width: 23vw; top: 12%; }
+  .shot-2 { display: none; }
+}
+@media (max-width: 900px) and (max-height: 680px) {
+  .shot-1, .shot-3 { width: 19vw; top: 9%; }
 }
 
 @media (max-width: 640px) {
@@ -660,7 +663,7 @@ body.show-font-switch .font-switch { display: flex; }
   .site-header { gap: .6rem; }
   /* Menü und Booking am Handy deutlich größer und kräftiger. Die engere
      Sperrung schafft den Platz, den die größere Schrift braucht. */
-  .site-header .label { font-size: 1.34rem; font-weight: 700; letter-spacing: .07em; }
+  .site-header .label { font-size: .8rem; font-weight: 500; letter-spacing: .22em; }
 
   .overlay-foot { grid-template-columns: 1fr; justify-items: center; gap: 1rem; text-align: center; }
   .overlay-foot .mail, .overlay-foot .tel { justify-self: center; }
@@ -671,8 +674,8 @@ body.show-font-switch .font-switch { display: flex; }
   .bookings-bar { padding-top: 3.4rem; padding-bottom: 5.7rem; }
   /* Die Leiste stand am Handy in 11,5 Pixeln mit weiter Sperrung — das
      war kaum zu entziffern. Größer und enger gesperrt liest sie sich. */
-  .bookings-bar p { font-size: .9rem; letter-spacing: .09em; line-height: 1.85; }
-  .bookings-lead { font-size: 1rem !important; letter-spacing: .16em !important; }
+  .bookings-bar p { font-size: .66rem; letter-spacing: .15em; line-height: 2; }
+  .bookings-lead { font-size: .72rem !important; letter-spacing: .2em !important; }
 }
 
 /* Touch: Reel scrollt nativ statt gepinnt */
@@ -1026,13 +1029,55 @@ body.kommt .vorhang-seite { animation: vorhang-weg .62s var(--ease) forwards; }
 /* Querformat im Auftakt (Investment) — gleiche Bühne, anderes Seitenverhältnis */
 .auftakt-foto--quer { aspect-ratio: 3/2; }
 
-/* ── Handy: nichts unter 15 Pixel ─────────────────────────────────── */
+/* ── Handy: fein, aber lesbar ─────────────────────────────────────── */
 @media (max-width: 640px) {
-  .phonetic { font-size: .95rem; letter-spacing: .2em; }
-  .bookings-bar p { font-size: 1rem; }
-  .bookings-lead { font-size: 1.08rem !important; }
-  .paket .pk-bundle, .pk-bundle { font-size: .96rem; }
-  .hinweis { font-size: .96rem; }
-  .pf-cap-sub { font-size: .96rem; }
-  .pf-lead { font-size: 1.04rem; }
+  .phonetic { font-size: .8rem; letter-spacing: .2em; }
+  .paket .pk-bundle, .pk-bundle { font-size: .88rem; }
+  .hinweis { font-size: .88rem; }
+  .pf-lead { font-size: 1rem; }
 }
+
+@media (max-width: 640px) {
+  .cta-section .link { font-size: .78rem; font-weight: 400; letter-spacing: .22em; }
+  .site-footer .footer-row { gap: 1.5rem 1.7rem; }
+  .site-footer .footer-row a, .site-footer .footer-legal, .site-footer .footer-legal a {
+    font-size: .72rem; font-weight: 400; letter-spacing: .24em; color: var(--ink-soft);
+  }
+  .site-footer .footer-legal { font-size: .66rem; letter-spacing: .2em; }
+}
+
+/* Größere Titelfotos rechts: Hochformat und Querformat wirken gleich stark */
+.auftakt { --fb-w: clamp(110px, 14vw, 215px); }
+.auftakt-foto--b { right: 6%; }
+.auftakt-foto--b.auftakt-foto--quer { width: calc(var(--fb-w) * 1.5); }
+
+/* ── Cookie-Hinweis ───────────────────────────────────────────────── */
+#av-cookie {
+  position: fixed; z-index: 300; left: 50%; bottom: max(14px, env(safe-area-inset-bottom));
+  width: min(calc(100% - 28px), 640px);
+  transform: translate(-50%, 18px); opacity: 0;
+  transition: opacity .45s var(--ease), transform .45s var(--ease);
+  background: var(--bg); color: var(--ink);
+  border: 1px solid var(--hairline); box-shadow: 0 14px 40px rgba(18,16,15,.14);
+  padding: 1.15rem 1.3rem 1.2rem;
+  display: grid; grid-template-columns: auto 1fr; gap: .2rem 1rem; align-items: start;
+}
+#av-cookie.ist-da { opacity: 1; transform: translate(-50%, 0); }
+#av-cookie .avc-ico { width: 30px; height: 30px; color: var(--accent-flaeche); margin-top: .15rem; fill: currentColor; }
+#av-cookie .avc-h {
+  font-family: var(--font-display); font-style: italic; font-weight: 500;
+  font-size: 1.55rem; line-height: 1.1; margin: 0 0 .4rem; color: var(--accent-flaeche);
+}
+#av-cookie .avc-p { margin: 0; font-family: var(--font-ui); font-size: .82rem; line-height: 1.65; letter-spacing: .02em; color: var(--ink-soft); }
+#av-cookie .avc-p a { border-bottom: 1px solid currentColor; white-space: nowrap; }
+#av-cookie .avc-btn { grid-column: 1 / -1; display: flex; gap: .7rem; margin-top: .9rem; }
+#av-cookie button {
+  flex: 1; font-family: var(--font-ui); font-size: .7rem; font-weight: 400;
+  letter-spacing: .24em; text-transform: uppercase;
+  padding: .85em 1em; border: 1px solid var(--accent-flaeche); border-radius: 0; cursor: pointer;
+}
+#av-cookie .avc-ja { background: var(--accent-flaeche); color: var(--on-accent); }
+#av-cookie .avc-nein { background: transparent; color: var(--accent-flaeche); }
+#av-cookie button:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+@media (min-width: 901px) { #av-cookie { left: 28px; bottom: 28px; width: 460px; transform: translate(0, 18px); } #av-cookie.ist-da { transform: none; } }
+@media (prefers-reduced-motion: reduce) { #av-cookie { transition: none; } }

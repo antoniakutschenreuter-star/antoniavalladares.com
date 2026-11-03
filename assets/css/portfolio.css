@@ -386,6 +386,11 @@ body.gal main { padding-top: var(--header-h); }
    Buchstaben an, die beiden großen liegen dahinter. Dadurch liegen die
    Lettern mal auf einem Foto und werden mal von einem verdeckt. */
 .gal-hero-b3 { right: 33cqw; top: 6cqh;  width: 15cqw; }
+/* Querformate brauchen mehr Breite, damit sie nicht winzig neben den
+   Hochformaten stehen */
+.gal-hero-b1.gal-hero-quer { width: 31cqw; }
+.gal-hero-b2.gal-hero-quer { width: 32cqw; }
+.gal-hero-b3.gal-hero-quer { width: 23cqw; }
 
 .gal-kopf {
   max-width: 1280px; margin: 0 auto;
@@ -471,15 +476,19 @@ body.gal main { padding-top: var(--header-h); }
   .pf-aside-foot { margin-top: clamp(1.6rem, 5vw, 2.4rem); padding-bottom: 0; }
   .pf-lead { max-width: none; }
 
-  .pf-grid { grid-template-columns: 1fr; gap: clamp(2.2rem, 7vw, 3rem); }
-  .pf-tile { aspect-ratio: auto; }
-  .pf-tile img { opacity: 1 !important; }
-  /* Kein Hover auf dem Handy — die Beschriftung steht ruhig unter dem Foto */
+  /* Zwei Kacheln nebeneinander, damit nicht jede einen ganzen Bildschirm
+     füllt. Die Titelbilder behalten ihr Format 2:3 wie am Desktop. */
+  .pf-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.7rem 10px; padding-inline: 10px; }
+  .pf-tile { aspect-ratio: auto; overflow: visible; background: none; }
+  .pf-tile img { height: auto; aspect-ratio: 2 / 3; opacity: 1 !important; }
+  a.pf-tile::after, .pf-tile[aria-disabled='true']::after { display: none; }
+  /* Kein Hover auf dem Handy: Ort und Zeile stehen ruhig unter dem Foto */
   .pf-cap {
     position: static; opacity: 1; transform: none;
-    padding: 1.1rem 0 0; gap: .5em; align-items: flex-start; text-align: left;
+    padding: .65rem 0 0; gap: .3em; align-items: flex-start; text-align: left;
   }
-  .pf-cap-sub { max-width: none; }
+  .pf-cap-ort { font-size: 1.2rem; }
+  .pf-cap-sub { max-width: none; font-size: .62rem; letter-spacing: .13em; line-height: 1.6; }
   .pf-back { display: none; }
 
   .gal-raster { grid-template-columns: 1fr; }
@@ -489,6 +498,8 @@ body.gal main { padding-top: var(--header-h); }
   .gal-hero { height: max(clamp(280px, 44vh, 420px), 70vw); }
   .gal-hero-b1 { width: 42cqw; left: 2cqw; top: 4cqh; }
   .gal-hero-b2 { width: 44cqw; right: 2cqw; bottom: 4cqh; }
+  .gal-hero-b1.gal-hero-quer { width: 52cqw; }
+  .gal-hero-b2.gal-hero-quer { width: 52cqw; }
   .gal-hero-b3 { display: none; }
 }
 

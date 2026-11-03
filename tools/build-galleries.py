@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """
-Baut die Galerie-Unterseiten aus photos.js.
+Baut die Galerie-Unterseiten aus tools/photos-quelle.js und schreibt
+danach die schlanken Laufzeit-Dateien assets/js/photos.js (Menü und Startseite)
+und assets/js/photos-portfolio.js (nur Portfolio).
 
 Warum ein Generator und keine handgeschriebenen Seiten: die Fotolisten
 stehen ohnehin in photos.js, und jede Galerie hat denselben Aufbau. So
@@ -450,7 +452,7 @@ def bau(g, js, teile):
         farbe = echo_farbe(wort_helligkeit(f[0], pos, f[1], len(g['wort'])))
         echo = f'<span class="gal-hero-echo{farbe}" aria-hidden="true">{g["wort"]}</span>'
         hero_bilder.append(
-            f'    <figure class="gal-hero-bild gal-hero-bild--{klasse} gal-hero-{pos}" data-tiefe="{0.12 + i * 0.06:.2f}">'
+            f'    <figure class="gal-hero-bild gal-hero-bild--{klasse} gal-hero-{pos}{" gal-hero-quer" if f[1] > 1 else ""}" data-tiefe="{0.12 + i * 0.06:.2f}">'
             + picture(f[0], f[2], '(max-width: 900px) 38vw, min(22vw, 330px)', lazy=(i > 0), w=w, h=hh)
             + echo + '</figure>')
 
@@ -463,8 +465,10 @@ def bau(g, js, teile):
             raster.append(f'    <div class="gal-einschub">{absaetze}</div>')
         w, hh = masse(pfad, ratio)
         klasse = 'gal-fig gal-fig--quer' if ratio > 1.1 else 'gal-fig'
-        sizes = ('(max-width: 900px) 94vw, min(46vw, 600px)' if ratio <= 1.1
-                 else '(max-width: 900px) 94vw, min(92vw, 1216px)')
+        # Zwei Spalten unter 1000 px, drei darüber: jedes Foto steht in einer
+        # Spalte, auch die Querformate. Die Größenangabe muss das wissen, sonst
+        # lädt das Handy die 1280er-Datei für ein 180 Pixel breites Foto.
+        sizes = '(max-width: 999px) 44vw, min(29vw, 420px)'
         raster.append(f'    <figure class="{klasse} lb-fig" role="button" tabindex="0" '
                       f'data-full="assets/img/{pfad}" data-alt="{alt}">'
                       + picture(pfad, alt, sizes, w=w, h=hh) + '</figure>')
@@ -562,9 +566,9 @@ def bau(g, js, teile):
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/cormorant-garamond-latin-300-normal.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/jost-latin-300-normal.woff2" crossorigin>
 
-<link rel="stylesheet" href="assets/css/fonts.css?v=20261103i">
-<link rel="stylesheet" href="assets/css/style.css?v=20261103i">
-<link rel="stylesheet" href="assets/css/portfolio.css?v=20261103i">
+<link rel="stylesheet" href="assets/css/fonts.css?v=20261103j">
+<link rel="stylesheet" href="assets/css/style.css?v=20261103j">
+<link rel="stylesheet" href="assets/css/portfolio.css?v=20261103j">
 
 <script type="application/ld+json">
 {json.dumps(ld, ensure_ascii=False, indent=1)}
@@ -619,9 +623,9 @@ def bau(g, js, teile):
 {teile['menu']}<button class="to-top" type="button" aria-label="Zurück nach oben"><span aria-hidden="true">&uarr;</span></button>
 <div class="grain" aria-hidden="true"></div>
 
-<script src="assets/js/photos.js?v=20261103i" defer></script>
-<script src="assets/js/main.js?v=20261103i" defer></script>
-<script src="assets/js/galerie.js?v=20261103i" defer></script>
+<script src="assets/js/photos.js?v=20261103j" defer></script>
+<script src="assets/js/main.js?v=20261103j" defer></script>
+<script src="assets/js/galerie.js?v=20261103j" defer></script>
 </body>
 </html>
 '''
@@ -630,8 +634,30 @@ def bau(g, js, teile):
     return len(fotos)
 
 
+def _block(js, name):
+    start = js.index('const ' + name + ' = [')
+    return js[start:js.index('\n];', start) + 3]
+
+
+def schreibe_laufzeit(js):
+    """Die Quelle enthält alle Fotolisten, auch die der Galerien (die stehen
+    schon fertig im HTML). Ausgeliefert wird nur, was die Seiten zur
+    Laufzeit brauchen. So lädt eine Galerieseite rund 10 statt 180 KB."""
+    mischen = js[js.index('window.AV_mischen = function'):]
+    mischen = mischen[:mischen.index('\n};') + 3]
+    kopf = '/* GENERIERT von tools/build-galleries.py aus tools/photos-quelle.js. Nicht von Hand ändern. */\n'
+    kern = kopf + '\n\n'.join(_block(js, n) for n in ('MENU_SHOTS', 'FLOW_A', 'FLOW_B')) + '\n\n' + mischen + \
+        '\n\nwindow.AV_PHOTOS = { MENU_SHOTS, FLOW_A, FLOW_B };\n'
+    open('assets/js/photos.js', 'w').write(kern)
+    namen = ('PF_HOCHZEITEN', 'REEL_BABYBAUCH', 'FLOW_SCHAUSPIEL', 'FLOW_FAMILIEN', 'FLOW_BUSINESS')
+    pf = kopf + '\n\n'.join(_block(js, n) for n in namen) + \
+        '\n\nwindow.AV_PHOTOS = Object.assign(window.AV_PHOTOS || {}, { ' + ', '.join(namen) + ' });\n'
+    open('assets/js/photos-portfolio.js', 'w').write(pf)
+    print(f'  photos.js {len(kern)//1024} KB, photos-portfolio.js {len(pf)//1024} KB')
+
+
 def main():
-    js = open('assets/js/photos.js').read()
+    js = open('tools/photos-quelle.js').read()
     idx = open('index.html').read()
     teile = {
         'header': idx[idx.index('<header class="site-header">'):idx.index('</header>') + len('</header>')],
@@ -643,6 +669,7 @@ def main():
         n = bau(g, js, teile)
         print(f'  {g["datei"]:44s} {n:3d} Fotos')
     print('Galerien gebaut.')
+    schreibe_laufzeit(js)
 
 
 if __name__ == '__main__':

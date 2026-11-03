@@ -85,7 +85,7 @@ nicht das Label allein.
 
 ## Kein Foto geht verloren
 
-`assets/js/photos.js` ist die einzige Quelle der Wahrheit. Jede Datei aus
+`tools/photos-quelle.js` ist die einzige Quelle der Wahrheit. Jede Datei aus
 `assets/img/` steht dort genau einmal. `python3 tools/check-images.py` meldet
 jede Datei, die fehlt oder doppelt ist. Aktueller Stand: 88 von 88 Fotos
 erfasst, 264 von 264 WebP-Varianten vorhanden.

@@ -1,0 +1,16 @@
+/* Fehlerseite 404: ruhig, mittig, in der Schrift der Seite */
+.fehler-seite {
+  min-height: 100vh; min-height: 100svh;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: clamp(1.4rem, 3vw, 2.2rem);
+  padding: 3rem var(--edge); text-align: center;
+}
+.fehler-mark img { width: clamp(56px, 7vw, 88px); height: auto; display: block; }
+.fehler-zahl {
+  margin: 0; font-family: var(--font-display); font-weight: var(--display-weight);
+  font-size: calc(clamp(4.5rem, 16vw, 11rem) * var(--display-scale)); line-height: 1; letter-spacing: .02em;
+}
+.fehler-zahl .akzent { color: var(--accent); }
+.fehler-text { margin: 0; font-family: var(--font-display); font-size: calc(clamp(1.15rem, 2.2vw, 1.6rem) * var(--display-scale)); color: var(--ink-soft); }
+.fehler-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.2rem clamp(1.4rem, 4vw, 3rem); margin-top: .8rem; }
+.fehler-links .link { font-weight: 400; }

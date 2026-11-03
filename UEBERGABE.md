@@ -16,7 +16,10 @@ vollständige Kontext übergeben.
 - Antworten auf Deutsch, knapp, ohne Floskeln und ohne Werbesprache.
 - Die Galerie-Unterseiten werden **generiert**, nicht von Hand geschrieben:
   `python3 tools/build-galleries.py`.
-- Einzige Quelle für alle Fotos: `assets/js/photos.js`.
+- Einzige Quelle für alle Fotos: `tools/photos-quelle.js`. Daraus erzeugt
+  `build-galleries.py` die schlanken Laufzeitdateien `assets/js/photos.js`
+  (Menü, Startseite, 9 KB) und `assets/js/photos-portfolio.js` (nur Portfolio).
+  Diese beiden nie von Hand ändern.
 - Nach jeder Änderung: `tools/check-seiten.py` und `tools/check-images.py`.
 - Cache-Buster `?v=JJJJMMTT<buchstabe>` in **allen** HTML-Dateien hochzählen,
   sonst sehen Besucher die alte CSS/JS-Version.
@@ -67,19 +70,24 @@ Kachel kommt rein, sobald die Fotos da sind.
 ```
 assets/css/   style.css (global) · portfolio.css (Portfolio + Galerien)
               about.css · kontakt.css · fonts.css
-assets/js/    photos.js    ← Fotomanifest, einzige Quelle der Wahrheit
+assets/js/    photos.js    ← GENERIERT (Menü + Startseite), photos-portfolio.js ebenso
+              cookie.js    ← Cookie-Hinweis, ist ausgeschaltet (AKTIV = false)
               main.js      ← Startseite, Menü, Lightbox, Bildrettung, Verlauf
               portfolio.js ← Reiter und Flugstrecken der Portfolio-Seite
               galerie.js   ← Masonry und Lightbox der Galerieseiten
               uebergang.js ← Seitenübergänge
 assets/img/   alle Fotos, je Foto vier Dateien (siehe Abschnitt 4)
 assets/fonts/ Cormorant Garamond (Serif) + Jost (UI), lokal eingebunden
-tools/        build-galleries.py · check-seiten.py · check-images.py
+tools/        photos-quelle.js ← das eigentliche Fotomanifest
+              build-galleries.py · check-seiten.py · check-images.py
+              foto-aufbereiten.py ← macht aus einem Foto JPG + 3 WebP-Größen
 ```
 
 ---
 
-## 3 · photos.js
+## 3 · Fotomanifest (tools/photos-quelle.js)
+
+Bearbeitet wird nur `tools/photos-quelle.js`, danach `python3 tools/build-galleries.py`.
 
 Format jeder Zeile: `['pfad/zum/foto.jpg', breite/hoehe, "Alt-Text"]`.
 Der Pfad ist relativ zu `assets/img/`. Das Seitenverhältnis wird gebraucht,
@@ -101,7 +109,7 @@ Komma. JavaScript macht daraus ein Loch im Array, der Flug stirbt beim ersten
 `undefined`, und die ganze Startseite ist tot. Prüfen mit:
 
 ```
-node -e "global.window={};require('./assets/js/photos.js');
+node -e "global.window={};require('./assets/js/photos.js');require('./assets/js/photos-portfolio.js');
 let n=0;for(const k in window.AV_PHOTOS)window.AV_PHOTOS[k].forEach(e=>{if(!e||!e[0])n++});
 console.log('Löcher:',n)"
 ```
@@ -183,8 +191,13 @@ echten Pixeln unter dem Wort (Canvas, Kontrast Weiß gegen Rot); der Generator
 setzt nur einen Startwert (`wort_helligkeit()`), falls die Datei im Arbeitsordner
 liegt.
 
-**Startseite, Flugstrecke.** Die Strecke beginnt direkt unter der Wortmarke und
-schließt nahtlos (`band = cursor_ende - cursor_start`). Hinter dem Zitat gibt es
+**Startseite, Flugstrecke.** Die Fotos stehen verstreut (links und rechts im
+Wechsel, verschieden groß), aber nie überlappend: jedes Foto wird an die
+tiefste Stelle gesetzt, an der es zu allen anderen den Mindestabstand hält
+(`MX` seitlich, `MY` oben/unten in `Flow.build`). Die Schleifenlänge `band`
+ergibt sich aus dem Abstand zwischen Ende und Anfang der nächsten Runde. Es
+gibt keine festen Spalten, ausdrücklicher Wunsch von Antonia. Die Strecke
+beginnt direkt unter der Wortmarke. Hinter dem Zitat gibt es
 keinen Kasten: die Fotos werden stattdessen schwächer (`track.opacity`).
 Die Booking-Leiste ist nur sichtbar, solange die Flug-Bühne den ganzen
 Bildschirm füllt.
@@ -263,10 +276,24 @@ den Block ein und drückt danach **Commit to main** und **Push origin**.
   Formularstile liegen ungenutzt in `kontakt.css`. Auf GitHub Pages bräuchte es
   einen Dienst wie Formspree.
 - **Donau-Ries:** Fotos fehlen, Kachel ist deshalb ausgeblendet.
-- **Newborn:** `portfolio/newborn/newborn-fotografie-muenchen-babyfuesse-bett.jpg` und
-  `…-elternhaende-babyfuesse-schwarzweiss.jpg` sind in `photos.js` eingetragen, liegen
-  aber nicht im Repo — auf der Seite erscheint ein grauer Kasten. Dateien fehlen.
+- **Newborn:** die zwei fehlenden Fotos (`…babyfuesse-bett`, `…elternhaende-babyfuesse-schwarzweiss`) sind aus dem Manifest entfernt.
 - **Pfalz:** sechs Fotos wurden entfernt, weil Kindergesichter zu sehen waren.
   Sobald es Versionen mit abgedeckten Gesichtern gibt, kommen sie zurück.
 - **Preise-Seite:** für ein Foto fehlen im Arbeitsordner die Maße; im Repo ist
   es vorhanden.
+
+
+## 9 · Cookie-Hinweis und 404
+
+- `assets/js/cookie.js` zeigt den Hinweis nur, wenn dort `AKTIV = true` steht.
+  Solange keine Reichweitenmessung und keine Werbe-Pixel laufen, bleibt er aus
+  (die Datenschutzseite sagt dann auch wahrheitsgemäß, dass nichts gesetzt wird).
+  Vorschau: `https://antoniavalladares.com/?cookie=zeigen`.
+  Kommt ein Messdienst dazu: `AKTIV = true`, den Dienst erst laden, wenn das Ereignis
+  `av:einwilligung` mit `detail.ok === true` kommt, CSP und Datenschutzseite anpassen,
+  in der Fußzeile `<a href="#" data-cookie-settings>Cookies</a>` ergänzen.
+- `404.html` liegt im Hauptordner, GitHub Pages zeigt sie bei unbekannten Adressen.
+  Sie nutzt absolute Pfade (`/assets/...`) und ist von `check-seiten.py` ausgenommen.
+- Menü: Handy zeigt 3 Fotos, Desktop 4. Unterpunkte unter Portfolio nur am Desktop.
+- Kontakt: Instagram nur als Zeichen, kein Google-Link (auch nicht in den
+  strukturierten Daten).

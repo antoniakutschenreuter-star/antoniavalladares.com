@@ -8,6 +8,15 @@
   display: flex; flex-wrap: wrap; justify-content: center;
   gap: clamp(1rem, 3vw, 2.6rem);
 }
+.kt-direkt { align-items: center; }
+.kt-direkt .link { font-weight: 400; letter-spacing: .2em; }
+.kt-ico { display: inline-grid; place-items: center; width: 34px; height: 34px; color: var(--ink); transition: color .25s var(--ease); }
+.kt-ico svg { width: 22px; height: 22px; }
+.kt-ico:hover, .kt-ico:focus-visible { color: var(--accent); }
+@media (max-width: 640px) {
+  .kt-direkt { flex-direction: column; gap: .9rem; }
+  .kt-direkt .link { font-size: .8rem; letter-spacing: .16em; }
+}
 .regel {
   display: block; width: 34px; height: 1px; background: var(--accent);
   margin: clamp(2.2rem, 4.4vw, 3.4rem) auto 0;
