@@ -304,25 +304,29 @@ body.gal main { padding-top: var(--header-h); }
 
 .gal-hero {
   position: relative; overflow: hidden;
+  /* Feste Höhe und Container-Abfragen: nur so lässt sich die helle
+     Zweitschrift (siehe .gal-hero-echo) auf den Pixel genau über der
+     dunklen platzieren. */
+  --len: 8;
+  container-type: size;
+  height: max(clamp(360px, 68vh, 760px), 38vw);
   /* Seit die Fotos ihr Originalformat behalten, richtet sich die Höhe des
      Abschnitts nach dem höchsten davon: das linke Hochformat ist 23vw
      breit, also 34,5vw hoch, und sitzt bei 5 %. Ohne diesen Mindestwert
      ragte es unten heraus und wurde von overflow:hidden abgeschnitten —
      also wieder ein Zuschnitt, nur an anderer Stelle. */
-  min-height: max(clamp(360px, 68vh, 760px), 38vw);
   display: flex; align-items: center; justify-content: center;
-  padding: clamp(2rem, 6vh, 5rem) var(--edge);
 }
 .gal-hero-wort {
   position: relative; z-index: 2; margin: 0; text-align: center;
+  padding-inline: var(--edge);
   font-family: var(--font-display); font-weight: var(--display-weight);
   /* Die Größe richtet sich nach der Wortlänge (--len setzt der
      Generator). So füllt „Umbrien" die Breite genauso wie
      „Donau-Ries", und auf dem Handy läuft nichts über den Rand. */
-  --len: 8;
   /* Rechnet mit der NUTZBAREN Breite (abzüglich Rand), sonst läuft ein
      langes Wort wie „Blutenburg" auf dem Handy über die Kante. */
-  font-size: calc(min(15.4vw, (100vw - 2 * var(--edge)) * 1.3 / var(--len)) * var(--display-scale));
+  font-size: calc(min(15.4cqw, (100cqw - 2 * var(--edge)) * 1.3 / var(--len)) * var(--display-scale));
   line-height: .9; letter-spacing: -.012em; text-transform: uppercase;
   white-space: nowrap; pointer-events: none;
   max-width: 100%;
@@ -337,6 +341,36 @@ body.gal main { padding-top: var(--header-h); }
   will-change: transform;
 }
 /* eines liegt hinter der Schrift, eines davor — das erzeugt die Tiefe */
+/* ── Die helle Zweitschrift ───────────────────────────────────────────
+   Wo ein dunkles Foto hinter dem Ortsnamen liegt, war die dunkle Schrift
+   nicht zu lesen. In jedem dunklen Foto steckt deshalb eine zweite,
+   helle Kopie des Wortes an exakt derselben Stelle. Weil sie im Foto
+   liegt und das Foto den Überlauf abschneidet, erscheint sie genau auf
+   dem Foto und nirgends sonst: auf dem Creme-Grund bleibt die dunkle
+   Schrift stehen, auf dem Foto wird sie hell. */
+.gal-hero-echo {
+  position: absolute; z-index: 2; pointer-events: none;
+  width: 100cqw; height: 100cqh;
+  display: flex; align-items: center; justify-content: center;
+  padding-inline: var(--edge);
+  font-family: var(--font-display); font-weight: var(--display-weight);
+  font-size: calc(min(15.4cqw, (100cqw - 2 * var(--edge)) * 1.3 / var(--len)) * var(--display-scale));
+  line-height: .9; letter-spacing: -.012em; text-transform: uppercase;
+  white-space: nowrap;
+  color: #FBF9F7;
+}
+.gal-hero-b1 .gal-hero-echo { left: -4cqw;  top: -5cqh; }
+.gal-hero-b3 .gal-hero-echo { left: -52cqw; top: -6cqh; }
+.gal-hero-b2 .gal-hero-echo { left: -70cqw; bottom: -3cqh; }
+@media (max-width: 900px) {
+  .gal-hero-b1 .gal-hero-echo { left: -2cqw;  top: -4cqh; }
+  .gal-hero-b2 .gal-hero-echo { left: -54cqw; bottom: -4cqh; }
+}
+/* Ohne Container-Abfragen stimmt die Deckung nicht — dann lieber nichts. */
+@supports not (container-type: size) {
+  .gal-hero-echo { display: none; }
+}
+
 .gal-hero-bild--hinten { z-index: 1; }
 .gal-hero-bild--vorne  { z-index: 3; }
 /* Die Fotos behalten ihr Originalformat. Vorher war den drei Plätzen ein
@@ -346,12 +380,12 @@ body.gal main { padding-top: var(--header-h); }
    Höhe vor: width steht fest, height ergibt sich. */
 .gal-hero-bild img { width: 100%; height: auto; display: block; }
 
-.gal-hero-b1 { left: 4%;  top: 5%;    width: 23vw; }
-.gal-hero-b2 { right: 4%; bottom: 3%; width: 26vw; }
+.gal-hero-b1 { left: 4cqw;  top: 5cqh;    width: 23cqw; }
+.gal-hero-b2 { right: 4cqw; bottom: 3cqh; width: 26cqw; }
 /* Das kleine Hochformat liegt VOR dem Wort und schneidet ein paar
    Buchstaben an, die beiden großen liegen dahinter. Dadurch liegen die
    Lettern mal auf einem Foto und werden mal von einem verdeckt. */
-.gal-hero-b3 { right: 33%; top: 6%;   width: 15vw; }
+.gal-hero-b3 { right: 33cqw; top: 6cqh;  width: 15cqw; }
 
 .gal-kopf {
   max-width: 1280px; margin: 0 auto;
@@ -452,9 +486,9 @@ body.gal main { padding-top: var(--header-h); }
   .gal-fig--quer { grid-column: auto; }
   .gal-zurueck { flex-direction: column; align-items: flex-start; gap: 1.1rem; }
   .gal-weiter { grid-template-columns: 1fr; }
-  .gal-hero { min-height: max(clamp(300px, 52vh, 460px), 66vw); }
-  .gal-hero-b1 { width: 40vw; left: 1%; }
-  .gal-hero-b2 { width: 44vw; right: 1%; }
+  .gal-hero { height: max(clamp(280px, 44vh, 420px), 70vw); }
+  .gal-hero-b1 { width: 42cqw; left: 2cqw; top: 4cqh; }
+  .gal-hero-b2 { width: 44cqw; right: 2cqw; bottom: 4cqh; }
   .gal-hero-b3 { display: none; }
 }
 
@@ -642,3 +676,11 @@ body.pf .site-footer {
   background: var(--bg); color: var(--ink);
 }
 body.pf .cta-section .accent { color: var(--accent); }
+
+/* ── Handy: Lesetext der Galerieseiten etwas größer ───────────────── */
+@media (max-width: 900px) {
+  .gal-satz, .gal-einschub p, .gal-mehr p { font-size: 1.04rem; line-height: 1.7; }
+  .gal-ort, .gal-fakten { font-size: .92rem; letter-spacing: .14em; }
+  .gal-h2 { font-size: calc(clamp(1.6rem, 7.4vw, 2.3rem) * var(--display-scale)); }
+  .gal-einschub { max-width: none; }
+}

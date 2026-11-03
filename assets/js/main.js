@@ -257,9 +257,10 @@
 
     /* Grunddrift plus scrollgekoppelter Anteil: die Fotos fliegen
        durchgehend weiter, auch während das Zitat steht.
-       Wer Bewegung reduziert hat, bekommt ein ruhendes Bild. */
-    if (!MOTION_OK) { return; }
-    this.pos += (vh / 26) * dt + dy * 0.26;
+       Wer Bewegung reduziert hat, bekommt keine Drift von allein — die
+       Kopplung ans Scrollen bleibt aber, sonst stehen die Fotos auf dem
+       Handy völlig still, sobald „Bewegung reduzieren" eingeschaltet ist. */
+    this.pos += (MOTION_OK ? (vh / 26) * dt : 0) + dy * 0.26;
     this.pos = ((this.pos % this.band) + this.band) % this.band;
     setStyle(this.track, 'transform', 'translate3d(0,' + (-this.pos).toFixed(1) + 'px,0)');
   };
@@ -276,7 +277,9 @@
 
   Reel.prototype.measure = function () {
     /* auf Touch/schmal läuft das Reel nativ horizontal — kein Pinning */
-    this.pinned = MOTION_OK && window.matchMedia('(min-width: 901px) and (hover: hover)').matches;
+    /* Das Reel wird nur auf dem Zeigegerät festgehalten. „Bewegung
+       reduzieren" schaltet die Drift ab, nicht die Kopplung ans Scrollen. */
+    this.pinned = window.matchMedia('(min-width: 901px) and (hover: hover)').matches;
     if (!this.pinned) {
       this.sec.style.height = '';
       setStyle(this.track, 'transform', 'translate3d(0,0,0)');

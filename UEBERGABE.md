@@ -169,6 +169,18 @@ verteilt. Die letzten Fotos jedes Abschnitts werden durchprobiert
 Zwischentext eine Lücke von bis zu einer ganzen Bildhöhe. Ein kleiner Rest wird
 auf die Zwischenräume der kürzeren Spalten verteilt (`ausgleichen()`).
 
+**Helle Zweitschrift im Auftakt der Galerien.** Wo ein dunkles Foto hinter dem
+Ortsnamen liegt, steckt im Foto eine zweite, helle Kopie des Wortes
+(`.gal-hero-echo`). Das Foto schneidet sie selbst zurecht — auf Creme bleibt
+die dunkle Schrift, auf dem Foto wird sie hell. Damit beide Kopien exakt
+übereinanderliegen, ist `.gal-hero` ein Größen-Container (`container-type:
+size`, feste Höhe, kein Innenabstand) und die ganze Geometrie steht in `cqw`
+und `cqh`. `--len` steht am Auftakt, nicht am Wort, sonst rechnen die beiden
+mit verschiedenen Schriftgrößen. Die Parallaxe in `galerie.js` zieht der Kopie
+die Verschiebung des Fotos wieder ab. Ob ein Foto dunkel ist, misst
+`build-galleries.py` im mittleren Drittel — liegt die Datei nicht im
+Arbeitsordner, gibt es keine Kopie.
+
 **Seitenverhältnisse.** Kein Foto wird irgendwo in ein fremdes Format
 geschnitten. Hero-Fotos, Menüfotos und die Fotos auf der Preise-Seite bekommen
 nur eine Breite, die Höhe ergibt sich aus `width`/`height` der Datei. Bewusste

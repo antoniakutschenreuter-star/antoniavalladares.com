@@ -40,6 +40,11 @@
         if (letzte[i] !== v) {
           letzte[i] = v;
           bilder[i].style.transform = 'translate3d(0,' + v + 'px,0)';
+          /* In dunklen Fotos steckt eine helle Kopie des Ortsnamens. Sie
+             muss über dem echten Wort liegen bleiben, also bekommt sie
+             die Verschiebung des Fotos wieder abgezogen. */
+          var echo = bilder[i].querySelector('.gal-hero-echo');
+          if (echo) { echo.style.transform = 'translate3d(0,' + (-v) + 'px,0)'; }
         }
       }
     }

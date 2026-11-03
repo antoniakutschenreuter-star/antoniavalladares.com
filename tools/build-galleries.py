@@ -353,6 +353,33 @@ def masse(pfad, ratio=None):
     raise SystemExit('Bilddatei fehlt und keine Maße bekannt: assets/img/' + pfad)
 
 
+_DUNKEL = {}
+
+
+def ist_dunkel(pfad):
+    """Ist das Foto dort dunkel, wo das Wort darüberläuft?
+
+    Gemessen wird nur das mittlere waagerechte Drittel — genau die Bahn,
+    in der die Lettern liegen. Liegt die Datei nicht im Arbeitsordner,
+    bleibt es bei der dunklen Schrift (kein Echo)."""
+    if pfad in _DUNKEL:
+        return _DUNKEL[pfad]
+    hell = None
+    try:
+        with Image.open('assets/img/' + pfad) as im:
+            g = im.convert('L')
+            b, h = g.size
+            band = g.crop((0, int(h * 0.33), b, int(h * 0.67)))
+            band.thumbnail((60, 60))
+            px = list(band.getdata())
+            hell = sum(px) / len(px) / 255.0
+    except (FileNotFoundError, OSError):
+        pass
+    _DUNKEL[pfad] = hell is not None and hell < 0.46
+    return _DUNKEL[pfad]
+
+
+
 def picture(pfad, alt, sizes, klasse='', lazy=True, w=None, h=None):
     base = 'assets/img/' + pfad.rsplit('.', 1)[0]
     if w is None:
@@ -392,10 +419,16 @@ def bau(g, js, teile):
     for i, (idx, pos, klasse) in enumerate([(h[0], 'b1', 'hinten'), (h[1], 'b2', 'hinten'), (h[2], 'b3', 'vorne')]):
         f = passend(idx, pos == 'b2')
         w, hh = masse(f[0], f[1])
+        # Liegt das Foto hinter dem Wort und ist es dunkel, bekommt es eine
+        # helle Kopie des Wortes mit — sonst ist die Schrift darauf nicht
+        # zu lesen. Das Foto schneidet die Kopie selbst zurecht.
+        echo = ''
+        if klasse == 'hinten' and ist_dunkel(f[0]):
+            echo = f'<span class="gal-hero-echo" aria-hidden="true">{g["wort"]}</span>'
         hero_bilder.append(
             f'    <figure class="gal-hero-bild gal-hero-bild--{klasse} gal-hero-{pos}" data-tiefe="{0.12 + i * 0.06:.2f}">'
             + picture(f[0], f[2], '(max-width: 900px) 38vw, min(22vw, 330px)', lazy=(i > 0), w=w, h=hh)
-            + '</figure>')
+            + echo + '</figure>')
 
     # ── Raster: Querformate nehmen sich beide Spalten, das gibt Rhythmus
     raster = []
@@ -505,9 +538,9 @@ def bau(g, js, teile):
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/cormorant-garamond-latin-300-normal.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/jost-latin-300-normal.woff2" crossorigin>
 
-<link rel="stylesheet" href="assets/css/fonts.css?v=20261103g">
-<link rel="stylesheet" href="assets/css/style.css?v=20261103g">
-<link rel="stylesheet" href="assets/css/portfolio.css?v=20261103g">
+<link rel="stylesheet" href="assets/css/fonts.css?v=20261103h">
+<link rel="stylesheet" href="assets/css/style.css?v=20261103h">
+<link rel="stylesheet" href="assets/css/portfolio.css?v=20261103h">
 
 <script type="application/ld+json">
 {json.dumps(ld, ensure_ascii=False, indent=1)}
@@ -526,9 +559,9 @@ def bau(g, js, teile):
     <a class="link zur" href="/portfolio.html#weddings"><span class="arrow" aria-hidden="true">&larr;</span>&nbsp;&nbsp;Alle Galerien</a>
   </nav>
 
-  <header class="gal-hero">
+  <header class="gal-hero len-{max(5, min(13, len(g['wort'])))}">
 {chr(10).join(hero_bilder)}
-    <h1 class="gal-hero-wort len-{max(5, min(13, len(g['wort'])))}">{g['wort']}<span class="sr-only"> — {g['h2']}</span></h1>
+    <h1 class="gal-hero-wort">{g['wort']}<span class="sr-only"> — {g['h2']}</span></h1>
   </header>
 
   <div class="gal-kopf">
@@ -562,9 +595,9 @@ def bau(g, js, teile):
 {teile['menu']}<button class="to-top" type="button" aria-label="Zurück nach oben"><span aria-hidden="true">&uarr;</span></button>
 <div class="grain" aria-hidden="true"></div>
 
-<script src="assets/js/photos.js?v=20261103g" defer></script>
-<script src="assets/js/main.js?v=20261103g" defer></script>
-<script src="assets/js/galerie.js?v=20261103g" defer></script>
+<script src="assets/js/photos.js?v=20261103h" defer></script>
+<script src="assets/js/main.js?v=20261103h" defer></script>
+<script src="assets/js/galerie.js?v=20261103h" defer></script>
 </body>
 </html>
 '''

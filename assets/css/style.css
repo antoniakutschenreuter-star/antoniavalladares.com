@@ -227,20 +227,24 @@ body.intro-done main, body.intro-done .site-header, body.intro-done .site-footer
 
 /* Schleier: Fotos verschwinden nach oben hin im Hintergrund, damit die
    Wortmarke immer frei steht */
+/* Der Schleier deckte oben 56 % der Bildschirmhöhe ab, die ersten
+   30 % davon vollständig — die halbe Flugstrecke verschwand darin.
+   Er reicht jetzt nur noch so weit, wie die Wortmarke wirklich Grund
+   braucht, und wird danach schnell durchsichtig. */
 .flow-veil {
-  position: absolute; inset: 0 0 auto 0; height: 56vh; z-index: 2;
+  position: absolute; inset: 0 0 auto 0; height: 34vh; z-index: 2;
   pointer-events: none;
   transition: opacity .5s var(--ease);
   background: linear-gradient(to bottom,
-    rgb(var(--bg-rgb)) 0%, rgb(var(--bg-rgb)) 30%,
-    rgba(var(--bg-rgb), .93) 44%, rgba(var(--bg-rgb), .62) 62%,
-    rgba(var(--bg-rgb), .22) 82%, rgba(var(--bg-rgb), 0) 100%);
+    rgb(var(--bg-rgb)) 0%, rgba(var(--bg-rgb), .92) 22%,
+    rgba(var(--bg-rgb), .66) 44%, rgba(var(--bg-rgb), .34) 68%,
+    rgba(var(--bg-rgb), .1) 86%, rgba(var(--bg-rgb), 0) 100%);
 }
-#flow2 .flow-veil { opacity: .5; }
+#flow2 .flow-veil { opacity: .42; }
 .flow-veil--bottom {
-  inset: auto 0 0 0; height: 34vh;
+  inset: auto 0 0 0; height: 22vh;
   background: linear-gradient(to top,
-    rgba(var(--bg-rgb), .96) 0%, rgba(var(--bg-rgb), .7) 40%, rgba(var(--bg-rgb), 0) 100%);
+    rgba(var(--bg-rgb), .9) 0%, rgba(var(--bg-rgb), .52) 42%, rgba(var(--bg-rgb), 0) 100%);
 }
 
 .hero-wordmark {
