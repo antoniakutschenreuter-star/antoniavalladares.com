@@ -298,8 +298,8 @@ den Block ein und drückt danach **Commit to main** und **Push origin**.
 - Kontakt: Instagram nur als Zeichen, kein Google-Link (auch nicht in den
   strukturierten Daten).
 - Zitat auf der Startseite: Am Handy blendet es bei 0,34 bis 0,40 des Hero-Scrollwegs
-  ein und bei 0,52 bis 0,58 aus. Am Desktop (Maus/Trackpad) kürzer: 0,35 bis 0,375 ein,
-  0,43 bis 0,455 aus, zusammen etwa 0,7 Bildschirmhöhen Scrollweg (Werte `zz` in main.js).
+  ein und bei 0,52 bis 0,58 aus. Am Desktop (Maus/Trackpad) kürzer, etwa ein Bildschirm
+  Scrollweg (Werte `zz` in main.js).
 - Flugstrecke Desktop: Fotobreite 20 bis 32 % der Bühne (Hochformate höchstens zwei Drittel
   der Höhe), Mindestabstand seitlich 3 %, oben/unten 5 %. Jedes Foto wird an die tiefste
   freie Stelle gesetzt (auch in Lücken über dem letzten Foto), die Hälften links/rechts
@@ -311,3 +311,32 @@ den Block ein und drückt danach **Commit to main** und **Push origin**.
 - Handy: Die Bildstrecke auf der Startseite ist schmaler als der Bildschirm, damit das
   nächste Foto hereinragt. Dazu ein Pfeil (`.reel-weiter`), der bis zum Ende bleibt.
 - Menü-Auto-Foto ist das Original aus der Umbrien-Galerie (`...-039.jpg`), keine Kopie.
+- Menü: fünf Fotos am Desktop (Kronleuchter, Braut im Profil SW, Gäste im Gegenlicht,
+  Hände auf der Treppe, Moet-Flasche), am Handy die ersten drei. Die Breiten folgen
+  `min(vw, vh)`, damit nichts überlappt. Das Seitenverhältnis kommt aus der Liste
+  (`MENU_SHOTS`), der Platz ist also reserviert, bevor das Foto geladen ist.
+- Bildstrecke am Handy: gepinnt wie am Desktop (Scrollweg etwa 2,3 bis 2,6 Bildschirme),
+  seitliches Wischen wird in Scrollweg umgerechnet, der Pfeil springt ein Foto weiter.
+  Mit "Bewegung reduzieren" bleibt die alte seitlich scrollende Reihe.
+- Das Foto `hochzeit-standesamt-muenchen-auszug.jpg` (Babygesicht sichtbar) ist aus allen
+  Listen entfernt. Die Dateien liegen noch im Ordner und können nach dem Abdecken des
+  Gesichts wieder in `tools/photos-quelle.js` (FLOW_B) eingetragen werden.
+- Zum ZIP gehören immer alle neuen Bilddateien (JPG und alle drei WebP-Größen), sonst
+  erscheinen die Fotos auf der Seite grau.
+
+## Stand 4. November (Nachtrag)
+
+- **Menü: drei Fotos.** Moet (groß) und Kronleuchter links, die drei Frauen
+  (Umbrien, Gegenlicht) groß rechts. Am Desktop richten sich die Größen nach
+  `vw` und `vh` (`--m`, `--f` in `style.css`), nichts überlappt, auch nicht
+  Menüpunkte und Kontaktzeilen. Am Handy ist das Menü ein Raster: oben Moet,
+  Mitte Menüpunkte, unten Kronleuchter und die drei Frauen. Jedes Foto füllt
+  seinen Platz (`object-fit: contain`), also ohne Beschnitt und Verzerrung.
+  Sehr niedrige Handys (bis 700 px Höhe) zeigen Moet und die drei Frauen.
+- **Pfalz-Galerie:** `hochzeit-135` und `-136` standen zweimal in `GAL_PFALZ`
+  (einmal als Schleier-Foto, einmal mit falschem Format). Der zweite Eintrag
+  ist entfernt.
+- **Datenschutz:** E-Mail liegt bei Gmail (nicht Cloudflare), Hinweis auf den
+  Browser-Speicher für die Einstiegsanimation ergänzt, Stand November 2026.
+  Wird `hello@antoniavalladares.com` eingerichtet, den Absatz 5 anpassen.
+- `menu-brautpaar-haende-marmortreppe*` wird nirgends mehr gezeigt.

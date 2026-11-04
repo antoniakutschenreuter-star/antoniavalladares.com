@@ -354,22 +354,33 @@
   }
 
   Reel.prototype.measure = function () {
-    /* auf Touch/schmal läuft das Reel nativ horizontal — kein Pinning */
-    /* Das Reel wird nur auf dem Zeigegerät festgehalten. „Bewegung
-       reduzieren" schaltet die Drift ab, nicht die Kopplung ans Scrollen. */
-    this.pinned = window.matchMedia('(min-width: 901px) and (hover: hover)').matches;
+    /* Am Zeigegerät wird die Reihe gepinnt und vom Scrollen bewegt.
+       Auf dem Handy ebenso, nur langsamer: ein senkrechter Wisch schiebt
+       die Reihe um weniger als seine Länge weiter, damit man sie nicht
+       aus Versehen überspringt. „Bewegung reduzieren" lässt am Handy
+       die native seitliche Reihe stehen. */
+    var desk   = window.matchMedia('(min-width: 901px) and (hover: hover)').matches;
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this.mode   = desk ? 'desk' : 'touch';
+    this.pinned = desk || !reduce;
     if (!this.pinned) {
       this.sec.style.height = '';
       setStyle(this.track, 'transform', 'translate3d(0,0,0)');
-      this.span = 0;
+      this.span = 0; this.ratio = 1;
       return;
     }
     var vw = window.innerWidth;
     var vh = window.innerHeight;
     var full = this.track.scrollWidth;
     this.span = Math.max(0, full - vw);
-    /* Scrollweg deckeln: die ganze Reihe läuft in höchstens ~3 Bildschirmen durch */
-    var travel = clamp(this.span, vh * 1.2, vw * 2.2);
+    var travel;
+    if (desk) {
+      /* Scrollweg deckeln: die ganze Reihe läuft in höchstens ~3 Bildschirmen durch */
+      travel = clamp(this.span, vh * 1.2, vw * 2.2);
+    } else {
+      travel = clamp(this.span * 0.55, vh * 1.5, vh * 3.2);
+    }
+    this.ratio = this.span > 0 ? this.span / travel : 1;   /* seitliche Pixel je senkrechtem Pixel */
     this.sec.style.height = (vh + travel) + 'px';
     this.top    = this.sec.offsetTop;
     this.height = this.sec.offsetHeight;
@@ -380,6 +391,7 @@
     if (y + vh < this.top || y > this.top + this.height) { return; }
     var q = clamp((y - this.top) / Math.max(1, this.height - vh), 0, 1);
     setStyle(this.track, 'transform', 'translate3d(' + (-q * this.span).toFixed(1) + 'px,0,0)');
+    if (this.weiter) { setClass(this.weiter, 'is-weg', q > 0.985); }
   };
 
   /* ── 05 TAKTGEBER ───────────────────────────────────────────────── */
@@ -404,14 +416,65 @@
   var reelWeiter = reelSec ? reelSec.querySelector('.reel-weiter') : null;
   if (reelWeiter && reel && reel.track) {
     var rt = reel.track;
+    reel.weiter = reelWeiter;
     reelWeiter.addEventListener('click', function () {
       var fg = rt.querySelector('figure');
       var schritt = fg ? fg.getBoundingClientRect().width + 10 : rt.clientWidth * 0.8;
-      rt.scrollBy({ left: schritt, behavior: 'smooth' });
+      if (reel.pinned) {
+        window.scrollBy({ top: schritt / (reel.ratio || 1), behavior: MOTION_OK ? 'smooth' : 'auto' });
+      } else {
+        rt.scrollBy({ left: schritt, behavior: 'smooth' });
+      }
     });
+    /* ohne Pinning (Bewegung reduzieren): die Reihe scrollt selbst */
     rt.addEventListener('scroll', function () {
+      if (reel.pinned) { return; }
       setClass(reelWeiter, 'is-weg', rt.scrollLeft + rt.clientWidth >= rt.scrollWidth - 12);
     }, { passive: true });
+  }
+
+  /* Handy: Wischen nach links oder rechts schiebt die gepinnte Reihe
+     weiter. Es wird in senkrechten Scrollweg umgerechnet, damit Wischen
+     und Scrollen dieselbe Stelle der Reihe meinen. */
+  if (reel && reel.track) {
+    (function () {
+      var rt = reel.track, drag = null, bewegt = 0, vx = 0, tLast = 0, momentum = 0, zuletzt = 0;
+      function stopp() { if (momentum) { cancelAnimationFrame(momentum); momentum = 0; } }
+      function aktiv(e) { return reel.pinned && reel.mode === 'touch' && e.pointerType !== 'mouse'; }
+      rt.addEventListener('pointerdown', function (e) {
+        if (!aktiv(e)) { return; }
+        stopp(); drag = { id: e.pointerId, x: e.clientX }; bewegt = 0; vx = 0; tLast = e.timeStamp;
+      });
+      rt.addEventListener('pointermove', function (e) {
+        if (!drag || e.pointerId !== drag.id) { return; }
+        var dx = e.clientX - drag.x; drag.x = e.clientX;
+        var dt = Math.max(1, e.timeStamp - tLast); tLast = e.timeStamp;
+        bewegt += Math.abs(dx);
+        var dy = -dx / (reel.ratio || 1);
+        vx = 0.7 * vx + 0.3 * (dy / dt);
+        window.scrollBy(0, dy);
+      });
+      function ende(e) {
+        if (!drag || (e && e.pointerId !== drag.id)) { return; }
+        drag = null;
+        if (bewegt > 8) { zuletzt = Date.now(); }
+        vx = Math.max(-2.5, Math.min(2.5, vx));
+        if (Math.abs(vx) < 0.05 || !MOTION_OK) { return; }
+        var t0 = performance.now();
+        (function lauf(now) {
+          var dt = Math.min(40, now - t0); t0 = now;
+          window.scrollBy(0, vx * dt);
+          vx *= Math.pow(0.94, dt / 16);
+          if (Math.abs(vx) > 0.02) { momentum = requestAnimationFrame(lauf); } else { momentum = 0; }
+        })(t0);
+      }
+      rt.addEventListener('pointerup', ende);
+      rt.addEventListener('pointercancel', ende);
+      /* Ein Wisch öffnet kein Foto */
+      rt.addEventListener('click', function (e) {
+        if (Date.now() - zuletzt < 350) { e.stopPropagation(); e.preventDefault(); }
+      }, true);
+    })();
   }
 
   /* Parallax-Kandidaten */
@@ -482,8 +545,8 @@
       var p    = clamp((y - metrics.heroTop) / metrics.heroSpan, 0, 1);
       /* Am Zeigegerät (Maus, Trackpad) ist ein Bildschirm schnell
          durchgescrollt, dort ist das Fenster für das Zitat kürzer:
-         etwa ein Dreivierteilbildschirm statt anderthalb. */
-      var zz = deskMQ.matches ? [0.35, 0.375, 0.43, 0.455] : [0.34, 0.40, 0.52, 0.58];
+         etwa ein Bildschirm statt anderthalb. */
+      var zz = deskMQ.matches ? [0.35, 0.385, 0.46, 0.495] : [0.34, 0.40, 0.52, 0.58];
       var into = seg(p, zz[0], zz[1]);
       var away = seg(p, zz[2], zz[3]);
       var op   = into * (1 - away);
@@ -712,7 +775,8 @@
       for (var i = 0; i < P.MENU_SHOTS.length; i++) {
         var fig = document.createElement('figure');
         fig.className = 'shot-' + (i + 1);
-        fig.appendChild(media(P.MENU_SHOTS[i][0], '', '(max-width: 900px) 40vw, 17vw', false));
+        fig.style.aspectRatio = String(P.MENU_SHOTS[i][1]);   /* Platz bleibt reserviert, nichts springt */
+        fig.appendChild(media(P.MENU_SHOTS[i][0], '', '(max-width: 900px) 76vw, 26vw', false));
         fig.setAttribute('aria-hidden', 'true');
         shots.appendChild(fig);
       }

@@ -499,18 +499,18 @@ img.monogram { width: clamp(52px, 7vw, 88px); }
 .overlay.is-open .overlay-shots figure { opacity: 1; transform: none; }
 .overlay.is-open .overlay-shots figure:nth-child(2) { transition-delay: .08s; }
 .overlay.is-open .overlay-shots figure:nth-child(3) { transition-delay: .16s; }
-.overlay.is-open .overlay-shots figure:nth-child(4) { transition-delay: .24s; }
-/* Auch im Menü behalten die Fotos ihr Format — vorher wurden Querformate
-   in Hochformatplätze gezwängt und verloren links und rechts die Hälfte. */
-.overlay-shots img { width: 100%; height: auto; display: block; }
+/* Auch im Menü behalten die Fotos ihr Format, nichts wird beschnitten. */
+.overlay-shots img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-/* Vier Fotos, links zwei und rechts zwei. Rechts steht ein großes
-   Hochformat über einem kleinen Querformat, nah beieinander. Nichts
-   überlappt, auch nicht die Navigation in der Mitte. */
-.shot-1 { left: 6vw;  top: 12%;     width: 13vw; }
-.shot-2 { left: 12vw; bottom: 26%;  width: 17vw; }
-.shot-3 { right: 10vw; top: 14%;    width: 13vw; }
-.shot-4 { right: 5vw;  bottom: 36%; width: 11vw; }
+/* Drei Fotos: links Moet groß und darunter leicht versetzt der Kronleuchter,
+   rechts die drei Frauen groß. Alle Größen richten sich nach der kleineren
+   Fensterseite (vw oder vh), die mittlere Spalte mit den Menüpunkten bleibt frei. */
+.overlay-shots { --m: min(26vw, 47vh); --f: min(26vw, 46vh); }
+.shot-1 { left: 3vw;  top: 14%; width: var(--m); }
+.shot-2 { left: calc(3vw + var(--m) * 0.54); top: calc(14% + var(--m) / 1.5 + 1.4vh); width: calc(var(--m) * 0.5); }
+.shot-3 { right: 4vw; top: 14%; width: var(--f); }
+.shot-4, .shot-5 { display: none; }
+@media (min-width: 901px) and (max-width: 1120px) { .overlay-shots { --m: 22vw; --f: 22vw; } }
 
 .overlay-nav {
   position: relative; z-index: 3;
@@ -638,21 +638,42 @@ body.show-font-switch .font-switch { display: flex; }
   .intro-figure img { height: auto; }
   .intro-link { margin-top: 1.6rem; }
   .tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  /* Handy: drei Fotos mit Rand, leicht versetzt, über und unter den Menüpunkten */
-  .shot-1 { left: 7vw;  top: 12%;     width: 27vw; }
-  .shot-2 { left: 9vw;  bottom: 28%;  width: 40vw; }
-  .shot-3 { right: 6vw; top: 13%;     width: 28vw; }
-  .shot-4 { display: none; }
-  .nav-unter { display: none; }
+  /* Handy: Das Menü ist ein Raster. Oben Moet breit, in der Mitte die Menüpunkte,
+     darunter Kronleuchter und die drei Frauen nebeneinander. Jedes Foto füllt
+     seinen Platz so groß wie möglich, ohne Beschnitt und ohne Verzerrung
+     (object-fit: contain), darum passt es auf jedem Handy. */
+  .overlay {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto minmax(0, .85fr) auto minmax(0, 1.15fr) auto;
+  }
+  .overlay-top  { grid-column: 1 / -1; grid-row: 1; }
+  .overlay-nav  { grid-column: 1 / -1; grid-row: 3; }
+  .overlay-foot { grid-column: 1 / -1; grid-row: 5; padding-bottom: clamp(1.4rem, 5vh, 3rem); }
+  .nav-rule, .nav-unter { display: none; }
+  .overlay-shots { display: contents; }
+  .overlay-shots figure {
+    position: relative; inset: auto; min-width: 0; min-height: 0;
+    width: auto; height: auto; aspect-ratio: auto !important;
+    padding: 10px 0; box-sizing: border-box; pointer-events: none;
+  }
+  .overlay-shots img { object-fit: contain; }
+  .shot-1 { grid-row: 2; grid-column: 1 / -1; }
+  .shot-1 img { object-position: left center; }
+  .shot-2 { grid-row: 4; grid-column: 1; padding-bottom: 9%; padding-right: 6px; }
+  .shot-2 img { object-position: left top; }
+  .shot-3 { grid-row: 4; grid-column: 2; padding-top: 9%; padding-left: 6px; }
+  .shot-3 img { object-position: right bottom; }
 }
-@media (max-width: 900px) and (max-height: 780px) {
-  /* niedrige Handys: kleinere Fotos, das untere entfällt */
-  .shot-1 { width: 22vw; top: 11%; }
-  .shot-3 { width: 23vw; top: 12%; }
+@media (max-width: 900px) and (max-height: 700px) {
+  /* sehr niedrige Handys: Moet und die drei Frauen nebeneinander unten, der Kronleuchter entfällt */
+  .overlay { grid-template-columns: 1.15fr .85fr; grid-template-rows: auto 0 auto minmax(0, 1fr) auto; }
+  .shot-1 { grid-row: 4; grid-column: 1; }
+  .shot-1 img { object-position: left bottom; }
   .shot-2 { display: none; }
+  .shot-3 { padding-top: 0; }
 }
-@media (max-width: 900px) and (max-height: 680px) {
-  .shot-1, .shot-3 { width: 19vw; top: 9%; }
+@media (max-width: 900px) and (max-height: 500px) {
+  .overlay-shots figure { display: none; }
 }
 
 @media (max-width: 640px) {
@@ -678,35 +699,21 @@ body.show-font-switch .font-switch { display: flex; }
   .bookings-lead { font-size: .72rem !important; letter-spacing: .2em !important; }
 }
 
-/* Touch: Reel scrollt nativ statt gepinnt */
+/* Touch: Die Bildstrecke wird wie am Desktop festgehalten. Ein senkrechter
+   Wisch schiebt sie langsam weiter (main.js, Reel), seitliches Wischen
+   funktioniert auch. Vorher scrollte sie nativ seitlich und war mit einem
+   Wisch ganz überscrollt, während die Flugstrecke davor langsam lief. */
 @media (max-width: 900px), (hover: none) {
-  .reel-section { height: auto !important; }
-  .reel-pin { position: static; height: auto; padding: calc(var(--header-h) + 3rem) 0 0; }
-  .reel-track {
-    transform: none !important;
-    overflow-x: auto; overflow-y: hidden;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch; scrollbar-width: none;
-  }
-  .reel-track::-webkit-scrollbar { display: none; }
-  .reel-track figure { scroll-snap-align: center; }
-  .reel-progress, .reel-escape { display: none; }
-  .reel-exit { position: static; margin: clamp(2.5rem, 6vw, 4rem) 0 0; }
-
-  /* Die Fotos sind schmaler als der Bildschirm, damit das nächste schon
-     hereinschaut. Vorher war das erste Foto breiter als das Handy und
-     die Reihe sah aus wie ein einzelnes Bild. */
-  .reel-track { gap: 10px; padding-inline: 5vw; scroll-padding-inline: 5vw; }
+  .reel-track { touch-action: pan-y; gap: 10px; padding-inline: 5vw; }
   .reel-track figure { height: auto; }
   .reel-track figure.reel-quer { width: 76vw; }
   .reel-track figure.reel-hoch { width: 52vw; }
+  .reel-progress, .reel-escape { display: none; }
 
   /* Pfeil: zeigt, dass es weitergeht. Ein Tipp springt zum nächsten Foto. */
-  .reel-pin { position: relative; }
   .reel-weiter {
     display: flex; align-items: center; justify-content: center;
-    position: absolute; z-index: 5; right: 10px;
-    top: calc(var(--header-h) + 3rem + 39vw - 22px);
+    position: absolute; z-index: 5; right: 10px; top: calc(50% - 22px);
     width: 44px; height: 44px; padding: 0;
     border: 1px solid var(--hairline); border-radius: 50%;
     background: rgba(var(--bg-rgb), .88); color: var(--ink);
@@ -742,6 +749,8 @@ body.show-font-switch .font-switch { display: flex; }
   .reel-track { transform: none !important; overflow-x: auto; }
   .reel-progress, .reel-escape { display: none; }
   .reel-exit { position: static; margin: 2.5rem 0 0; }
+  .reel-pin { position: relative; }
+  .reel-weiter { top: calc(var(--header-h) + 3rem + 39vw - 22px); }
 }
 
 @media print {
@@ -1118,6 +1127,12 @@ body.kommt .vorhang-seite { animation: vorhang-weg .62s var(--ease) forwards; }
    Der Abschnitt ragt jetzt ein Stück in die Flugstrecke hinein
    (durchsichtig und für Klicks durchlässig). */
 @media (min-width: 901px) and (hover: hover) {
-  .reel-section { margin-top: -17vh; background: transparent; pointer-events: none; }
+  .reel-section { margin-top: -8vh; background: transparent; pointer-events: none; }
   .reel-track figure, .reel-escape, .reel-exit a { pointer-events: auto; }
+
+  /* Die Fotos der Bildstrecke stehen oben unter der Kopfzeile, nicht
+     mehr mittig im Bildschirm (darüber blieb sonst ein Viertel leer),
+     und sind größer. */
+  .reel-pin { justify-content: flex-start; padding-top: calc(var(--header-h) + 4vh); }
+  .reel-track figure { height: clamp(260px, 64vh, 760px); }
 }

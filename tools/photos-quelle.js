@@ -31,10 +31,9 @@ const PORTRAIT = [
 
 /* Vier Fotos im Menue. Auf dem Handy erscheinen die ersten drei. */
 const MENU_SHOTS = [
+  ['hochzeit-moet-champagner-calla-lilie-editorial.jpg',1.5009,"Champagnerflasche und Calla-Lilie editorial arrangiert – Hochzeitsdetails von Hochzeitsfotografin Antonia Valladares"],
   ['menu-kronleuchter-festsaal-hochzeit.jpg',0.6653,"Kristallleuchter über einem festlich gedeckten Hochzeitssaal im rosa Licht – Hochzeitsfotografie"],
-  ['portfolio/galerie-umbrien-italien/umbrien-hochzeit-freie-trauung-antonia-valladares-039.jpg',1.5000,"Bräutigam hilft der Braut in den Oldtimer, umringt von Gästen – Hochzeit in Umbrien, Italien"],
-  ['menu-hochzeit-umbrien-gaeste-gegenlicht.jpg',0.6653,"Drei Gäste gehen im Gegenlicht an der gedeckten Hochzeitstafel vor einem Steinhaus vorbei – Hochzeit in Umbrien"],
-  ['menu-brautpaar-haende-marmortreppe.jpg',1.5083,"Das Paar hält sich an den Händen auf einer Marmortreppe mit weißem Geländer – Hochzeitsfotografie"]
+  ['menu-hochzeit-umbrien-gaeste-gegenlicht.jpg',0.6653,"Drei Gäste gehen im Gegenlicht an der gedeckten Hochzeitstafel vor einem Steinhaus vorbei – Hochzeit in Umbrien"]
 ];
 
 /* Fliegende Fotos, Hero. */
@@ -81,7 +80,6 @@ const FLOW_B = [
   ['hochzeit-couple-artsy-atmosphaerisch.jpg',1.5009,"Braut und Bräutigam Hand in Hand auf einer Marmortreppe – atmosphärische Hochzeitsfotografie"],
   ['hochzeit-freie-trauung.jpg',1.5009,"Lachendes Brautpaar bei der freien Trauung – Hochzeitsfotografin München"],
   ['hochzeit-kirchliche-trauung.jpg',1.5009,"Kirchliche Trauung mit Blick durch das Kirchenschiff – Hochzeitsfotografin München"],
-  ['hochzeit-standesamt-muenchen-auszug.jpg',1.5009,"Auszug des Brautpaars aus dem Standesamt im Konfettiregen – Standesamt München"],
   ['m_jacquemus.jpg',1.5013,"Braut mit Strohhut im editorialen Stil – Hochzeitsfotografie Antonia Valladares"],
   ['portfolio/reisen-comer-see-boote.jpg',0.5625,"Boote am Comer See in Italien – Reisefotografie und Destination Weddings"],
   ['portfolio/schloss-blutenburg-hochzeit-muenchen-braut.jpg',0.6665,"Braut im Innenhof von Schloss Blutenburg – Hochzeitsfotografin München"],
@@ -778,8 +776,6 @@ const GAL_PFALZ = [
   ['portfolio/galerie-pfalz-weinberge/freie-trauung-pfalz-weinberge-hochzeit-132.jpg',1.5004,"Die Braut tanzt im Licht der Lichterketten – Freie Trauung in den Weinbergen der Pfalz, Hochzeitsfotografin Antonia Valladares"],
   ['portfolio/galerie-pfalz-weinberge/freie-trauung-pfalz-weinberge-hochzeit-133.jpg',1.5004,"Das Brautpaar tanzt im Nebel der Nacht – Freie Trauung in den Weinbergen der Pfalz, Hochzeitsfotografin Antonia Valladares"],
   ['portfolio/galerie-pfalz-weinberge/freie-trauung-pfalz-weinberge-hochzeit-134.jpg',1.5004,"Die Braut tanzt ausgelassen am Abend, Schwarzweiß – Freie Trauung in den Weinbergen der Pfalz, Hochzeitsfotografin Antonia Valladares"],
-  ['portfolio/galerie-pfalz-weinberge/freie-trauung-pfalz-weinberge-hochzeit-135.jpg',1.5004,"Anstoßen auf der Tanzfläche, Schwarzweiß – Freie Trauung in den Weinbergen der Pfalz, Hochzeitsfotografin Antonia Valladares"],
-  ['portfolio/galerie-pfalz-weinberge/freie-trauung-pfalz-weinberge-hochzeit-136.jpg',1.5004,"Die Hochzeitsgesellschaft tanzt am Abend unter dem Zeltdach – Freie Trauung in den Weinbergen der Pfalz, Hochzeitsfotografin Antonia Valladares"],
   ['portfolio/galerie-pfalz-weinberge/freie-trauung-pfalz-weinberge-hochzeit-137.jpg',0.6665,"Ausgelassenes Tanzen bei der Hochzeitsfeier, Schwarzweiß – Freie Trauung in den Weinbergen der Pfalz, Hochzeitsfotografin Antonia Valladares"],
   ['portfolio/galerie-pfalz-weinberge/freie-trauung-pfalz-weinberge-hochzeit-138.jpg',1.5004,"Das Brautpaar tanzt im Nebel und bunten Licht der Nacht – Freie Trauung in den Weinbergen der Pfalz, Hochzeitsfotografin Antonia Valladares"],
   ['portfolio/galerie-pfalz-weinberge/freie-trauung-pfalz-weinberge-hochzeit-139.jpg',0.6670,"Das Brautpaar tanzt im Nebel der Nacht – Freie Trauung in den Weinbergen der Pfalz, Hochzeitsfotografin Antonia Valladares"],

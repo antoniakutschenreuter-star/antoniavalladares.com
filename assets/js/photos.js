@@ -1,9 +1,8 @@
 /* GENERIERT von tools/build-galleries.py aus tools/photos-quelle.js. Nicht von Hand ändern. */
 const MENU_SHOTS = [
+  ['hochzeit-moet-champagner-calla-lilie-editorial.jpg',1.5009,"Champagnerflasche und Calla-Lilie editorial arrangiert – Hochzeitsdetails von Hochzeitsfotografin Antonia Valladares"],
   ['menu-kronleuchter-festsaal-hochzeit.jpg',0.6653,"Kristallleuchter über einem festlich gedeckten Hochzeitssaal im rosa Licht – Hochzeitsfotografie"],
-  ['portfolio/galerie-umbrien-italien/umbrien-hochzeit-freie-trauung-antonia-valladares-039.jpg',1.5000,"Bräutigam hilft der Braut in den Oldtimer, umringt von Gästen – Hochzeit in Umbrien, Italien"],
-  ['menu-hochzeit-umbrien-gaeste-gegenlicht.jpg',0.6653,"Drei Gäste gehen im Gegenlicht an der gedeckten Hochzeitstafel vor einem Steinhaus vorbei – Hochzeit in Umbrien"],
-  ['menu-brautpaar-haende-marmortreppe.jpg',1.5083,"Das Paar hält sich an den Händen auf einer Marmortreppe mit weißem Geländer – Hochzeitsfotografie"]
+  ['menu-hochzeit-umbrien-gaeste-gegenlicht.jpg',0.6653,"Drei Gäste gehen im Gegenlicht an der gedeckten Hochzeitstafel vor einem Steinhaus vorbei – Hochzeit in Umbrien"]
 ];
 
 const FLOW_A = [
@@ -48,7 +47,6 @@ const FLOW_B = [
   ['hochzeit-couple-artsy-atmosphaerisch.jpg',1.5009,"Braut und Bräutigam Hand in Hand auf einer Marmortreppe – atmosphärische Hochzeitsfotografie"],
   ['hochzeit-freie-trauung.jpg',1.5009,"Lachendes Brautpaar bei der freien Trauung – Hochzeitsfotografin München"],
   ['hochzeit-kirchliche-trauung.jpg',1.5009,"Kirchliche Trauung mit Blick durch das Kirchenschiff – Hochzeitsfotografin München"],
-  ['hochzeit-standesamt-muenchen-auszug.jpg',1.5009,"Auszug des Brautpaars aus dem Standesamt im Konfettiregen – Standesamt München"],
   ['m_jacquemus.jpg',1.5013,"Braut mit Strohhut im editorialen Stil – Hochzeitsfotografie Antonia Valladares"],
   ['portfolio/reisen-comer-see-boote.jpg',0.5625,"Boote am Comer See in Italien – Reisefotografie und Destination Weddings"],
   ['portfolio/schloss-blutenburg-hochzeit-muenchen-braut.jpg',0.6665,"Braut im Innenhof von Schloss Blutenburg – Hochzeitsfotografin München"],
